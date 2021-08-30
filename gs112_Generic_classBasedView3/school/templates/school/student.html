@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Document</title>
+</head>
+<body>
+	{% for student in students %}
+		{{student.name}}
+		{{student.roll}}
+		{{student.course}}<br>
+	{% endfor %}
+<hr>
+	{% for fresher in freshers %}
+		{{fresher.name}}
+		{{fresher.roll}}
+		{{fresher.course}}<br>
+	{% endfor %}	
+
+</body>
+</html>
