@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Document</title>
+	<style>
+		
+		/*.info{
+			color: blue;
+		}
+		.success{
+			color: green;
+		}
+		.warning{
+			color: orange;
+		}
+
+		.danger{
+			color: red;
+		}*/
+
+
+
+		.alert-info{
+			color: blue;
+		}
+		.alert-success{
+			color: green;
+		}
+		.alert-warning{
+			color: orange;
+		}
+
+		.alert-danger{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<form action="" method="POST">
+		{% csrf_token %}
+		{{form.as_p}}
+		<input type="submit" value="Submit">
+	</form>
+	
+	<!-- {% if messages %}
+		{% for message in messages %}
+			<span {% if message.tags %}class="{{message.tags}}" {% endif %}>{{message}}</span>
+		{% endfor %}
+	{% endif %} -->
+
+
+	<!-- {% if messages %}
+		{% for message in messages %}
+			<p {% if message.tags %}class="{{message.tags}}" {% endif %}>{{message}}</p>
+		{% endfor %}
+	{% endif %} -->
+
+
+	{% if messages %}
+		{% for message in messages %}
+			<p {% if message.tags %}class="alert-{{message.tags}}" {% endif %}>{{message}}</p>
+		{% endfor %}
+	{% endif %}		
+		
+	
+		
+
+</body>
+</html> 
