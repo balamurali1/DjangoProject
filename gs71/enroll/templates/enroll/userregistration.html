@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Document</title>
+	<style>
+		/*.success{
+			color: green;
+		}*/
+
+		.info{
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<form action="" method="POST">
+		{% csrf_token %}
+		{{form.as_p}}
+		<input type="submit" value="Submit">
+	</form>
+		<!-- SUCCESS Process(green color lo vasthundi) -->
+	<!-- {% if messages %}
+		{% for message in messages %}
+			{% if message.tags %} {{message.tags}} {% endif %}
+			{{message}}
+		{% endfor %}
+	{% endif %} -->
+
+
+	<!-- {% if messages %}
+		{% for message in messages %}
+			{% if message.tags %} {{message.tags}} {% endif %}
+			<span class="success">{{message}}</span>
+		{% endfor %}
+	{% endif %}	 -->
+
+	<!-- {% if messages %}
+		{% for message in messages %}
+			<span {% if message.tags %}class="{{message.tags}}" {% endif %}>{{message}}</span>
+		{% endfor %}
+	{% endif %} -->	
+
+		<!-- INFO process (blue color lo vasthundi)-->
+	{% if messages %}
+		{% for message in messages %}
+			<span {% if message.tags %}class="{{message.tags}}" {% endif %}>{{message}}</span>
+		{% endfor %}
+	{% endif %}		
+		
+	
+		
+
+</body>
+</html>
