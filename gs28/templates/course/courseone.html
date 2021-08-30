@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Django</title>
+	<style>
+		body{
+			background-color: black;
+			color: seashell;
+		}
+	</style>
+</head>
+<body>
+	
+	{% for key, value in data.items %}
+	{{key}} = {{value}}<br>
+	{% for k, v in value.items %}
+	{{forloop.parentloop.counter0}}{{k}} = {{v}}<br>
+	{% endfor %}
+	{% endfor %}
+
+
+</body>
+</html>
