@@ -1,0 +1,186 @@
+Note: Floder lo unde project 'name' mariyu Github lo repasitory name same undali.appudu
+problem emi undadu...elane create cheyali ok...
+
+
+Username:dmurali266@gmail.com
+Password:Bb@95812
+
+
+step=1
+
+		Starting process
+		-----------------
+C:\Users\BALAMURALI>E:
+
+E:\>cd rest
+
+E:\rest>cd rest_api
+
+E:\rest\rest_api>git status
+fatal: not a git repository (or any of the parent directories): .git
+
+E:\rest\rest_api>git init
+Initialized empty Git repository in E:/rest/rest_api/.git/
+
+E:\rest\rest_api>git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        app1/
+        db.sqlite3
+        manage.py
+        rest_api/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+E:\rest\rest_api>git add .
+
+E:\rest\rest_api>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   app1/__init__.py
+        new file:   app1/__pycache__/__init__.cpython-37.pyc
+        new file:   app1/__pycache__/admin.cpython-37.pyc
+        new file:   app1/__pycache__/models.cpython-37.pyc
+        new file:   app1/__pycache__/views.cpython-37.pyc
+        new file:   app1/admin.py
+        new file:   app1/apps.py
+        new file:   app1/migrations/0001_initial.py
+        new file:   app1/migrations/__init__.py
+        new file:   app1/migrations/__pycache__/0001_initial.cpython-37.pyc
+        new file:   app1/migrations/__pycache__/__init__.cpython-37.pyc
+        new file:   app1/models.py
+        new file:   app1/tests.py
+        new file:   app1/views.py
+        new file:   db.sqlite3
+        new file:   manage.py
+        new file:   rest_api/__init__.py
+        new file:   rest_api/__pycache__/__init__.cpython-37.pyc
+        new file:   rest_api/__pycache__/settings.cpython-37.pyc
+        new file:   rest_api/__pycache__/urls.cpython-37.pyc
+        new file:   rest_api/__pycache__/wsgi.cpython-37.pyc
+        new file:   rest_api/asgi.py
+        new file:   rest_api/settings.py
+        new file:   rest_api/urls.py
+        new file:   rest_api/wsgi.py
+
+
+
+E:\rest\rest_api>git commit -m "First commit"
+
+[master (root-commit) 2a7f7c7] First commit
+ 25 files changed, 425 insertions(+)
+ create mode 100644 app1/__init__.py
+ create mode 100644 app1/__pycache__/__init__.cpython-37.pyc
+ create mode 100644 app1/__pycache__/admin.cpython-37.pyc
+ create mode 100644 app1/__pycache__/models.cpython-37.pyc
+ create mode 100644 app1/__pycache__/views.cpython-37.pyc
+ create mode 100644 app1/admin.py
+ create mode 100644 app1/apps.py
+ create mode 100644 app1/migrations/0001_initial.py
+ create mode 100644 app1/migrations/__init__.py
+ create mode 100644 app1/migrations/__pycache__/0001_initial.cpython-37.pyc
+ create mode 100644 app1/migrations/__pycache__/__init__.cpython-37.pyc
+ create mode 100644 app1/models.py
+ create mode 100644 app1/tests.py
+ create mode 100644 app1/views.py
+ create mode 100644 db.sqlite3
+ create mode 100644 manage.py
+ create mode 100644 rest_api/__init__.py
+ create mode 100644 rest_api/__pycache__/__init__.cpython-37.pyc
+ create mode 100644 rest_api/__pycache__/settings.cpython-37.pyc
+ create mode 100644 rest_api/__pycache__/urls.cpython-37.pyc
+ create mode 100644 rest_api/__pycache__/wsgi.cpython-37.pyc
+ create mode 100644 rest_api/asgi.py
+ create mode 100644 rest_api/settings.py
+ create mode 100644 rest_api/urls.py
+ create mode 100644 rest_api/wsgi.py
+
+E:\rest\rest_api>git remote add origin https://github.com/balamurali1/rest_api.git
+
+E:\rest\rest_api>git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+
+E:\rest\rest_api>git push --set-upstream origin master
+Enumerating objects: 31, done.
+Counting objects: 100% (31/31), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (30/30), done.
+Writing objects: 100% (31/31), 16.46 KiB | 1.37 MiB/s, done.
+Total 31 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/balamurali1/rest_api.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+
+
+Step2
+	Code Change cheshaka push cheyadam
+	===================================
+
+
+E:\rest\rest_api>git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   app1/views.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+E:\rest\rest_api>git add app1/views.py
+
+E:\rest\rest_api>git commit -m "View file Updated!!"
+[master 0040c83] View file Updated!!
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+E:\rest\rest_api>git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+E:\rest\rest_api>git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 443 bytes | 443.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/balamurali1/rest_api.git
+   2a7f7c7..0040c83  master -> master
+
+
+	
+
+	Niku dhagara unna floder lo ne ikka files push cheyali ante ela..
+	----------------------------------------------------------
+
+E:\DjangoProject>git add gs23
+
+E:\DjangoProject>git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+E:\DjangoProject>git commit -m "First Commit"
+
+
+E:\DjangoProject>git push
+
+ 
