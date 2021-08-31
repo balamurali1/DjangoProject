@@ -1,0 +1,68 @@
+Virtual Environment Creations process
+-----------------------------------
+
+C:\>python -m venv venv-->right side unna venv place lo yeee peraina pettuko niestam nenu venv pettina...
+C:\>venv\Scripts\activate
+(venv) C:\>pip install django==3.1  (OR) (venv) C:\>pip install django
+(venv) C:\>cd Django-->ee line lo Django floder ni alreday manamu c-drive lo create chesukovali
+
+(venv) C:\Django>django-admin startproject gs1
+
+(venv) C:\Django>cd gs1
+
+(venv) C:\Django\gs1>python manage.py startapp course
+
+(venv) C:\Django\gs1>python manage.py runserver
+	----------------------
+	----------------------
+	--------------------http://127.0.0.1:8000/
+
+
+How to open and Activate Virtual Environment and create application
+---------------------------------------------------------
+C:\
+
+C:\>venv\Scripts\activate
+
+(venv) C:\>cd Django
+
+(venv) C:\Django>django-admin startproject gs21
+
+(venv) C:\Django>cd gs21>python manage.py startapp course
+
+(venv) C:\Django\gs21>python manage.py runserver
+		-----------------------
+		-----------------------
+		-----------------------http://127.0.0.1:8000/
+
+How to check Django version in virtual Environment
+--------------------------------------------------
+C:\
+
+C:\>venv\Scripts\activate
+
+(venv) C:\>django-admin --version
+3.1
+
+-----------------------------------------------
+
+		Create chesina migrations delete cheyali ante ela
+		=================================================
+
+	select django_migrations	
+
+
+
+DELETE	FROM django_migrations WHERE id in (25,26,27);
+COMMIT;
+
+
+output
+------
+Execution finished without errors.
+Result: query executed successfully. Took 2ms, 2 rows affected
+At line 1:
+DELETE FROM django_migrations WHERE id in(20,21);
+
+
+
