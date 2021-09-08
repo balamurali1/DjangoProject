@@ -131,7 +131,7 @@ Step2
 	===================================
 
 
-E:\rest\rest_api>git status
+E:\rest\rest_api>git status (#munduga modify chesina haa project lo ki velli "git status" chudali)
 On branch master
 Your branch is up to date with 'origin/master'.
 
