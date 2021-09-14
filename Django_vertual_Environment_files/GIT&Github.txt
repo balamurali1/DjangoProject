@@ -169,7 +169,7 @@ To https://github.com/balamurali1/rest_api.git
 
 	
 
-	Niku dhagara unna floder lo ne ikka files push cheyali ante ela..
+	Ni dhagara unna floder lo ne ikka project floders ni push cheyali ante ela..
 	----------------------------------------------------------
 
 E:\DjangoProject>git add gs23

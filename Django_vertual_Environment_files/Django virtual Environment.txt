@@ -1,3 +1,43 @@
+Okay floder lo ne virtual environment floder&projects uncha daniki maroka floder
+=================================================================================
+C:\>mkdir Environment
+
+C:\>cd Environment
+
+C:\Environment>python -m venv venv
+
+C:\Environment>venv\Scripts\activate
+
+(venv) C:\Environment>cd firstproject
+
+(venv) C:\Environment\firstproject>cd..
+
+(venv) C:\Environment>pip install django==3.2.7
+
+		(after install Django version go there)
+
+(venv) C:\Environment>cd firstproject
+
+(venv) C:\Environment\firstproject>django-admin startproject gs1
+
+(venv) C:\Environment\firstproject>cd gs1
+
+(venv) C:\Environment\firstproject\gs1>python manage.py startapp course
+
+(venv) C:\Environment\firstproject\gs1>python manage.py runserver
+
+
+	---------------------
+	---------------------
+	----------------- http://127.0.0.1:8000/
+
+
+			(OR)
+	
+
+Idi vachesi different different ga floders lo create cheyadam
+==================================================
+
 Virtual Environment Creations process
 -----------------------------------
 
@@ -63,6 +103,34 @@ Execution finished without errors.
 Result: query executed successfully. Took 2ms, 2 rows affected
 At line 1:
 DELETE FROM django_migrations WHERE id in(20,21);
+
+
+Global ga django varsion chudali ante ela...
+=============================================
+C:\Users\BALAMURALI>python -m django --version
+3.1.7
+
+
+Drive(C,E,F) lo floders ni cmd nundi delete cheyali ante ela...
+============================================================
+E:\>rmdir hello /s
+hello, Are you sure (Y/N)? y
+
+
+Create virtual Environment(activate) & deactivate & delete floder
+==================================================================
+E:\>python -m venv hello
+
+E:\>hello\Scripts\activate
+
+
+(hello) E:\>deactivate
+E:\>
+
+
+E:\>rmdir hello /s
+hello, Are you sure (Y/N)? y 
+
 
 
 

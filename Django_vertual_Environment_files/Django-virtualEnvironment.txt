@@ -1,3 +1,42 @@
+Okay floder lo ne virtual environment floder&projects uncha daniki maroka floder
+=================================================================================
+
+C:\>cd Environment
+
+C:\Environment>python -m venv venv
+
+C:\Environment>venv\Scripts\activate
+
+(venv) C:\Environment>cd firstproject
+
+(venv) C:\Environment\firstproject>cd..
+
+(venv) C:\Environment>pip install django==3.2.7
+
+		(after install Django version go there)
+
+(venv) C:\Environment>cd firstproject
+
+(venv) C:\Environment\firstproject>django-admin startproject gs1
+
+(venv) C:\Environment\firstproject>cd gs1
+
+(venv) C:\Environment\firstproject\gs1>python manage.py startapp course
+
+(venv) C:\Environment\firstproject\gs1>python manage.py runserver
+
+
+	---------------------
+	---------------------
+	----------------- http://127.0.0.1:8000/
+
+
+			(OR)
+	
+
+Idi vachesi different different ga floders lo create cheyadam
+==================================================
+
 				Django Vitual Environment(very easy process)
 				=============================================
 
