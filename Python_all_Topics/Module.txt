@@ -1,0 +1,1120 @@
+		Module
+		-------
+
+1.A module is a file containing Python definations and statements.
+
+2.A module is a file containing group of variable,methods,functions,and classes,list,
+Tuple,dictionary,array..etc.
+
+3.They are excuted only the first time the module name is encountered in an import statement
+
+**4.The file name is the "module name" with the suffix.py appended.
+	EX:mymodule.py
+
+
+Type of Modules
+--------------
+1.User-defined Modules
+
+2.Built-in Modules(by default provide python)
+	Ex:array,math,sys,numpy
+
+
+
+When and Why use Module
+---------------------------
+Assume that you are building a very large project,it will be very diffcult to manage all
+logic within one single file so if you want to separate your similar logic to a separate
+file,you can use module.
+
+it will not only separate your logics but also help you to debug your code easily as you
+know which logic is defined in which module.
+
+when a moule is developed,it can be reused in any program that needs that module.
+
+How to use Module
+-------------------
+import statement is used to import modules.
+
+1.syntax:
+	import module_name
+2.syntax:
+	import module_name as alias_name(nick name)
+3.syntax:
+	from module_name import function_name1,function_name2......function_nameN
+
+4.syntax:
+	from module_name import varible_name1,variable_name2......varible_nameN
+
+5.syntax:
+	from module_name import class_name1,calss_name2......class_nameN
+					.
+					.
+					.
+					.
+					etc.		
+
+6.syntax:
+	from module_name import varible_name,f_name,class_name,method_name,list_name,tuple_name,dictionary_name.....etc.
+
+7.syntax:
+	from module_name import f_name as alias_f_name
+
+8.syntax:
+	from module_name import *
+
+
+Note: Modules can import other modules.
+
+
+
+
+import module name
+=========================
+This does not enter the names of the functions defined in module directly in the current
+symbol table. it only enter the module name there.
+
+EX: import cal 
+
+
+
+How to access Methods,Functions,variable and Classes,List....etc?
+------------------------------------------------------------------
+Using the module name you can access the functions.
+
+syntax:
+	module_name.function_name()
+	module_name.class_name()
+	module_name.varible_name()
+	module_name.Methods_name()
+	module_name.list_name()
+	module_name.Tuple_name().....etc.
+
+EX:
+	cal.add(10,20)
+	cal.sub(20.10)
+
+or
+
+EX:
+	add = cal.add
+	add(10,20)
+	
+	sub = cal.sub
+	sub(20,10)
+----------------------------------------
+
+Import module name as alias name
+=================================
+This does not enter the names of the functions defined in module directly in the current
+symbol table; it only enter the module name there. if module names is follwed by as, then the
+name following as is bound directly to the imported module.
+
+EX: import cal as c
+
+
+How to access Methods,Functions,variable and Classes,List....etc?
+------------------------------------------------------------------
+using the alias_name you can access the functions.
+
+EX:
+c.add(10,20)
+c.sub(20,10)
+
+or
+
+EX:
+	add = c.add
+	add(10,20)
+
+	sub = c.sub
+	sub(20,10)
+
+------------------------------------------
+
+from module name import function name
+======================================
+There is variant of the import statement that imports names from a module directly
+into the importing modules symbol table.
+
+EX: from cal import add,sub
+    from cal import add
+    from cal import sub				
+		
+
+
+How to access Methods,Functions,variable and Classes,List....etc?
+------------------------------------------------------------------
+You can access the functions directly by it's name
+
+EX:
+	add(10,20)
+	sub(20,10)
+
+--------------------------------------------------------
+	
+from module_name import f_name as alias_f_name
+==========================================
+
+EX:
+	from cal import add as s
+
+How to access Methods,Functions,variable and Classes,List....etc?
+------------------------------------------------------------------
+
+You can access the functions directly by it's alias name
+
+EX:
+	s(10,20)
+
+
+-------------------------------------
+
+
+from module name impoer *
+==========================
+
+This imports all names "except those beginning with an underscore(_)".
+
+EX:
+	from cal import *     # * means 'all'
+
+
+How to access Methods,Functions,variable and Classes,List....etc?
+------------------------------------------------------------------
+You can access the functions directly by it's name
+
+EX:
+	add(10,20)
+	sub(20,10)
+	
+
+
+
+
+Import module_name
+=====================
+#cal.py<-------cal Module
+
+a = 50
+
+def name():
+	print("From Module Cal")
+
+def add(a,b):
+	return a+b
+
+def sub(a,b):
+	return a-b
+
+
+
+#geekyshows.py<------Main Module
+
+import cal
+
+
+print('Cal Module"s Variable:',cal.a)
+
+
+
+cal.name()
+
+# a = cal.add(10,20)
+# print('add function:',a)
+
+# b = cal.sub(20,10)
+# print('sub function:',b)
+
+#Or
+
+s = cal.add
+a = s(10,20)
+print(a)
+
+m = cal.sub
+b = cal.m(20,10)
+print(b)
+
+
+output
+---------
+Cal Module"s Variable: 50
+From Module Cal
+30
+10
+
+
+---------------------------------------------
+
+import module_name as alias_name(nick name)
+==========================================
+
+#cal.py<-------cal Module
+
+a = 50
+
+def name():
+	print("From Module Cal")
+
+def add(a,b):
+	return a+b
+
+def sub(a,b):
+	return a-b
+
+
+
+#geekyshows.py<------Main Module
+
+import cal as c
+
+print('Cal Module"s Variable:',c.a)
+
+c.name()
+
+# a = c.add(10,20)
+# print('add function:',a)
+
+# b = c.sub(20,10)
+# print('sub function:',b)
+
+#OR
+
+s = c.add
+a = s(10,20)
+print(a)
+
+m = c.sub
+b = m(20,10)
+print(b)
+
+output
+--------
+Cal Module"s Variable: 50
+From Module Cal
+30
+10
+
+-----------------------------------------------
+
+from module_name import varible_name,f_name,class_name,method_name
+==============================================================
+
+EX:
+#cal.py<-------cal Module
+
+a = 50
+
+def name():
+	print("From Module Cal")
+
+def add(a,b):
+	return a+b
+
+def sub(a,b):
+	return a-b
+
+
+
+#geekyshows.py<------Main Module
+
+from cal import a,name, add, sub
+
+print(a)
+ 
+name()
+
+a = add(10,20)
+print(a)
+
+b = sub(20,10)
+print(b)
+
+output
+------------
+50
+From Module Cal
+30
+10
+
+
+
+from module_name import f_name as alias_f_name
+============================================
+
+
+#cal.py<-------cal Module
+
+a = 50
+
+def name():
+	print("From Module Cal")
+
+def add(a,b):
+	return a+b
+
+def sub(a,b):
+	return a-b
+
+
+
+#geekyshows.py<------Main Module
+
+from cal import a,name, add as x, sub as y
+
+print(a)
+name()
+
+a = x(10,20)
+print(a)
+
+b = y(20,10)
+print(b)
+
+
+output
+-----------
+50
+From Module Cal
+30
+10
+
+-------------------------------------------
+
+from module_name import *
+=============================
+
+
+
+#cal.py<-------cal Module
+
+a = 50
+
+def name():
+	print("From Module Cal")
+
+def add(a,b):
+	return a+b
+
+def sub(a,b):
+	return a-b
+
+
+
+#geekyshows.py<------Main Module
+
+from cal import *
+
+print(a)
+name()
+
+a = add(10,20)
+print(a)
+
+b = sub(20,10)
+print(b)
+
+
+output
+---------
+50
+From Module Cal
+30
+10
+
+
+EX:
+
+#cal.py<-------cal Module
+
+a = 50
+
+def name():
+	print("From Module Cal")
+
+def add(a,b):
+	return a+b
+
+def sub(a,b):
+	return a-b
+
+
+
+#geekyshows.py<------Main Module
+
+from cal import *
+
+print(a)
+name()
+
+
+output
+---------
+50
+From Module Cal
+
+----------------------------------
+
+
+Import module_name
+=====================
+EX:
+
+#first.py <-------first module
+
+a = 'First Module'
+
+def name():
+	print('Name Function From First Module')
+
+
+
+#second.py <-----second Module
+
+a = 'second Module'
+
+def name():
+	print('Name Function From Second Module')
+
+
+
+#geekyshows.py<------Main Module
+
+import first
+import second
+
+print(first.a)
+first.name()
+
+
+print(second.a)
+second.name()
+
+
+output
+----------
+First Module
+Name Function From First Module
+second Module
+Name Function From Second Module
+
+
+---------------------------------------------------
+
+
+from module_name import f_name as alias_f_name
+============================================
+
+#first.py <-------first module
+
+a = 'First Module'
+
+def name():
+	print('Name Function From First Module')
+
+
+
+#second.py <-----second Module
+
+a = 'second Module'
+
+def name():
+	print('Name Function From Second Module')
+
+
+#geekyshows.py<------Main Module
+
+import first as f
+import second as s
+
+print(f.a)
+f.name()
+
+
+print(s.a)
+s.name()
+
+
+output
+-------
+First Module
+Name Function From First Module
+second Module
+Name Function From Second Module
+
+-------------------------------------
+
+from module_name import varible_name,f_name,class_name,method_name
+==============================================================
+
+EX:
+
+#first.py <-------first module
+
+a = 'First Module'
+
+def name():
+	print('Name Function From First Module')
+
+
+#second.py <-----second Module
+
+a = 'second Module'
+
+def name():
+	print('Name Function From Second Module')
+
+
+#geekyshows.py<------Main Module
+
+from first import a,name
+
+print(a)
+name()
+
+from second import a,name
+
+print(a)
+name()
+
+
+output
+-------
+First Module
+Name Function From First Module
+second Module
+Name Function From Second Module
+--------------------------------------
+
+
+from module_name import *
+=============================
+
+EX:
+
+#first.py <-------first module
+
+a = 'First Module'
+
+def name():
+	print('Name Function From First Module')
+
+
+
+#second.py <-----second Module
+
+a = 'second Module'
+
+def name():
+	print('Name Function From Second Module')
+
+
+
+#geekyshows.py<------Main Module
+
+from first import *
+
+print(a)
+name()
+
+from second import *
+
+print(a)
+name()
+
+
+output
+-------
+First Module
+Name Function From First Module
+second Module
+Name Function From Second Module
+-------------------------------------
+
+List and Tuple
+-------------
+
+EX:
+
+#first.py <-------first module
+
+a = 'First Module'
+
+tup = (10,20,30,40)
+
+def name():
+	print('Name Function From First Module')
+
+
+#second.py <-----second Module
+
+a = 'second Module'
+
+list = [1,2,3,4,5]
+
+def name():
+	print('Name Function From Second Module')
+
+
+
+#geekyshows.py<------Main Module
+
+from first import *
+
+print(a)
+name()
+print(tup)
+
+from second import *
+
+print(a)
+name()
+print(list)
+
+
+output
+---------
+First Module
+Name Function From First Module
+(10, 20, 30, 40)
+second Module
+Name Function From Second Module
+[1, 2, 3, 4, 5]
+
+---------------------------------
+		
+		
+Class
+-----
+
+Note: class call chesetappudu object create chesukovali first.
+
+
+
+EX:
+#first.py <-------first module
+
+class Myclass:
+	def name(self):
+		print('Name Method from first Module')
+
+class Myschool:
+	def show(self):
+		print('Show Method from first Module')
+		 		
+
+
+#geekyshows.py<------Main Module
+
+import 	first
+
+c = first.Myclass()
+c.name()
+
+s = first.Myschool()
+s.show()
+
+output
+---------
+Name Method from first Module
+Show Method from first Module
+
+
+EX:
+#first.py <-------first module
+
+class Myclass:
+	def name(self):
+		print('Name Method from first Module')
+
+class Myschool:
+	def show(self):
+		print('Show Method from first Module')
+		 	
+	
+
+#geekyshows.py<------Main Module
+
+import 	first as f
+
+c = f.Myclass()
+c.name()
+
+s = f.Myschool()
+s.show()
+
+		
+output
+-------
+Name Method from first Module
+Show Method from first Module
+			
+
+EX:
+#first.py <-------first module
+
+class Myclass:
+	def name(self):
+		print('Name Method from first Module')
+
+class Myschool:
+	def show(self):
+		print('Show Method from first Module')
+		 		
+
+
+#geekyshows.py<------Main Module
+
+from first import Myclass,Myschool
+
+c = Myclass()
+c.name()
+
+s = Myschool()
+s.show()
+
+
+output
+------
+Name Method from first Module
+Show Method from first Module
+
+
+EX:
+#first.py <-------first module
+
+class Myclass:
+	def name(self):
+		print('Name Method from first Module')
+
+class Myschool:
+	def show(self):
+		print('Show Method from first Module')
+		 		
+
+
+#geekyshows.py<------Main Module
+
+from first import Myclass as Myc,Myschool as Mys
+
+c = Myc()
+c.name()
+
+s = Mys()
+s.show()
+
+output
+--------
+Name Method from first Module
+Show Method from first Module
+
+
+
+EX:
+
+#first.py <-------first module
+
+class Myclass:
+	def name(self):
+		print('Name Method from first Module')
+
+class Myschool:
+	def show(self):
+		print('Show Method from first Module')
+		 		
+
+#geekyshows.py<------Main Module
+
+from first import *
+
+c = Myclass()
+c.name()
+
+s = Myschool()
+s.show()
+
+		
+output
+------------
+Name Method from first Module
+Show Method from first Module
+
+------------------------------------
+
+class-2
+--------
+EX:
+
+#first.py <-------first module
+
+class Myclass:
+	def name(self):
+		print('Name Method from first Module')
+
+class Myschool:
+	def show(self):
+		print('Show Method from first Module')
+		 		
+
+#second.py <-----second Module
+
+class Mycollege:
+	def disp(self):
+		print('Disp Method from Second Module')
+
+
+#geekyshows.py<------Main Module
+
+import first
+import second
+
+c = first.Myclass()
+c.name()
+
+s = first.Myschool()
+s.show()
+
+cl = second.Mycollege()
+cl.disp()
+
+output
+-------
+Name Method from first Module
+Show Method from first Module
+Disp Method from Second Module
+
+
+
+
+EX:
+
+#first.py <-------first module
+
+class Myclass:
+	def name(self):
+		print('Name Method from first Module')
+
+class Myschool:
+	def show(self):
+		print('Show Method from first Module')
+		 		
+
+#second.py <-----second Module
+
+class Mycollege:
+	def disp(self):
+		print('Disp Method from Second Module')
+
+
+#geekyshows.py<------Main Module
+
+from first import Myclass,Myschool
+from second import Mycollege
+
+c = Myclass()
+c.name()
+
+s = Myschool()
+s.show()
+
+cl = Mycollege()
+cl.disp()
+
+output
+---------
+Name Method from first Module
+Show Method from first Module
+Disp Method from Second Module
+
+
+
+EX:
+
+#first.py <-------first module
+
+class Myclass:
+	def name(self):
+		print('Name Method from first Module')
+
+class Myschool:
+	def show(self):
+		print('Show Method from first Module')
+		 		
+
+
+#second.py <-----second Module
+
+class Mycollege:
+	def disp(self):
+		print('Disp Method from Second Module')
+
+
+#geekyshows.py<------Main Module
+
+from first import *
+from second import *
+
+c = Myclass()
+c.name()
+
+s = Myschool()
+s.show()
+
+cl = Mycollege()
+cl.disp()
+
+output
+-------
+Name Method from first Module
+Show Method from first Module
+Disp Method from Second Module
+---------------------------------------
+
+class-3
+-------
+
+#first.py <-------first module
+
+class Myclass:
+	def name(self):
+		print('Name Method from first Module')
+
+class Myschool:
+	def show(self):
+		print('Show Method from first Module')
+		 		
+
+#second.py <-----second Module
+
+class Myclass:
+	def disp(self):
+		print('Disp Method from Second Module')
+
+
+#geekyshows.py<------Main Module
+
+import first
+import second
+
+c = first.Myclass()
+c.name()
+
+s = first.Myschool()
+s.show()
+
+cl = second.Myclass()
+cl.disp()
+
+output
+----------
+Name Method from first Module
+Show Method from first Module
+Disp Method from Second Module
+
+
+
+
+EX:
+
+#first.py <-------first module
+
+class Myclass:
+	def name(self):
+		print('Name Method from first Module')
+
+class Myschool:
+	def show(self):
+		print('Show Method from first Module')
+		 				
+
+
+#second.py <-----second Module
+
+class Myclass:
+	def disp(self):
+		print('Disp Method from Second Module')
+
+
+
+#geekyshows.py<------Main Module
+
+from first import Myclass,Myschool
+
+c = Myclass()
+c.name()
+
+from second import Myclass
+
+cl = Myclass()
+cl.disp()
+
+output
+----------
+Name Method from first Module
+Disp Method from Second Module
+
+
+EX:
+
+#first.py <-------first module
+
+class Myclass:
+	def name(self):
+		print('Name Method from first Module')
+
+class Myschool:
+	def show(self):
+		print('Show Method from first Module')
+		 		
+
+
+#second.py <-----second Module
+
+class Myclass:
+	def disp(self):
+		print('Disp Method from Second Module')
+
+
+#geekyshows.py<------Main Module
+
+from first import Myclass as Myc ,Myschool
+
+from second import Myclass as Mycl
+
+c = Myc()
+c.name()
+
+
+cl = Mycl()
+cl.disp()
+
+output
+------------
+
+Name Method from first Module
+Disp Method from Second Module
+====================END===================
+		
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+	
+	
+		

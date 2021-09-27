@@ -1,0 +1,24313 @@
+Note:
+	https://www.youtube.com/watch?v=x5gxWBTNrIE
+Feture lo MySQL Work bench connect kakunte idi chudu..
+
+1.MySQL code ni Subline text lo rasi cmd and mysql shell lo execute cheyavachunu
+
+2.Direct ga MySQL work bench lo rasi execute cheyavachunu..
+
+All are working...
+
+
+Geekyshows(Advanced Python)
+--------------------------
+Introduction to Database in Python
+=================================
+
+NOTE:
+
+	syntax:
+	  row = cursor_object
+	EX:
+	  row = myc
+
+Database
+------------
+Database is integrated collection of related information along with the
+details so that it is available to the several user  for the  different application.
+
+EX:
+	Student--->Database Name
+  
+  Table Name:Computer Science --->Entity
+
+  Column or Field or Attributes
+  Row or Record or Tuple
+
+
+Python Supports various Databases
+------------------------------
+	1.MySQL
+	2.MS-SQL
+	3.SQLite
+	4.MongoDB
+	5.Oracle OC18
+	6.PostgreSQL
+	7.Firebird
+	8.MS Access
+
+
+MySQL
+--------
+MySQL is an open source database management system application(software) which will help
+us to manage the database like store and retrieve data.	
+
+
+CRUD
+-----
+	Create
+	Read
+	update
+	Delete
+
+
+Requirements
+-----------
+1.SQL - To write sql queries.
+
+2.MySQL - We have to install MySQL in our system.It is an open source database
+management system application which will help us to manage the database like
+store and retrieve data.We have to set the path variable  to bin directory of MYSQL server.
+
+3.Connector or Driver - A connector is a program that establishes connection between python programs
+and MySQL database without installing connector it is not possible make communication between python
+and MySQL database.
+
+
+How to Download and Install MySQL and Python Connector
+=======================================================
+
+C:\>cd Program Files\MySQL\MySQL Server 8.0\bin
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+
+Enter password: ********
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+6 rows in set (0.17 sec)
+
+
+mysql> use world;
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_world |
++-----------------+
+| city            |
+| country         |
+| countrylanguage |
++-----------------+
+3 rows in set (0.25 sec)
+
+
+mysql>  select * from city;
+
++------+------------------------------------+-------------+----------------------+------------+
+| ID   | Name                               | CountryCode | District             | Population |
++------+------------------------------------+-------------+----------------------+------------+
+|    1 | Kabul                              | AFG         | Kabol                |    1780000 |
+|    2 | Qandahar                           | AFG         | Qandahar             |     237500 |
+|    3 | Herat                              | AFG         | Herat                |     186800 |
+|    4 | Mazar-e-Sharif                     | AFG         | Balkh                |     127800 |
+
+etc...............
+
+
+mysql> quit;
+Bye
+
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>exit
+
+
+
+
+EX:
+import mysql.connector
+conn = mysql.connector.connect(user = 'root',password='Bb@95812',host = 'localhost',
+	database='world')
+
+
+
+
+How to Create Check and Close Database Connection in Python
+===========================================================
+It is an open source database management system application which will help us to
+ manage the database like store and retrieve data.
+
+To work with MySQL in python program we have to import connector sub module of mysql module.
+
+import mysql.connector
+
+
+Creating Connection
+--------------------
+connect()-This metod is used to open or establish a new connection.It returns an  object
+representing the connection.
+
+syntax:
+
+	connection_object = connect(user='username',password='pass',host='localhost',port=3306);
+
+
+EX:
+	conn = mysql.connector.connect(user='root',password='Bb@95812',host='localhost',port=3306)
+
+
+
+
+EX:
+
+#Creating Connection
+
+import mysql.connector
+conn = mysql.connector.connect(user='root',
+	password='Bb@95812',
+	host='localhost',
+	port=3306
+)
+
+EX:
+#Creating Connection
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',----->Look here
+		host='localhost',
+		port=3306
+	)
+
+except:
+	print('Unable to Connect')
+
+
+EX:
+#Creating Connection
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@9581',------>Look here
+		host='localhost',
+		port=3306
+	)
+
+except:
+	print('Unable to Connect')
+
+
+output
+------
+Unable to Connect
+
+
+	(OR)
+
+
+EX:
+
+#Creating Connection
+
+import mysql.connector
+
+config = {
+	'user':'root',
+	'password':'Bb@95812',------->Look here
+	'host':'localhost',
+	'port':3306
+}
+
+try:
+	conn = mysql.connector.connect(**config)
+
+except:
+	print('Unable to Connect')
+
+
+EX:
+#Creating Connection
+
+import mysql.connector
+
+config = {
+	'user':'root',
+	'password':'Bb@9581',-------->Look here
+	'host':'localhost',
+	'port':3306
+}
+
+try:
+	conn = mysql.connector.connect(**config)
+
+except:
+	print('Unable to Connect')
+
+output
+------
+Unable to Connect
+
+
+**Check Connection**
+---------------------
+is_connected()-This method is used to check if the  connection to MySQL is 
+established or not.It returns True if the connection is established successfully.
+
+	Syntax:
+		connection_object.is_connected()
+
+EX:
+	import mysql.connector
+	conn = mysql.connector.connect(user='root',password='Bb@95812',host = 'localhost')
+	print(connn.is_connected())
+
+
+EX:
+import mysql.connector
+
+config = {
+	'user':'root',
+	'password':'Bb@95812',------>Look here password write
+	'host':'localhost',
+	'port':3306
+}
+
+try:
+	conn = mysql.connector.connect(**config)
+	print(conn.is_connected())
+
+except:
+	print('Unable to Connect')
+
+output
+-----
+True
+
+
+EX:
+import mysql.connector
+
+config = {
+	'user':'root',
+	'password':'Bb@9581',---->Look here pass word wrong ehanu
+	'host':'localhost',
+	'port':3306
+}
+
+try:
+	conn = mysql.connector.connect(**config)
+	print(conn.is_connected())
+
+except:
+	print('Unable to Connect')
+
+output
+------
+Unable to Connect
+
+
+EX:
+
+import mysql.connector
+
+config = {
+	'user':'root',
+	'password':'Bb@95812',
+	'host':'localhost',
+	'port':3306
+}
+
+try:
+	conn = mysql.connector.connect(**config)
+	if(conn.is_connected()):
+		print('Connected')
+
+
+except:
+	print('Unable to Connect')
+
+
+output
+-----
+Connected
+
+EX:
+import mysql.connector
+
+config = {
+	'user':'root',
+	'password':'Bb@9581',
+	'host':'localhost',
+	'port':3306
+}
+
+try:
+	conn = mysql.connector.connect(**config)
+	if(conn.is_connected()):
+		print('Connected')
+
+
+except:
+	print('Unable to Connect')
+
+output
+------
+Unable to Connect
+
+
+EX:
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+output
+-----
+
+Connected
+
+
+EX:
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@9581',
+		host='localhost',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+output
+------
+Unable to Connect
+
+
+Close Connection
+-----------------
+close()- This method is used to close the connection.
+
+syntax:
+	connection_object.close()
+
+
+EX:
+	import mysql.connector
+	conn = mysql.connector.connect(user='root',password = 'Bb@95812',host='localhost')
+	
+	conn.close()  #Do your work
+
+
+
+EX:
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+conn.close()	
+
+
+output
+------
+Connected
+
+
+EX:
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+print('Before Close:',conn.is_connected())
+
+
+conn.close()
+print('After close:',conn.is_connected())	
+
+output
+------
+Connected
+Before Close: True
+After close: False
+
+
+EX:
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+print('Before Close:',conn.is_connected())
+conn.close()
+print('After close:',conn.is_connected())
+
+
+Note:
+-----	host='localhost',port=3306 (by default ga thisukuntundi,rayavalasina pani ledu vitini...)	
+
+output
+-----
+Connected
+Before Close: True
+After close: False
+
+
+How to Create and Show Database in Python
+=========================================
+	operations
+	-----------
+
+1.Create Database
+2.Show Database
+
+
+cursor()Method
+----------------
+This method is used to create cursor class object.
+We need cursor object so we can call execute()method.
+	syntax:
+		cursor_object=connection_object.cursor()
+
+Arguments may be passed to the cursor() method to control what type of cursor to create
+
+-if 'buffered' is True, the cursor 'fetches' all rows from the server after an opraration is
+excuted.This is useful when queries return small result sets.buffered can be used alone, or in
+combination with the dictionary or named_tuple argument.
+
+-If 'dictionary' is True, the cursor return rows as dictionaries.
+-If 'named_tuple' is True,the cursor returns rows as named tuples.
+-if 'prepared' is True, the cursor is used for executing prepared statements.
+-if 'raw' is True, the cursor skips the conversion from MySQL data types to python
+types when fetching rows.A raw cursor is usually used to get better performance or 
+when you want to do the conversion youself.
+
+-The 'cursor_class'argument can be  used to pass a class to use for instatiating a new
+cursor.It must be a subclass of cursor.CursorBase.
+
+The returned object depends on the combination of the arguments.Examples:
+	If not buffered and not raw:MySQLCursor
+	If buffered and  not raw:MySQLCursorBuffered
+	If not buffered and raw:MySQLCursorRaw	
+	If buffered and raw:MySQLCursorBufferedRaw
+
+EX:
+	myc = conn.cursor()  #MySQLCursor
+
+EX:
+	myc = conn.cursor(buffered=True)  #MySQLCursorBuffered
+
+EX:
+	myc = conn.cursor(prepared=True)  #MySQLCursorPrepared
+
+
+execute()Method
+--------------
+This method is used execute given SQL queries.
+
+We need cursor object so we can call execute()method.
+
+syntax:
+	cursor_object.execute(sql,param=None,multi=False)
+
+Sql-> It is sql query.
+
+Param ->The parameters found in the tuple or dictionary params are bound to the 
+variables in the operation.
+
+Multi->execute() returns an iterator if multi is True.
+
+
+EX:
+myc = conn.cursor()
+
+myc.execute('SELECT*FROM student')
+
+sql = 'SELECT*FROM student'
+myc = conn.cursor()
+myc.execute(sql)
+
+
+Close Cursor
+-------------
+close()method closes the cursor,resets all results,and ensures that the cursor object
+has no reference to its original connection object.
+
+Syntax:
+	cursor_object.close()
+
+Ex:
+	myc.close()
+
+
+
+EX:
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'CREATE DATABASE pdb'
+myc = conn.cursor()
+myc.execute(sql)
+
+
+myc.close() 
+conn.close()
+
+
+output
+-------
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| pdb                |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+7 rows in set (0.10 sec)
+
+
+EX:
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'SHOW DATABASES'
+myc = conn.cursor()
+myc.execute(sql)
+for d in myc:
+	print(d)
+
+myc.close() 
+conn.close()
+
+output
+------
+Connected
+('information_schema',)
+('mysql',)
+('pdb',)
+('performance_schema',)
+('sakila',)
+('sys',)
+('world',)
+
+
+
+How to make Connection to Database in Python
+============================================
+
+connecting to Database
+------------------------
+connect() - This method is used to open or estalish a new connection.It returns an
+object representing the  connection.
+
+Syntax:
+	connection_object = connect(user='username',password='pass',database='dbname',
+host='localhost',port=3306);
+
+EX:
+import mysql.connector
+
+conn = mysql.connector.connect(user='root',password='geek',host='localhost',database='pdb',port=3306)
+
+	(OR)
+
+import mysql.connector
+config = {
+	'user':'root',
+	'password':'geek',
+	'host':'localhost',
+	'database':'pdb',
+	'port':3306
+}
+
+conn = mysql.connector.connect(**config)
+
+
+
+EX:
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+
+conn.close()
+
+output
+------
+Connected
+
+
+
+How to Create and Show Database Tables in Python
+===============================================
+
+Operations
+------------
+1.Create Table
+2.Show Table
+
+EX:
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'CREATE TABLE student(stuid INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20),roll INT,fees FLOAT)'
+myc = conn.cursor()
+myc.execute(sql)	
+myc.close()
+conn.close()
+
+
+output
+------
+cmd lo --->Connected
+
+MySQL command Line client lo--->
+
+mysql> show tables;
++---------------+
+| Tables_in_pdb |
++---------------+
+| student       |
++---------------+
+1 row in set (0.00 sec)
+
+
+EX:
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'CREATE TABLE student1(stuid INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20),roll INT,fees FLOAT)'
+myc = conn.cursor()
+myc.execute(sql)	
+myc.close()
+conn.close()
+
+output
+------
+cmd lo ---->Connected
+
+MySQL command Line client lo--->
+
+mysql> show tables;
++---------------+
+| Tables_in_pdb |
++---------------+
+| student       |
+| student1      |
++---------------+
+2 rows in set (0.04 sec)
+
+
+EX:
+
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'SHOW TABLES'
+myc = conn.cursor()
+myc.execute(sql)
+for t in myc:
+	print(t)
+myc.close()
+conn.close()
+
+output
+------
+Connected
+('student',)
+('student1',)
+
+
+EX:
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'world',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'SHOW TABLES'
+myc = conn.cursor()
+myc.execute(sql)
+for t in myc:
+	print(t)
+myc.close()
+conn.close()
+
+output
+------
+Connected
+('city',)
+('country',)
+('countrylanguage',)
+
+
+rowcount Property in Python
+=============================
+This read-only property returns the number of rows returned for SELECT
+statements, or the number of rows affected by DML statements such as
+INSERT or UPDATE.
+
+	syntax:
+		cursor_object.rowcount
+	EX:
+		myc.rowcount
+
+EX:
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'INSERT INTO student(name,roll,fees) VALUES("Sonam",106,6000.2)'
+myc = conn.cursor()
+try:
+	myc.execute(sql)
+	conn.commit()
+	print(myc.rowcount,'Row Inserted')
+except:
+	conn.rollback()
+	print('Unable to Insert Data')
+
+myc.close()
+conn.close()
+
+output
+------
+cmd lo--->Connected
+	1 Row Inserted
+
+MySQL Command Line lo--->
+
+mysql> use pdb
+Database changed
+mysql> select * from student;
++-------+-------+------+--------+
+| stuid | name  | roll | fees   |
++-------+-------+------+--------+
+|     1 | Sonam |  106 | 6000.2 |
+|     2 | Jyoti |  107 | 7000.2 |
+|     3 | Aman  |  108 | 8000.4 |
+|     4 | Raj   |  109 |  45654 |
+|     5 | Jyoti |  107 | 7000.2 |
+|     6 | Aman  |  108 | 8000.4 |
+|     7 | Raj   |  109 |  45654 |
+|     8 | Jyoti |  107 | 7000.2 |
+|     9 | Aman  |  108 | 8000.4 |
+|    10 | Raj   |  109 |  45654 |
+|    11 | Jyoti |  107 | 7000.2 |
+|    12 | Aman  |  108 | 8000.4 |
+|    13 | Raj   |  109 |  45654 |
+|    14 | Sonam |  106 | 6000.2 |
+|    15 | Sonam |  106 | 6000.2 |
+|    16 | Sonam |  106 | 6000.2 |
++-------+-------+------+--------+
+16 rows in set (0.00 sec)
+
+
+EX:
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'INSERT INTO student(name,roll,fees) VALUES("Jyoti",107,7000.2),("Aman",108,8000.4),("Raj",109,45654)'	
+myc = conn.cursor()
+try:
+	myc.execute(sql)
+	conn.commit()
+	print(myc.rowcount,'Row Inserted')
+except:
+	conn.rollback()
+	print('Unable to Insert Data')
+
+myc.close()
+conn.close()
+
+output
+------
+cmd--->Connected
+       3 Row Inserted
+
+MySQL Command Line client lo----->
+
+mysql> use pdb
+Database changed
+mysql> select * from student;
++-------+-------+------+--------+
+| stuid | name  | roll | fees   |
++-------+-------+------+--------+
+|     1 | Sonam |  106 | 6000.2 |
+|     2 | Jyoti |  107 | 7000.2 |
+|     3 | Aman  |  108 | 8000.4 |
+|     4 | Raj   |  109 |  45654 |
+|     5 | Jyoti |  107 | 7000.2 |
+|     6 | Aman  |  108 | 8000.4 |
+|     7 | Raj   |  109 |  45654 |
+|     8 | Jyoti |  107 | 7000.2 |
+|     9 | Aman  |  108 | 8000.4 |
+|    10 | Raj   |  109 |  45654 |
+|    11 | Jyoti |  107 | 7000.2 |
+|    12 | Aman  |  108 | 8000.4 |
+|    13 | Raj   |  109 |  45654 |
+|    14 | Sonam |  106 | 6000.2 |
+|    15 | Sonam |  106 | 6000.2 |
++-------+-------+------+--------+
+15 rows in set (0.25 sec)
+
+
+
+lastrowid Property in Python
+=============================
+This read-only property returns the value generated for an AUTO_INCREMENT
+column by the previous INSERT or UPDATE statement or None when there is no such
+value available.
+
+if you perform an INSERT into a table that contains an AUTO_INCREMENT column,lastrowid
+returns the AUTO_INCREMENT value for the new row.
+
+if you insert multiple rows into a table using a single INSERT statement,the lastrowid
+property contains the last insert id of the first row.
+
+Syntax:
+	cursor_object.lastrowid
+
+EX:
+	myc.lastrowid
+
+
+EX:
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'INSERT INTO student(name,roll,fees) VALUES("Sumit",103,30000.50)'
+myc = conn.cursor()
+try:
+	myc.execute(sql)
+	conn.commit()	#committing the change
+	print(myc.rowcount,'Row Inserted') #Number of Row Inserted
+except:
+	conn.rollback() #Rollback the change
+	print('Unable to Insert Data')
+
+myc.close()		#Close Cursor
+conn.close()		#Close Connection
+
+
+output
+--------
+mysql> use pdb
+Database changed
+mysql> select * from student;
++-------+-------+------+---------+
+| stuid | name  | roll | fees    |
++-------+-------+------+---------+
+|     1 | Sonam |  106 |  6000.2 |
+|     2 | Jyoti |  107 |  7000.2 |
+|     3 | Aman  |  108 |  8000.4 |
+|     4 | Raj   |  109 |   45654 |
+|     5 | Jyoti |  107 |  7000.2 |
+|     6 | Aman  |  108 |  8000.4 |
+|     7 | Raj   |  109 |   45654 |
+|     8 | Jyoti |  107 |  7000.2 |
+|     9 | Aman  |  108 |  8000.4 |
+|    10 | Raj   |  109 |   45654 |
+|    11 | Jyoti |  107 |  7000.2 |
+|    12 | Aman  |  108 |  8000.4 |
+|    13 | Raj   |  109 |   45654 |
+|    14 | Sonam |  106 |  6000.2 |
+|    15 | Sonam |  106 |  6000.2 |
+|    16 | Sonam |  106 |  6000.2 |
+|    17 | Sumit |  103 | 30000.5 |
++-------+-------+------+---------+
+17 rows in set (0.02 sec)
+
+
+EX:
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'INSERT INTO student(name,roll,fees) VALUES("Sumit",103,30000.50)'
+myc = conn.cursor()
+try:
+	myc.execute(sql)
+	conn.commit()	#committing the change
+	print(myc.lastrowid)
+except:
+	conn.rollback() #Rollback the change
+	print('Unable to Insert Data')
+
+myc.close()		#Close Cursor
+conn.close()		#Close Connection
+
+output
+------
+cmd lo ---->
+
+Connected
+18
+
+MySQL Command Line Client--->
+
+mysql> use pdb
+Database changed
+mysql> select * from student;
++-------+-------+------+---------+
+| stuid | name  | roll | fees    |
++-------+-------+------+---------+
+|     1 | Sonam |  106 |  6000.2 |
+|     2 | Jyoti |  107 |  7000.2 |
+|     3 | Aman  |  108 |  8000.4 |
+|     4 | Raj   |  109 |   45654 |
+|     5 | Jyoti |  107 |  7000.2 |
+|     6 | Aman  |  108 |  8000.4 |
+|     7 | Raj   |  109 |   45654 |
+|     8 | Jyoti |  107 |  7000.2 |
+|     9 | Aman  |  108 |  8000.4 |
+|    10 | Raj   |  109 |   45654 |
+|    11 | Jyoti |  107 |  7000.2 |
+|    12 | Aman  |  108 |  8000.4 |
+|    13 | Raj   |  109 |   45654 |
+|    14 | Sonam |  106 |  6000.2 |
+|    15 | Sonam |  106 |  6000.2 |
+|    16 | Sonam |  106 |  6000.2 |
+|    17 | Sumit |  103 | 30000.5 |
+|    18 | Sumit |  103 | 30000.5 |
++-------+-------+------+---------+
+18 rows in set (0.00 sec)
+
+
+EX:
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'INSERT INTO student(name,roll,fees) VALUES("Jai",104,40000.50),
+		("Veera",105,50000.50),("Basanti",106,60000.50)'
+myc = conn.cursor()
+try:
+	myc.execute(sql)
+	conn.commit()	#committing the change
+	print('Student ID:',myc.lastrowid)
+except:
+	conn.rollback() #Rollback the change
+	print('Unable to Insert Data')
+
+myc.close()		#Close Cursor
+conn.close()		#Close Connection
+
+
+output
+-------
+cmd lo --->
+
+Connected
+Student ID: 19
+
+MySQL command line client lo---->
+
+
+mysql> use pdb
+Database changed
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    13 | Raj     |  109 |   45654 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 | 60000.5 |
++-------+---------+------+---------+
+21 rows in set (0.00 sec)
+
+
+
+How to Delete Data from Table in Python 
+=====================================
+
+EX:
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'DELETE FROM student WHERE stuid=13'
+myc = conn.cursor()
+try:
+	myc.execute(sql)
+	conn.commit()	#committing the change
+	print(myc.rowcount,'Row Deleted')
+except:
+	conn.rollback() #Rollback the change
+	print('Unable to Delete Data')
+	
+
+myc.close()		#Close Cursor
+conn.close()		#Close Connection
+
+
+output
+-------
+cmd lo ----->
+
+Connected
+1 Row Deleted
+
+MySQL command Line client lo--->
+
+mysql> use pdb
+Database changed
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 | 60000.5 |
++-------+---------+------+---------+
+20 rows in set (0.01 sec)
+
+
+How to Update(Edit) Data in Table in Python
+====================================
+EX:
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'UPDATE student SET fees=200 WHERE stuid=21'
+myc = conn.cursor()
+try:
+	myc.execute(sql)
+	conn.commit()	#committing the change
+	print(myc.rowcount,'Row Updated')
+except:
+	conn.rollback() #Rollback the change
+	print('Unable to Update date')
+	
+
+myc.close()		#Close Cursor
+conn.close()		#Close Connection
+
+
+output
+------
+cmd lo ---->
+
+Connected
+1 Row Updated
+
+MySQL command Line Client lo ----->
+
+mysql> use pdb
+Database changed
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
++-------+---------+------+---------+
+20 rows in set (0.10 sec)
+
+
+How to Fetch Data from Table using fetchone Method in Python
+==============================================================
+
+fetchone() Method
+----------------
+This method retrieves the next row of a query result set and returns a single
+sequence, or None if no more rows are available.By default,the returned tuple consists
+ of data returned by the  MySQL server,converted to python objects.if the cursor is a
+raw cursor,no such conversion occurs.
+
+You must fetch all rows for the current query before executing new statements using
+the same connection.
+
+'one by one ga execute chesthundi fetchone() anedi...'
+
+	syntax:
+		row = cursor_object.fetchone()
+
+	EX:
+		row = myc.fetchone()
+
+
+EX:
+#Retrieve Row one by one
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'SELECT * FROM student'    # * means 'All'
+myc = conn.cursor()
+try:
+	myc.execute(sql)
+	row = myc.fetchone()
+	while row is not None:
+		print(row)
+		row = myc.fetchone()
+	print('Total Rows:',myc.rowcount)
+except:
+	conn.rollback() #Rollback the change
+	print('Unable to Show date')
+	
+
+myc.close()		#Close Cursor
+conn.close()		#Close Connection
+
+
+output
+-------
+
+cmd lo ---->
+
+Connected
+(1, 'Sonam', 106, 6000.2)
+(2, 'Jyoti', 107, 7000.2)
+(3, 'Aman', 108, 8000.4)
+(4, 'Raj', 109, 45654.0)
+(5, 'Jyoti', 107, 7000.2)
+(6, 'Aman', 108, 8000.4)
+(7, 'Raj', 109, 45654.0)
+(8, 'Jyoti', 107, 7000.2)
+(9, 'Aman', 108, 8000.4)
+(10, 'Raj', 109, 45654.0)
+(11, 'Jyoti', 107, 7000.2)
+(12, 'Aman', 108, 8000.4)
+(14, 'Sonam', 106, 6000.2)
+(15, 'Sonam', 106, 6000.2)
+(16, 'Sonam', 106, 6000.2)
+(17, 'Sumit', 103, 30000.5)
+(18, 'Sumit', 103, 30000.5)
+(19, 'Jai', 104, 40000.5)
+(20, 'Veera', 105, 50000.5)
+(21, 'Basanti', 106, 200.0)
+Total Rows: 20
+
+
+EX:
+
+#Retrieve Row one by one
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'SELECT roll FROM student'
+myc = conn.cursor()
+try:
+	myc.execute(sql)
+	row = myc.fetchone()
+	while row is not None:
+		print(row)
+		row = myc.fetchone()
+	print('Total Rows:',myc.rowcount)
+except:
+	conn.rollback() #Rollback the change
+	print('Unable to Show date')
+	
+
+myc.close()		#Close Cursor
+conn.close()		#Close Connection
+
+output
+------
+
+cmd lo ---->
+
+Connected
+(106,)
+(107,)
+(108,)
+(109,)
+(107,)
+(108,)
+(109,)
+(107,)
+(108,)
+(109,)
+(107,)
+(108,)
+(106,)
+(106,)
+(106,)
+(103,)
+(103,)
+(104,)
+(105,)
+(106,)
+Total Rows: 20
+
+EX:
+#Retrieve Row one by one
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'SELECT name,roll FROM student'
+myc = conn.cursor()
+try:
+	myc.execute(sql)
+	row = myc.fetchone()
+	while row is not None:
+		print(row)
+		row = myc.fetchone()
+	print('Total Rows:',myc.rowcount)
+except:
+	conn.rollback() #Rollback the change
+	print('Unable to Show date')
+	
+
+myc.close()		#Close Cursor
+conn.close()		#Close Connection
+
+
+output
+-------
+Connected
+('Sonam', 106)
+('Jyoti', 107)
+('Aman', 108)
+('Raj', 109)
+('Jyoti', 107)
+('Aman', 108)
+('Raj', 109)
+('Jyoti', 107)
+('Aman', 108)
+('Raj', 109)
+('Jyoti', 107)
+('Aman', 108)
+('Sonam', 106)
+('Sonam', 106)
+('Sonam', 106)
+('Sumit', 103)
+('Sumit', 103)
+('Jai', 104)
+('Veera', 105)
+('Basanti', 106)
+Total Rows: 20
+
+
+How to fetch Data from Table using fetchall Method in Python
+=======================================================
+
+fetchall()Method
+-------------------
+This method fetches all(or all remaining) rows of a query result set and returns
+a list of tuples.If no more rows are available,It returns an empty list.
+
+You must fetch all rows for the current query before executing new statements
+using the same connection.
+
+syntax:
+	rows = cursor_object.fetchall()
+
+EX:
+	rows = myc.fetchall()
+
+
+
+EX:
+#Retrieve Row one by one
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'SELECT * FROM student'
+myc = conn.cursor()
+try:
+	myc.execute(sql)
+	rows = myc.fetchall()
+	for r in rows:
+		print(r)
+	print('Total Rows:',myc.rowcount)
+except:
+	conn.rollback() #Rollback the change
+	print('Unable to Show date')
+	
+
+myc.close()		#Close Cursor
+conn.close()		#Close Connection
+
+output
+-------
+Connected
+(1, 'Sonam', 106, 6000.2)
+(2, 'Jyoti', 107, 7000.2)
+(3, 'Aman', 108, 8000.4)
+(4, 'Raj', 109, 45654.0)
+(5, 'Jyoti', 107, 7000.2)
+(6, 'Aman', 108, 8000.4)
+(7, 'Raj', 109, 45654.0)
+(8, 'Jyoti', 107, 7000.2)
+(9, 'Aman', 108, 8000.4)
+(10, 'Raj', 109, 45654.0)
+(11, 'Jyoti', 107, 7000.2)
+(12, 'Aman', 108, 8000.4)
+(14, 'Sonam', 106, 6000.2)
+(15, 'Sonam', 106, 6000.2)
+(16, 'Sonam', 106, 6000.2)
+(17, 'Sumit', 103, 30000.5)
+(18, 'Sumit', 103, 30000.5)
+(19, 'Jai', 104, 40000.5)
+(20, 'Veera', 105, 50000.5)
+(21, 'Basanti', 106, 200.0)
+Total Rows: 20
+
+
+EX:
+#Retrieve Row one by one
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'SELECT name,fees FROM student'
+myc = conn.cursor()
+try:
+	myc.execute(sql)
+	rows = myc.fetchall()
+	for r in rows:
+		print(r)
+	print('Total Rows:',myc.rowcount)
+except:
+	conn.rollback() #Rollback the change
+	print('Unable to Show date')
+	
+
+myc.close()		#Close Cursor
+conn.close()		#Close Connection
+
+output
+------
+Connected
+('Sonam', 6000.2)
+('Jyoti', 7000.2)
+('Aman', 8000.4)
+('Raj', 45654.0)
+('Jyoti', 7000.2)
+('Aman', 8000.4)
+('Raj', 45654.0)
+('Jyoti', 7000.2)
+('Aman', 8000.4)
+('Raj', 45654.0)
+('Jyoti', 7000.2)
+('Aman', 8000.4)
+('Sonam', 6000.2)
+('Sonam', 6000.2)
+('Sonam', 6000.2)
+('Sumit', 30000.5)
+('Sumit', 30000.5)
+('Jai', 40000.5)
+('Veera', 50000.5)
+('Basanti', 200.0)
+Total Rows: 20
+
+Ex:
+#Retrieve Row one by one
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'SELECT * FROM student'
+myc = conn.cursor()
+try:
+	myc.execute(sql)
+	rows = myc.fetchall()
+	for r in rows:
+		stuid = r[0]
+		name = r[1]
+		roll = r[2]
+		fees = r[3]
+		print(f'StuID:{stuid} Name:{name} Roll:{roll} Fees:{fees}')
+
+		print('Total Rows:',myc.rowcount)
+except:
+	conn.rollback() #Rollback the change
+	print('Unable to Show date')
+	
+
+myc.close()		#Close Cursor
+conn.close()		#Close Connection
+
+
+output
+------
+Connected
+StuID:1 Name:Sonam Roll:106 Fees:6000.2
+Total Rows: 20
+StuID:2 Name:Jyoti Roll:107 Fees:7000.2
+Total Rows: 20
+StuID:3 Name:Aman Roll:108 Fees:8000.4
+Total Rows: 20
+StuID:4 Name:Raj Roll:109 Fees:45654.0
+Total Rows: 20
+StuID:5 Name:Jyoti Roll:107 Fees:7000.2
+Total Rows: 20
+StuID:6 Name:Aman Roll:108 Fees:8000.4
+Total Rows: 20
+StuID:7 Name:Raj Roll:109 Fees:45654.0
+Total Rows: 20
+StuID:8 Name:Jyoti Roll:107 Fees:7000.2
+Total Rows: 20
+StuID:9 Name:Aman Roll:108 Fees:8000.4
+Total Rows: 20
+StuID:10 Name:Raj Roll:109 Fees:45654.0
+Total Rows: 20
+StuID:11 Name:Jyoti Roll:107 Fees:7000.2
+Total Rows: 20
+StuID:12 Name:Aman Roll:108 Fees:8000.4
+Total Rows: 20
+StuID:14 Name:Sonam Roll:106 Fees:6000.2
+Total Rows: 20
+StuID:15 Name:Sonam Roll:106 Fees:6000.2
+Total Rows: 20
+StuID:16 Name:Sonam Roll:106 Fees:6000.2
+Total Rows: 20
+StuID:17 Name:Sumit Roll:103 Fees:30000.5
+Total Rows: 20
+StuID:18 Name:Sumit Roll:103 Fees:30000.5
+Total Rows: 20
+StuID:19 Name:Jai Roll:104 Fees:40000.5
+Total Rows: 20
+StuID:20 Name:Veera Roll:105 Fees:50000.5
+Total Rows: 20
+StuID:21 Name:Basanti Roll:106 Fees:200.0
+Total Rows: 20
+
+
+How to Fetch Data from Table using fetchmany Method
+================================================
+This method fetches the next set of rows of a query result and
+returns a list of tuples.If no more are available,It returns an empty list.
+
+The Number of rows returned can be specified using the size argument,which
+defaults to one.Fewer rows are returned if fewer rows are available than specified.
+
+You must fetch all rows for the current query before executing new statements
+using the same connection.
+
+Syntax:
+	rows=cursor_object.fetchmany(size=1)
+
+EX:
+	rows =myc.fetchmany(3)
+
+
+EX:
+#Retrieve Row one by one
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'SELECT * FROM student'
+myc = conn.cursor(buffered=True) ---->(buffered=True)Observe cheai....ikkada
+try:
+	myc.execute(sql)
+	rows = myc.fetchmany(size=5)
+	for r in rows:
+		stuid = r[0]
+		name = r[1]
+		roll = r[2]
+		fees = r[3]
+		print(f'StuID:{stuid} Name:{name} Roll:{roll} Fees:{fees}')
+
+		print('Total Rows:',myc.rowcount)
+except:
+	conn.rollback() #Rollback the change
+	print('Unable to Show date')
+	
+
+myc.close()		#Close Cursor
+conn.close()		#Close Connection
+
+
+output
+------
+Connected
+StuID:1 Name:Sonam Roll:106 Fees:6000.2
+Total Rows: 20
+StuID:2 Name:Jyoti Roll:107 Fees:7000.2
+Total Rows: 20
+StuID:3 Name:Aman Roll:108 Fees:8000.4
+Total Rows: 20
+StuID:4 Name:Raj Roll:109 Fees:45654.0
+Total Rows: 20
+StuID:5 Name:Jyoti Roll:107 Fees:7000.2
+Total Rows: 20
+
+
+EX:
+
+fetchmany() & fetchall() combination
+--------------------------------
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'SELECT * FROM student'
+myc = conn.cursor(buffered=True)
+try:
+	myc.execute(sql)
+	rows = myc.fetchmany(size=5)
+	for r in rows:
+		stuid = r[0]
+		name = r[1]
+		roll = r[2]
+		fees = r[3]
+		print(f'StuID:{stuid} Name:{name} Roll:{roll} Fees:{fees}')
+	print()
+	print()
+	rows = myc.fetchall()
+	for r in rows:
+		stuid = r[0]
+		name = r[1]
+		roll = r[2]
+		fees = r[3]
+		print(f'StuID:{stuid} Name:{name} Roll:{roll} Fees:{fees}')
+
+
+		print('Total Rows:',myc.rowcount)
+except:
+	conn.rollback() #Rollback the change
+	print('Unable to Show date')
+	
+
+myc.close()		#Close Cursor
+conn.close()		#Close Connection
+
+
+output
+------
+Connected
+StuID:1 Name:Sonam Roll:106 Fees:6000.2
+StuID:2 Name:Jyoti Roll:107 Fees:7000.2
+StuID:3 Name:Aman Roll:108 Fees:8000.4
+StuID:4 Name:Raj Roll:109 Fees:45654.0
+StuID:5 Name:Jyoti Roll:107 Fees:7000.2
+
+
+StuID:6 Name:Aman Roll:108 Fees:8000.4
+Total Rows: 20
+StuID:7 Name:Raj Roll:109 Fees:45654.0
+Total Rows: 20
+StuID:8 Name:Jyoti Roll:107 Fees:7000.2
+Total Rows: 20
+StuID:9 Name:Aman Roll:108 Fees:8000.4
+Total Rows: 20
+StuID:10 Name:Raj Roll:109 Fees:45654.0
+Total Rows: 20
+StuID:11 Name:Jyoti Roll:107 Fees:7000.2
+Total Rows: 20
+StuID:12 Name:Aman Roll:108 Fees:8000.4
+Total Rows: 20
+StuID:14 Name:Sonam Roll:106 Fees:6000.2
+Total Rows: 20
+StuID:15 Name:Sonam Roll:106 Fees:6000.2
+Total Rows: 20
+StuID:16 Name:Sonam Roll:106 Fees:6000.2
+Total Rows: 20
+StuID:17 Name:Sumit Roll:103 Fees:30000.5
+Total Rows: 20
+StuID:18 Name:Sumit Roll:103 Fees:30000.5
+Total Rows: 20
+StuID:19 Name:Jai Roll:104 Fees:40000.5
+Total Rows: 20
+StuID:20 Name:Veera Roll:105 Fees:50000.5
+Total Rows: 20
+StuID:21 Name:Basanti Roll:106 Fees:200.0
+Total Rows: 20
+
+
+How to Fetch Data from Table with WHERE Clause in Python
+==================================================
+NOTE:specific row chudali ante 'WHERE' clause use cheyali...ela
+
+EX:
+
+#Retrieve Row one by one
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'SELECT * FROM student WHERE stuid=4'
+myc = conn.cursor()
+try:
+	myc.execute(sql)
+	row = myc.fetchone()
+	print(row)
+	print(myc.rowcount)
+
+except:
+	conn.rollback() #Rollback the change
+	print('Unable to Show date')
+	
+
+myc.close()		#Close Cursor
+conn.close()		#Close Connection
+
+
+output
+------
+Connected
+(4, 'Raj', 109, 45654.0)
+1
+
+
+EX:
+#Retrieve Row one by one
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'SELECT * FROM student WHERE stuid=444'
+myc = conn.cursor()
+try:
+	myc.execute(sql)
+	row = myc.fetchone()
+	while row is not None:
+		print(row)
+		row = myc.fetchone()
+	print(myc.rowcount)
+
+except:
+	conn.rollback() #Rollback the change
+	print('Unable to Show date')
+	
+
+myc.close()		#Close Cursor
+conn.close()		#Close Connection
+
+
+output
+------
+Connected
+0
+
+
+Parameterized Query in Python
+==============================
+A parameterized query is a query which can use the format or pyformat
+parameterization style for parameters and  the  parameter values supplied at
+execution.
+
+These executed with MySQLCursor can use the %s and %(key)s format style.
+%s is used as format style in the  sql queries,while using tuple parameters.
+%(key)s is used as format style in the sql queries,while using dictionary
+parameters.
+
+myc = conn.cursor()
+
+Tuple parameters
+----------------
+sql = 'INSERT INTO student(name,roll,fees)VALUES(%s,%s,%s)'
+myc = conn.cursor()
+myc.execute(sql,('Rohan",111,60000.50))
+	
+	(OR)
+
+sql = 'INSERT INTO student(name,roll,fees)VALUES(%s,%s,%s)'
+myc = conn.cursor()
+params = ('Rohan',111,60000.50)
+myc.execute(sql,params)
+
+
+Dictionary Parameters
+---------------------
+sql = 'INSERT INTO student(name,roll,fees)VALUES(%(name)s,%(roll)s,%(fees)s)'
+
+myc = conn.cursor()
+
+myc.execute(sql,{'name':'Kajal','roll':777,'fees':54100})
+
+	(OR)
+
+sql = 'INSERT INTO student(name,roll,fees)VALUES(%(name)s,%(roll)s,%(fees)s)'
+myc = conn.cursor()
+params = {'name':'kajal','roll':777,'fees':54100}
+myc.execute(sql,params)
+
+
+execute()Method
+----------------
+This method is used to execute given SQL queries.
+We need cursor object we can execute()method
+
+	Syntax:cursor_object.execute(sql,param=None,multi=False)
+
+Sql - It is sq query.
+
+param - The parameters found in the  tuple or dictionary parames are bound
+to the  variables in the  opration.
+
+Multi - execute()returns an iterator if multi is True.
+
+eg:
+myc = conn.cursor()
+myc.execute('SELECT*FROM student')
+
+
+sql = 'SELECT*FROM student'
+myc = conn.cursor()
+myc.execute(sql)
+
+
+How to Insert Data into Table Parameterized Query Tuple in Python 
+================================================
+
+EX:
+
+#Retrieve Row one by one
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 	'INSERT INTO student(name,roll,fees) VALUES(%s,%s,%s)'
+myc = conn.cursor()
+try:
+	myc.execute(sql,('Murali',104,30000.50))
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Inserted')   #Number of Row Inserted
+	print(f'Stu ID:{myc.lastrowid} Inserted')  #Last inserted Id 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Insert Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+
+output
+-------
+cmd lo ---->
+
+Connected
+1 Row Inserted
+Stu ID:23 Inserted
+
+MySQL commnad Line---->
+
+mysql> use pdb
+Database changed
+
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |------}Look here
+|    23 | Murali  |  104 | 30000.5 |------}
++-------+---------+------+---------+
+22 rows in set (0.00 sec)
+
+
+EX:
+
+#Retrieve Row one by one
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 	'INSERT INTO student(name,roll,fees) VALUES(%s,%s,%s)'
+myc = conn.cursor()
+params = ('Rahul',102,50000.50)
+
+try:
+	myc.execute(sql, params)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Inserted')   #Number of Row Inserted
+	print(f'Stu ID:{myc.lastrowid} Inserted')  #Last inserted Id 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Insert Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+------
+cmd lo--->
+
+Connected
+1 Row Inserted
+Stu ID:26 Inserted
+
+MySQL commnad line client lo ---->
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |----->look here
++-------+---------+------+---------+
+25 rows in set (0.00 sec)
+
+
+Insert Data into Table using executemany Parameterized Query Tuple in Python 
+================================================================
+
+EX:
+
+#Retrieve Row one by one
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'INSERT INTO student(name,roll,fees) VALUES("jai",120,40000.50),("veeru",121,50000.50),("Basanti",122,60000.50)'
+myc = conn.cursor()
+try:
+	myc.execute(sql)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Inserted')   #Number of Row Inserted
+	print(f'Stu ID:{myc.lastrowid} Inserted')  #Last inserted Id 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Insert Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+-------
+cmd lo ---->
+Connected
+3 Row Inserted
+Stu ID:27 Inserted
+
+
+MySQL command link client---->
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |-----
+|    28 | veeru   |  121 | 50000.5 |-----Look here
+|    29 | Basanti |  122 | 60000.5 |-----
++-------+---------+------+---------+
+
+
+executemany() Method
+------------------
+This method is used to prepare given SQL query and executes it a against all
+parameter sequences or mappings found in the sequence seq_of_params.
+
+with the executemany() method,It is not possible to specify multiple statements 
+to execute in the sql argument.
+
+syntax:
+	cursor_object.executemany(sql,seq_of_params)
+
+sql - It is sql query
+
+seq_of_params -It is a list of tuples,containing the data to insert.
+
+
+EX:
+
+#Retrieve Row one by one
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'INSERT INTO student(name,roll,fees) VALUES(%s,%s,%s)'
+myc = conn.cursor()
+seq_of_params = [("Ramesh",123,40000.50),("Ashok",124,50000.50),("siva",125,60000.50)]
+try:
+	myc.executemany(sql,seq_of_params)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Inserted')   #Number of Row Inserted
+	print(f'Stu ID:{myc.lastrowid} Inserted')  #Last inserted Id 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Insert Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+
+output
+------
+cmd lo--->
+
+Connected
+3 Row Inserted
+Stu ID:30 Inserted
+
+
+MySQL command line client lo---->
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |-----
+|    31 | Ashok   |  124 | 50000.5 |-----Look here
+|    32 | siva    |  125 | 60000.5 |-----
++-------+---------+------+---------+
+
+
+Input from user into Table Parameterized Query Tuple in Python
+======================================================
+
+EX:
+#Retrieve Row one by one
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'INSERT INTO student(name,roll,fees) VALUES(%s,%s,%s)'
+myc = conn.cursor()
+#input	from user
+nm = input('Enter Name:')
+ro = int(input('Enter Roll:'))
+fe = float(input('Enter Fees:'))
+params = (nm,ro,fe)
+
+try:
+	myc.execute(sql,params)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Inserted')   #Number of Row Inserted
+	print(f'Stu ID:{myc.lastrowid} Inserted')  #Last inserted Id 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Insert Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+------
+cmd lo ---->
+
+Connected
+Enter Name:Abhi
+Enter Roll:126
+Enter Fees:58692
+1 Row Inserted
+Stu ID:33 Inserted
+
+
+MySQL command line Client lo--->
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |----->look here
++-------+---------+------+---------+
+32 rows in set (0.02 sec)
+
+EX:
+
+#Retrieve Row one by one
+
+import mysql.connector
+def student_data(n,r,f):
+
+	try:
+		conn = mysql.connector.connect(user='root',
+			password='Bb@95812',
+			host='localhost',
+			database = 'pdb',
+			port=3306
+		)
+		if(conn.is_connected()):
+			print('Connected')
+
+	except:
+		print('Unable to Connect')
+
+	sql = 'INSERT INTO student(name,roll,fees) VALUES(%s,%s,%s)'
+	myc = conn.cursor()
+	params = (nm,ro,fe)
+
+	try:
+		myc.execute(sql,params)
+		conn.commit()  #committing the change
+		print(myc.rowcount,'Row Inserted')   #Number of Row Inserted
+		print(f'Stu ID:{myc.lastrowid} Inserted')  #Last inserted Id 
+
+	except:
+		conn.rollback()  #Rollback the  change
+		print('Unable to Insert Data')
+
+	myc.close()  #close cursor
+	conn.close() #close Connection
+
+while True:
+	#input	from user
+	nm = input('Enter Name:')
+	ro = int(input('Enter Roll:'))
+	fe = float(input('Enter Fees:'))
+	student_data(nm,ro,fe)
+	ans = input('Do you want to exit?(y/n)')
+	if(ans == 'y'):
+		break
+
+
+output
+-------
+cmd lo --->
+
+Enter Name:Bala
+Enter Roll:127
+Enter Fees:5693
+Connected
+1 Row Inserted
+Stu ID:34 Inserted
+Do you want to exit?(y/n)y
+
+
+MySQL command line Client lo---->
+
+mysql> use pdb
+Database changed
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
++-------+---------+------+---------+
+33 rows in set (0.00 sec)
+
+
+How to Insert Data into Table Parameterized Query Dictionary in Python
+=====================================================
+
+EX:
+#Retrieve Row one by one
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'INSERT INTO student(name,roll,fees) VALUES(%(n)s,%(r)s,%(f)s)'
+myc = conn.cursor()
+	
+
+try:
+	myc.execute(sql,{'n':'Sameer','r':777,'f':54100})
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Inserted')   #Number of Row Inserted
+	print(f'Stu ID:{myc.lastrowid} Inserted')  #Last inserted Id 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Insert Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+
+output
+-----
+cmd lo-->
+
+Connected
+1 Row Inserted
+Stu ID:35 Inserted
+
+MySQL commnad line client
+---------------------
+mysql> use pdb
+Database changed
+mysql> select * from student;
+
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
+|    35 | Sameer  |  777 |   54100 |---->Look Here...
++-------+---------+------+---------+
+34 rows in set (0.03 sec)
+
+
+EX:
+
+#Retrieve Row one by one
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'INSERT INTO student(name,roll,fees) VALUES(%(n)s,%(r)s,%(f)s)'
+myc = conn.cursor()
+params = {'n':'Kunal','r':111,'f':54100}
+
+try:
+	myc.execute(sql,params)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Inserted')   #Number of Row Inserted
+	print(f'Stu ID:{myc.lastrowid} Inserted')  #Last inserted Id 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Insert Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+
+output
+-------
+
+cmd lo ---->
+
+Connected
+1 Row Inserted
+Stu ID:36 Inserted
+
+MySQL commnad line Client--->
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
+|    35 | Sameer  |  777 |   54100 |
+|    36 | Kunal   |  111 |   54100 |
++-------+---------+------+---------+
+35 rows in set (0.00 sec)
+
+
+Insert Data into Table using executemany Parameterized Query Dictionary in Python
+=================================================================
+
+EX:
+#Insert Multiple Row - Dictionary
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'INSERT INTO student(name,roll,fees) VALUES(%(name)s,%(roll)s,%(fees)s)'
+myc = conn.cursor()
+params = [{'name':'Ajay','roll':666,'fees':5426.23},{'name':'Rani','roll':845,'fees':8456.12},{'name':'Rohit','roll':659,'fees':458}]
+
+try:
+	myc.executemany(sql,params)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Inserted')   #Number of Row Inserted
+	print(f'Stu ID:{myc.lastrowid} Inserted')  #Last inserted Id 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Insert Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+-----
+Connected
+3 Row Inserted
+Stu ID:37 Inserted
+
+
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
+|    35 | Sameer  |  777 |   54100 |
+|    36 | Kunal   |  111 |   54100 |
+|    37 | Ajay    |  666 | 5426.23 |----
+|    38 | Rani    |  845 | 8456.12 |----Look Here..
+|    39 | Rohit   |  659 |     458 |----
++-------+---------+------+---------+
+38 rows in set (0.00 sec)
+
+
+Input from user into Table Parameterized Query Dictionary in Python 
+==========================================================
+# Insert single Rows - Input from User -Dictionary
+
+EX:
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql = 'INSERT INTO student(name,roll,fees) VALUES(%(name)s,%(roll)s,%(fees)s)'
+myc = conn.cursor()
+#Data Input from User
+nm = input('Enter Name: ')
+ro = int(input('Enter Roll: '))
+fe = float(input('Enter Fees: '))
+params ={'name':nm,'roll':ro,'fees':fe}
+
+try:
+	myc.execute(sql,params)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Inserted')   #Number of Row Inserted
+	print(f'Stu ID:{myc.lastrowid} Inserted')  #Last inserted Id 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Insert Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+-------
+cmd lo --->
+
+Connected
+Enter Name: Mahesh
+Enter Roll: 5
+Enter Fees: 45.0
+1 Row Inserted
+Stu ID:40 Inserted
+
+MySQL Command Line client lo---->
+
+mysql>use pdb
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
+|    35 | Sameer  |  777 |   54100 |
+|    36 | Kunal   |  111 |   54100 |
+|    37 | Ajay    |  666 | 5426.23 |
+|    38 | Rani    |  845 | 8456.12 |
+|    39 | Rohit   |  659 |     458 |
+|    40 | Mahesh  |    5 |      45 |------Look here
++-------+---------+------+---------+
+
+EX:
+
+# Insert Multiple Rows - Input from User -Dictionary
+
+import mysql.connector
+def student_data(nm,ro,fe):
+	try:
+		conn = mysql.connector.connect(user='root',
+			password='Bb@95812',
+			host='localhost',
+			database = 'pdb',
+			port=3306
+		)
+		if(conn.is_connected()):
+			print('Connected')
+
+	except:
+		print('Unable to Connect')
+
+	sql = 'INSERT INTO student(name,roll,fees) VALUES(%(name)s,%(roll)s,%(fees)s)'
+	myc = conn.cursor()
+	n = nm
+	r = ro
+	f = fe
+	params = {'name':n,'roll':r,'fees':f}
+
+	try:
+		myc.execute(sql,params)
+		conn.commit()  #committing the change
+		print(myc.rowcount,'Row Inserted')   #Number of Row Inserted
+		print(f'Stu ID:{myc.lastrowid} Inserted')  #Last inserted Id 
+
+	except:
+		conn.rollback()  #Rollback the  change
+		print('Unable to Insert Data')
+
+	myc.close()  #close cursor
+	conn.close() #close Connection
+
+while True:
+	#Data Input from User
+	nm = input('Enter Name: ')
+	ro = int(input('Enter Roll: '))
+	fe = float(input('Enter Fees: '))
+	student_data(nm,ro,fe)
+
+	ans = input('Do you want exit(y/n)?')
+	if(ans=='y'):
+		break
+
+output
+-------
+cmd lo ---->
+
+Enter Name: Anand
+Enter Roll: 752
+Enter Fees: 563.0
+Connected
+1 Row Inserted
+Stu ID:41 Inserted
+Do you want exit(y/n)?n
+Enter Name: Sonu
+Enter Roll: 45623
+Enter Fees: 7895.0
+Connected
+1 Row Inserted
+Stu ID:42 Inserted
+Do you want exit(y/n)?y
+
+MySQL Command Line lo--->
+
+mysql> select * from student;
++-------+---------+-------+---------+
+| stuid | name    | roll  | fees    |
++-------+---------+-------+---------+
+|     1 | Sonam   |   106 |  6000.2 |
+|     2 | Jyoti   |   107 |  7000.2 |
+|     3 | Aman    |   108 |  8000.4 |
+|     4 | Raj     |   109 |   45654 |
+|     5 | Jyoti   |   107 |  7000.2 |
+|     6 | Aman    |   108 |  8000.4 |
+|     7 | Raj     |   109 |   45654 |
+|     8 | Jyoti   |   107 |  7000.2 |
+|     9 | Aman    |   108 |  8000.4 |
+|    10 | Raj     |   109 |   45654 |
+|    11 | Jyoti   |   107 |  7000.2 |
+|    12 | Aman    |   108 |  8000.4 |
+|    14 | Sonam   |   106 |  6000.2 |
+|    15 | Sonam   |   106 |  6000.2 |
+|    16 | Sonam   |   106 |  6000.2 |
+|    17 | Sumit   |   103 | 30000.5 |
+|    18 | Sumit   |   103 | 30000.5 |
+|    19 | Jai     |   104 | 40000.5 |
+|    20 | Veera   |   105 | 50000.5 |
+|    21 | Basanti |   106 |     200 |
+|    22 | Sunmit  |   103 | 30000.5 |
+|    23 | Murali  |   104 | 30000.5 |
+|    24 | Murali  |   104 | 30000.5 |
+|    25 | Murali  |   104 | 30000.5 |
+|    26 | Rahul   |   102 | 50000.5 |
+|    27 | jai     |   120 | 40000.5 |
+|    28 | veeru   |   121 | 50000.5 |
+|    29 | Basanti |   122 | 60000.5 |
+|    30 | Ramesh  |   123 | 40000.5 |
+|    31 | Ashok   |   124 | 50000.5 |
+|    32 | siva    |   125 | 60000.5 |
+|    33 | Abhi    |   126 |   58692 |
+|    34 | Bala    |   127 |    5693 |
+|    35 | Sameer  |   777 |   54100 |
+|    36 | Kunal   |   111 |   54100 |
+|    37 | Ajay    |   666 | 5426.23 |
+|    38 | Rani    |   845 | 8456.12 |
+|    39 | Rohit   |   659 |     458 |
+|    40 | Mahesh  |     5 |      45 |
+|    41 | Anand   |   752 |     563 |----Look Here
+|    42 | Sonu    | 45623 |    7895 |----
++-------+---------+-------+---------+
+
+
+How to Delete Data from Table Parameterized Query in Python
+===============================================
+
+EX:
+
+# Delete Row -Tuple
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='DELETE FROM student WHERE stuid=42' --->Objser here stuid=42
+myc = conn.cursor()
+
+try:
+	myc.execute(sql)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Deleted')   #Number of Row Inserted 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Delete Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+------
+
+cmd lo ---->
+
+Connected
+1 Row Deleted
+
+MySQL Command Line lo ---->
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
+|    35 | Sameer  |  777 |   54100 |
+|    36 | Kunal   |  111 |   54100 |
+|    37 | Ajay    |  666 | 5426.23 |
+|    38 | Rani    |  845 | 8456.12 |
+|    39 | Rohit   |  659 |     458 |
+|    40 | Mahesh  |    5 |      45 |
+|    41 | Anand   |  752 |     563 |
++-------+---------+------+---------+
+
+	(OR)
+
+
+EX:
+
+# Delete Row -Tuple
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='DELETE FROM student WHERE stuid=%s' ----Observe here
+myc = conn.cursor()
+
+try:
+	myc.execute(sql,(41,))---->Observe here (41,)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Deleted')   #Number of Row Inserted 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Delete Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+-------
+cmd lo --->
+
+Connected
+1 Row Deleted
+
+MySQL command lo--->
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
+|    35 | Sameer  |  777 |   54100 |
+|    36 | Kunal   |  111 |   54100 |
+|    37 | Ajay    |  666 | 5426.23 |
+|    38 | Rani    |  845 | 8456.12 |
+|    39 | Rohit   |  659 |     458 |
+|    40 | Mahesh  |    5 |      45 |
++-------+---------+------+---------+
+		
+		(OR)
+EX:
+
+# Delete Row -Tuple
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='DELETE FROM student WHERE stuid=%s' 
+myc = conn.cursor()
+del_value = (39,)
+
+try:
+	myc.execute(sql, del_value)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Deleted')   #Number of Row Inserted 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Delete Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+------
+Connected
+1 Row Deleted
+
+MySQL Command Line lo ---->
+
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
+|    35 | Sameer  |  777 |   54100 |
+|    36 | Kunal   |  111 |   54100 |
+|    37 | Ajay    |  666 | 5426.23 |
+|    38 | Rani    |  845 | 8456.12 |
++-------+---------+------+---------+
+
+	(OR)
+
+
+EX:
+
+# Delete Row -Tuple
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='DELETE FROM student WHERE stuid=%s' 
+myc = conn.cursor()
+n = int(input('Enter ID to Delete: '))
+del_value = (n,)
+
+try:
+	myc.execute(sql, del_value)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Deleted')   #Number of Row Inserted 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Delete Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+
+output
+------
+
+cmd lo --->
+
+Connected
+Enter ID to Delete: 38
+1 Row Deleted
+
+MySQL Command line lo--->
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
+|    35 | Sameer  |  777 |   54100 |
+|    36 | Kunal   |  111 |   54100 |
+|    37 | Ajay    |  666 | 5426.23 |
++-------+---------+------+---------+
+
+	(OR)
+
+# Delete Row -Dictionary
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='DELETE FROM student WHERE stuid=%(id)s' 
+myc = conn.cursor()
+
+try:
+	myc.execute(sql, {'id':37})
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Deleted')   #Number of Row Inserted 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Delete Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+
+output
+------
+
+cmd lo -->
+
+Connected
+1 Row Deleted
+
+MySQL command line lo--->
+
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
+|    35 | Sameer  |  777 |   54100 |
+|    36 | Kunal   |  111 |   54100 |
++-------+---------+------+---------+
+
+	(OR)
+
+EX:
+
+# Delete Row -Tuple
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='DELETE FROM student WHERE stuid=%(id)s' 
+myc = conn.cursor()
+del_value =  {'id':36}
+
+try:
+	myc.execute(sql,del_value)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Deleted')   #Number of Row Inserted 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Delete Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+------
+
+cmd lo ---->
+
+Connected
+1 Row Deleted
+
+MySQL command lo --->
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
+|    35 | Sameer  |  777 |   54100 |
++-------+---------+------+---------+
+
+	(OR)
+
+EX:
+
+# Delete Row -Tuple
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='DELETE FROM student WHERE stuid=%(id)s' 
+myc = conn.cursor()
+n = int(input('Enter ID to Delete: '))
+del_value =  {'id':n}
+
+try:
+	myc.execute(sql,del_value)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Deleted')   #Number of Row Inserted 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Delete Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+
+output
+------
+cmd lo ---->
+
+Connected
+Enter ID to Delete: 35
+1 Row Deleted
+
+MySQL Command line --->
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |   45654 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
++-------+---------+------+---------+
+
+
+How to Update Data in Table Parameterized Query in Python 
+================================================
+
+EX:
+
+# update Row 
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='UPDATE student SET fees=200 WHERE stuid=4' 
+myc = conn.cursor()
+
+
+try:
+	myc.execute(sql)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Updated')   #Number of Row Inserted 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Update Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+-------
+cmd lo ---->
+
+Connected
+1 Row Updated
+
+MySQL command Line lo
+--------------------
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |     200 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |  6000.2 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
++-------+---------+------+---------+
+
+EX:
+
+# Update Row
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='UPDATE student SET fees=%s WHERE stuid=%s' 
+myc = conn.cursor()
+
+
+try:
+	myc.execute(sql,(200, 16))
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Updated')   #Number of Row Inserted 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Update Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+------
+Connected
+1 Row Updated
+
+MySQL Command Line
+-------------------
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |     200 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |     200 |
+|    17 | Sumit   |  103 | 30000.5 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
++-------+---------+------+---------+
+
+EX:
+# Update Row
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='UPDATE student SET fees=%s WHERE stuid=%s' 
+myc = conn.cursor()
+update_value = (200, 17)
+
+
+try:
+	myc.execute(sql,update_value)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Updated')   #Number of Row Inserted 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Update Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+------
+cmd lo ---->
+
+Connected
+1 Row Updated
+
+MySQL Command Line-->
+---------------
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |     200 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |     200 |
+|    17 | Sumit   |  103 |     200 |
+|    18 | Sumit   |  103 | 30000.5 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
++-------+---------+------+---------+
+
+EX:
+
+# Update Row
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='UPDATE student SET name = %s, roll = %s, fees=%s WHERE stuid=%s' 
+myc = conn.cursor()
+update_value = ('murali',896,100, 18)
+
+
+try:
+	myc.execute(sql,update_value)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Updated')   #Number of Row Inserted 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Update Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+------
+Connected
+1 Row Updated
+
+MySQL Command Line lo
+-------------------
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |     200 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |     200 |
+|    17 | Sumit   |  103 |     200 |
+|    18 | murali  |  896 |     100 |
+|    19 | Jai     |  104 | 40000.5 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
++-------+---------+------+---------+
+
+EX:
+
+# Update Row
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='UPDATE student SET name = %s, roll = %s, fees=%s WHERE stuid=%s' 
+myc = conn.cursor()
+id = int(input('Enter Student ID  to Update:'))
+nm = input('Enter Name:')
+ro = int(input('Enter Roll:'))
+fe = float(input('Enter Fees:'))
+
+update_value = (nm,ro,fe,id)
+
+
+try:
+	myc.execute(sql,update_value)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Updated')   #Number of Row Inserted 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Update Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+------
+
+cmd lo ---->
+
+Connected
+Enter Student ID  to Update:19
+Enter Name:Jackey
+Enter Roll:693
+Enter Fees:8
+1 Row Updated
+
+MySQL Command Line-->
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |     200 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |     200 |
+|    17 | Sumit   |  103 |     200 |
+|    18 | murali  |  896 |     100 |
+|    19 | Jackey  |  693 |       8 |
+|    20 | Veera   |  105 | 50000.5 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
++-------+---------+------+---------+
+
+
+EX:
+
+# Update Row
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='UPDATE student SET fees = %(fee)s WHERE stuid=%(id)s' 
+myc = conn.cursor()
+update_value = {'fee':4000,'id':20}
+
+
+try:
+	myc.execute(sql,update_value)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Updated')   #Number of Row Inserted 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Update Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+------
+cmd lo -->
+
+Connected
+1 Row Updated
+
+MySQL command Line lo
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |     200 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |     200 |
+|    17 | Sumit   |  103 |     200 |
+|    18 | murali  |  896 |     100 |
+|    19 | Jackey  |  693 |       8 |
+|    20 | Veera   |  105 |    4000 |
+|    21 | Basanti |  106 |     200 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
++-------+---------+------+---------+
+
+
+EX:
+
+# Update Row
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='UPDATE student SET name = %(n)s, roll = %(r)s, fees = %(f)s WHERE stuid=%(id)s' 
+myc = conn.cursor()
+update_value = {'n':'Rani','r':489,'f':6000,'id':21}
+
+
+try:
+	myc.execute(sql,update_value)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Updated')   #Number of Row Inserted 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Update Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+-------
+cmd lo ---->
+
+Connected
+1 Row Updated
+
+MySQL command Line lo--->
+
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |     200 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |     200 |
+|    17 | Sumit   |  103 |     200 |
+|    18 | murali  |  896 |     100 |
+|    19 | Jackey  |  693 |       8 |
+|    20 | Veera   |  105 |    4000 |
+|    21 | Rani    |  489 |    6000 |
+|    22 | Sunmit  |  103 | 30000.5 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
++-------+---------+------+---------+
+
+EX:
+
+# Update Row
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='UPDATE student SET name = %(n)s, roll = %(r)s, fees = %(f)s WHERE stuid=%(id)s' 
+myc = conn.cursor()
+id = int(input('Enter Student ID to update:'))
+nm = input('Enter Name:')
+ro = int(input('Enter Roll:'))
+fe = float(input('Enter Fees:'))
+
+
+update_value = {'n':nm,'r':ro,'f':fe,'id':id}
+
+
+try:
+	myc.execute(sql,update_value)
+	conn.commit()  #committing the change
+	print(myc.rowcount,'Row Updated')   #Number of Row Inserted 
+
+except:
+	conn.rollback()  #Rollback the  change
+	print('Unable to Update Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+------
+cmd lo--->
+
+Connected
+Enter Student ID to update:22
+Enter Name:Ashok
+Enter Roll:678
+Enter Fees:896
+1 Row Updated
+
+MySQL Command Line lo
+
+mysql> select * from student;
++-------+---------+------+---------+
+| stuid | name    | roll | fees    |
++-------+---------+------+---------+
+|     1 | Sonam   |  106 |  6000.2 |
+|     2 | Jyoti   |  107 |  7000.2 |
+|     3 | Aman    |  108 |  8000.4 |
+|     4 | Raj     |  109 |     200 |
+|     5 | Jyoti   |  107 |  7000.2 |
+|     6 | Aman    |  108 |  8000.4 |
+|     7 | Raj     |  109 |   45654 |
+|     8 | Jyoti   |  107 |  7000.2 |
+|     9 | Aman    |  108 |  8000.4 |
+|    10 | Raj     |  109 |   45654 |
+|    11 | Jyoti   |  107 |  7000.2 |
+|    12 | Aman    |  108 |  8000.4 |
+|    14 | Sonam   |  106 |  6000.2 |
+|    15 | Sonam   |  106 |  6000.2 |
+|    16 | Sonam   |  106 |     200 |
+|    17 | Sumit   |  103 |     200 |
+|    18 | murali  |  896 |     100 |
+|    19 | Jackey  |  693 |       8 |
+|    20 | Veera   |  105 |    4000 |
+|    21 | Rani    |  489 |    6000 |
+|    22 | Ashok   |  678 |     896 |
+|    23 | Murali  |  104 | 30000.5 |
+|    24 | Murali  |  104 | 30000.5 |
+|    25 | Murali  |  104 | 30000.5 |
+|    26 | Rahul   |  102 | 50000.5 |
+|    27 | jai     |  120 | 40000.5 |
+|    28 | veeru   |  121 | 50000.5 |
+|    29 | Basanti |  122 | 60000.5 |
+|    30 | Ramesh  |  123 | 40000.5 |
+|    31 | Ashok   |  124 | 50000.5 |
+|    32 | siva    |  125 | 60000.5 |
+|    33 | Abhi    |  126 |   58692 |
+|    34 | Bala    |  127 |    5693 |
++-------+---------+------+---------+
+
+
+Retrieve Single Row with WHERE Clause Parameterized Query Tuple in Python
+================================================================
+
+EX:
+
+
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='SELECT * FROM student WHERE stuid=4' 
+myc = conn.cursor()
+
+try:
+	myc.execute(sql)
+	row = myc.fetchone()
+	print(row)
+	print('Total Rows:',myc.rowcount)
+except:
+	print('Unable to Retrieve Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+------
+
+Connected
+(4, 'Raj', 109, 200.0)
+Total Rows: 1
+
+
+EX:
+
+
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='SELECT * FROM student WHERE stuid=%s' 
+myc = conn.cursor()
+
+try:
+	myc.execute(sql,(11,))
+	row = myc.fetchone()
+	print(row)
+	print('Total Rows:',myc.rowcount)
+except:
+	print('Unable to Retrieve Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+
+output
+------
+
+Connected
+(11, 'Jyoti', 107, 7000.2)
+Total Rows: 1
+
+
+EX:
+
+
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='SELECT * FROM student WHERE stuid=%s' 
+myc = conn.cursor()
+disp_value = (15,)
+
+try:
+	myc.execute(sql,disp_value)
+	row = myc.fetchone()
+	print(row)
+	print('Total Rows:',myc.rowcount)
+except:
+	print('Unable to Retrieve Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+
+output
+------
+Connected
+(15, 'Sonam', 106, 6000.2)
+Total Rows: 1
+
+
+EX:
+
+
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='SELECT * FROM student WHERE stuid=%s' 
+myc = conn.cursor()
+n = int(input('Enter Student ID to Display: '))
+disp_value = (n,)
+
+try:
+	myc.execute(sql,disp_value)
+	row = myc.fetchone()
+	print(row)
+	print('Total Rows:',myc.rowcount)
+except:
+	print('Unable to Retrieve Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+------
+cmd lo --->
+
+Connected
+Enter Student ID to Display: 22
+(22, 'Ashok', 678, 896.0)
+Total Rows: 1
+
+
+Retrieve Multiple Row with WHERE Clause Parameterized Query Tuple in Python
+=====================================================
+
+EX:
+
+
+
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='SELECT * FROM student WHERE roll=%s' 
+myc = conn.cursor()
+disp_value = (108,)
+
+try:
+	myc.execute(sql,disp_value)
+	row = myc.fetchone()
+	while row is not None:
+		print(row)
+		row = myc.fetchone()
+	print('Total Rows:',myc.rowcount)
+except:
+	print('Unable to Retrive Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+-------
+Connected
+(3, 'Aman', 108, 8000.4)
+(6, 'Aman', 108, 8000.4)
+(9, 'Aman', 108, 8000.4)
+(12, 'Aman', 108, 8000.4)
+Total Rows: 4
+
+
+EX:
+
+
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='SELECT * FROM student WHERE fees=%s' 
+myc = conn.cursor()
+disp_value = (40000.5,)
+
+try:
+	myc.execute(sql,disp_value)
+	row = myc.fetchone()
+	while row is not None:
+		print(row)
+		row = myc.fetchone()
+	print('Total Rows:',myc.rowcount)
+except:
+	print('Unable to Retrive Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+
+output
+------
+
+Connected
+(27, 'jai', 120, 40000.5)
+(30, 'Ramesh', 123, 40000.5)
+Total Rows: 2
+
+
+EX:
+
+
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='SELECT * FROM student WHERE fees=%s' 
+myc = conn.cursor()
+n = float(input('Enter Fees:' ))
+disp_value = (n,)
+
+try:
+	myc.execute(sql,disp_value)
+	row = myc.fetchone()
+	while row is not None:
+		print(row)
+		row = myc.fetchone()
+	print('Total Rows:',myc.rowcount)
+except:
+	print('Unable to Retrive Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+------
+Connected
+Enter Fees:60000.5
+(29, 'Basanti', 122, 60000.5)
+(32, 'siva', 125, 60000.5)
+Total Rows: 2
+
+
+
+Retrieve Single Row with WHERE Clause Parameterized Query Dictionary in Python
+===========================================================
+
+EX:
+
+
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='SELECT * FROM student WHERE stuid=%(id)s' 
+myc = conn.cursor()
+
+
+try:
+	myc.execute(sql,{'id':12})
+	row = myc.fetchone()
+	print(row)
+	print('Total Rows:',myc.rowcount)
+except:
+	print('Unable to Retrive Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+------
+Connected
+(12, 'Aman', 108, 8000.4)
+Total Rows: 1
+
+EX:
+
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='SELECT * FROM student WHERE stuid=%(id)s' 
+myc = conn.cursor()
+disp_value = {'id':15}
+
+try:
+	myc.execute(sql,disp_value)
+	row = myc.fetchone()
+	print(row)
+	print('Total Rows:',myc.rowcount)
+except:
+	print('Unable to Retrive Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+
+output
+------
+Connected
+(15, 'Sonam', 106, 6000.2)
+Total Rows: 1
+
+
+EX:
+
+
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='SELECT * FROM student WHERE stuid=%(id)s' 
+myc = conn.cursor()
+n = int(input('Enter Student ID:'))
+disp_value = {'id':n}
+
+try:
+	myc.execute(sql,disp_value)
+	row = myc.fetchone()
+	print(row)
+	print('Total Rows:',myc.rowcount)
+except:
+	print('Unable to Retrive Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+------
+Connected
+Enter Student ID:10
+(10, 'Raj', 109, 45654.0)
+Total Rows: 1
+
+
+Retrieve Multiple Row with WHERE Clause Parameterized Query Dictionary in Python 
+============================================================
+
+EX:
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='SELECT * FROM student WHERE roll=%(roll)s' 
+myc = conn.cursor()
+disp_value = {'roll':108}
+
+try:
+	myc.execute(sql,disp_value)
+	row = myc.fetchone()
+	while row is not None:
+		print(row)
+		row = myc.fetchone()
+	print('Total Rows:',myc.rowcount)
+except:
+	print('Unable to Retrive Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+
+output
+------
+cmd lo --->
+
+Connected
+(3, 'Aman', 108, 8000.4)
+(6, 'Aman', 108, 8000.4)
+(9, 'Aman', 108, 8000.4)
+(12, 'Aman', 108, 8000.4)
+Total Rows: 4
+
+
+EX:
+
+
+
+import mysql.connector
+
+try:
+	conn = mysql.connector.connect(user='root',
+		password='Bb@95812',
+		host='localhost',
+		database = 'pdb',
+		port=3306
+	)
+	if(conn.is_connected()):
+		print('Connected')
+
+except:
+	print('Unable to Connect')
+
+sql ='SELECT * FROM student WHERE roll=%(roll)s' 
+myc = conn.cursor()
+n = int(input('Enter Fees: '))
+disp_value = {'roll':n}
+
+try:
+	myc.execute(sql,disp_value)
+	row = myc.fetchone()
+	while row is not None:
+		print(row)
+		row = myc.fetchone()
+	print('Total Rows:',myc.rowcount)
+except:
+	print('Unable to Retrive Data')
+
+myc.close()  #close cursor
+conn.close() #close Connection
+
+output
+------
+Connected
+Enter Fees: 6000
+(21, 'Rani', 489, 6000.0)
+Total Rows: 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+

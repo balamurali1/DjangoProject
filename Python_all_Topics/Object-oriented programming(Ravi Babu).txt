@@ -1,0 +1,2062 @@
+OBJECT-ORIENTED PROGRAMMING
+***************************
+***************************
+
+SECTION I. DEFINING AND USING OUR OWN CLASSES
+**********************************************
+- Object-oriented programming (OOP) groups related variables (attributes) and functions (methods) into data structures called objects.
+
+
+Human class
+------------
+	- Attributes (characteristcs / features)
+		Age = 32
+		Weight = 65
+		Height = 5.7
+		Color = 'Black'
+		Ethinicity = 'Asian'
+	- Methods (actions / functionality)
+		Walk()
+		Jump()
+		Sit()
+		Eat()
+		Talk()
+		See()
+		Hear()
+		ApplyCream()
+
+
+- UML (Unified Modeling Language) is the industry standard used to describe the classes and objects of an object-oriented application.
+
+
+- A 'class' can be thought of as a template or blueprint from which objects are made.
+
+- The attributes of a class define the type of data that an object can store.
+
+- The methods of a class define the tasks that an object can perform. Often, these methods provide a way to modify the attributes of an object.
+
+- Once you create an object from a class, the object has an identity (a unique address), a state (the data that it stores), and behavior (the methods that it contains). As a program runs, an object's state may change.
+
+- An object is an instance of a class. In other words, we can create more than one object from a single class. The process of creating an object from a class is sometimes called instantiation.
+
+
+
+- A UML class diagram describes the attributes and methods of one or more classes.
+
+A diagram of the product class
+-------------------------------
+Product
+- - - -
+	Attributes
+		name
+		price
+		discountPercent
+	Methods
+		__init__(name, price, discountPercent)
+		getDiscountAmount()
+		getDiscountPrice()
+
+
+
+
+A relationship between a class and its objects
+-----------------------------------------------
+Product
+- - - - -
+	name
+	price
+	discountPercent
+
+
+	product1
+		"Yahama Bike"
+		230450
+		3
+
+	product2
+		"Samsung A30"
+		15500
+		5
+
+
+
+Defining a Product class with coding
+=====================================
+- Coding and calling methods works similarly to coding and calling functions.
+
+- A constructor is a special method named __init__ that defines the attributes for an object and initializes the values of those objects.
+
+- All methods, including the constructor, must take a reference to the object itslef as their first parameter. By convention, this reference is named 'self'.
+
+
+The Product class in the module named objects
+---------------------------------------------
+class Product:
+	# a constructor that initializes 3 attributes
+	def __init__(self, name, price, discountPercent):
+		self.name = name			# attribute 1
+		self.price = price			# attribute 2
+		self.discountPercent = discountPercent	# attribute 3
+
+	# a method that uses attributes to perform a calculation
+	def getDiscountAmount(self):
+		return self.price * self.discountPercent / 100
+
+	# a method that calls another method to perform a calculation
+	def getDiscountPrice(self):
+		return self.price - self.getDiscountAmount()
+
+
+
+
+A script that creates two Product objects and we use them
+---------------------------------------------------------
+from objects import Product
+
+# create two product objects
+product1 = Product("Yamaha Bike", 250000, 3)
+product2 = Product("Samsung A30", 15000, 5)
+
+
+# print data from product1 to console
+print("Name:", product1.name)
+print("Price:", product1.price)
+print("Discount percent:", product1.discoutPercent)
+print("Discount amount:", product1.getDiscountAmount())
+print("Discount price:", product1.getDiscountPrice())
+
+
+# print data from product1 to console
+print("Name:		 {:s}".format(product1.name))
+print("Price:		 {:s}".format(product1.price))
+print("Discount percent: {:s}".format(product1.discoutPercent))
+print("Discount amount:  {:s}".format(product1.getDiscountAmount()))
+print("Discount price:	 {:s}".format(product1.getDiscountPrice()))
+
+
+
+Creating and using objects
+===========================
+- To create an object, we code the name of the class and a set of parentheses. Inside the parentheses, we code the parameters for the constructor separated by commas.
+
+- To access the attributes of an object, we code the name of the object followed by the dot operator (.) and the name of the attribute.
+
+	objectName.attributeName
+
+- To call a method from an object, we code the name of the object followed by the dot operator (.), the name of the method, and a set of parentheses. Inside the parantheses, we code the parameters for the method separated by commas.
+
+	objectName.methodName([parameters])
+
+
+How to import a class
+----------------------
+The syntax
+- - - - - -
+from module_name import ClassName1[, ClassName2]...
+
+Import the Product clas from the objects module
+-----------------------------------------------
+from objects import Product
+
+
+How to create an object
+-----------------------
+The syntax
+- - - - - -
+objectName = ClassName([parameters])
+
+
+Create two Product objects
+---------------------------
+product1 = Product("Attitude", 350.00, 5)
+product2 = Product("Keyboard", 85000.00, 2)
+
+
+How to access the attributes of an object
+-------------------------------------------
+The syntax
+- - - - - -
+objectName.AttributeName
+
+
+Set an attribute
+----------------
+product1.discountPercent = 40		# sets discountPercent to 40
+
+Get an attribute
+-----------------
+percent = product1.discountPercent	# percent = 40
+
+
+How to call the methods of an object
+-------------------------------------
+objectName.methodName([parameters])
+
+
+Call the getDiscountAmount() method
+------------------------------------
+discount = product1.getDiscountAmount()
+
+Call the getDiscountPrice() method
+-----------------------------------
+salePrice = product1.getDiscountPrice()
+
+
+
+Defining a class
+=================
+- The constructor for a class is executed when an object is created from the class. It typically defines and intializes the attributes of the object, but it can run other initialization code too.
+
+- The constructor must take a reference to the object itself as its first parameter. By convention, this reference is named 'self'.
+
+- We can only code one constructor per class.
+
+
+The syntax
+-----------
+def __init__(self[, parameters]):	# the constructor
+	self.sttrName1 = sttrValue1	# first attribute
+	self.sttrName2 = sttrValue2	# second attribute
+
+
+A constructor with no parameters
+---------------------------------
+def __init__(self):
+	self.name = ""
+	self.price = 0.0
+	self.discountPercent = 0
+
+
+Code that uses this constructor to create an object
+----------------------------------------------------
+product = Product()
+
+Code that sets the attributes of the object
+---------------------------------------------
+product.name = "Attitude"
+product.price = 350.00
+product.discountPercent = 5
+
+
+A constructor with three parameters
+------------------------------------
+def __init__(self, name, price, discountPercent):
+	self.name = name
+	self.price = price
+	self.discountPercent = discountPercent
+
+Code that uses this constructor to create an object and set its attributes
+-------------------------------------------------------------
+product = Product("Samsung A71", 28000.00, 4)
+
+
+Code that supplies just two parameters
+--------------------------------------
+We set the default value for discountPercnet attribute
+-------------------------------------------------------
+product = Product(name="Laptop", price=25000.00)
+
+
+Code methods
+===============
+- To code a method in a class, we code the def keyword followed by the name of the method, an optional parameter list in a set of parentheses, a colon, and then a block of statements to execute.
+
+- A method must take a reference to the object itself as its first parameter. By default, the reference is named self.
+
+
+The syntax
+--------------
+def methodName(self[, parameters]):
+	statements
+
+
+A method that returns a value
+------------------------------
+def getDiscountAmount(self):
+	discountAmount = self.price * self.discountPercent / 100
+	return discountAmount
+
+
+Code that calls the above method
+--------------------------------
+discountAmount = product.getDiscountAmount()
+
+
+A more concise way to code this method
+---------------------------------------
+def getDiscountAmount(self):
+	return self.price * self.discountPercent / 100
+
+
+
+A method that calls the another method of the class
+----------------------------------------------------
+def getDiscountPrice(self):
+	return self.price - self.getDiscountAmount()
+
+
+Code that calls the method
+--------------------------
+discountPrice = product.getDiscountPrice()
+
+
+
+
+A method of the Product class that accepts a parameter
+-------------------------------------------------------
+def getPriceStr(self, country):
+	priceStr = "{:2f}".format(self.price)
+	if country == "US":
+		priceStr += " USD"
+	elif country == "DE":
+		priceStr = priceStr + " EUR"
+	return priceStr
+
+# code that calls this method
+print("Price: " + product.getPriceStr("US")
+
+
+
+Product Viewer 1.0 program
+===========================
+
+The objects module
+-------------------
+class Product:
+	def __init__(self, name, price, discountPercent):
+		self.name = name
+		self.price = price
+		self.discountPercent = discountPercent
+
+	def getDiscountAmount(self):
+		return self.price * self.discountPercent / 100
+
+	def getDiscountPrice(self):
+		return self.price - self.getDiscountAmount()
+
+
+The product_viewer module
+--------------------------
+from objects import Product
+
+def show_products(products):
+	print("PRODUCTS")
+	for i in range(len(products)):
+		product = products[i]
+		print(str(i+1) + ". " + product.name)
+	print()
+
+def show_product(product):
+	print("PRODUCT DATA")
+	print("Name:", product.name)
+	print("Price:", product.price)
+	print("Discount percent:", product.discountPercent)
+	print("Discount amount:", product.getDiscountAmount())
+	print("Discount price:", product.getDiscountPrice())
+
+def main():
+	print("The Product Viewer program")
+	print()
+
+	# a tuple of Product objects
+	products = (Product("Attitute", 350.00, 10), Product("Goal Setting", 950.00, 10), Product("Management", 500.00, 6))
+	show_products(products)
+
+	while True:
+		number = int(input("Enter product number: "))
+		print()
+
+		product = products[number-1]
+`		show_product(product)
+
+		choice = input("View another product? (y/n): ")
+		print()
+		if choice != "y":
+			print("Bye!")
+			break
+
+if __name__ == "__main__":
+	main()
+
+
+
+
+OBJECT COMPOSITION
+==================
+Object composition is a way to combine simple objects into more complex ones.
+
+
+A UML diagram for two classes that use composition
+---------------------------------------------------
+Dice				Die
+- - -				- - -
+list		-->		value
+addDie(die)			roll()
+rollAll()
+
+
+
+The dice module
+---------------
+import random
+
+class Die:
+	def __init__(self):
+		self.value = 1
+
+	def roll(self):
+		self.value = random.randrange(1, 7)
+
+
+class Dice:
+	def __init__(self):
+		self.list = []
+
+	def addDie(self, die):
+		self.list.append(die)
+
+	def rollAll(self):
+		for die in self.list:
+			die.roll()
+
+
+The dice_roller module
+-----------------------
+from dice import Dice, Die
+
+def main():
+	print("The Dice Roller program")
+	print()
+
+	# get number of dice from user
+	count = int(input("Enter the number of dice to roll: "))
+
+	# Dice object and add Die object to it
+	dice = Dice()
+	for i in range(count):
+		die = Die()
+		dice.addDie(die)
+
+	while True:
+		# roll the dice
+		dice.rollAll()
+		print("YOUR ROLL: ", end="")
+		for die in dice.list:
+			print(die.value, end=" ")
+		print("\n")
+
+		choice = input("Roll again? (y/n): ")
+		if choice != "y":
+			pirnt("Bye!")
+			break
+
+if __name__ == "__main__":
+	main()
+
+
+
+
+WORKING WITH ENCAPSULATION
+==========================
+- Encapsulation allows us to hide the data attributes of an object from other code that uses the object. This is also known as data hiding.
+
+- Public attributes can be accessed directly by the code that uses an object.
+
+- Private attributes can only be accessed indirectly through public methods or properties, which are special type of method.
+
+- An interface allows a programmer to use an object without understanding its internal code. If the interface of an object remains the same, a programmer can change the internal code for the object without needing to change any of the code that uses the object.
+
+- The double underscores (__) identify the attributes that are private.
+
+
+
+Hiding attributes
+=================
+- To make an attribute private, prefix the name of the attribute with a double underscore (__).
+
+- Attempting to directly access a private attribute from outside the class causes an AttributeError that indicates that the field does not exist. However, we can use methods indirectly access a private attribute.
+
+
+
+The Die class with a public attriubte name value
+------------------------------------------------
+import random
+
+class Die:
+	def __init__(self):
+		self.value = 1
+
+	def roll(self):
+		self.value = random.randrange(1, 7)
+
+
+# code that directy sets and gets the public attribute
+die = Die()
+die.value = 10	# illegal value
+print("Die:", die.value)
+
+
+
+The Die class with a private attribute name __value
+---------------------------------------------------
+class Die:
+	def __init__(self):
+		self.__value = 1
+
+	def getValue(self):
+		return self.__value
+
+	def roll(self):
+		self.__value = random.randrange(1, 7)
+
+
+
+# code that attempts to directly access a private attribute
+die = Die()
+die.__value = 10	# this statement causes an error
+
+AttributeError: 'Die' object has no attribute '__value'
+
+
+
+die = Die()
+die.getValue()		# getter method gets the value of the attribute
+die.roll()		# setter method sets the value of the attribute
+
+
+Accessing hidden attributes with methods
+=========================================
+- We can use public methods to get and set the value of a private attribute.
+
+- The method that gets the value of the attribute is known as a getter method, and the method that sets the value of the attribute is known as a setter method.
+
+- Since a getter accesses data, it's also known as an accessor. Since a setter changes data, it's also known as mutator.
+
+- By convention, getter and setter methods begin with get and set respectively.
+
+
+
+The Die calss with methods that acces a private attribute
+---------------------------------------------------------
+import random
+
+class Die:
+	def __init__(self):
+		self.__value = 1
+
+	def getValue(self):
+		return self.__value
+
+	def setValue(self, value):
+		if value < 1 or value > 6:
+			raise ValueError("Die value must be from 1 to 6.")
+		else:
+			self.__value = value
+
+	def roll(self):
+		self.__value = random.randrange(1, 7)
+
+
+
+# code that uses the getter and setter methods
+die = Die()
+die.setValue(4)			# setter method: setValue()
+print("Die:", die.getValue())	# getter method: getValue()
+
+
+
+Accessing hidden attributes with properties
+===========================================
+- A 'property' is a type of method that's commonly used to get and set a private attribute.
+
+- To code a property, we must code the appropriate annotation above the method. In Python, an annotation begins with the @ symbol.
+
+- The property that gets the value of the attribute is known as the getter property, and the property that sets the value of the attribute is known as the setter property.
+
+
+Two annotations for getting and setting properties
+---------------------------------------------------
+@property		Coded above the getter method for the property.
+
+@propertyName.setter	Coded above the setter method for the specified property.
+
+
+A Die class that uses a property to access a private attribute
+---------------------------------------------------------------
+import random
+
+class Die:
+	def __init__(self):
+		self.__value = 1
+
+	@property
+	def value(self):
+		return self.__value
+
+	@value.setter
+	def value(self, value):
+		if value < 1 or value > 6:
+			raise ValueError("Die value must be from 1 to 6.")
+		else:
+			self.__value = value
+
+
+
+# code that uses the value property to get and set data
+die = Die()
+die.value = 6			# automatically getter method called
+print("Die:", die.value)	# automatically setter method called
+
+
+
+Dice and Dice classes with encapsulation
+=========================================
+- If we only code getter, we create a read-only property. Conversely, if we only code a setter, we create a write-only property.
+
+- If we return a mutable attribute (such as list), the calling code can change the mutable attribute direclty. One way to encapsulate a mutable attribute is to convert the mutable attribute to an immutable object (such as tuple) before returning it.
+
+
+A UML diagram for two classes that use encapsulation
+-----------------------------------------------------
+Dice				Die
+- - - 				- - -
+__list				__value
+list				value
+addDie(die)			roll()
+rollAll()
+
+
+
+The dice module
+----------------
+import random
+
+class Die:
+	def __init__(self):
+		self.__value = 1
+
+	@property
+	def value(self):
+		return self.__value
+
+	def roll(self):
+		self.__value = random.randrange(1, 7)
+
+
+class Dice:
+	def __init__(self):
+		self.__list = []
+
+	@property		# read-only
+	def list(self):
+		dice_tuple = tuple(self.__list)
+		return dice_tuple
+
+	def addDie(self, die):
+		self.__list.append(die)
+
+	def rollAll(self):
+		for die in self.__list:
+			die.roll()
+
+
+- Since the Die and Dice classes use a property to access the hidden attribute, these classes have the same interface.
+
+
+
+INHERITANCE
+************
+- Inheritance lets us create a new class based on an existing class. Then, the new class inherits the attributes and methods of the existing class.
+
+- A class that another class inherits is called a base class, parent class, or super class.
+
+- A class that inherits another class is called a derived class, child class or subclass.
+
+- A subclass can add new attributes and methods to the superclass. It can also override a method from the superclass by providing its own version of the method.
+
+UML diagramming note
+--------------------
+- To indicate that a class inherits another class, a UML diagram typically uses an arrow with an open (not shaded) arrowhead.
+
+
+Product
+--------
+name
+price
+discountPercent
+getDiscountAmount()
+getDiscountPrice()
+getDescription()
+
+ ^				 ^
+ |				 |				
+ |				 |
+ |				 |
+ |				 |
+Book				Movie
+-----				------
+author				year
+getDiscription()		getDescription()
+
+
+
+Defining a subclass
+===================
+Coding a subclass...
+---------------------
+- We can directly access public attributes of the superclass.
+
+- We can add new attributes and methods that arent' in the superclass.
+
+- We can call methods of the superclass (including constructors and properties) by coding the name of the superclass, the dot operator, and the name of the  method.
+
+- We can override existing methods in the superclass by coding methods that have the same name.
+
+
+The syntax for working with subclasses
+---------------------------------------
+class subClassName(SuperClassName):
+
+
+To call a method or constructor of the superclass
+-------------------------------------------------
+SuperClassName.methodName(self[, argumentList])
+
+
+The code for the Product superclass
+-----------------------------------
+class Product:
+	def __init__(self, name, price, discountPercent):
+		self.name = name
+		self.price = price
+		self.discountPercent = discountPercent
+
+	def getDiscountAmount(self):
+		return self.price * self.discountPercent / 100
+
+	def getDiscountPrice(self):
+		return self.price - getDiscountAmount()
+
+	def getDescription(self):
+		return self.name
+
+
+The code for the Book subclass
+-------------------------------
+class Book(Product):
+	def __init__(self, name="", price=0.0, discountPercent=0, author=""):
+		# call the constructor of the superclass
+		Product.__init__(self, name, price, discountPercent)
+
+		# set the author
+		self.author = author
+
+	# override the getDescription method
+	def getDescription(self):
+		return Product.getDescription(self) + " by " + self.author
+
+
+
+How polymorphism works
+=======================
+- Polymorphism is a feature of inheritance that lets us treat objects of subclasses as if they were objects of the superclass.
+
+- If we access a method of a superclass object and the method is overriden in the subclass of that class, polymorphism determines which method is executed based on the object's type.
+
+
+Three versions of the getDescription() method
+----------------------------------------------
+1. In the Product superclass
+- - - - - - - - - - - - -  - -
+def getDescription(self):
+	return self.name
+
+
+2. In the Book subclass
+- - - - - - - - - - - - -
+def getDescription(self):
+	return Product.getDescription(self) + " by " + self.author
+
+3. In the Movie subclass
+- - - - - - - - - - - - -
+def getDescription(self):
+	return Product.getDescription(self) + " (" + str(self.year) + ")"
+
+
+Code that uses the overriden methods
+-------------------------------------
+from objects import Product, Book, Movie
+
+def show_products(products):
+	print("PRODUCTS")
+	for product in products:
+		print(product.getDescription())
+	print()
+
+def main():
+	# a tuple of Product objects
+	products = (Product("Yamaha Bike", 275000.00, 3), Book("Attitude", 250.00, 5, "John C Maxwell"), Movie("Inspiration", 300.00, 0, 1975))
+
+	show_products(products)
+
+if __name__ = "__main__":
+	main()
+
+
+
+Check an object's type
+======================
+- We can use the isinstance() function to perform different processing for different type of objects.
+
+A function for checking an object's type
+----------------------------------------
+isinstance(object, [modName,]ClassName)		Returns True if the object is an instance of the specified class. Otherwise, returns False.
+
+
+Code that uses the isinstance() function
+----------------------------------------
+from objects import Product, Book, Movie
+
+def show_product(product):
+	print("PRODUCT DATA")
+	print("Name:", product.name)
+	if isinstance(product, Book):
+		print("Author:", product.author)
+	if isinstance(product, Movie):
+		print("Year:", product.year)
+	print("Discount price:", product.getDiscountPrice())
+	print()
+
+def main():
+	product1 = Product("Yahama Bike", 275000.00, 3)
+	show_product(product1)
+	print()
+
+	product2 = Movie("Inspiration", 300.00, 0, 1975)
+	show_product(product2)
+
+if __name__ == "__main__":
+	main()
+
+
+
+
+The objects module
+-------------------
+class Product:
+	def __init__(self, name, price, discountPercent):
+		self.name = name
+		self.price = price
+		self.discountPercent = discountPercent
+
+	def getDiscountAmount(self):
+		return self.price * self.discountPercent / 100
+
+	def getDiscountPrice(self):
+		return self.price - getDiscountAmount()
+
+	def getDescription(self):
+		return self.name
+
+
+class Book(Product):
+	def __init__(self, name="", price=0.0, discountPercent=0, author=""):
+		# call the constructor of the superclass
+		Product.__init__(self, name, price, discountPercent)
+
+		# set the author
+		self.author = author
+
+	# override the getDescription method
+	def getDescription(self):
+		return Product.getDescription(self) + " by " + self.author
+
+
+class Movie(Product):
+	def __init__(self, name="", price=0.0, discountPercent=0, year=0):
+		Product.__init__(self, name, price, discountPercent)
+		self.year = year
+
+	def getDescription(self):
+		return Product.getDescription(self) + " (" + str(self.year) + ")"
+
+
+
+
+The product_viewer module
+--------------------------
+from objects import Product, Book, Movie
+
+def show_products(products):
+	print("PRODUCTS")
+	for i in range(len(products)):
+		product = products[i]
+		print(str(i+1) + ". " + product.name)
+	print()
+
+def show_product(product):
+	print("PRODUCT DATA")
+	print("Name:", product.name)
+	if isinstance(product, Book):
+		print("Author:", product.author)
+	if isinstance(product, Movie):
+		print("Year:", product.year)
+	print("Price:", product.price)
+	print("Discount price:", product.getDiscountPrice())
+
+def main():
+	print("The Product Viewer program")
+	print()
+
+	# a tuple of Product objects
+	products = (Product("Yamaha Bike", 275000.00, 10), Book("Goal Setting", 950.00, 10, "Brian Tracy"), Movie("Inspiration", 500.00, 6, 1975))
+	show_products(products)
+
+	while True:
+		number = int(input("Enter product number: "))
+		print()
+
+		product = products[number-1]
+`		show_product(product)
+
+		choice = input("View another product? (y/n): ")
+		print()
+		if choice != "y":
+			print("Bye!")
+			break
+
+if __name__ == "__main__":
+	main()
+
+
+
+How to override object methods
+==============================
+- The 'object class' is the superclass for all classes. In other words, every class inherits the object class. As a result, the methods defined by the object class are available to all classes.
+
+- The __str__() method is a special method that's automatically called whenever an object needs to be converted to a string such as when print statement prints an object to the console or when str() function attempts to convert an object to a string.
+
+- The __str__() method in the object class returns a message that includes the name of the class for the object as well as its identifier. If that's not what we want, we can override this behaviour by defining our own __str__() method.
+
+- When coding classes, we often want to override the __str__() method so it returns a string that's concise, informative, and easy to read.
+
+
+A method of the object class
+-----------------------------
+__str__(self)	Returns a string for the object that includes the name of its class and its identifier.
+
+The syntax for overriding the __str__() method
+-----------------------------------------------
+def __str__(self):
+	return stringForObject
+
+
+
+A __str__() method in Product class
+-----------------------------------
+def __str__(self):
+	return self.name + "|" + str(self.price) + "|" + \
+		str(self.discountPercent)
+
+
+Code that automatically calls the __str_() method
+--------------------------------------------------
+product = Product("Yahama Bike", 275000.00, 4)
+print(product)
+
+
+
+Defining an iterator for an object
+===================================
+- When coding container classes, we often want to override the __init__() and __next__() methods so we can iteratre through the objects within the container. This improves the encapsulation of the object and makes it easier for other programmers to use the object.
+
+- It's common to use an iterator to provide a public way to access the objects that are stored in a private attribute of an object.
+
+
+Two methods of the object class
+-------------------------------
+__iter__(self)		Returns the iterator for the object and initializes the index for the interator.
+
+__next__(self)		Returns the next object in the sequence of objects. If there are no more objects, this method should raise the StopIteration exception.
+
+
+The constructor for a Dice class with a list for one or more Die objects
+------------------------------------------------------------------------
+class Dice:
+	def __init__(self):
+		self.__list = []
+
+
+Two methods that define an iterator for the Dice class
+------------------------------------------------------
+def __iter__(self):
+	self.__index = -1	# initialize index for each iteration
+	return self
+
+def __next__(self):
+	if self.__index >= len(self.__list) -1:
+		raise StopIteration()
+	self.__index += 1
+	die = self.__list[self.__index]
+	return die
+
+
+Code that creates a Dice object that contains five Die objects
+---------------------------------------------------------------
+dice = Dice()
+for i in range(5):
+	die = Die()
+	dice.addDie(die)
+
+
+Code that automatically calls the __iter__() and __next__() methods
+--------------------------------------------------------------------
+for die in dice:
+	print(die.value, end=" ")
+
+
+
+The dice module
+================
+import random
+
+class Die:
+	def __init__(self):
+		self.__value = 1
+
+	@property	# read-only!
+	def value(self):
+		return self.__value
+
+	def roll(self):
+		self.__value = random.randrange(1, 7)
+
+	# make it easier to get the value
+	def __str__(self):
+		return str(self.__value)
+
+class Dice:
+	def __init__(self):
+		self.__list = []
+
+	def addDie(self, die):
+		self.__list.append(die)
+
+	def rollAll(self):
+		for die in self.__list:
+			die.roll()
+
+	# define the Dice object as the iterator
+	def __iter__(self):
+		self.__index = -1   # initializes index for each iteration
+		return self
+
+	# define the method that gets the next Die object
+	def __next__(self):
+		if self.__index == len(self.__list) - 1:
+			raise StopIteration()
+		self.__index += 1
+		die = self.__list[self.__index]
+		return die
+
+
+
+Code that displays the value of each die
+------------------------------------------
+for die in dice:
+	print(die, end=" ")
+
+
+
+Working with exceptions
+========================
+- To define a custom exception, we can code a class that inherits one of the built-in exception class. Then, we can use the exception as we would any other exception.
+
+
+The hierarchy for six common exceptions
+---------------------------------------
+Exception
+	NameError
+	OSError
+		FileExistsError
+		FileNotFoundError
+	ValueError
+
+
+The syntax for creating our own exception
+------------------------------------------
+class CustomErrorName(ExceptionClassName):
+	pass
+
+A DataAccessError class that defines a custom exception
+--------------------------------------------------------
+class DataAccessError(Exception):
+	pass
+
+
+A module that uses the DataAccessError class
+----------------------------------------------
+from objects import DataAccessError
+
+def read_movies():
+	try:
+		movies = []
+		with open("movies.csv", newline="") as file:
+			reader = csv.reader(file)
+			for row in reader:
+				movies.append(row)
+		retrun movies
+	except FileNotFoundError:
+		raise DataAccessError("Data source not found.")
+	except Exception:
+		raise DataAccessError("Error accessing data source.")
+
+
+Code that handles a custom exception
+-------------------------------------
+from objects import DataAccessError
+
+try:
+	movies = db.read_movies()
+except DataAccessError as e:
+	print("DataAccessError:", e)
+
+
+
+WHEN TO USE INHERITANCE
+------------------------
+- If an object is a type of another object, it typically makes sense to use inheritance to create the realtionship between the two classes.
+
+- If an object has a type of another object, it typically makes sense to use composition to create the relationship between two classes.
+
+
+It makes sense to use inheritance when...
+-------------------------------------------
+- One object is a type of another object.
+- Both classes are part of the same logical domain
+- The subclass primarily adds features to the superclass.
+
+A Dice class that inherits the list class (not recommeded)
+----------------------------------------------------------
+class Dice(list):
+	def rollAll(self):
+		for die in self:
+			die.roll()
+
+Code that uses the Dice class
+- - - - - - - - - - - - - - - -
+dice = Dice()
+dice.append(Die())	# uses append method from list class
+diec.append(Die())
+dice.rollAll()
+die = dice[0]		# uses operators from list class
+die.insert(0, Die())	# uses insert method from list class
+dice.pop()		# uses pop method from list class
+print("Die value:", die.value)
+print("Dice count:", len(dice))
+
+
+A few of the problems with this approach
+------------------------------------------
+- The Dice object is not a type of list object.
+- Both classes are not part of the same logical domain.
+- The interface is too complex.
+- It voilates encapsulation.
+
+
+Designing an Object-oriented program
+=====================================
+- An object-oriented program should model a real-world system.
+
+- The job of the designer is to analyze the real-world system and then map it onto the object-oriented program.
+
+- A class in an object-oriented program typically defines an object that corresponds with an object, or entity, in the real world.
+
+Five steps for designing an object-oriented program
+----------------------------------------------------
+Step1: Identify the data attributes
+Step2: Subdivide each attribute into its samllest useful components
+Step3: Identify the classes
+Step4: Identify the methods
+Step5: Refine classes, attributes, and methods
+
+
+Step 1: Identify the data attributes
+=====================================
+- Depending on the nature of the system, we can identify data attributes in a variety of ways:
+	- interviewing users
+	- analyzing existing systems
+	- evaluating comparable systems
+
+
+Some examples of attributes:
+Product name		List price		Item count
+Product creator		Discount percent	Cart total
+Product format		Discount amount		Quantity
+Stocking message	Discount price
+
+
+Step 2: Subdivide the data attributes
+======================================
+- If a data attribute contains two or more components, we should consider subdividing the attribute into multiple attributes. That way, we won't need to parse the attribute each time we use it.
+
+- The extent to which we subdivide a data attribute depends on how it will be used. Because, its difficult to predict all future uses for data, most designers subdivide data attributes as much as possible.
+
+- When we subdivide a data attribute, we can easily rebuild it when necessary by concatenating the attributes.
+
+
+A product name that's divided into name and edition
+---------------------------------------------------
+Customer Name
+	- Raj Kumar
+
+	-> Customer first name
+		- Raj
+
+	-> Customer last name
+		- Kumar
+
+An address that's divided into street address, city, state, and pin code
+------------------------------------------------------------------------
+Customer address
+	- 1234 East Marredpally, Secunderabad, Hyderabad, Telangana, 500026
+
+	-> Street and number
+		- 1234 East Marredpally, Secunderabad
+
+	-> City
+		- Hyderabad
+
+	-> State
+		- Telangana
+
+	-> Pin code
+		500026
+
+
+
+Step 3: Identify the classes
+=============================
+- To identify the classes for a program, we can use notation like a modified version of our own.
+
+- After we identify and subdivide all of the data attributes for a program, we should group them by the classes with which they're associated.
+
+- If a data attribute relates to more than one class, we can include it under all of the classes it relates to. Then, when we write the code for the classes, we may be able to remove the duplicate attributes.
+
+- As we assign the attributes to classes, we should omit attributes that arent' needed, and we should add any additional attributes that are needed.
+
+
+Possible classes and attributes for a Shopping Cart program
+------------------------------------------------------------
+Product			LineItem		Cart
+- - - - -		- - - - -		- - -
+Product name*		Product name*		Cart total
+Product edition (X)	Product discount price*
+Product creator (X)	Quantity
+Product format (X)	'Line item total'
+Product stocking msg (X)
+Product price
+Product discount percent
+Product discount amount
+Product discount price*
+
+The notation used
+------------------
+- Data attributes that were identified but aren't needed are marked with (X).
+
+- Data attributes that were added are displayed in italics.
+
+- Data attributes that are related to two or more entities are followed by an asterisk.
+
+
+Step 4: Indentify the methods
+==============================
+- After you identify the data attributes for an object, we can attempt to identify the methods that define the behaviour of an object.
+
+The UML diagram for the classes of the Shopping Cart program
+-------------------------------------------------------------
+Cart			Lineitem		Product
+- - -			- - - - -		- - - - -
+__lineItems		product			name
+addItem(item)		quantity		price
+removeItem(index)	getTotal()		discountPercent
+getItemCount()					getDiscountAmount()
+getTotal()					getDiscountPrice()
+
+- If a data attribute can be calculated from other data attributes in the class, we can add a property or method that calculates the value for that attribute.
+
+- We can add methods that are necessary for the object to work correctly or convenience methods that make it easier for other programmers to work with the object.
+
+
+How three-tier architecture works
+==================================
+- To simplify development and maintenance of large programs, many applications use a three-tier architecture to separate the applcation's user interface, business rules and database processing. Each tier of the architecture may consist of one or more modules that contain classes or functions.
+
+- Presentation tier
+The classes or functions in the presentation tier control the application's user interface.
+For a console application, the presentation tier typically uses a series of functions to provide console input and output.
+For a GUI application, the presentation tier typically consists of one class for each type of window in the GUI.
+
+- Database tier
+The classes or functions in the database tier handle all of the application's file or database processing.
+
+- Business tier
+The classes in the business tier define the business objects and rules for the application. These classes act as an interface between the classes in the presentation and database tiers.
+
+
+The three-tier architecture of an application
+----------------------------------------------
+- Presenetation tier
+	Presentation classes
+- Business tier
+	Business classes
+- Database tier
+	Database classes
+	Database
+
+
+THE SHOPPING CART PROGRAM
+**************************
+Business tier
+=============
+Classes under business tire
+----------------------------
+class Product
+	Attributes
+		-name
+		-price
+		-discountPercent
+	Methods
+		-getDiscountAmount()
+		-getDiscountPrice()
+
+class LineItem
+	Attributes
+		-product
+		-quantity
+	Methods
+		-getTotal()
+
+class Cart
+	Attributes
+		-lineItems = []
+	Methods
+		-addItem()
+		-removeItem()
+		-getTotal()
+		getItemCount()
+		__iter__()
+		__next__()
+
+
+The business module
+-------------------
+class Product:
+	def __init__(self, name="", price=0.0, discountPercent=0):
+		self.name = name
+		self.price = price
+		self.discountPercent = discountPercent
+
+	def getDiscountAmount(self):
+		discountAmount = self.price * self.discountPercent / 100
+		return discountAmount
+
+	def getDiscountPrice(self):
+		discountPrice = self.price - self.getDiscountAmount()
+		return discountPrice
+
+
+class LineItem:
+	def __init__(self, product=None, quantity=1):
+		self.product = product
+		self.quantity = quantity
+
+	def getTotal(self):
+		total = self.product.getDiscountPrice() * self.quantity
+
+
+class Cart:
+	def __init(self):
+		self.__lineItems = []
+
+	def addItem(self, item):
+		self.__lineItems.append(item)
+
+	def removeItem(self, index):
+		self.__lineItems.pop(index)
+
+	def getTotal(self):
+		total = 0.0
+		for item in self.__lineItems:
+			total += item.getTotal()
+		return total
+
+	def getItemCount(self):
+		return len(self.__lineItems)
+
+	def __iter__(self):
+		self.__index = -1
+		return self
+
+	def __next__(self):
+		if self.__index == len(self.__lineItems)-1:
+			raise StopIteration
+		self.__index += 1
+		lineItem = self.__lineItems[self.__index]
+		return lineItem
+
+
+
+
+Database tier
+==============
+We will use a csv file by name products.csv
+
+The products.csv contains 3 rows of data, where each row is a book details.
+
+Following are the contents in the products.csv file:
+Attitude	350.00		5
+Sales Magnet	499.00		10
+Reading Skills	999.00		5
+
+In db module we store the code for the database tier.
+
+The db module
+--------------
+import csv
+from business import Product
+
+FILENAME = "products.csv"
+
+def get_products():
+	products = []
+	with open(FILENAME, newline="") as file:
+		reader = csv.reader(file)
+		for row in reader:
+			# convert the row to Product object
+			product = Product(row[0], float(row[1]), int(row[2]))
+			products.append(product)
+	return products
+
+
+
+
+Code that tests the database and business layers
+------------------------------------------------
+import db
+from business import Product, LineItem, Cart
+
+products = db.get_products()
+product = products[1]
+lineItem = LineItem(product, 2)
+cart = Cart()
+cart.addItem(lineItem)
+print("Product:		", product.name)
+print("Price:		", product.getDiscountPrice())
+print("Quantity:	", lineItem.quantity)
+print("Total:		", cart.getTotal())
+
+
+**************************************
+Possible Python folder(s) for saving files
+---------------------------------------
+C:\Users\user\AppData\Local\Programs\Python\Python37
+C:\Python37
+C:\Program Files\Python37
+**************************************
+
+
+
+Presentation tier
+==================
+- To implement this interface, this program uses function from business and db modules.
+
+
+This shopping_cart module
+---------------------------
+import db
+from business import Product, LineItem, Cart
+
+def show_title():
+	print("The Shopping Cart program")
+	print()
+
+def show_menu():
+	print("COMMAND MENU")
+	print("cart - Show the cart")
+	print("add - Add an item to the cart")
+	print("del - Delete an item from cart")
+	print("exit - Exit program")
+	print()
+
+def show_products(products):
+	print("PRODUCTS")
+	line_format1 = "{:<5s} {:<25s} {:>10s} {:>10s} {:>12s}"
+	line_format2 = "{:<5d} {:<25s} {:>10.2f} {:>10s} {:>12.2f}"
+	print(line_format1.format("Item","Name","Price","Discount","Your Price"))
+
+	for i in range(len(products)):
+		product = products[i]
+		print(line_format2.format(i+1,product.name,product.price,str(product.discountPercent) + "%",product.getDiscountPrice()))
+	print()
+
+def show_cart(cart):
+	if cart.getItemCount() == 0:
+		print("There are no items in your cart.\n")
+	else:
+		line_format1 = "{:<5s} {:<25s} {:>12s} {:>10s} {:>10s}"
+		line_format2 = "{:<5d} {:<25s} {:>12.2f} {:>10s} {:>10.2s}"
+		print(line_format1.format("Item","Name","Your Price","Quantity","Total"))
+
+		i = 0
+		for item in cart:
+			print(line_format2.format(i+1,item.product.name,item.product.getDiscountPirce(),item.quantity,item.getTotal()))
+			i += 1
+
+		print("{:>66.2f}".format(cart.getTotal()))
+		print()
+
+def add_item(cart, products):
+	number = int(input("Item number: "))
+	quantity = int(input("Quantity: "))
+	if number < 1 or number > len(products):
+		print("No product has that number.\n")
+	else:
+		# Get Product object, store in LineItem object,
+		# and add to cart objects
+		product = products[number-1]
+		item = LineItem(product, quantity)
+		cart.addItem(item)
+		print("Item " + str(cart.getItemCount()) + " was added.\n")
+
+
+def remove_item(cart):
+	number = int(input("Item number: "))
+	if number < 1 or number > cart.getItemCount():
+		print("The cart does not contain an item with that number.\n")
+	else:
+		# Remove LineItem object at spcified index from cart
+		cart.removeItem(number-1)
+		print("Item " + str(number) + " was deleted.\n")
+
+def main():
+	show_title()
+	show_menu()
+
+	# get a list of Product objects and display them
+	products = db.get_products()
+	show_products(products)
+
+	# create a Cart object to store LineItem objects
+	cart = Cart()
+	while True:
+		command = input("Command: ")
+		if command == "cart":
+			show_cart(cart)
+		elif command == "add":
+			add_item(cart, products)
+		elif command == "del":
+			remove_item(cart)
+		elif command == "exit":
+			print("Bye!")
+			break
+		else:
+			print("Not a valid command. Please try again.\n")
+
+if __name__ == "__main__":
+	main()
+
+
+
+BUILDING A GUI APPLICATION
+**************************
+We need a toolkit that makes it easier to create components of a GUI such as windows, buttons, and entry fields.
+
+We use the tkinter toolkit for creating components of a GUI.
+
+With the tkinter toolkit, a GUI begins with a component that's typcially called the root window.
+
+After creating the root window, we can add components of GUI to it. These components can also be called as widgets.
+
+To create a root window, we import the 'tkinter' module:
+
+import tkinter
+
+We can import the module into short namespace like tk:
+
+import tkinter as tk
+
+Then we call the Tk constructor that's available from the tk namespace to create a root window. And then we assign the root window to a variable. By convention, this variable is named root.
+
+root = tk.Tk()
+
+After we create the variable for the root window, we can set up the window.
+	- Can set its title by calling its title() method
+	- Can set its width and height by calling its geometry() method with a string argument that specifies the width and height in pixels.
+
+root.title("Future Value Calculator")
+root.geometry("300x200")
+
+		300 is width
+		200 is height
+
+
+After we set up the root window, we call its its mainloop() method.
+The mainloop() displays the GUI and causes the program to enter an 'event processing loop' that listens for events such as the user clicking on a button.
+
+If calling the mainloop() method is forgotten, the program will never enter 'event processing loop'. It executes the code in the script in sequence and then exits.
+
+We should always make sure that the code calls the mainloop() method.
+
+Make sure that all the code for setting up the window comes before the call of the mainloop() method.
+
+For example, if we call the title() method after the call to the mainloop() method, then the call to the title() method will never run.
+
+
+
+The constructor and some methods of the root window
+====================================================
+Tk()		Creates a Tk object that defines the root window.
+
+Method of the root window
+-------------------------
+title(title)	Set the title of the root window to the specified title.
+geometry(str)	Set the width and height of the root window to the number
+		of pixels specified by the string.
+mainloop()	Makes the root window visible and starts an event
+		 processing loop that allows a program to handle events
+		 that occur on the window.
+		We need to call this method after all other code that sets
+		 up the root window.
+
+
+
+
+WORKING WITH FRAMES AND BUTTONS
+================================
+After creating the root window, we typically add one or more frames to it.
+
+A frame is an invisible container that's used to group other components. We can add some components to it such as buttons.
+
+To work with frames and buttons, start by importing the ttk module from the tkinter module:
+
+from tkinter import ttk
+
+After importing the ttk we can use the classes in the ttk module to create frames and buttons.
+
+frame = ttk.Frame(root, padding="10 10 10 10")
+
+The creating a frame by calling the Frame constructor in the ttk module, and this construtor has two arguments:
+	- The first argument specifies the parent component. The parent component contains it.
+	- The second argument is optional. Its sets the padding between the frame and the edge of the parent component.
+
+
+Dispalying frame by calling its pack() method:
+
+frame.pack(fill=tk.BOTH, expand=TRUE)
+
+The pack() automatically sizes the frame to be just large enough to hold the components it contains. However, we can pass arguments to the pack() method to change this behavior.
+
+frame.pack(fill=tk.BOTH, expand=TRUE)
+
+The fill argument is set so it fills all of the avaiable horizontal and vertical space in the parent container.
+
+The expand argument is set to TRUE. This tells the frame that if the size of the parent container changes, the frame should expand and contract so it continues to fill all of the available space.
+
+Adding other components
+------------------------
+We add two buttons to the Frame object.
+
+button1 = ttk.Button(frame, text="Click me!")
+button2 = ttk.Button(frame, text="No, click me!")
+
+The Button class takes the parent component as its first argument.
+The second argument set the text that's displayed by the button.
+
+After we create the button, we need to call the pack() method to display them. If we forget to call the pack() method, the buttons aren't displayed when we run the code.
+
+button1.pack()
+button2.pack()
+
+
+
+
+
+>>> import tkinter as tk
+>>> from tkinter import ttk
+>>> root = tk.Tk()
+>>> root.title("Future Value Calculator")
+''
+>>> root.geometry("300x200")
+''
+>>> frame = ttk.Frame(root, padding="10 10 10 10")
+>>> frame.pack(fill=tk.BOTH, expand=True)
+>>> button1 = ttk.Button(frame, text="Click me!")
+>>> button2 = ttk.Button(frame, text="No, click me!")
+>>> button1.pack()
+>>> button2.pack()
+
+
+
+Handling a button click event
+==============================
+When we click on the button an event is generated that informs the toolkit that the button has been clicked.
+Then, to perform an action, we need to handle this event by connecting it to a function that contains the code that should be executed when the event occurs.
+This function is called a callback function or an event handler.
+
+To connect the buttons to the functions that are executed when the buttons click events, we code the command argument of the button constructor.
+
+button1 = ttk.Button(frame, text="Click me!", commnad=click_button1)
+button2 = ttk.Button(frame, text="No, click me!", command=click_button2)
+
+The button, that is button1, connects to the click_button1 function. Then, when a user clicks this button, the program cllas the click_button1 function. Same applies to button2.
+
+
+Defining two callback functions
+---------------------------------
+def click_button1():
+	root.title("This is PYTHON class!")
+
+def click_button2():
+	root.destroy()
+
+
+When button1 clicked it changes the title of the root window.
+When button2 clicked it calls the destroy() method of the root window. That closes the root windows and causes the main loop for the GUI to end, which the ends the program.
+
+
+
+def click_button1():
+    root.title("WE ARE LEARNING PYTHON!!!")
+
+def click_button2():
+    root.destroy()
+
+import tkinter as tk
+from tkinter import ttk
+root = tk.Tk()
+root.title("Future Value Calculator")
+root.geometry("300x200")
+frame = ttk.Frame(root, padding="10 10 10 10")
+frame.pack(fill=tk.BOTH, expand=True)
+button1 = ttk.Button(frame, text="Click me!", command=click_button1)
+button2 = ttk.Button(frame, text="No, click me!", command=click_button2)
+button1.pack()
+button2.pack()
+
+
+
+MORE SKILLS FOR WORKING
+************************
+We need to get data from the user.
+To get from the user we use components like the labels and text entry fields.
+
+Labels typically label other components to show what they do.
+
+investmentLabel = ttk.Label(frame, text="Monthly Investment")
+investmentLabel.pack()		# displays the label
+
+Another way to create a label and display it
+----------------------------------------------
+ttk.Label(frame, text="Monthly Investment").pack()
+
+Unless we need to work with a label after we create it, we don't need to assign the label to a variable.
+
+
+A text entry field is a component that allows a user to enter text.
+Before we create a text entry field, we typically create a StringVar object that we can use to get and set the text that's available in the text entry field.
+
+
+investmentText = tk.StringVar()
+investmentEntry = ttk.Entry(frame, width=25, textvariable=investmentText)
+
+The textvariable argument binds the StringVar object to the Entry component.
+
+
+
+
+def click_button1():
+    root.title("WE ARE LEARNING PYTHON!!!")
+
+def click_button2():
+    root.destroy()
+
+
+def click_button1():
+    root.title("WE ARE LEARNING PYTHON!!!")
+
+def click_button2():
+    root.destroy()
+
+
+import tkinter as tk
+from tkinter import ttk
+root = tk.Tk()
+root.title("Future Value Calculator")
+root.geometry("300x200")
+frame = ttk.Frame(root, padding="10 10 10 10")
+frame.pack(fill=tk.BOTH, expand=True)
+button1 = ttk.Button(frame, text="Click me!", command=click_button1)
+button2 = ttk.Button(frame, text="No, click me!", command=click_button2)
+button1.pack()
+button2.pack()
+investmentLabel = ttk.Label(frame, text="Monthly Investment")
+investmentLabel.pack()
+investmentText = tk.StringVar()
+investmentEntry = ttk.Entry(frame, width=25, textvariable=investmentText)
+investmentEntry.pack()
+
+
+
+
+When the Entry constructor binds a text entry field o a StringVar object, that object is automatically udated when the user changes the text in the entry field. As a result, we can use the get() method of the StringVar to get the value that the user enters into the Monthly Investment field, and set() method to set its value.
+
+
+fvText = tk.StringVar()
+fvEntry = ttk.Entry(frame, width=25, textvariable=fvText, state="readonly")
+fvEntry.pack()
+
+To create a read-only text entry field, we set its state argument to "readonly". User can't enter a value in the text field, but the code can use the set() method of the StringVar object to set a value in the text field.
+
+
+investment = investmentText.get()
+fvText.set("$2,000")
+
+
+We can use set() and get() methods with StringVar object.
+
+
+How to lay out components in a grid
+====================================
+The pack() method doesn't give us much control over how the components are laid out in the frame.
+
+To gain more control, we can replace the pack() method with the grid() method. Normally, this frame wouldn't display the grid lines. We can choose to show the lines. sourrounding each cell.
+
+Some of the arguments of the grid() method of a component
+----------------------------------------------------------
+column		The column index where the component should be added,
+		 staring with an index of 0.
+row		The row index where the component should be added,
+		 starting with an index of 0.
+sticky		A value that determines which side of the container the
+		 component should stick to. Value values are the
+		 N (North), W (West), E (East), and S (South) constants
+		 of the tkinter module. Optionally, we can specify a
+		 tuples of values for multiple directions. For example,
+		 if we specify a tuple of W and E, the compoent is
+		 streched horizontally.
+padx		Specifies the horizontal padding in pixels between this
+		 component and the next component in the grid.
+pady		Specifies the vertical padding in pixels between this
+		 component and the next component in the grid.
+columnspan	Specifies the number of columns the component should span.
+rowspan		Specifies the number of rows the component should span.
+
+
+
+When we call the grid() method, the first two agruments specify the column and row for the component. In addition, we often supply other arguments.
+
+
+ttk.Label(frame, text="Monthly Investment:").grid(column=0, row=0, sticky=tk.E)
+
+
+investmentText=tk.StringVar()
+ttk.Entry(frame, width=25, textvariable=investmentText).grid(column=1, row=0)
+
+
+ttk.Label(frame, text="Yearly Interest Rate:").grid(column=0, row=1, sticky=tk.E)
+
+
+rateText = tk.StringVar()
+ttk.Entry(frame, width=25, textvariable=rateText).grid(column=1, row=1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import tkinter as tk
+from tkinter import ttk
+
+
+def click_button1():
+    root.title("WE ARE LEARNING PYTHON!!!")
+
+def click_button2():
+    root.destroy()
+
+
+root = tk.Tk()
+root.title("Future Value Calculator")
+root.geometry("300x200")
+frame = ttk.Frame(root, padding="10 10 10 10")
+frame.pack(fill=tk.BOTH, expand=True)
+
+ttk.Label(frame, text="Monthly Investment:").\
+                 grid(column=0, row=0, sticky=tk.E)
+
+investmentText=tk.StringVar()
+ttk.Entry(frame, width=25, textvariable=investmentText).\
+                 grid(column=1, row=0)
+
+
+ttk.Label(frame, text="Yearly Interest Rate:").\
+                 grid(column=0, row=1, sticky=tk.E)
+
+
+rateText = tk.StringVar()
+ttk.Entry(frame, width=25, textvariable=rateText).\
+                 grid(column=1, row=1)
+
+
+
+
+By default, when we lay out the components in a grid, there is no padding between the cells. Then, we can use the padx and pady arguments of the grid() method.
+
+We can add padding to each component in the frame. To do that, the winfo_chidren() method of the frame is used to get all of the components in the frame. Then, a for loop is used to add the same padding to each component.
+
+
+Note that the grid_configure() method is used in the loop instead of the grid() method.
+That's because the grid_configure() method lets us modify the settings for the components after we have added them to the frame and used the grid() method to format them. We should also know that the grip_configure() method accepts the same arguments as the grid() method.
+
+
+Adding padding to all components in a frame
+---------------------------------------------
+for child in frame.winfo_children():	# gets all child components
+	child.grid_configure(padx=5, pady=3)
+
+
+
+
+Coding a class that defines a frame
+======================================
+import tkinter as tk
+from tkinter as ttk
+
+class InvestmentFrame(ttk.Frame):
+	def __int__(self, parent):
+		ttk.Frame.__init__(self, parent, padding="10 10 10 10")
+		self.pack(fill=tk.BOTH, expand=TRUE)
+
+		# Define string variable for the entry field
+		self.monthlyInvestment = tk.StringVar()
+
+		# Create a label, an entry field, and a button
+		ttk.Label(self, text="Monthly Investment!").grid(column=0, row=0, sticky=tk.E)
+		ttk.Entry(self, width=25, textvariable=self.monthlyInvestment).grid(column=1, row=0)
+		ttk.Button(self, text="Clear", command=self.Clear).grid(column=2, row=0)
+
+		# Add padding to all child components
+		for child in self.winfo_children():
+			child.grid_configure(padx=5, pady=3)
+
+	# Define the callback method for the Clear button
+	def clear(self):
+		print("Monthly Investment:", self.monthlyInvestment.get())
+		self.monthlyInvestment.set("")
+
+if __name__ == "__main__":
+	root = tk.Tk()			# create the root window
+	root.title("Future Value Calculator")
+	InvestmentFrame(root)		# Create the frame
+	root.mainloop()			# Display the frame
+
+
+
+
+
+
+
+import tkinter as tk
+from tkinter import ttk
+
+root = tk.Tk()
+root.title("Future Value Calculator")
+root.geometry("300x200")
+frame = ttk.Frame(root, padding="10 10 10 10")
+frame.pack(fill=tk.BOTH, expand=True)
+
+ttk.Label(frame, text="Monthly Investment:").\
+                 grid(column=0, row=0, sticky=tk.E)
+
+investmentText=tk.StringVar()
+ttk.Entry(frame, width=25, textvariable=investmentText).\
+                 grid(column=1, row=0)
+
+
+ttk.Label(frame, text="Yearly Interest Rate:").\
+                 grid(column=0, row=1, sticky=tk.E)
+
+
+rateText = tk.StringVar()
+ttk.Entry(frame, width=25, textvariable=rateText).\
+                 grid(column=1, row=1)
+
+
+for child in frame.winfo_children():	# gets all child components
+	child.grid_configure(padx=5, pady=3)
+
+
+
+
+Working with a Database
+************************
+Using SQL statements for data manipulation
+============================================
+SQL or Structured Query Language is a standard language for working with databases.
+
+The SELECT, INSERT, UPDATE, and, DELETE statements.
+
+
+A SELECT statement is a SQL statement that returns a result set (or result table) of the specified rows and columns.
+
+To specif the rows to select, use the WHERE clause.
+
+To specify how the result set should be sorted, use the ORDER BY clause.
+
+Use ASC or DESC or sorting a column in ascending or descending order.
+
+To return a result set that contains data from two tables, we join the tables. To do that, we use a JOIN clause.
+
+
+Most of the time, we will want to code an 'inner join' so that rows are only included when they key of a row in the first table is equal to (matches) the key of the row in the second table.
+
+When we qualify a name, we often want to provide a new name, or alias, for the column name so each column in the result set has a unique name. To do that, we can code the AS keyword followed by the aliases for the columns.
+
+
+
+INSERTING DATA USING INSERT STATEMENT
+------------------------------------
+INSERT INTO table_name(columns) VALUES(values)
+
+INSERT INTO book(bookID, categoryID, name, year, pages) VALUES(16, 3, "Recursive Programming", 2012, 300)
+
+INSERT INTO book(16, 3, "Database Programming", 2019, 559)
+
+
+
+UPDATE DATA USING UPDATE STATEMENT
+----------------------------------
+UPDATE table_name SET expression1 [, epxression2]... WHERE selection-criteria
+
+
+UPDATE book SET year=2018 WHERE bookID=14
+
+
+
+DELETE DATA USING DELETE STATEMENT
+-----------------------------------
+DELETE FROM table_name WHERE selection-criteria
+
+
+DELETE FROM book WHERE bookID=15
+
+

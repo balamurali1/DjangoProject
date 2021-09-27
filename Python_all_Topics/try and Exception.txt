@@ -1,0 +1,988 @@
+		Exception
+		=========
+An exception is a runtime error which can be handled by the programmer.
+All exceptions are represented as classes in python.
+
+Type of Exception
+==================
+1.	Built-in Exception -Exceptions which are already available in python Language.The
+base class for all built-in exceptions is BaseException class.
+
+2.	User Defined Exception -A programmer can create his own exceptions,called
+User-defined exceptions.
+
+
+Need of Exception Handling
+==========================
+1.When an exception occurs,the program terminates suddenly.
+2.Suddenly termination of program may occupt the program.
+3.Exception may cause data loss from the database or a file.
+
+
+
+
+	Exception Handling
+	=================
+
+Try-The try block contains code which may cause exceptions.
+
+	Syntax:
+		Statements
+	
+
+Except - The except block is used to catch an exception that is raised in the try block.There can
+	be multiple except block for try block.
+
+	syntax:
+		except ExceptionName:
+			statements
+
+Else - This block will get executed when no exception is raised.Else block is executed after try block
+	syntax:
+		else:
+			statements
+
+Finally - This block will get executed irrespective of whether there is an exception or not.
+	syntax:
+		finally:
+			statements
+
+
+1.We can write several except blocks for a single try block.
+2.we can write multiple except blocks to handle multiple exceptions.
+3.we can write block without any except blocks.
+4.we can not write except block without a try block.
+5.Finally block is always executed irrespective of whether there is an exception or not.
+6.Else block is optional
+7.Finally block is optional
+
+
+EX:1
+try:
+	statement
+except ExceptionClassName:
+	Statement
+else:			#Optional
+	Statement
+finally:		#Optional
+	Statement
+
+OR
+
+try:
+	Statement
+except ExceptionClassName:
+	statement
+
+
+
+EX:2(Multiple Exception blocks)
+
+try:
+	Statement
+except ExceptionClassName1:
+	Statement
+except ExceptionClassName2:
+	Statement
+
+
+
+Except
+---------
+1.with the ExceptionClass Name
+	except ExceptionClassName:
+		Statement
+
+2.Exception as an object
+	except ExceptionClassName as obj:
+		Statement
+
+3.Multiple Exception within tuple
+	except(ExceptionClassName1,ExceptionClassName2,ExceptioncClassName3,......):
+		Statement
+
+4.Catch any Type of Exception
+	except:
+		Statement
+
+------------Theory complete----------
+EX:
+
+a = 10
+b = 5
+d = a/b
+print(d)
+print('Rest of the code')
+
+output
+------
+2.0
+Rest of the code
+
+
+EX:
+a = 10
+b = 0 #---->0 tho division cheyakudadu rule anthey.
+d = a/b
+print(d)
+print('Rest of the code')
+
+output
+------
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 3, in <module>
+    d = a/b
+ZeroDivisionError: division by zero
+
+note:ela error vasthundi.appudu e error ni handle cheyali ante 'exception' use cheyali.
+
+
+
+Note:
+	try lo rasina code error vasthundi(error throw chesthundi) ani anipisthe, ahh error ni handle
+cheyadaniki 'except' block lo ahh error ni handle cheyavachunu. 
+
+
+EX:
+a = 10
+b = 5 
+try:
+	d = a/b
+	print(d)
+except ZeroDivisionError:
+	print('Division by Zero Not Allowed')
+		
+print('Rest of the code')
+
+output
+------
+2.0
+Rest of the code
+
+
+
+EX:
+a = 10
+b = 0 
+try:
+	d = a/b
+	print(d)
+except ZeroDivisionError:
+	print('Division by Zero Not Allowed')
+
+print('Rest of the code')
+
+output
+------
+Division by Zero Not Allowed
+Rest of the code
+
+
+EX:
+a = 10
+b = 5 
+try:
+	d = a/b
+	print(d)
+	print('Inside Try')
+
+except ZeroDivisionError:
+	print('Division by Zero Not Allowed')
+
+print('Rest of the code')
+
+output
+------
+2.0
+Inside Try
+Rest of the code
+
+
+EX:
+a = 10
+b = 0 
+try:
+	d = a/b
+	print(d)
+	print('Inside Try')
+
+except ZeroDivisionError:
+	print('Division by Zero Not Allowed')
+
+print('Rest of the code')
+
+output
+------
+Division by Zero Not Allowed
+Rest of the code
+
+
+EX:
+a = 10
+b = 5 
+try:
+	d = a/b
+	print(d)
+	print('Inside Try')
+
+except ZeroDivisionError:
+	print('Division by Zero Not Allowed')
+
+else:
+	print('Inside Else')	
+
+print('Rest of the code')
+
+output
+------
+2.0
+Inside Try
+Inside Else
+Rest of the code
+
+
+
+EX:
+a = 10
+b = 0 
+try:
+	d = a/b
+	print(d)
+	print('Inside Try')
+
+except ZeroDivisionError:
+	print('Division by Zero Not Allowed')
+
+else:
+	print('Inside Else')	
+
+print('Rest of the code')
+
+output
+-----
+Division by Zero Not Allowed
+Rest of the code
+
+
+
+EX:
+a = 10
+b = 5 
+try:
+	d = a/b
+	print(d)
+	print('Inside Try')
+
+except ZeroDivisionError:
+	print('Division by Zero Not Allowed')
+
+else:
+	print('Inside Else')
+
+finally:
+	print('Inside Finally')		
+
+print('Rest of the code')
+
+output
+------
+2.0
+Inside Try
+Inside Else
+Inside Finally
+Rest of the code
+
+
+EX:
+a = 10
+b = 0 
+try:
+	d = a/b
+	print(d)
+	print('Inside Try')
+
+except ZeroDivisionError:
+	print('Division by Zero Not Allowed')
+
+else:
+	print('Inside Else')
+
+finally:
+	print('Inside Finally')		
+
+print('Rest of the code')
+
+output
+------
+Division by Zero Not Allowed
+Inside Finally
+Rest of the code
+
+
+
+EX:
+
+a = 10
+b = 0 
+try:
+	d = a/b
+	print(d)
+	print('Inside Try')
+
+except ZeroDivisionError as obj:
+	print(obj)
+	
+
+print('Rest of the code')
+
+output
+-------
+division by zero
+Rest of the code
+
+
+
+EX:
+a = 10
+b = 5 
+try:
+	d = a/b
+	print(d)
+	print('Inside Try')
+
+except ZeroDivisionError as obj:
+	print(obj)
+	
+
+print('Rest of the code')
+
+output
+------
+2.0
+Inside Try
+Rest of the code
+
+
+Ex:
+a = 10
+b = 0 
+try:
+	d = a/b
+	print(d)
+	
+
+except ZeroDivisionError as obj:
+	print(obj)
+
+except NameError as ob:
+	print(ob)	
+
+print('Rest of the code')
+
+outout
+-------
+division by zero
+Rest of the code
+
+
+
+EX:
+a = 10
+b = 0 
+try:
+	d = a/c---->kavalani rashanu.NameError ela vasthundo chudam ani.
+	print(d)
+	
+
+except ZeroDivisionError as obj:
+	print(obj)
+
+except NameError as ob:
+	print(ob)	
+
+print('Rest of the code')
+
+output
+-------
+name 'c' is not defined
+Rest of the code
+
+
+EX:
+a = 10
+b = 0 
+try:
+	d = a/b
+	print(d)
+	
+
+except (NameError,ZeroDivisionError) as obj:
+	print(obj)
+	
+
+print('Rest of the code')
+
+output
+------
+division by zero
+Rest of the code
+
+
+EX:
+a = 10
+b = 0 
+try:
+	d = a/c
+	print(d)
+	
+
+except (NameError,ZeroDivisionError) as obj:
+	print(obj)
+	
+
+print('Rest of the code')
+
+output
+------
+name 'c' is not defined
+Rest of the code
+
+
+
+EX: 
+a = 10
+b = 0 
+try:
+	d = a/c
+	print(d)
+	
+except:		#(ExceptionClassName mention cheyakunda ela kuda simple ga rayavachunu)	
+	print('Exception Handler')
+
+print('Rest of the code')
+
+output
+------
+Exception Handler
+Rest of the code
+
+
+EX:
+a = 10
+b = 0 
+try:
+	d = a/b
+	print(d)
+	
+except:
+	print('Exception Handler')
+
+print('Rest of the code')
+
+
+output
+-------
+Exception Handler
+Rest of the code
+
+
+Assert Statement in Python
+=============================
+The assert Statement is useful to ensure that a given condition is True.If it is
+not true,it raises AssertionError.
+
+	syntax: assert condition,error_message
+
+	1.If the condition is False then the exception by the name AssertionError is 
+	raised along with the message.
+	
+	2.If message is not given and the condition is False then also AssertionError
+	is raised without message.
+
+EX:
+a = 20
+assert a <= 10
+
+output
+------
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 2, in <module>
+    assert a <= 10
+AssertionError  -------->Look here
+
+
+EX:
+
+a = 20
+assert a <= 10,'Invalid Number'
+
+output
+-----
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 2, in <module>
+    assert a <= 10,'Invalid Number'
+AssertionError: Invalid Number ------>Look here
+		
+
+EX:
+a = 10
+assert a <= 10,'Invalid Number'
+
+output
+------
+output vachindi adi kanabadadu.
+
+
+
+
+Difference between Error and Exception in Python
+===============================================
+	1.An exception is an error that can be handled by a programmer.
+	2.An exception which are not handled by programmer,becomes an error.
+	3.All exceptions occur only at runtime.
+	4.Error may occur at compile time or runtime.
+
+
+
+
+User Defined Exception in Python
+==================================
+A Programmer can create his own exceptions, called user-defined exceptions or Custom Exception.
+	1.Creating Exception Class using Exception Class as a Base Class
+	2.Raising Exception
+	3.Handling Exception
+
+
+Creating Exception
+--------------------
+We can create our own exception by creating a sub class to built-in Exception class.
+
+	syntax:
+		class MyException(Exception):
+			pass
+		class MyException(Exception):
+			def __init__(self,arg):
+				self.msg = arg
+
+
+
+
+Raising Exception
+-------------------
+raise statement is used to raise the user defined exception.
+	synatx:
+		raise MyException('message')
+
+
+Handling Exception
+-----------------
+Using try and except block programmer can handle exceptions.
+	syntax:
+		try:
+			statement
+
+		except MyException as mye:
+			Statement
+
+
+
+
+EX:
+
+class BalanceException(Exception):
+	pass
+
+def checkbalance():
+	money = 10000
+	withdraw = 5000
+	balance = money - withdraw
+	print(balance)
+
+checkbalance()		
+
+
+output
+-----
+5000
+
+
+
+
+
+EX:
+class BalanceException(Exception):
+	pass
+
+def checkbalance():
+	money = 10000
+	withdraw = 5000 ---->Look here
+	try:
+		balance = money - withdraw
+		if(balance <= 2000):
+			raise BalanceException('Insufficient Balance')
+		print(balance)
+	except BalanceException as be:
+		print(be)	
+
+checkbalance()		
+
+output
+-------
+5000
+
+
+EX:
+class BalanceException(Exception):
+	pass
+
+def checkbalance():
+	money = 10000
+	withdraw = 9000------>Look here
+	try:
+		balance = money - withdraw
+		if(balance <= 2000):
+			raise BalanceException('Insufficient Balance')
+		print(balance)
+	except BalanceException as be:
+		print(be)	
+
+checkbalance()		
+
+output
+-------
+Insufficient Balance
+
+
+(OR)
+
+
+
+EX:
+class BalanceException(Exception):
+	pass
+
+def checkbalance():
+	money = 10000
+	withdraw = 4000
+	balance = money - withdraw
+	if(balance <= 2000):
+		raise BalanceException('Insufficient Balance')
+	print(balance)
+
+try:
+	checkbalance()		
+
+except BalanceException as be:
+	print(be)		
+
+output
+------
+6000
+
+
+EX:
+class BalanceException(Exception):
+	pass
+
+def checkbalance():
+	money = 10000
+	withdraw = 9000
+	balance = money - withdraw
+	if(balance <= 2000):
+		raise BalanceException('Insufficient Balance')
+	print(balance)
+
+try:
+	checkbalance()		
+
+except BalanceException as be:
+	print(be)		
+
+output
+------
+
+Insufficient Balance
+
+
+
+
+Difference between Error and Warning in Python
+=============================================
+It is compulsory to handle all error otherwise program will not
+exceute,while warning represents a caution and even though it is
+not handled,the program will exceute.
+
+Errors are derived as sub class 'StandardError',While warning derived as sub class
+from 'Warning' class.
+
+
+
+
+Logging in Python
+=================
+
+	Logging is useful to track the error or exception or information.It
+also helps in debugging.
+
+we use Logging Module to log  the error.
+
+syntax:
+	import logging	
+	from logging import *
+
+
+basicConfig(**kwargs)Method
+===========================
+	This method is used to 	config the logging system.
+
+syntax:
+	basicConfig(**kwargs)
+
+1.filename -It specifies that a FileHandler be crated,using the specified filename,
+rather than a StreamHandler.
+2.filemode - IF filename is specified,open the file in this mode.Defaults to 'a'. We
+can write 'w'
+3.level - Set the root logger level to the  specified level.
+4.format - Use the specified format string for the handler.
+5.datefmt -Use the specified data/time format,as accepted by time.strftime()
+6.style -If format is specified,use this style for the format string.One of '%','{' or'$'
+for printf-style,str.format() or string.Template respectively.Defaults to '%'.
+
+
+Levels
+------
+NOTSET - 0
+DEBUG - 10
+INFO - 20
+WARNING - 30
+ERROR - 40
+CRITICAL - 50
+
+Methods
+-----------
+getLogger()-This method returns a logger with the specified name or,if name is None,return a
+logger which is the root logger of the hierarchy if specified,the name is typically a dot -separated
+hierarchical name like 'a','a.b', or 'a.b.c.d'.
+
+info(msg) - This will log a message with level INFO on this logger.
+
+warning(msg) - This will log a message with level WARNING on this logger.
+
+error(msg) - This islog a message with level ERROR on this logger.
+
+critical(msg) - This will log a message with level CRITICAL on this logger
+
+exception(msg) - This will log a message with level ERROR on this  logger.
+
+
+Format
+----------
+Format can take a string with LogRecord attributes in any arrangement you like
+
+asctime - Human-readable time when the LogRecord was created.By default this is 
+of the form '2003-07-08 16:49:45,896'(the numbers after the comma are millisecond portion of the time).
+
+EX:%(asctime)s
+
+created - Time when the LogRecord was created(as returned by time.time()).
+EX:%(created)f
+
+filename - Filename portion of pathname.
+
+LogRecord attributes
+-------------------
+levelname - Text logging level for the message('DEBUG','INFO','WARNING','ERROR','CRITICAL').
+	EX:%(levelname)s
+
+levelno - Numeric logging level for the message('DEBUG','INFO','WARNING','ERROR','CRITICAL').
+
+	EX:%(levelno)s
+
+lineno - Source line number where the logging call was issued(if available)
+
+message - The logged message,computed as msg % args.This is set when Formatter.format() is invoked.
+
+	EX:%(message)s
+name -Name of the logger used to log the call
+
+	Ex:%(name)s
+
+pathname - Full pathname of the source file where the logging call was issued(if available)
+	EX:%(pathname)s
+
+args,exc_info,funcname,module,msecs,msg,process,processname,relativecreated,stack_info,thread,threadname.
+
+EX:
+from logging import *
+warning('This is warning')
+error('This is error')
+critical('This is critical')
+debug('This is Debug')
+info('This is Ingo')
+
+
+output
+------
+WARNING:root:This is warning
+ERROR:root:This is error
+CRITICAL:root:This is critical
+
+Note:debug,info viti output's kanipinchauv.
+
+EX:
+from logging import *
+
+basicConfig(filename ='logfile.log')
+
+warning('This is warning')
+error('This is error')
+critical('This is critical')
+
+output
+------
+logfile file open cheai
+
+
+EX:
+from logging import *
+
+basicConfig(filename ='logfile.log',level = DEBUG)
+debug('This is Debug')
+info('This is Info')
+warning('This is warning')
+error('This is error')
+critical('This is critical')
+
+output
+-----
+logfile file open cheai
+
+EX:
+from logging import *
+
+basicConfig(filename ='logfile.log',level = DEBUG,filemode = 'w')
+debug('This is Debug')
+info('This is Info')
+warning('This is warning')
+error('This is error')
+critical('This is critical')
+
+output
+-----
+logfile file open cheai
+
+
+EX:
+from logging import *
+
+basicConfig(filename ='logfile.log',level = DEBUG,filemode = 'w')
+debug('This is Debug in w mode')
+info('This is Info')
+warning('This is warning')
+error('This is error')
+critical('This is critical')
+
+output
+-----
+
+logfile file open cheai
+
+EX:
+from logging import *
+
+basicConfig(filename ='logfile.log',level = DEBUG,filemode = 'w',format = '%(asctime)s -- %(message)s')
+debug('This is Debug in w mode')
+info('This is Info')
+warning('This is warning')
+error('This is error')
+critical('This is critical')
+
+output
+-----
+logfile file open cheai
+
+
+EX:
+from logging import *
+LOG_FORMAT = '%(asctime)s// %(message)s // %(lineno)d'
+
+basicConfig(filename ='logfile.log',level = DEBUG,filemode = 'w',format = LOG_FORMAT)
+debug('This is Debug in w mode')
+info('This is Info')
+warning('This is warning')
+error('This is error')
+critical('This is critical')
+
+output
+------
+logfile file open cheai
+
+EX:
+from logging import *
+LOG_FORMAT = '{asctime}// {message} // {lineno}'
+
+basicConfig(filename ='logfile.log',level = DEBUG,filemode = 'w',format = LOG_FORMAT,style = '{')
+debug('This is Debug in w mode')
+info('This is Info')
+warning('This is warning')
+error('This is error')
+critical('This is critical')
+
+
+ouput
+-----
+logfile file open cheai
+
+
+EX:
+
+from logging import *
+LOG_FORMAT = '{lineno} ***{name}*** {asctime} *** {message}'
+
+basicConfig(filename ='logfile.log',level = DEBUG,filemode = 'w',format = LOG_FORMAT,style = '{')
+debug('This is Debug in w mode')
+info('This is Info')
+warning('This is warning')
+error('This is error')
+critical('This is critical')
+
+
+output
+-----
+logfile file open cheai
+
+
+EX:
+from logging import *
+LOG_FORMAT = '{lineno} ***{name}*** {asctime} *** {message}'
+
+basicConfig(filename ='logfile.log',level = DEBUG,filemode = 'w',format = LOG_FORMAT,style = '{')
+
+logger = getLogger('Geek')
+
+logger.debug('This is Debug')
+logger.info('This is Info')
+logger.warning('This is warning')
+logger.error('This is error')
+logger.critical('This is critical')
+
+output
+-----
+logfile file open cheai
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+ 

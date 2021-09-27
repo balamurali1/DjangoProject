@@ -1,0 +1,1046 @@
+from collections import deque
+a =deque((1,2,3,4))
+
+print(dir(a))
+----------------------------------------------
+
+
+
+	TUPLE
+	------
+
+Tuple: A Tuple contains a group of elements which can be same or different types.
+Tuple are 'immutable'.
+It is similar to List but Tuples are read-only which means we can not modify it's
+element.
+Tuple are used to store data which should not be modified.
+It occupies less memory compare to list.
+Tuples are represented using parentheses().
+Tuple are stored in different data types.
+
+Ex: a = (10,20,-50,21.3,'Geekyshows')
+
+Creating Empty Tuple
+----------------------
+	syntax:	
+		tuple_name = ()
+
+EX:
+a = ()
+
+Creating Tuple
+---------------
+We can create tuple by writing elements separated by commas inside parentheses.
+
+	with one Element
+	----------------
+	c = (10,)
+	
+	With Multiple Elements	
+	----------------------
+	d = (10,20,30,40)
+	e = (10,20,-50,21.3,'Geekyshows')
+	f = 10,20,-50,21.3,'Geekyshows'  #it will become a tuple
+
+Index
+---------
+An index represents the position number of an tuple's element.The index start from 0
+on wards and written inside square braces.
+
+	     [-5]  [-4]  [-3]  [-2]   [-1]	
+	a = (10,   20,  -50,  21.3,  'Geekyshows')
+	    [0]    [1]	[2]   [3]     [4]
+
+
+Accessing Tuple's Element
+---------------------------
+	
+		a = (10,   20,     -50,    21.3,  'Geekyshows')
+	             a[0]  a[1]	   a[2]    a[3]     a[4]
+
+print(a[0])
+
+print(a[1])
+
+print(a[2])
+
+print(a[3])
+
+print(a[4])
+
+
+EX:
+d = (10,)
+print(d)
+print(type(d))
+
+output
+-----------
+(10,)
+<class 'tuple'>
+
+EX:
+d = (10,20,30,40,50,-60,23.6,'GeekyShows')
+print(d)
+print(type(d))
+
+output
+----------
+(10, 20, 30, 40, 50, -60, 23.6, 'GeekyShows')
+<class 'tuple'>
+
+EX:
+d = 10,20,30,40,50,-60,23.6,'GeekyShows'
+print(d)
+print(type(d))
+
+output
+---------
+(10, 20, 30, 40, 50, -60, 23.6, 'GeekyShows') 
+<class 'tuple'>
+
+
+EX:
+d = (10,20,30,40)
+e =(10,20,-50,23.6,'GeekyShows')
+f = 10,20,-50,23.6,'GeekyShows'
+
+print(d[2])
+print(e[0])
+print(f[3])
+print(f[-1])
+print(e[-2])
+print(d[-3])
+
+output
+-----------
+30
+10
+23.6
+GeekyShows
+23.6
+20
+
+Access Tuple using for Loop in Python
+-----------------------------------------
+EX:
+a = (10,21.3,'GeekyShows')
+#without Index
+for element in a:
+	print(element)
+
+output
+---------
+10
+21.3
+GeekyShows
+
+EX:
+a = (10,21.3,'GeekyShows')
+#with Index
+n = len(a)
+
+for i in range(n):
+	print(i,a[i])
+
+output
+---------
+0 10
+1 21.3
+2 GeekyShows
+
+Access Tuple using while Loop in Python
+----------------------------------------------
+EX:
+
+a = (10,23.2,'GeekyShows')
+
+n = len(a)
+i = 0
+while i < n:
+	print(i,a[i])
+	i+=1
+
+output
+--------
+0 10
+1 23.2
+2 GeekyShows
+
+Slicing Tuple in Python
+-----------------------------
+Slicing on tuple can be used to retrieve a piece of the tuple that contains a
+group of elements.Slicing is useful to retrieve a range of elements.
+
+	syntax:
+		new_tuple_name = tuple_name[start:stop:stepsize]
+	
+
+EX:
+x = (101,102,103,104,105,106,107)
+print("Original Tuple")
+n = len(x)
+for i in range(n):
+	print(i, '=', x[i])
+print()
+
+print('From 1st Position to 4th Position')
+a = x[1:5]
+for i  in a:
+	print(i)
+print()
+
+print('From 0th Position to last Position')
+b = x[0:]
+for i in b:
+	print(i)
+print()
+
+print('From 0th Position to 4th Position')
+c = x[:5]
+for i in c:
+	print(i)
+print()
+
+print("Last 4 Elements")
+d = x[-4:]
+for i in d:
+	print(i)
+print()
+
+print('From 0th Position to 6th Position step 2')
+e = x[0:7:2]
+for i in e:
+	print(i)
+print()
+
+print("Last 5 Elements with[-5-(-3)]=2 Elements towards right")
+f = x[-5:-3]
+for i in f:
+	print(i)
+
+output
+---------
+Original Tuple
+0 = 101
+1 = 102
+2 = 103
+3 = 104
+4 = 105
+5 = 106
+6 = 107
+
+EX:
+x = (101,102,103,104,105,106,107)
+print("Original Tuple")
+print(x)
+print()
+
+print('From 1st Position to 4th Position')
+a = x[1:5]
+print(a)
+print()
+
+print('From 0th Position to last Position')
+b = x[0:]
+print(b)
+print()
+
+print('From 0th Position to 4th Position')
+c = x[:5]
+print(c)
+print()
+
+print("Last 4 Elements")
+d = x[-4:]
+print(d)
+print()
+
+print('From 0th Position to 6th Position step 2')
+e = x[0:7:2]
+print(e)
+print()
+
+print("Last 5 Elements with[-5-(-3)]=2 Elements towards right")
+f = x[-5:-3]
+print(f)
+
+output
+-------
+
+Original Tuple
+(101, 102, 103, 104, 105, 106, 107)
+
+From 1st Position to 4th Position
+(102, 103, 104, 105)
+
+From 0th Position to last Position
+(101, 102, 103, 104, 105, 106, 107)
+
+From 0th Position to 4th Position
+(101, 102, 103, 104, 105)
+
+Last 4 Elements
+(104, 105, 106, 107)
+
+From 0th Position to 6th Position step 2
+(101, 103, 105, 107)
+
+Last 5 Elements with[-5-(-3)]=2 Elements towards right
+(103, 104)
+
+
+
+From 1st Position to 4th Position
+102
+103
+104
+105
+
+From 0th Position to last Position
+101
+102
+103
+104
+105
+106
+107
+
+From 0th Position to 4th Position
+101
+102
+103
+104
+105
+
+Last 4 Elements
+104
+105
+106
+107
+
+From 0th Position to 6th Position step 2
+101
+103
+105
+107
+
+Last 5 Elements with[-5-(-3)]=2 Elements towards right
+103
+104
+
+
+Tuple Concatenation
+------------------------
++ Operator is used to do concatenation the tuple
+
+EX:
+
+a = (1,2,3)
+b = (10,20,30)
+
+print(a)
+print(b)
+
+result = a + b
+print(result)
+
+output
+----------
+(1, 2, 3)
+(10, 20, 30)
+(1, 2, 3, 10, 20, 30)
+
+
+Modifying Tuple Element 
+--------------------------
+Tuple are immutable so it is not possible to modify,update or delete it's "element".
+
+Note: slicing,concatination use chesi modify,update,delete cheyavachunu.
+
+a = (1,2,3,'hello')
+print(a)
+
+b = (40,50)
+
+result = a + b
+print(result)
+
+output
+---------
+(1, 2, 3, 'hello')
+(1, 2, 3, 'hello', 40, 50)
+
+
+EX:
+a = (1,2,3,'hello')
+print(a)
+
+
+tup2 = a[0:3]
+print(tup2)
+
+output
+-----------
+(1, 2, 3, 'hello')
+(1, 2, 3)
+
+
+EX:
+a = (10,20,-50,21.3,'Geekyshows')
+print(a)
+
+c = (101,102)
+s1 = a[0:2]
+s2 = a[2:]
+
+tup3 = s1+c+s2
+print(tup3)
+
+output
+------
+(10, 20, -50, 21.3, 'Geekyshows')
+(10, 20, 101, 102, -50, 21.3, 'Geekyshows')
+
+
+EX:
+a = (10,20,-50,21.3,'Geekyshows')
+print(a)
+
+c = (101,102)
+s1 = a[0:2]
+s2 = a[3:]
+
+tup3 = s1+c+s2
+print(tup3)
+
+output
+--------
+(10, 20, -50, 21.3, 'Geekyshows')
+(10, 20, 101, 102, 21.3, 'Geekyshows')
+
+
+Deleting Tuple in Python
+-------------------------
+You can delete entaire tuple but not an element of tuple.
+
+
+NOte:single element ni delete cheyali ante slicing usecheyachu.
+EX:
+a = (10,20,-50,21.3,'Geekyshows')
+print(a)
+
+
+s1 = a[0:2]
+s2 = a[3:]
+
+tup = s1+s2
+print(tup)
+
+output
+--------
+(10, 20, -50, 21.3, 'Geekyshows')
+(10, 20, 21.3, 'Geekyshows')
+
+
+EX:
+a = (10,20,-50,21.3,'Geekyshows')
+
+del a
+
+output
+-----
+ note: deleted
+
+
+EX:
+a = (10,20,-50,21.3,'Geekyshows')
+print(a)
+
+
+s1 = a[0:2]
+s2 = a[4:]
+
+tup = s1+s2
+print(tup)
+
+output
+--------
+(10, 20, -50, 21.3, 'Geekyshows')
+(10, 20, 'Geekyshows')
+
+
+Getting Tuple input from user in Python
+-------------------------------------------
+EX:
+
+a = []
+n = int(input('Enter Number of elements:'))
+
+for i in range(n):
+	a.append(int(input('Enter Element:')))
+
+print(type(a))
+
+b = tuple(a) #a is list,it is convert to tuple
+
+print(type(b))
+print('Tuple:')
+for elements in b:
+	print(elements)	
+
+output
+--------
+Enter Number of elements:5
+Enter Element:1
+Enter Element:2
+Enter Element:3
+Enter Element:4
+Enter Element:6
+<class 'list'>
+<class 'tuple'>
+Tuple:
+1
+2
+3
+4
+6
+
+Repetition of Tuple in Python
+-------------------------------
+ * Operator is used to repeat the elements of tuple.
+
+EX:
+a = (1,2,3)
+
+print(a)
+
+result = a*3
+
+print(result)
+
+output
+---------
+(1, 2, 3)
+(1, 2, 3, 1, 2, 3, 1, 2, 3)
+
+
+Aliasing Tuple in Python
+------------------------------
+Aliasing means giving another name to the existing object.It doesn't mean copying.
+
+
+a = (10,20,30,40,50,60)
+
+b = a   #give an nick name
+
+print("A:",a)
+print('ID of A:',id(a))
+
+print('B:',b)
+print('ID of B:',id(b))
+
+output
+----------
+A: (10, 20, 30, 40, 50, 60)
+ID of A: 2033207443520
+B: (10, 20, 30, 40, 50, 60)
+ID of B: 2033207443520
+
+
+How to Copy Tuple Elements in Python 
+------------------------------------------
+We can copy elements of tuple into another tuple "using slice".
+
+EX:
+a = (10,20,30,40,50)
+b = a
+print('A:',a)
+print('B:',b)
+print('Id of A:',id(a))
+print('Id of B:',id(b))
+
+print()
+b = a[0:5]
+print('A:',a)
+print('B:',b)
+print('Id of A:',id(a))
+print('Id of B:',id(b))
+
+output
+-------
+A: (10, 20, 30, 40, 50)
+B: (10, 20, 30, 40, 50)
+Id of A: 2415401145424
+Id of B: 2415401145424
+
+A: (10, 20, 30, 40, 50)
+B: (10, 20, 30, 40, 50)
+Id of A: 2415401145424
+Id of B: 2415401145424
+
+
+Nested Tuple in Python
+------------------------
+A tuple within another tuple is called as nested tuple or nesting of a tuple.
+
+EX:
+a = (10,20,30,(50,60))
+print(a)
+print(a[0])
+print(a[1])
+print(a[2])
+print(a[3])
+print(a[3][0])
+print(a[3][1])
+
+output
+----------
+(10, 20, 30, (50, 60))
+10
+20
+30
+(50, 60)
+50
+60
+
+EX:
+b = (50,60)
+a = (10,20,30,b)
+print(a)
+print(a[0])
+print(a[1])
+print(a[2])
+print(a[3])
+print(a[3][0])
+print(a[3][1])
+
+output
+----------
+(10, 20, 30, (50, 60))
+10
+20
+30
+(50, 60)
+50
+60
+
+EX:
+a = ((10,20,30),(40,50,60))
+print(a)
+print('a[0]:',a[0])
+print('a[1]:',a[1])
+
+print()
+print(a[0][0])
+print(a[0][1])
+print(a[1][0])
+print(a[1][2])
+
+
+output
+--------
+((10, 20, 30), (40, 50, 60))
+a[0]: (10, 20, 30)
+a[1]: (40, 50, 60)
+
+10
+20
+40
+60
+
+Accessing Nested Tuple using for Loop in Python
+-----------------------------------------------------
+EX:
+
+a = (10,20,30,(50,60))
+n = len(a)
+for i in range(n):
+	if type(a[i]) is tuple:
+		if len(a[i])>1:
+			m = len(a[i])
+			for j in range(m):
+				print(i,j, a[i][j])
+	else:
+		print(i,a[i])			
+
+output
+----------
+0 10
+1 20
+2 30
+3 0 50
+3 1 60
+
+EX:
+a = ((10,20,30),(40,50,60))
+
+#without Index
+for r in a:
+	for c in r:
+		print(c)
+
+	print()	
+
+output
+---------
+10
+20
+30
+
+40
+50
+60
+
+EX:
+a = ((10,20,30),(40,50,60))
+
+# with Index
+n = len(a)
+for i in range(n):
+	for j in range(len(a[i])):
+		print(i, j, a[i][j])
+	print()	
+
+output
+-------
+10
+20
+30
+
+40
+50
+60
+
+Accessing Nested Tuple using while Loop in Python
+---------------------------------------------------
+
+EX:
+a = (10,20,30,(50,60))
+
+n = len(a)
+i = 0
+while i<n:
+	if type(a[i]) is tuple:
+		if len(a[i])>1:
+			j = 0
+			m = len(a[i])
+			while j<m:
+				print(i,j,a[i][j])
+				j+=1
+			i+=1
+	else:
+		print(i,a[i])
+		i+=1			
+
+output
+----------
+0 10
+1 20
+2 30
+3 0 50
+3 1 60
+
+EX:
+a = ((10,20,30),(40,50,60))
+
+n = len(a)
+i = 0
+while i<n:
+	j = 0
+	while j<len(a[i]):
+		print(i,j,a[i][j])
+		j+=1
+	i+=1	
+
+output
+------------
+0 0 10
+0 1 20
+0 2 30
+1 0 40
+1 1 50
+1 2 60
+
+Passing Tuple to Function in Python 
+-------------------------------------
+EX:
+
+def show(t):
+	print(t)
+	print(type(t))
+	for i in t:
+		print(i)
+
+
+tup = (10,20,30,"hello")
+show(tup)		
+
+output
+--------
+(10, 20, 30, 'hello')
+<class 'tuple'>
+10
+20
+30
+hello
+
+Returning Tuple from Function in Python
+---------------------------------------------
+EX:
+
+def show(t):
+	print(t)
+	print(type(t))
+	for i in t:
+		print(i)
+	return t	
+
+
+tup = (10,20,30,"hello")
+new_tup = show(tup)	
+print(new_tup)
+print(type(new_tup))	
+
+output
+---------
+(10, 20, 30, 'hello')
+<class 'tuple'>
+10
+20
+30
+hello
+(10, 20, 30, 'hello')
+<class 'tuple'>
+
+
+List of Tuples in Python 
+-------------------------
+a = [10,20,(30,40)]
+print('Original List:',a)
+print(id(a))
+print(type(a))
+print()
+
+a.append((50,60))
+print('After Appending List:',a)
+print(id(a))
+print(type(a))
+
+output
+------
+Original List: [10, 20, (30, 40)]
+2238260640448
+<class 'list'>
+
+After Appending List: [10, 20, (30, 40), (50, 60)]
+2238260640448
+<class 'list'>
+
+
+EX:
+a = [10,20,(30,40)]
+print('Original List:',a)
+print(id(a))
+print(type(a))
+print()
+
+n = len(a)
+for i in range(n):
+	if type(a[i]) is tuple:
+		if len(a[i])>1:
+			m = len(a[i])
+			for j in range(m):
+				print(i,j,a[i][j])
+	else:
+		print(i,a[i])			
+
+output
+-----
+Original List: [10, 20, (30, 40)]
+1830840629952
+<class 'list'>
+
+0 10
+1 20
+2 0 30
+2 1 4
+
+EX:
+a = [(10,20),(30,40)]
+print('Original List:',a)
+print(id(a))
+print()
+
+a.append((50,60))
+print('After Appending a Tuple:',a)
+print(id(a))
+
+output
+---------
+Original List: [(10, 20), (30, 40)]
+2107328232128
+
+After Appending a Tuple: [(10, 20), (30, 40), (50, 60)]
+2107328232128
+
+
+EX:
+a = [(10,20),(30,40)]
+print('Original List:',a)
+print(id(a))
+print()
+
+a.append(10)
+print('After Appending a Tuple:',a)
+print(id(a))
+
+
+output
+--------
+Original List: [(10, 20), (30, 40)]
+1910626384576
+
+After Appending a Tuple: [(10, 20), (30, 40), 10]
+1910626384576
+
+
+EX:
+a = [(10,20),(30,40)]
+print('Original List:',a)
+print(id(a))
+print()
+
+n = len(a)
+for i in range(n):
+	for j in range(len(a[i])):
+		print(i, j ,a[i][j])
+	print()	
+
+output
+-------
+Original List: [(10, 20), (30, 40)]
+2093954562752
+
+0 0 10
+0 1 20
+
+1 0 30
+1 1 40
+
+
+Tuple of Lists in Python
+---------------------------
+EX:
+a = (10,20,[30,40])
+print("Original Tuple A:",a)
+print(id(a))
+print(type(a))
+print()
+
+#modifing lists
+a[2][0] = 90
+print("After Modifying Tuple:",a)
+print(id(a))
+
+output
+-------
+Original Tuple A: (10, 20, [30, 40])
+1641207395264
+<class 'tuple'>
+
+After Modifying Tuple: (10, 20, [90, 40])
+1641207395264
+
+EX:
+
+a = (10,20,[30,40])
+print("Original Tuple A:",a)
+print(id(a))
+print(type(a))
+print()
+
+n = len(a)
+for i in range(n):
+	if type(a[i]) is list:
+		if len(a[i])>1:
+			m = len(a[i])
+			for j in range(m):
+				print(i,j,a[i][j])
+	else:
+		print(i,a[i])
+					
+
+
+output
+--------
+Original Tuple A: (10, 20, [30, 40])
+2265781793792
+<class 'tuple'>
+
+0 10
+1 20
+2 0 30
+2 1 40
+
+
+
+EX:
+
+a = ([10,20],[30,40])
+print("Original Tuple A:",a)
+print(id(a))
+print()
+
+
+a[0][0]=80
+print('After Modification tuple:',a)
+print(id(a))
+
+output
+------
+Original Tuple A: ([10, 20], [30, 40])
+1925966164224
+
+After Modification tuple: ([80, 20], [30, 40])
+1925966164224
+
+
+EX:
+a = ([10,20],[30,40])
+print("Original Tuple A:",a)
+print(id(a))
+print()
+
+n = len(a)
+for i in range(n):
+	for j in range(len(a[i])):
+		print(i,j, a[i][j])
+	print()	
+
+output
+--------
+Original Tuple A: ([10, 20], [30, 40])
+2452164735104
+
+0 0 10
+0 1 20
+
+1 0 30
+1 1 40
+
+==============================END===============
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,659 @@
+		f-String/Formatted String Literal
+		==================================
+
+A formatted string literal or f-string is a literal that is prefixed with "f or F".
+These strings any contain replacement fields,which are expressions delimited by curly
+braces {}. While other  string literals always have a constant value,formatted strings
+are really expressions evaluated at  run time.
+
+Syntax:
+	f"{index/key/name:[fill][align][sign][#][0][width][,][.precision]type}"
+			 |						     |
+			 |_____________Format specification__________________|
+				
+EX:
+	a = 10
+	print(f"{a}")
+
+EX:
+	print(f"My age is {a}")
+
+Conversion Type				Meaning
+---------------				----------
+d					Signed integer decimal.(vvvIMP)
+o					Signed octal value.
+x					Signed hexadecimal (lowercase)
+X					Signed hexadecimal(uppercase).
+b					Binary Format
+e					Floating point exponential format(lowercase)
+E					Floating point exponential format(uppercase)
+f					Floating point decimal format.(Default:6)(vvvIMP)
+F					Same as 'f' Except displays 'inf' as 'INF' and 'nan'
+					as 'NAN'
+c					Character converts the integer to  the corresponding Unicode
+					character before printing
+g					General format Rounds number to  p significant digits.(Default precision:6)
+G					Same as 'g'.Except switches to 'E' if the  number is large
+n					Same as 'd' Except it uses current local setting for number separator
+s					String(converts any python object using str()).
+%					Percentage Multiples the number by 100 and displays in fixed('f')
+					format followed by a percent sign.
+
+
+Alignment type			Meaning
+--------------			----------
+<				Forces the  field to be left-aligned within the  available space(This is
+				default for most objects)
+
+^				Forces the field to be centered within the  available space.
+
+>				Forces the field to be  right-aligned within the available space(This is
+				default for Numbers)
+
+=				Forces the padding to be palced after the sign(if any) but before the
+				digits. This is used for printing fields in  the form'+000000120'.This	
+				alignment option is only valid for numeric types. It becomes the  default
+				when '0' immediately precedes the field width.
+
+
+
+Sign				Meaning
+-----				--------
++				Indicates that a sign should be used for  both positive as well as
+				negative numbers.
+
+-				indicates that a sign should be used only for  negative numbers ( this is
+				the default behavior).
+
+				(a space) indicates that a leading sapce should used on positive numbers,
+				and a minus sign on negative numbers.
+
+
+#
+--
+The '#' option causes the "alternate form" to be used for the conversion.The alternate form is defined
+differently for different types. This option is only valid for  integer,float,complex and Decimal types.
+For integers,when binary octal, or hexadecimal output is used, this option adds the prefix respective'0b',
+'0o', or '0x' to  the output value.
+
+
+,
+---
+The ',' option signals the use of a comma for a "thousands separator".For a locale aware separator,use
+the 'n' integer presentation type instead.
+
+
+-
+---
+The '-' option signals the use of an underscore for  a thousand separator for  floating point 
+presentation types an for integer presentation type'd'.
+
+
+
+#Integer
+============
+EX:
+a = 10
+b = 20
+print(f"{a}")
+print(f"{b}")
+
+
+output
+------
+10
+20
+
+
+EX:
+a = 10
+b = 20
+print(f"{a},{b}")
+
+output
+-------
+10,20
+
+
+EX:
+
+a = 10
+b = 20
+value = f"a value is {a},b value is{b}"
+print(value)	
+
+
+output
+-------
+a value is 10,b value is20
+
+
+#Float
+===========
+print("******Float*******")
+c = 10.56
+d = 20.42
+print(f"{c}")
+print(f"{c} {d}")
+print(f"{d} {c}")
+
+
+output
+=========
+******Float*******
+10.56
+10.56 20.42
+20.42 10.56
+
+
+#string
+=========
+
+EX:
+print("*******String********")
+f_name = "Geeky"
+l_name  ="Shows"
+print(f"{f_name}")
+print(f"{f_name}  {l_name}")
+print(f"{l_name} {f_name}")
+
+output
+------
+*******String********
+Geeky
+Geeky  Shows
+Shows Geeky
+
+
+
+#Integer and String 
+==================
+EX:
+
+name = "GeekyShows"
+age = 10
+
+print(f"Hello My Name is {name}")
+print(f"{name} {age}")
+print(f"{age} {name}")
+
+output
+------
+Hello My Name is GeekyShows
+GeekyShows 10
+10 GeekyShows
+
+:[fill][align][sign][#][0][width][,][.precision]type
+=================================================
+	num = 15
+EX:
+	
+print(f"{num:5d}")
+
+	Note: d is the datatype, 5 is the width,num is the variable
+
+ouput
+----
+	---15
+
+EX:
+print(f"{num:05d}")
+
+	Note: d is the datatype, 5 is the width,0 is the padding, num is the variable
+
+output
+------
+	00015
+
+EX:
+print(f"{num:+5d}")
+
+	Note: + is the sign,5 is the width, d is the datatype,num is the variable
+
+output
+------
+
+	--+15
+
+EX:
+print(f"{num:<5d}")
+
+	Note:num is the variable, < is the left align, 5 is the width, d is the datatype
+
+output
+------
+	15---
+
+EX:
+print(f"{num:*<5d}")
+
+	Note:num is the variable, * is the fill,5 is the variable, d is the datatype
+ouptut
+-----
+	15***
+
+EX:
+print(f"{num:*>5d}")
+
+	Note:* is the fill, > is the right align,d is the datatype,5 is the width,num is the variable,
+output
+-----
+	***15
+
+EX:
+print(f"{num:^5d}")
+
+	Note:num  is the variable, ^ center align,5 is the width, d is the datatype
+output
+-----
+	-15--
+
+
+EX:
+#Integer
+==========
+print("******Integer *****")
+num = 15
+print(f"{num}")
+print(f"{num:d}")
+print(f"{num:5d}")
+print(f"{num:05d}")
+print(f"{num:+5d}")
+print(f"{num:<5d}")
+print(f"{num:*<5d}")
+print(f"{num:*>5d}")
+print(f"{num:^5d}")
+print(f"{num:*^5d}")
+
+output
+------
+15
+15
+   15
+00015
+  +15
+15
+15***
+***15
+ 15
+*15**
+
+	
+#Float
+=======
+	num = 15.65
+
+Ex:
+print(f"{num:8f}")
+
+	Note:num is the variable, 8 is the width,f is the datatype(float)
+
+ouput
+-----
+	15.650000
+
+
+EX:
+print(f"{num:8.3f}")
+	
+	Note:num is the variable, 8 is the width, .3 is the precisions,f is the datatype
+
+output
+-----
+	--15.650
+
+EX:
+print(f"{num:+8.2f}")
+	
+	Note: + is the sign, 8 is the width, .2 is the precisions, f is the datatype
+
+ouput
+-----
+	--+15.65
+
+
+EX:
+print(f"{num:<8.2f}")
+	
+	Note: num is the variable, < is the left align, .2 is the precisions, f is the datatype
+
+output
+------
+	15.65---
+
+
+EX:
+print(f"{num:*<8.2f}")
+
+	Note: num is the variable, * is the fill, 8 is the width, .2f is the presicion,f is the datatype
+
+output
+-----
+	15.65***
+
+EX:
+print(f"{num:*>8.2f}")
+
+	Note: num is the variable, > is the right align, .2 is the precision, f is the datatype
+
+output
+------
+	***15.65
+
+EX:
+print(f"{num:^8.2f}")
+	
+	Note:num is the variable, ^ is the center align, .2 is the precision,f is the datatype
+
+output
+------
+	-15.65--
+
+
+
+
+# Float
+========
+
+EX:
+
+print("*********Float*******")
+
+num = 15.65
+price = 15.65123456789
+print(f"{num}")
+print(f"{num:f}")
+print(f"{num:8f}")
+print(f"{price:.20f}")
+print(f"{num:8.3f}")
+print(f"{num:+8.2f}")
+print(f"{num:<8.2f}")
+print(f"{num:*<8.2f}")
+print(f"{num:*>8.2f}")
+print(f"{num:^8.2f}")
+print(f"{num:*^8.2f}")
+
+output
+------
+*********Float*******
+15.65
+15.650000
+15.650000
+15.65123456789000044864
+  15.650
+  +15.65
+15.65
+15.65***
+***15.65
+ 15.65
+*15.65**
+
+
+#String
+========
+
+print("******String*****")
+name = "Geek"
+
+print(f"{name}")
+print(f"{name:s}")
+print(f"{name:8s}")
+print(f"{name:<8}")
+print(f"{name:*<8}")
+print(f"{name:>8}")
+print(f"{name:*>8s}")
+print(f"{name:^8s}")
+print(f"{name:*^8s}")
+
+
+output
+------
+
+******String*****
+Geek
+Geek
+Geek
+Geek
+Geek****
+    Geek
+****Geek
+  Geek
+**Geek**
+
+
+#Precision & String
+======================
+
+print("******Truncating String*****")
+name = "GeekShows"
+
+print(f"{name:.3s}")
+print(f"{name:8.3s}")
+print(f"{name:*<8.3s}")
+print(f"{name:>8.3s}")
+print(f"{name:*>8.3s}")
+print(f"{name:^8.3s}")
+print(f"{name:*^8.3s}")
+
+
+EX:
+	 ,
+	----
+
+price = 1234567890
+print(f"{price:,}")
+
+output
+-----
+
+1,234,567,890
+
+
+EX:
+price = 1234567890
+print(f"{price:_}")
+
+output
+-------
+1_234_567_890
+
+
+EX:
+name = "Rahul"
+age = 62
+
+print(f"My Name is {name} and age is {age}")	
+
+output
+----
+My Name is Rahul and age is 62
+
+EX:
+print(f"{10*8}")
+
+output
+-----
+80
+
+
+EX:
+a = 50
+b = 3
+
+print(f"{a/b}")
+
+output
+------
+16.666666666666668
+
+
+EX
+a = 50
+b = 3
+
+print(f"{a/b:.2}")
+
+
+output
+-----
+
+1.7e+01
+
+
+EX:
+
+a = 50
+b = 3
+
+print(f"{a/b:.2%}")
+
+output
+-----
+1666.67%
+
+EX:
+value  = (10,20)
+print(f"{value[0]} {value[1]} ")
+
+output
+------
+10 20
+
+EX:
+data = {'rahul':2000, 'sonam':3000}
+print(f"{data['rahul']:d}")
+print(f"{data['sonam']:d}")
+
+output
+------
+2000
+3000
+
+EX:
+name = "Geekyshows"
+print(f"{name}")
+
+output
+------
+Geekyshows
+
+EX:
+name = "Geekyshows"
+print(f"{name.upper()}")
+print(f"{name.isalnum()}")
+print(f"{name.isdigit()}")
+print(f"{name.islower()}")
+print(f"{name.lower()}")
+
+
+output
+------
+GEEKYSHOWS
+True
+False
+False
+geekyshows
+
+
+********************************
+EX:
+	class rasinappudu ela call cheyali
+
+
+print(f"{obj.name}") #obj ante class name ki object estham kada adi...ela call cheyali
+
+
+**************************************
+EX:
+
+print(f"{10}")
+
+ouptut
+-----
+10
+
+ 
+EX:
+print(f"{{10}}")
+
+output
+------
+{10}
+
+
+EX:
+#Date and Time
+
+from datetime import datetime
+today = datetime(2019,10,5)
+print(f"{today}")
+
+outptu
+------
+2019-10-05 00:00:00
+
+
+EX:
+from datetime import datetime
+today = datetime(2019,10,5)
+print(f"{today:%d-%b-%Y}")
+print(f"{today:%a}")
+
+output
+-----
+05-Oct-2019
+Sat
+
+
+*****************************
+NOTE:
+	https://docs.python.org/3/library/datetime.html
+
+idi click chesi last lo chudu python  datatime formst list untundi....
+
+******************************
+
+EX:
+
+from datetime import datetime
+today = datetime(2019,10,5)
+print(f"{today:%d/%b/%Y}")
+print(f"{today:%b}")
+
+
+output
+-----
+05/Oct/2019
+Oct
+
+
+EX:
+from datetime import datetime
+today = datetime(2019,10,5)
+print(f"{today:%d/%b, %Y}")
+
+output
+-----
+05/Oct, 2019
+
+
+EX:
+from datetime import datetime
+today = datetime(2019,10,5)
+print(f"{today}")
+print(f"{today:%d %b, %Y}")
+
+
+output
+-----
+2019-10-05 00:00:00
+05 Oct, 2019
+
+==============================END================
+
+
+
+	
+
+
+

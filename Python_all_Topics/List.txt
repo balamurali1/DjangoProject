@@ -1,0 +1,1742 @@
+Method's ni Chudali ante ela
+
+a = [1,2,3,4]
+print(dir(a))
+
+from collections import deque
+a =deque([1,2,3,4])
+print(dir(a))
+----------------------------
+	LIST
+	*****
+
+1.A list reprasents a group of elements(items)
+2.Lists are very similar to array but there is major diffrence,an arry can store only one
+type of elements(items) whereas a list can store diffrent type of elements(items).
+3.Lists are 'mutable so we can modify it's element(items)
+4.A list can store "different type of elements" which can be modified.
+5.Lists are dynamic which means size is not fixed.
+6.Lists are represented using square bracket[].
+Ex:
+a = [10,20,-50,21.3,'Geekyshows']
+
+CREATING A LIST
+----------------
+	syntax:
+		list_name = [element1,element2.......]
+EX:
+a = [10,20,-50,21.3,'Geekyshows']
+
+CREATEING AN EMPTY LIST
+-----------------------
+	syntax:
+		list_name = []
+	EX:
+		a = []
+
+INDEX
+------	
+	An index represents the position number of an list's element.The index start from 0
+on wards and written inside square braces
+	     0   1  2   3      4	
+	a = [10,20,-50,21.3,'Geekyshows']
+	     -5	-4 -3	-2	-1
+
+len()  :#len()function index ni 1 nundi count chesthundi.
+------
+EX:
+a = ['Hello','Geekyshows','Orange',1,2,3]
+print(a)
+l = len(a)
+print('a list elements is:',l,'elements')
+
+output
+------
+['Hello', 'Geekyshows', 'Orange', 1, 2, 3]
+a list elements is: 6 elements
+
+
+Accessing List's Element
+------------------------
+	      a[-5] a[-4] a[-3]   a[-2]	       a[-1]
+          a = [ 10,   20,  -50,   21.3,     'Geekyshows']
+	       a[0]  a[1]  a[2]   a[3]       a[4]
+
+print(a[0])
+print(a[1])
+print(a[2])
+print(a[3])
+print(a[4])
+print(a[-1])
+.....etc
+
+EX:
+a = [10,20,30,40,50]
+print(f'a value is:',a)
+
+print(f'Index 0 item is:{a[0]}')
+print(f'Index 1 item is:{a[1]}')
+print(f'Index 2 item is:{a[2]}')
+print(f'Index 3 item is:{a[3]}')
+print(f'Index 4 item is:{a[4]}')
+print()
+
+output
+------
+a value is: [10, 20, 30, 40, 50]
+Index 0 item is:10
+Index 1 item is:20
+Index 2 item is:30
+Index 3 item is:40
+Index 4 item is:50
+
+
+Modifying or Updating Element
+------------------------------
+Lists are mutable so we can modify it's element	
+a = [10,20,-50,21.3,'Geekyshows'] 
+
+print(a)
+print(a[1])
+a[1]=40
+print(a[1])
+print(a)
+
+output
+------
+[10, 20, -50, 21.3, 'Geekyshows']
+20
+40
+[10, 40, -50, 21.3, 'Geekyshows']
+
+
+Accessing List using for Loop in Python
+---------------------------------------- 
+Ex:
+a = [10,20,-50,21.3,'Geekyshows']
+
+for i in a:
+	print(i)
+
+
+
+EX:
+
+a = [10,20,-50,21.3,'Geekyshows']
+
+b = len(a) #len()function index ni 1 nundi count chesthundi.
+
+for i in range(b): 	#range anedi 0 nundi count chesthundi.
+	print(i, '=', a[i])
+
+EX:
+a = [10,20,-50,21.3,'Geekyshows']
+
+b = len(a) #len() function index ni 1 nundi count chesthundi.
+
+for i in range(b):
+	print(a[i])
+
+EX:
+a = [10,20,-50,21.3,'Geekyshows']
+
+b = len(a) #len() function index ni 1 nundi count chesthundi.
+
+for i in range(b):
+	print(i,a[i])
+
+
+Accessing List using while Loop in Python
+------------------------------------------
+EX:
+a = [10,20,-50,21.3,'Geekyshows']
+
+n = len(a)
+
+i = 0 	#initial value mean's(ప్రారంభం )
+while i < n:
+	print(i, a[i])
+	i+=1  #i = i+1
+
+output
+-------
+0 10
+1 20
+2 -50
+3 21.3
+4 Geekyshows
+
+
+EX:
+
+a = [1,2,3,'Geekyshows','Buty']
+print(f'A List is:{a}')
+print()
+
+len = len(a)
+
+i = 0 #Initial Value
+while i<len:
+	print(i)
+	i+=1
+
+output
+------
+A List is:[1, 2, 3, 'Geekyshows', 'Buty']
+
+0
+1
+2
+3
+4
+
+
+EX:
+
+a = [1,2,3,'Geekyshows','Buty']
+print(f'A List is:{a}')
+print()
+
+len = len(a)
+
+i = 0 #Initial Value
+while i<len:
+	print(i,'=',a[i])
+	i+=1
+
+output
+-------
+A List is:[1, 2, 3, 'Geekyshows', 'Buty']
+
+0 = 1
+1 = 2
+2 = 3
+3 = Geekyshows
+4 = Buty
+
+
+Getting List input from user in Python
+---------------------------------------
+EX:
+a = []
+a.append(int(input('Enter Value:')))
+print(a)
+
+output
+------
+Enter Value:101
+[101]
+
+
+EX:
+a = []
+n = int(input('Enter Number of Elements:'))
+
+for i in range(n):
+	a.append(int(input('Enter Elements:')))
+
+print('list a:', a)
+
+outut
+-----
+Enter Number of Elements:3
+Enter Elements:10
+Enter Elements:20
+Enter Elements:30
+list a: [10, 20, 30]
+
+EX:
+a = []
+n = int(input('Enter the list items:'))
+
+for i in range(n):
+	a.append(input('Enter the Item:').split())-->Look Here...I am using split()
+
+print(f'A List items:{a}')
+
+output
+-------
+Enter the list items:3
+Enter the Item:Good
+Enter the Item:Hi
+Enter the Item:Hello
+A List items: [['Good'], ['Hi'], ['Hello']]
+
+
+EX:
+a = []
+n = int(input('Enter the list items:'))
+
+for i in range(n):
+	a.append(input('Enter the Item:'))--->Look Here Iam Not Use split()
+
+print(f'A List items:{a}')
+
+output
+------
+Enter the list items:3
+Enter the Item:Good
+Enter the Item:Buty
+Enter the Item:Hi
+A List items: ['Good ', 'Buty', 'Hi']
+
+
+EX:
+a = []
+
+n = int(input('Enter Number of Items:'))
+
+for i in range(n):
+	a.append(float(input('Enter Item of list:')))
+	
+print(f'a List is:{a}')	
+
+output
+------
+Enter Number of Items:3
+Enter Item of list:12.3
+Enter Item of list:12.0
+Enter Item of list:15.3
+a List is:[12.3, 12.0, 15.3]
+
+
+EX:
+a = []
+n = int(input('Enter Number of Items:'))
+
+for i in range(n):
+	items = float(input('Enter Item of list:'))
+	a.append(items)
+
+print(f'a List is:{a}')	
+
+output
+------
+Enter Number of Items:3
+Enter Item of list:12.3
+Enter Item of list:15.6
+Enter Item of list:11.3
+a List is:[12.3, 15.6, 11.3]
+
+EX:
+a = []
+n = int(input('Enter the list items:'))
+
+for i in range(n):
+	a.append(input('Enter the Item:'))
+
+print(f'A List items:{a}')	
+
+output
+------
+Enter the list items:2
+Enter the Item:Hello BalaMurali
+Enter the Item:How are You Guys...
+A List items: ['Hello BalaMurali', 'How are You Guys...']		
+
+
+EX:
+a = []
+n = int(input('Enter number of Element:'))
+
+for i in range(n):
+	ele = int(input('Enter value:'))
+	a.append(ele)
+
+print(f'A List is:{a}')	
+
+output
+------
+Enter number of Element:3
+Enter value:11
+Enter value:12
+Enter value:12
+A List is: [11, 12, 12]
+
+
+EX:
+
+try:
+	my_list = []
+
+	while True:
+		my_list.append(int(input('Enter value:')))
+
+# if the input is not-integer, just print the list
+except:
+	print(my_list)	
+
+output
+-------
+Enter value:101
+Enter value:102
+Enter value:103
+Enter value:stop
+[101, 102, 103]	
+
+
+EX:
+lst = []
+
+lst = [item for item in input("Enter the list items : ").split()]
+
+print(lst)
+
+output
+------
+Enter the list items : Hello BalaMurali Good nice
+['Hello', 'BalaMurali', 'Good', 'nice']
+
+
+EX:
+a = []
+
+n = int(input('Enter Value:'))
+
+for i in range(n):
+	a.append(int(input('Enter value is:',)))
+
+print('List is:',a)
+print(a[0])
+print(a[1])
+print(a[2])
+
+output
+------
+Enter Value:3
+Enter value is:101
+Enter value is:102
+Enter value is:103
+List is: [101, 102, 103]
+101
+102
+103	
+
+
+EX:
+a = []
+
+n = int(input('Enter Number of Elements:'))
+
+for i in range(n):
+	a.append(int(input('Enter Elements:')))
+
+print('List:')
+for ele in a:
+	print(ele)	
+
+output
+-------
+Enter Number of Elements:3
+Enter Elements:10
+Enter Elements:20
+Enter Elements:30
+List:
+10
+20
+30
+
+
+
+append() Method
+---------------
+
+This method is used to 'add' an element at the end of the existing list.
+
+	syntax:
+		list_name.append(new_element)
+
+a = [10,20,-50,21.3,'Geekyshows']
+
+print('Before Appending')
+for ele in a:
+	print(ele)
+
+#Appendig an element
+a.append(100)
+print()
+print('After appending')
+for ele in a:
+	print(ele)
+
+print(a)
+
+output
+-----
+Before Appending
+10
+20
+-50
+21.3
+Geekyshows
+
+After appending
+10
+20
+-50
+21.3
+Geekyshows
+100
+
+
+[10, 20, -50, 21.3, 'Geekyshows', 100]
+
+
+insert()
+----------
+This method is used to insert an element in a particular position of the existing list.
+
+	Syntax:
+		list_name.insert(position_number,new_element)
+
+
+EX:
+a = [10, 20, -50, 21.3,90, 'Geekyshows']
+a.insert(3,'Subscribe')
+
+for element in a:
+	print(element)
+
+output
+------
+10
+20
+-50
+Subscribe
+21.3
+90
+Geekyshows
+
+EX:
+a = [10, 20, -50, 21.3,90, 'Geekyshows']
+a.insert(3,'Subscribe')
+
+n = len(a)
+
+for element in range(n):
+	print(element,a[element])
+
+output
+-------
+0 10
+1 20
+2 -50
+3 Subscribe
+4 21.3
+5 90
+6 Geekyshows
+
+
+pop()
+----------
+This method is used to remove last element from the existing list.
+
+	syntax:
+		list_name.pop()
+EX:
+
+a = [10, 20, -50, 21.3,90, 'Geekyshows']
+
+print('Before POP:',a)
+
+a.pop()
+
+print('After POP:',a)
+
+output
+--------
+Before POP: [10, 20, -50, 21.3, 90, 'Geekyshows']
+After POP: [10, 20, -50, 21.3, 90]
+
+
+EX:
+
+a = [10, 20, -50, 21.3,90, 'Geekyshows']
+print('Before POP:',a)
+
+a.pop()
+
+print('After POP:',a)
+
+for ele in a:
+	print(ele)
+
+output
+-------
+Before POP: [10, 20, -50, 21.3, 90, 'Geekyshows']
+After POP: [10, 20, -50, 21.3, 90]
+10
+20
+-50
+21.3
+90
+
+
+pop(n)
+--------
+This method is used to remove an element Specified by position number,from the existing list
+and return removed element.
+	syntax:
+		list_name.pop(position_number)
+EX:
+
+a = [10, 20, -50, 21.3,90, 'Geekyshows']
+print('Before POP:',a)
+
+a.pop(2)
+
+print('After POP:',a)
+
+output
+------
+Before POP: [10, 20, -50, 21.3, 90, 'Geekyshows']
+After POP: [10, 20, 21.3, 90, 'Geekyshows']
+
+
+EX:
+a = [10, 20, -50, 21.3,90, 'Geekyshows']
+print('Before POP:',a)
+
+a.pop(2)
+
+print('After POP:',a)
+
+for ele in a:
+	print(ele)
+
+output
+------
+Before POP: [10, 20, -50, 21.3, 90, 'Geekyshows']
+After POP: [10, 20, 21.3, 90, 'Geekyshows']
+10
+20
+21.3
+90
+Geekyshows
+
+
+
+EX:
+a = [10, 20, -50, 21.3,90, 'Geekyshows']
+print('Before POP:',a)
+
+n = a.pop(2)
+print('Removed Element:',n)
+
+print('After POP:',a)
+
+for ele in a:
+	print(ele)
+
+output
+-------
+Before POP: [10, 20, -50, 21.3, 90, 'Geekyshows']
+Removed Element: -50
+After POP: [10, 20, 21.3, 90, 'Geekyshows']
+10
+20
+21.3
+90
+Geekyshows
+
+
+remove()
+-----------
+This method is used to remove first Occurrence of given element from the existing list.
+If it doesn't found the element,shows valueError.
+
+	syntax:
+		list_name.remove(element)
+
+EX:
+a = [10, 20, -50, 21.3,90,10, 'Geekyshows']
+print('Before Remove:',a)
+
+a.remove(20)
+
+print('After Remove:',a)
+
+output
+-------
+Before Remove: [10, 20, -50, 21.3, 90, 10, 'Geekyshows']
+After Remove: [10, -50, 21.3, 90,10, 'Geekyshows']
+
+
+EX:
+
+a = [10, 20, -50, 21.3,90,10, 'Geekyshows']
+print('Before Remove:',a)
+
+a.remove(20)
+
+print('After Remove:',a)
+
+for ele in a:
+	print(ele)
+
+output
+--------
+Before Remove: [10, 20, -50, 21.3, 90,10, 'Geekyshows']
+After Remove: [10, -50, 21.3, 90,10, 'Geekyshows']
+10
+-50
+21.3
+90
+10
+Geekyshows
+
+
+EX:
+a = [10, 20, -50, 21.3,90, 10, 'Geekyshows']  #multiple elements 10
+print('Before Remove:',a)
+
+a.remove(10) #remove first Occurrence in the list.
+ 
+
+print('After Remove:',a)
+
+for ele in a:
+	print(ele)
+
+output
+------
+Before Remove: [10, 20, -50, 21.3, 90, 10, 'Geekyshows']
+After Remove: [20, -50, 21.3, 90, 10, 'Geekyshows']
+20
+-50
+21.3
+90
+10
+Geekyshows
+
+EX:
+
+
+a = [70, 10, -50, 21.3,90, 10, 'Geekyshows'] #multiple elements
+print('Before Remove:',a)
+
+a.remove(10) #remove first Occurrence in the list.
+ 
+
+print('After Remove:',a)
+
+for ele in a:
+	print(ele)
+
+output
+-------
+Before Remove: [70, 10, -50, 21.3, 90, 10, 'Geekyshows']
+After Remove: [70, -50, 21.3, 90, 10, 'Geekyshows']
+70
+-50
+21.3
+90
+10
+Geekyshows
+
+
+
+index()
+---------
+This method returns position number of 'first Occurrence' of given element in the list.If
+it doesn't found the element,shows valueError.
+
+	syntax:
+		list_name.index(element)
+EX:
+
+a = [70, 10, -50, 21.3,90, 10, 'Geekyshows'] #multiple elements
+
+n = a.index(10)
+
+print('10 index number is:',n)
+
+output:
+1
+
+
+reverse()
+-------------
+This method is used to reverse the order of the elements in the list.
+
+	syntax:
+		list_name.reverse()
+
+EX:
+
+a = [70, 10, -50, 21.3,90, 10, 'Geekyshows']
+
+print("Before Reverse:",a)
+
+a.reverse()
+
+print('After Reverse:',a)
+
+output
+------
+Before Reverse: [70, 10, -50, 21.3, 90, 10, 'Geekyshows']
+After Reverse: ['Geekyshows', 10, 90, 21.3, -50, 10, 70]
+
+
+EX:
+
+a = [70, 10, -50, 21.3,90, 10, 'Geekyshows']
+
+print("Before Reverse:",a)
+
+a.reverse()
+
+print('After Reverse:',a)
+
+for ele in a:
+	print(ele)
+
+output
+------
+Geekyshows
+10
+90
+21.3
+-50
+10
+70
+
+
+extend()
+--------------
+This method is used to append another list or iterable object at the end of the list.
+
+	syntax:
+		list_name.extend(lst)
+
+EX:
+
+
+a = [70, 10, -50, 21.3,90, 10, 'Geekyshows']
+b = [100,200,300]
+
+print("Before Extend:",a)
+
+a.extend(b)
+
+print('After extend:',a)
+
+for ele in a:
+	print(ele)
+
+output
+---------
+Before Extend: [70, 10, -50, 21.3, 90, 10, 'Geekyshows']
+After extend: [70, 10, -50, 21.3, 90, 10, 'Geekyshows', 100, 200, 300]
+70
+10
+-50
+21.3
+90
+10
+Geekyshows
+100
+200
+300
+
+
+count()
+------------
+This method returns number of Occurrence of a specified element in the list.
+	syntax:
+		list_name.count(specified_element)
+
+EX:
+
+
+a = [70, 10, -50, 21.3,90, 10, 'Geekyshows']
+
+n = a.count(10)
+
+print(n)
+
+output
+-------------
+2
+
+
+sort()
+---------
+This method is used to sort the elements of the list into 'ascending order'.
+
+	syntax:
+		list_name.sort()
+
+EX:
+
+a = [70, 10, -50, 21.3,90, 10]
+
+print('Before  Sort:',a)
+
+a.sort()
+
+print('Before sort',a)
+
+for ele in a:
+	print(ele)
+
+output
+----
+Before  Sort: [70, 10, -50, 21.3, 90, 10]
+Before sort [-50, 10, 10, 21.3, 70, 90]
+-50
+10
+10
+21.3
+70
+90
+
+
+clear()
+------------
+This method is used to delete all the elements from the list.
+	syntax:
+		list_name.clear()
+
+EX:
+
+a = [70, 10, -50, 21.3,90, 10]
+
+print('Before  clear:',a)
+
+a.clear()
+
+print('Before clear',a)
+
+output
+------
+Before  clear: [70, 10, -50, 21.3, 90, 10]
+Before clear []
+
+
+Slicing on List in Python
+---------------------------------
+Slicing on list can be used to retrieve a piece of the list that contains a group of elements.
+Slicing is useful to retrieve a range of elements.
+
+	Syntax:
+		new_list_name = list_name[start:stop:stepsize]	
+
+
+x = [101,102,103,104,105,106,107]
+print('Original List')
+n = len(x)
+
+for i in range(n):
+	print(i,'=',x[i])
+
+print()
+
+k = x[:]
+print(k)
+
+print()
+
+print('From 1st position to 4th position')
+a = x[1:5]   #5=n-1
+for i in a:
+	print(i)
+print()
+
+print('From 0th position to last Position')
+b = x[0:]
+for i in b:
+	print(i)
+
+print()
+
+print('From 0th position to 4th Position')
+c = x[:5]
+for i in c:
+	print(i)
+
+print()	
+
+
+print('Last 4 Elements')
+d = x[-4:]
+for i in d:
+	print(i)
+
+print()
+
+print('From 0th Position to 6th position step 2')
+e = x[0:7:2]
+for i in e:
+	print(i)
+
+print()
+
+print('last 5 Elements with [-5-(-3)]=2 elements towards right')
+f = x[-5:-3]
+for i in f:
+	print(i)
+			
+
+output
+----------
+Original List
+0 = 101
+1 = 102
+2 = 103
+3 = 104
+4 = 105
+5 = 106
+6 = 107
+
+[101, 102, 103, 104, 105, 106, 107]
+
+From 1st position to 4th position
+102
+103
+104
+105
+
+From 0th position to last Position
+101
+102
+103
+104
+105
+106
+107
+
+From 0th position to 4th Position
+101
+102
+103
+104
+105
+
+Last 4 Elements
+104
+105
+106
+107
+
+From 0th Position to 6th position step 2
+101
+103
+105
+107
+
+last 5 Elements with [-5-(-3)]=2 elements towards right
+103
+104
+
+
+
+List Concatenation in Python
+---------------------------------
+
+
++ operator is used to do concatenation the list
+
+EX:
+a = [10,20,30]
+b = [1,2,3]
+
+print(a)
+print(b)
+
+result = a + b
+
+print(result)
+
+output
+-----------
+[10, 20, 30]
+[1, 2, 3]
+[10, 20, 30, 1, 2, 3]
+
+
+EX:
+a = [10,20,30]
+b = [1,2,3]
+c = [101,102,103]
+
+print(a)
+print(b)
+print(c)
+
+result = a + b + c
+
+print(result)
+
+output
+--------------
+[10, 20, 30]
+[1, 2, 3]
+[101, 102, 103]
+[10, 20, 30, 1, 2, 3, 101, 102, 103]
+
+
+Repetition of List
+-------------------------
+* Operator is used to repeat the elements of list
+
+EX:
+a = [10,20,30]
+
+
+result = a * 3
+
+print(result)
+
+output
+--------
+[10, 20, 30, 10, 20, 30, 10, 20, 30]
+
+
+Aliasing List
+--------------------
+Aliasing  means give the 'nick name'
+Aliasing means giving another name to the existing object.It Doesn't mean copying.
+
+a = [10,20,30,40,50]
+b = a #look here
+print('A:',a)
+print('B:',b)
+
+print()
+print('Modifying A')
+a[1] = 55
+print('A:',a)
+print('B:',b)
+
+print()
+print("Modifying B")
+b[2] = 66
+print('A:',a)
+print('B:',b)
+
+
+output
+-----------
+A: [10, 20, 30, 40, 50]
+B: [10, 20, 30, 40, 50]
+
+Modifying A
+A: [10, 55, 30, 40, 50]
+B: [10, 55, 30, 40, 50]
+
+Modifying B
+A: [10, 55, 66, 40, 50]
+B: [10, 55, 66, 40, 50]
+
+
+copying List
+----------------
+copy() Method is used to copy all the elements of a list to another list
+When we copy a list a separate copy of all the elements is stored in another list.Both the
+list are independent.
+
+EX:
+a = [10,20,30,40,50]
+b = a.copy() #look here
+print('A:',a)
+print('B:',b)
+
+print()
+print('Modifying A')
+a[1] = 55
+print('A:',a)
+print('B:',b)
+
+print()
+print("Modifying B")
+b[2] = 66
+print('A:',a)
+print('B:',b)
+
+output
+-----------
+A: [10, 20, 30, 40, 50]
+B: [10, 20, 30, 40, 50]
+
+Modifying A
+A: [10, 55, 30, 40, 50]
+B: [10, 20, 30, 40, 50]
+
+Modifying B
+A: [10, 55, 30, 40, 50]
+B: [10, 20, 66, 40, 50]
+
+
+
+Cloning List
+-----------------
+We can clone a list into another list using slicing
+When we clone a list a separate copy of all the elements is stored in another list.Both the
+list are independent.
+
+
+EX:
+a = [10,20,30,40,50]
+b = a[:] #look here,[:] this is cloning
+print('A:',a)
+print('B:',b)
+
+print()
+print('Modifying A')
+a[1] = 55
+print('A:',a)
+print('B:',b)
+
+print()
+print("Modifying B")
+b[2] = 66
+print('A:',a)
+print('B:',b)
+
+output
+----------
+
+A: [10, 20, 30, 40, 50]
+B: [10, 20, 30, 40, 50]
+
+Modifying A
+A: [10, 55, 30, 40, 50]
+B: [10, 20, 30, 40, 50]
+
+Modifying B
+A: [10, 55, 30, 40, 50]
+B: [10, 20, 66, 40, 50]
+
+
+Nested List 
+-----------------
+A list within another list is called as nested list or nesting of a list
+
+
+EX:
+a = [10,20,30,[50,60]]
+
+print(a[0])
+print(a[2])
+print(a[3])
+print(a[3][0])
+print(a[3][1])
+
+output
+----------
+10
+30
+[50,60]
+50
+60
+
+EX:
+
+a = [10,20,30,[50,60]]
+
+print('Before Modification A:',a)
+print()
+
+a[1] = 100
+a[3][0] = 5
+
+print('After Modification A:', a)
+
+output
+--------
+Before Modification A: [10, 20, 30, [50, 60]]
+
+After Modification A: [10, 100, 30, [5, 60]]
+
+
+EX:
+b = [50,60]
+a = [10,20,30,b]
+
+print('A:',a)
+
+output
+---------
+A: [10, 20, 30, [50, 60]]
+
+
+EX:
+b = [50,60]
+a = [10,20,30,b]
+
+print('A:',a)
+print()
+print(a[0])
+print(a[1])
+print(a[2])
+print(a[3])
+print(a[3][0])
+print(a[3][1])
+
+output
+-----------
+A: [10, 20, 30, [50, 60]]
+
+10
+20
+30
+[50, 60]
+50
+60
+
+
+EX:
+b = [50,60]
+a = [10,20,30,b]
+
+print("Before Modification A:",a)
+print()
+a[1] = 102
+a[3][0] = 11
+
+print('After Modification A:', a)
+
+output
+-------------
+Before Modification A: [10, 20, 30, [50, 60]]
+
+After Modification A: [10, 102, 30, [11, 60]]
+
+
+
+EX:
+a = [[10,20,30,],[40,50,60]]
+print('A:',a)
+print()
+print("a[0]:",a[0])
+print("a[1]:",a[1])
+
+output
+------------
+
+A: [[10, 20, 30], [40, 50, 60]]
+
+a[0]: [10, 20, 30]
+a[1]: [40, 50, 60]
+
+
+EX:
+a = [[10,20,30,],[40,50,60]]
+print('A:',a)
+print()
+print("a[0][0]:",a[0][0])
+print("a[0][1]:",a[0][1])
+print("a[0][2]:",a[0][2])
+print("a[1][0]:",a[1][0])
+print("a[1][1]:",a[1][1])
+print("a[1][2]:",a[1][2])
+
+output
+--------------
+A: [[10, 20, 30], [40, 50, 60]]
+
+a[0][0]: 10
+a[0][1]: 20
+a[0][2]: 30
+a[1][0]: 40
+a[1][1]: 50
+a[1][2]: 60
+
+
+EX:
+
+a = [[10,20,30,],[40,50,60]]
+print('Before Modification A:',a)
+print()
+a[0][1] = 2
+a[1][2] = 6
+print('After Modification A:',a)
+
+output
+---------------
+Before Modification A: [[10, 20, 30], [40, 50, 60]]
+
+After Modification A: [[10, 2, 30], [40, 50, 6]]
+
+
+Accessing Nested List using for Loop
+-------------------------------------------
+
+EX:
+a = [10,20,30,[50,60]]
+
+n = len(a)
+
+for i in range(n):
+	if type(a[i]) is list:
+		if len(a[i]) > 1:
+			m = len(a[i])
+			for j in  range(m):
+				print(i,j, a[i][j])
+	else:
+		print(i, a[i])			
+
+output
+------------
+0 10
+1 20
+2 30
+3 0 50
+3 1 60
+
+
+EX:
+
+a = [[10,20,30],[40,50,60]]
+
+#without index
+
+for r in a:
+	for c in r:
+		print(c)
+	print()	
+
+output
+----------
+10
+20
+30
+
+40
+50
+60
+
+
+EX:
+
+a = [[10,20,30],[40,50,60]]
+
+#with index
+n = len(a)
+
+for i in range(n):
+	for j in range(len(a[i])):
+		print(i,j, a[i][j])
+
+	print()	
+
+output
+----------
+0 0 10
+0 1 20
+0 2 30
+
+1 0 40
+1 1 50
+1 2 6
+
+
+Accessing Nested List using while Loop
+------------------------------------------
+
+EX:
+
+a = [10,20,30,[50,60]]
+
+n = len(a)
+i = 0
+while i < n:
+	#Checking a[i] is a list type or not
+	if type(a[i]) is list:
+		if len(a[i]) > 1:
+			j = 0
+			m = len(a[i])
+			while j < m:
+				print(i,j, a[i][j])
+				j+=1
+			i+=1
+	else:
+		print(i, a[i])
+		i+=1			
+				
+output
+----------
+0 10
+1 20
+2 30
+3 0 50
+3 1 60
+
+
+EX:
+a = [[10,20,30],[40,50,60]]
+
+n = len(a)
+i = 0
+while i < n:
+	j = 0
+	while j < len(a[i]):
+		print(i, j, a[i][j])
+		j+=1
+	i+=1	
+
+output
+-------------
+0 0 10
+0 1 20
+0 2 30
+1 0 40
+1 1 50
+1 2 60
+
+
+Passing List to Function
+------------------------------
+def show(l):
+	print(l)
+	print(type(l))
+	for i in l:
+		print(i)
+
+
+lst = [10,20,30,'Geekyshows']
+show(lst)		
+
+output
+------------
+[10, 20, 30, 'Geekyshows']
+<class 'list'>
+10
+20
+30
+Geekyshows
+
+
+Retur List from Function
+-----------------------------------
+def show(l):
+	print(l)
+	print(type(l))
+	for i in l:
+		print(i)
+	return l	
+
+
+lst = [10,20,30,'Geekyshows']
+new_lst = show(lst)
+print(new_lst)
+print(type(new_lst))		
+
+output
+------------
+[10, 20, 30, 'Geekyshows']
+<class 'list'>
+10
+20
+30
+Geekyshows
+[10, 20, 30, 'Geekyshows']
+<class 'list'>
+
+
+list() Function
+--------------------
+This is used do create a list. It returns a mutable list of elements.
+
+	syntax:
+		list()	#create empty list
+		
+		list(iterable_object) 	#creates a list of elements
+
+We can use list and range function to create a list.
+	syntax:	
+		list(range(start,stop,stepsize))
+
+EX:
+
+#Creating Empty list using list Function
+
+a = list()
+print(a)
+print(type(a))
+
+output
+-------------
+[]
+<class 'list'>
+
+
+EX:
+#Creating Element list using list Function
+
+a = list('GeekyShows')
+print(a)
+print(type(a))
+
+output
+-----------
+['G', 'e', 'e', 'k', 'y', 'S', 'h', 'o', 'w', 's']
+<class 'list'>
+
+
+EX:
+
+a = list(range(0,5))
+print(a)
+print(type(a))
+
+
+Slicing Nested List 
+---------------------------
+x = [[10,20,30],
+	 [40,50,60],
+	 [70,80,90],
+	 [11,22,33],
+	 [44,55,66],
+	 [77,88,99],
+	 [12,13,14]]
+
+print("Original List")
+print(x)
+print()
+
+print('From 1st Position to 4th Position')
+a = x[1:5]
+print(a)
+print()
+
+print('From 0th Position to last Position')
+b = x[0:]
+print(b)
+print()
+
+print('From 0th Position to 4th Position')
+c = x[:5]
+print(c)
+print()
+
+print('Last 4 List')
+d = x[-4:]
+print(d)
+print()
+
+print('From oth Position to 6th Position stepsize 2')
+e = x[0:7:2]
+print(e)
+print()
+
+print('Last 5 Lists with [-5-(-3)]=2 Lists towards right')
+f = x[-5:-3]
+print(f)
+print()	 
+
+output
+----------
+Original List
+[[10, 20, 30], [40, 50, 60], [70, 80, 90], [11, 22, 33], [44, 55, 66], [77, 88, 99], [12, 13, 14]]
+
+From 1st Position to 4th Position
+[[40, 50, 60], [70, 80, 90], [11, 22, 33], [44, 55, 66]]
+
+From 0th Position to last Position
+[[10, 20, 30], [40, 50, 60], [70, 80, 90], [11, 22, 33], [44, 55, 66], [77, 88, 99], [12, 13, 14]]
+
+From 0th Position to 4th Position
+[[10, 20, 30], [40, 50, 60], [70, 80, 90], [11, 22, 33], [44, 55, 66]]
+
+Last 4 List
+[[11, 22, 33], [44, 55, 66], [77, 88, 99], [12, 13, 14]]
+
+From oth Position to 6th Position stepsize 2
+[[10, 20, 30], [70, 80, 90], [44, 55, 66], [12, 13, 14]]
+
+Last 5 Lists with [-5-(-3)]=2 Lists towards right
+[[70, 80, 90], [11, 22, 33]]
+
+
+EX:
+
+x = [[10,20,30],
+	[40,50,60],
+	[70,80,90],
+	[11,22,33],
+	[44,55,66],
+	[77,88,99],
+	[12,13,14]]
+
+print("Original List")
+print(x)
+print()
+
+print('********************************')
+print('Slice Nested 2nd position,0th positions ')
+m = x[2:3]
+print(m)
+g = x[2:3][0]
+print(g)
+print()
+
+print('Slice 2nd List then extract elements')
+#Extracting only one element
+h = x[2:3][0][0]
+print(h)
+
+#Extracting all element
+i = x[2:3][0]
+for el in i:
+	print(el)
+print()
+
+print('Last Nested 4 Lists then 1st positions')
+n = x[-4:]
+print(n)
+j = x[-4:][1]
+print(j)	
+print()
+
+print('Last Nested 4Lists then 1st positions extract elements')
+#Extracting only one element
+k = x[-4:][1][0]
+print(k)
+#Extracting all elements
+l = x[-4:][1]
+for el in l:
+	print(el)
+print()	
+
+output
+----------
+Original List
+[[10, 20, 30], [40, 50, 60], [70, 80, 90], [11, 22, 33], [44, 55, 66], [77, 88, 99], [12, 13, 14]]
+
+********************************
+Slice Nested 2nd position,0th positions
+[[70, 80, 90]]
+[70, 80, 90]
+
+Slice 2nd List then extract elements
+70
+70
+80
+90
+
+Last Nested 4 Lists then 1st positions
+[[11, 22, 33], [44, 55, 66], [77, 88, 99], [12, 13, 14]]
+[44, 55, 66]
+
+Last Nested 4Lists then 1st positions extract elements
+44
+44
+55
+66
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

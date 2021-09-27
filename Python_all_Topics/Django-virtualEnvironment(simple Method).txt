@@ -1,0 +1,52 @@
+			Django Vitual Environment(very easy process)
+			=============================================
+
+C:\Users\BALAMURALI>E:
+E:\>python -m venv Djangocode---->ee Djangocode place lo yedaina rasukovachunu...
+E:\>Djangocode\Scripts\activate
+(Djangocode)E:\>pip install django
+cmd ni close cheai.
+
+next vachesi 'E-drive lo' niku nachina floder ni  create chesuko.Nenu E-drive lo 'DjangoProject' ani create cheshanu.
+
+malli vachesi cmd ni open chesi.
+C:\Users\BALAMURALI>E:
+E:\>Djangocode\Scripts\activate
+(Djangocode)E:\>cd DjangoProject
+(Djangocode)E:\DjangoProject>django-admin startproject schoolproject
+(Djangocode)E:\DjangoProject>
+cmd ni close cheai
+
+Malli open cheai..
+C:\Users\BALAMURALI>E:
+E:\>Djangocode\Scripts\activate
+(Djangocode)E:\>cd DjangoProject
+(Djangocode)E:\DjangoProject>cd schoolproject
+(Djangocode)E:\DjangoProject\schoolproject>python manage.py runserver
+
+		------------------------
+		system check identified no issues (0 slienced)----->ela ravali erroe's zero(0) ani  okay na..
+		------------------------
+		------------------------
+		----------------http://127.0.01:8000/
+
+Version Check
+=================
+
+c:\Users\BALAMURALI>E:
+E:\>Djangocode\Scripts\activate
+(Djangocode)E:\>django-admin --version
+
+Ans: 3.1.5
+
+
+Application creation
+=====================
+C:\Users\BALAMURALI>E:
+E:\>Djangocode\Scripts\activate
+(Djangocode)E:\>cd DjangoProject
+(Djangocode)E:\DjangoProject>cd schoolproject
+(Djangocode)E:\DjangoProject\schoolproject>python manage.py startapp course ------------>course is first application
+(Djangocode)E:\DjangoProject\schoolproject>python manage.py startapp fees   ------------>fees is second application
+(Djangocode)E:\DjangoProject\schoolproject>python manage.py startapp result ------------>result is third application.
+==========================================================

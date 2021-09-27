@@ -1,0 +1,325 @@
+		Formatting String
+		=================
+They ar 3 Types
+
+. C-style String Formatting
+. format() Method
+. f-String/Formatted String Literals
+
+C-style String Formatting
+===========================
+"% operator/Modulo Operator/Interpolation Operator" -This operator is used
+for formatting strings.It interprets the left argument much like a sprintf()
+style format string to be to the right argument,and returns the string resulting
+from this formatting operation.
+
+	Syntax:
+		print("format placeholder"%(data))
+
+	format placeholder = %[flags][width][.precision]type
+	data -It can be literal,variable,expression etc...
+
+Where:
+	% -marks the start of the specifier
+	flags - It affect the result of some conversion type
+	width - Minimum field width
+	precision - Give as . Followed by the precision
+	type - Conversion type
+
+	
+	EX:
+		print("My name is %s and My age is %d" %("Geekyshows",62))
+			
+			Where:-	%s,%d =Placeholder/Specifiers
+				   %  =Modulo Operator 	
+		'Maintain Order' in above statement first string then integer
+
+(OR)
+
+syntax:
+	print("format placeholder" %{'key':value}}
+	
+	format placeholder = %(mapping_key)[flags][width][.precision]type
+
+Note: key and mapping_key (both are same)
+
+Where:
+	% -marks the start of the specifier
+	flags - It affect the result of some conversion type
+	width - Minimum field width
+	precision - Give as . Followed by the precision
+	type - Conversion type
+
+
+EX:
+	print("My name is %(nm)s and My age is%(ag)d"% {'nm':"Geekyshows",'ag':62})
+	print("My name is %(nm)s and My age is%(ag)d"%{'ag':62,'nm':"Geekyshows"})
+
+	'Do not need' to maintain Order in above statement
+
+
+Conversion Type		Meaning
+--------------		--------
+'d'			Signed integer decimal.---->(# Ekkuva use auvthudi)
+'i'			Signed interger decimal.
+'o'			Signed octal value.
+'u'			Obsolete type - it is identical to 'd'.
+'x'			Signed hexadecimal(lowercase).
+'X'			Signed hexadecimal (uppercase).
+'e'			Floating point exponential format(lowercase).
+'E'			Floating point exponential format(uppercase).
+'f'			Floating point decimal format.---->(# Ekkuva use auvthudi)
+'F'			Floating point decimal format.
+'g'			Floating point format.Uses lowercase exponential format if exponent
+			is less than -4 or not less than precision,decimal format otherwise.
+'G'			Floating point format.Uses Uppercase exponential format if exponent
+			is less than -4 or not less than precision,decimal format otherwise.
+'c'			Single character (accepts integer or single character string).
+'r'			String (converts any Python object using repr()).
+'s'			String(Converts any Python object using str()).---->(#Ekkuva use auvthudi)
+'a'			String(converts any Python object using ascii()).
+'%'			No argument is converted,results in a '%' character in the result.
+
+
+
+Flag			Meaning
+-----			--------
+#			Used with o,x or X specifiers the value is preceded with 0,0o,0O,0x,0X
+			respectively.
+0			The conversion will be zero padded for numeric values.
+-			The converted value is left adjusted (overrides the '0' conversion if both
+			are given).
+			
+			(a space) A blank should be left before a positive number(or empty string
+			produced by a signed conversion.
++			A sign character ('+' or '-') will precede the  conversion (override a "space"
+			flag).
+
+
+
+Differnt type of Formattings
+------------------------
+Formatting					output
+--------------					-------		
+
+print("%d" %432)				432
+
+print("%d %d" %(432,345))			432,345
+
+print("%f"%432.123)				432.123000
+
+print("%f %f" %(432.123,10.3))			432.123000  10.300000 
+ 
+print("%f"%432.123456)				432.123456
+
+print("%f"%432.12345651)			432.123457
+
+print("%f"%432.12345641)			432.123456
+
+print("%s" % "Geekyshows")			GeekyShows
+
+print("%s%s" % ("Hello","GeekyShows"))		Hello GeekyShows
+
+print("%d %s" % (432,"GeekyShows"))		432 GeekyShows
+
+#print(("%s %d" %(432,"GeekyShows"))		TypeError (Maintain Order)
+
+print("%(nm)s %(ag)d" %{'ag':432,'nm':"Murali"}) Murali 432
+
+print("%s" %(432))				432 (Note:432 anedi string lo ki convert aindi)
+
+print("%  d" %432)				  432
+
+print("%+d" %432)				+432
+
+print("%d" %   432)				432
+
+print("%	d  Hello" %432)			   432 Hello
+
+print("%	d	Hello" %432) 		   432		Hello		
+
+
+Note:Python  yeppudai na sare point(.) tharuvatha six digits unde vidhanga chusukuntundi
+oka vela thakuva unte Zeros ni print chesthundi...
+
+EX:
+a = "%s" %(432)
+print(a)
+print(type(a))
+
+output
+-----
+432
+<class 'str'>
+
+
+EX:
+a = 432
+b = "Murali"
+print("My Name is %s And My Roll Number is %d"%(b,a))
+
+output
+------
+My Name is Murali And My Roll Number is 432
+
+
+EX:
+name = "murali"
+weight = 56
+height = "5.6"
+city = "NDK"
+
+print("My Name is %s And weight is %d and height is %s and city is %s" %(name,weight,height,city))
+
+output
+------
+My Name is murali And weight is 56 and height is 5.6 and city is NDK
+
+
+EX:
+print("My Name is %s And weight is %d and height is %s and city is %s" %("murali",56,"5.6","Kurnool"))
+
+output
+------
+My Name is murali And weight is 56 and height is 5.6 and city is Kurnool
+
+EX:
+print("My Age is %d" %432)
+
+output
+-----
+My Age is 432
+
+EX:
+print("My Age is %d Hello Geekyshows" %432)
+
+output
+----
+My Age is 432 Hello Geekyshows
+
+
+EX:
+a = "My Age is %d Hello Geekyshows" %432
+print(a)
+
+output
+----
+My Age is 432 Hello Geekyshows
+
+
+width
+======
+print("%8d" %432)		-----432 (#----- space ani arthan,values ni "right nundi fill chesthundi")
+
+Note: 8 is the width ani artham.(width ni kuda change chesukovachunu)
+
+
+flags & width
+===============
+print("%08d" %432)		00000432
+
+Note:
+-----
+0 is the flags ani artham(zero place lo yedaina rasukoo..)
+8 is the width ani artham
+
+
+print("%+8d" %432)		+++++432
+
+Note:
+-----
++ is the flags ani artham
+8 is the width ani artham
+
+Note:flags ante left side empty ga unna places lo manamu echina digits ni fill 
+*****	chesthundi.....
+
+precision
+==========
+print("%f" %432.123)		432.123000
+
+Note: Last lo Zeros apply kakunda undali ante precision vadali...ela...
+
+print("%.3f"%432.123)		432.123
+
+Note: .3 ante pricision ani artham...point(.) tharuvatha three digits matrame undali ani artham
+
+print("%.2f" %432.123) 		432.12
+
+Note: .2 ante pricision ani artham...point(.) tharuvatha two digits matrame undali ani artham
+
+print("%.2f" %432.128)		432.13
+
+Note: .128--->Ikkada Two tharuvatha 3 ravali,kani 8 vachindi appudu round up chesi 3 ni esthundi.
+
+
+width & pricision
+==================
+print("%9.2f" %432.128)		---432.13
+
+Note: 9 is the width, .2 is the Pricision ani artham,f is the float
+
+
+flags & width & pricision
+==========================
+print("%09.2f" %432.123)	000432.12
+
+Note:0 is the flage,9 is the width, 2 is the pricision
+
+
+
+EX:
+
+print("%8d" %432)
+print("%08d" %432)
+print("%.3f" %432.123)
+print("%.2f" %432.123)
+print("%.2f" %432.128)
+print("%9.2f" %432.128)
+print("%09.2f" %432.123)
+print("%9.2f" %4388453232.124)
+
+
+output
+------
+     432
+00000432
+432.123
+432.12
+432.13
+   432.13
+000432.12
+4388453232.12
+
+
+
+
+
+				
+	
+
+
+
+
+
+
+	
+
+
+
+
+		
+	 
+
+
+
+
+
+
+
+
+
+	
+
+	
+	

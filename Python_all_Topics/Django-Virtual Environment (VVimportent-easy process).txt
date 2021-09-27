@@ -1,0 +1,143 @@
+
+geekyshows(Outer Project floder/Root Directory)
+	|
+	|____geekyshows(Inner Project Floder)
+	|	|
+	|	|__ __init__.py
+	|	|__ asgi.py
+	|	|__ setting.py
+	|	|__ urls.py
+	|	|__ wsgi.py
+	|
+	|_____manage.py
+
+1.__init__.py
+
+	The floder which contains __init__.py file is considerred as python package.
+
+2.asgi.py
+
+	ASGI(Asynchronous server Gateway Interface)is a spiritual successor to WSGI intended to provide a standard interface  async-
+capable  python web server,frameworks,and application.ASGI provides standard  for the asynchronous ang synchronous apps.
+
+3.wsgi.py
+
+	WSGI(web server gateway interface) is a specification  that describes how a web server communicates with web application,
+and how web application can be chained  together to process one request .WSGI  provided a standerd for synchronous pyhton app.
+
+4.setting.py
+
+		This fill contains all the information or data  about project setting
+	Eg:Database config information ,Template ,Installed  application ,validators etc....
+
+5.urls.py
+	
+	This fill contains information of url attached with application
+
+6.manage.py
+
+	manage.py is automatically created  in each Django project. it is Django command-line utility also
+sets the DJANGO_SETTINGS_MODULE environment variable so that it  points to your projects  setting.py file.
+generally  when working on a single django  project  it's casier to use manage.py than django-admin.
+
+====================================================
+				Floder(directory) lo Django ni Install Cheyadam
+				==============================================
+
+
+C:\Users\BALAMURALI>cd desktop
+
+C:\Users\BALAMURALI\Desktop>cd murali
+
+C:\Users\BALAMURALI\Desktop\murali>python -m venv DJANGO_PROJECT
+
+C:\Users\BALAMURALI\Desktop\murali>DJANGO_PROJECT\Scripts\activate
+
+(DJANGO_PROJECT) C:\Users\BALAMURALI\Desktop\murali>pip install django	
+
+(DJANGO_PROJECT) C:\Users\BALAMURALI\Desktop\murali>django-admin startproject schoolproject---->U r choice
+
+(DJANGO_PROJECT) C:\Users\BALAMURALI\Desktop\murali>cd schoolproject		
+
+(DJANGO_PROJECT) C:\Users\BALAMURALI\Desktop\murali\schoolproject>python manage.py runserver
+
+		----------------------------------------------
+		----------------------------------------------
+		----------------------------------------------
+		----------------------------------http://127.0.0.1:8000/
+
+
+
+(DJANGO_PROJECT) C:\Users\BALAMURALI\Desktop\murali\schoolproject>
+
+(DJANGO_PROJECT) C:\Users\BALAMURALI\Desktop\murali\schoolproject>python manage.py startapp course---->(Root directory lo start app                                                                                                          rayali 'course' ani)
+
+(DJANGO_PROJECT) C:\Users\BALAMURALI\Desktop\murali\schoolproject>python manage.py startapp fees
+
+(DJANGO_PROJECT) C:\Users\BALAMURALI\Desktop\murali\schoolproject>python manage.py startapp result
+
+
+
+NOTE:	Kavali anukunte 'inner project floder(directory)' Name ni marchukovachunu.
+==================================================================
+
+
+	VirtualEnvironment lo yee varsion install cheshamoo chudali ante ee process
+	=========================================================================
+
+C:\Users\BALAMURALI>cd desktop
+
+C:\Users\BALAMURALI\Desktop>cd murali
+
+C:\Users\BALAMURALI\Desktop\murali>python -m venv DJANGO_PROJECT
+
+C:\Users\BALAMURALI\Desktop\murali>DJANGO_PROJECT\Scripts\activate
+
+(DJANGO_PROJECT) C:\Users\BALAMURALI\Desktop\murali>django-admin --version
+
+3.1.4
+
+	
+=================================================================
+
+
+		Uninstall Django Process
+		========================
+
+C:\Users\BALAMURALI>cd desktop
+
+C:\Users\BALAMURALI\Desktop>cd murali
+
+C:\Users\BALAMURALI\Desktop\murali>python -m venv DJANGO_PROJECT
+
+C:\Users\BALAMURALI\Desktop\murali> DJANGO_PROJECT\Scripts\activate
+
+(DJANGO_PROJECT) C:\Users\BALAMURALI\Desktop\murali>pip uninstall django
+
+		-----------------------------------
+		---------------------------------------
+		---------------------------------------
+		-------------------------------------------
+
+
+Proceed (y/n)?y
+
+Note : 1 Django Uninstall aindi mariyu nuvv desktop meeda unna murali ane.. floder(directory) ni delete cheai. 
+	appudu mootham vellipothundi. anthey process.
+
+======================================================================
+
+			Perticulr Django version  install cheyali ante..
+			==========================================
+	
+		paina unna 5th line ni ela rai okayna
+
+	(DJANGO_PROJECT) C:\Users\BALAMURALI\Desktop\murali>pip install django == 2.0 (2.0===> ikkada niku nachina version rasuko anthey)	
+
+
+
+*********************************************************
+
+
+			
+

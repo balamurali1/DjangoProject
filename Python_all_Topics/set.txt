@@ -1,0 +1,588 @@
+Set Type
+=========
+A set is an unordered collection of elements much like a set in mathematics.
+
+The order of elements is not maintained in the sets.It means the elements may not
+appear in the  same order as they are entered into set.
+
+A set does not accept duplicate elements.
+
+Set is mutable so we can modify it.
+
+Sets are unordered so we can not access its elements using index.
+
+Sets are represented using curly brackets{}
+
+a = {10,20,30,"GeekyShows","Raj",40}
+
+
+Creating a Set
+==============
+
+A Set is crated by placing all the items(elements)inside curly braces{}, 
+separated by comma.A set does not accept duplicate elements(items).
+
+Elements(items) can be of different types except mutable element,like list, set
+or dictionary.
+
+EX:
+	a = {10,20,30}
+	a = {10,20,30,"GeekyShows","Raj",40}
+	a = {10,20,30,"GeekyShows","Raj",40,10,20} # set does not accept duplicate elements.
+
+
+Creating Empty Set
+====================
+We can create an empty set using set() function.
+
+	a = set()
+
+
+Accessing elements
+==================
+Sets are unordered so we can not access its elements using index.
+
+	a = {10,20,"Geekyshows","Raj",40}
+
+
+EX:
+a = {10,20,"Geekyshows","Raj",40}
+print(a)
+print(type(a))
+print(id(a))
+
+output
+------
+{40, 10, 'Raj', 20, 'Geekyshows'} #Set Doesn't maitain the order
+<class 'set'>
+1935753838656
+
+Duplicate Not Accepted
+======================
+EX:
+a = {10,20,"Geekyshows","Raj",40,10,10,20}
+print(a)
+print(type(a))
+print(id(a))
+
+output
+------
+{40, 'Geekyshows', 10, 'Raj', 20}
+<class 'set'>
+2432225869888
+
+
+Adding Single and Multiple Set Elements in Python
+==============================================
+We can add a new element to set using add() method.
+	Syntax:
+		set_name.add(new_element)
+		a.add('Python')
+
+EX:
+
+a = set() #empty set
+a.add('Python')
+print(a)
+print(id(a))
+print(type(a))
+
+output
+------
+{'Python'}
+2665497722944
+<class 'set'>
+
+EX:
+a = {10,20,'Geekyshows',40}
+a.add('Python')
+print(a)
+print(id(a))
+print(type(a))
+
+output
+-----
+{'Geekyshows', 'Python', 40, 10, 20}
+2951256768576
+<class 'set'>
+
+Adding Multiple Elements
+==========================
+We can add multiple elements to set using update()method.
+The update() method can take tuples,lists,strings or other sets as its argument.
+
+	syntax:
+		set_name.update(elements)
+
+EX:
+a = set()
+a.update([10,20,30,40])
+print(a)
+print(type(a))
+print(id(a))
+
+output
+------
+{40, 10, 20, 30}
+<class 'set'>
+1237910388800
+
+
+EX:
+a = {101,102,"Geekyshows",103}
+print('Before Adding:',a)
+print(id(a))
+
+a.update([10,20,30,40])
+print("After Adding:",a)
+print(type(a))
+print(id(a))
+
+output
+------
+Before Adding: {'Geekyshows', 101, 102, 103}
+2663295254592
+After Adding: {101, 102, 103, 'Geekyshows', 40, 10, 20, 30}
+<class 'set'>
+2663295254592
+
+EX:
+a = {101,102,"Geekyshows",103}
+print('Before Adding:',a)
+print(id(a))
+
+x = [10,20,30]
+a.update(x)
+print("After Adding:",a)
+print(type(a))
+print(id(a))
+
+output
+------
+Before Adding: {'Geekyshows', 101, 102, 103}
+2558493884480
+After Adding: {101, 102, 103, 'Geekyshows', 10, 20, 30}
+<class 'set'>
+2558493884480
+
+EX:
+a = {101,102,"Geekyshows",103}
+print('Before Adding:',a)
+print(id(a))
+
+x = ('Python','Java','Django')
+a.update(x)
+print("After Adding:",a)
+print(type(a))
+print(id(a))
+
+output
+-----
+Before Adding: {'Geekyshows', 101, 102, 103}
+2444522258496
+After Adding: {101, 102, 103, 'Geekyshows', 'Django', 'Java', 'Python'}
+<class 'set'>
+2444522258496
+
+
+Deleting Set Element in Python
+=================================
+
+We can delete element using remove() or discard()method.
+Remove() method raise an error if element doesn't exists while discard()method
+remains unchanged.
+
+	syntax:	
+		set_name.remove(element)
+			(OR)	
+		set_name.discard(element)
+
+EX:
+a = {101,102,"Geekyshows",103}
+print('Before Ordering:',a)
+print(id(a))
+print()
+
+a.remove("Geekyshows")
+print("After Ordering:",a)
+print(type(a))
+print(id(a))
+
+output
+-----
+Before Ordering: {'Geekyshows', 101, 102, 103}
+2525320151104
+
+After Ordering: {101, 102, 103}
+<class 'set'>
+252532015110
+
+EX:
+a = {101,102,"Geekyshows",103}
+print('Before Ordering:',a)
+print(id(a))
+print()
+
+a.discard(101)
+print("After Ordering:",a)
+print(type(a))
+print(id(a))
+
+output
+------
+Before Ordering: {'Geekyshows', 101, 102, 103}
+1822213898304
+
+After Ordering: {'Geekyshows', 102, 103}
+<class 'set'>
+1822213898304
+
+	
+Accessing Set Elements using for Loop in Python
+===============================================
+a = {101,102,"Geekyshows",103}
+
+for i in a:
+	print(i)
+
+output
+------
+Geekyshows
+101
+102
+103
+
+Getting Set input from User in Python
+========================================
+EX:
+
+a = set()
+print(id(a))
+
+n = int(input("Enter Number of Elements:"))
+
+for i in range(n):
+	el = input("Enter Elements:")
+	a.add(el)
+
+print(a)	
+
+output
+------
+2311475986496
+Enter Number of Elements:3
+Enter Elements:101
+Enter Elements:102
+Enter Elements:103
+{'103', '101', '102'}
+
+EX:
+a = set()
+print(id(a))
+
+n = int(input("Enter Number of Elements:"))
+
+for i in range(n):
+	el = input("Enter Elements:")
+	a.add(el)
+
+for i in a:
+	print(i)	
+
+output
+------
+2126965014592
+Enter Number of Elements:3
+Enter Elements:101
+Enter Elements:102
+Enter Elements:103
+101
+102
+103
+
+
+Copying Set Element in Python
+=============================
+Copy()Method is used to copy existing  set's elements into another set.
+
+	syntax:
+		new_set_name = set_name.copy()
+
+	Ex: 
+		new_a = a.copy()
+
+EX:
+a = {10,20,'Geekyshows'}
+print("Before Copy",a)
+print(id(a))
+print(type(a))
+print()
+
+new_a = a.copy()
+print("After copy",new_a)
+print(id(new_a))
+print(type(new_a))
+
+outptu
+-----
+Before Copy {10, 20, 'Geekyshows'}
+2297806815296
+<class 'set'>
+
+After copy {10, 20, 'Geekyshows'}
+2295664698304
+<class 'set'>
+
+Clearing Set All Elements in Py
+=============================
+Clear() Method is used remove all elements to the set
+
+	syntax:
+		set_name.clear()
+
+	EX:
+		a.clear()
+
+EX:
+a = {10,20,'Geekyshows'}
+print("Before Copy",a)
+print(id(a))
+print(type(a))
+print()
+
+a.clear()
+print("After copy",a)
+print(id(a))
+print(type(a))
+
+output
+-----
+Before Copy {10, 20, 'Geekyshows'}
+2314562797632
+<class 'set'>
+
+After copy set()
+2314562797632
+<class 'set'>
+
+
+Some Important Set Methods in Python
+========================================
+
+1.Intersection
+---------------
+
+EX:
+
+a = {'Rahul','Raj','Sonam','Rani'}
+b = {'Sumit','Rahul','Rani','python','Java'}
+
+print('A:',a)
+print('B:',b)
+print()
+
+ism = a.intersection(b)
+print(ism)
+
+output
+------
+A: {'Rahul', 'Raj', 'Sonam', 'Rani'}
+B: {'Sumit', 'Java', 'Rahul', 'python', 'Rani'}
+
+{'Rahul', 'Rani'}
+
+
+2.union
+-------
+
+EX:
+
+a = {'Rahul','Raj','Sonam','Rani'}
+b = {'Sumit','Rahul','Rani','python','Java'}
+
+print('A:',a)
+print('B:',b)
+print()
+
+i = a.union(b)
+print(i)
+
+output
+------
+A: {'Raj', 'Rahul', 'Sonam', 'Rani'}
+B: {'Rahul', 'Java', 'Rani', 'Sumit', 'python'}
+
+{'Rahul', 'Java', 'Sonam', 'Rani', 'Raj', 'Sumit', 'python'}
+
+3.difference
+------------
+a = {'Rahul','Raj','Sonam','Rani'}
+b = {'Sumit','Rahul','Rani','python','Java'}
+
+print('A:',a)
+print('B:',b)
+print()
+
+i = a.difference(b)
+print(i)
+
+output
+------
+A: {'Rahul', 'Rani', 'Sonam', 'Raj'}
+B: {'Rahul', 'Rani', 'Sumit', 'Java', 'python'}
+
+{'Sonam', 'Raj'}
+
+
+EX:
+a = {'Rahul','Raj','Sonam','Rani'}
+b = {'Sumit','Rahul','Rani','python','Java'}
+
+print('A:',a)
+print('B:',b)
+print()
+
+i = b.difference(a)
+print(i)
+
+output
+------
+A: {'Rahul', 'Rani', 'Raj', 'Sonam'}
+B: {'Rahul', 'Rani', 'Java', 'python', 'Sumit'}
+
+{'Java', 'python', 'Sumit'}
+
+
+4.issubset
+--------------
+a = {'Rahul','Raj','Sonam','Rani'}
+b = {'Sumit','Rahul','Rani','python','Java'}
+
+print('A:',a)
+print('B:',b)
+print()
+
+i = a.issubset(b)
+print(i)
+
+output
+------
+A: {'Raj', 'Sonam', 'Rahul', 'Rani'}
+B: {'Rahul', 'Java', 'Rani', 'Sumit', 'python'}
+
+False
+
+EX:
+
+a = {'Rahul','Rani'}
+b = {'Rahul','Rani','java','python'}
+
+print('A:',a)
+print('B:',b)
+print()
+
+i = a.issubset(b)
+print(i)
+
+output
+-------
+A: {'Rahul', 'Rani'}
+B: {'java', 'Rahul', 'python', 'Rani'}
+
+True
+
+5.issuperset
+---------------
+EX:
+a = {'Rahul','Raj','Sonam','Rani'}
+b = {'Sumit','Rahul','Rani','python','Java'}
+
+print('A:',a)
+print('B:',b)
+print()
+
+i = a.issuperset(b)
+print(i)
+
+
+output
+------
+A: {'Sonam', 'Rani', 'Raj', 'Rahul'}
+B: {'python', 'Rahul', 'Sumit', 'Rani', 'Java'}
+
+False
+
+EX:
+
+a = {'Rahul','Rani'}
+b = {'Rahul','Rani'}
+
+print('A:',a)
+print('B:',b)
+print()
+
+i = a.issuperset(b)
+print(i)
+
+output
+-------
+A: {'Rani', 'Rahul'}
+B: {'Rani', 'Rahul'}
+
+True
+
+
+Passing Set to Function in Python
+====================================
+EX:
+
+def show(s):
+	print(s)
+	print(type(s))
+	for i in s:
+		print(i)
+
+st = {10,20,30,'Geekyshows'}
+show(st)		
+
+output
+-------
+{10, 'Geekyshows', 20, 30}
+<class 'set'>
+10
+Geekyshows
+20
+30
+
+
+Returning Set from Function in Python
+======================================
+EX:
+
+def show(s):
+	print(s)
+	print(type(s))
+	for i in s:
+		print(i)
+	return s	
+
+st = {10,20,30,'Geekyshows'}
+new_st = show(st)	
+print(new_st)
+print(type(new_st))	
+
+output
+------
+{'Geekyshows', 10, 20, 30}
+<class 'set'>
+Geekyshows
+10
+20
+30
+{'Geekyshows', 10, 20, 30}
+<class 'set'>
+
+========================END=======================
+
+
+

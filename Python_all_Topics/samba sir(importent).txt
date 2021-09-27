@@ -1,0 +1,44 @@
+https://github.com/sambapython/murali
+https://www.hackerrank.com/domains/python?filters%5Bstatus%5D%5B%5D=unsolved
+
+samba-sir:https://github.com/sambapython/murali
+
+
+GitHub(Bala Murali credentials)
+------------------
+sinin
+------
+Username or email address:dmurali266@gmail.com 
+Password :Bb@95812
+
+GitHup give the Personal Email
+------------------------------
+email address:balamurali1@gmail.com
+
+
+How To Run python program code with 'Sublime' in 'cmd'(does)
+=====================================================
+
+first of all write the code in sublime text and save it python.py
+and file location copy it and past in cmd and write python.py and enter it
+
+Ex:  
+	C:\Users\BALAMURALI>cd C:\Users\BALAMURALI\Desktop
+	C:\Users\BALAMURALI\Desktop>python.py
+
+output:(--------)
+================================================
+
+
+How to Open the python shell in cmd
+======================================
+C:\Users\BALAMURALI>python
+Python 3.7.0 (v3.7.0:1bf9cc5093, Jun 27 2018, 04:59:51) [MSC v.1914 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+
+>>> num = 9581221487
+>>> num
+9581221487
+>>> num > 11
+True
+>>>quit()

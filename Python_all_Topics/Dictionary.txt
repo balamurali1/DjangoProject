@@ -1,0 +1,1447 @@
+		Dictionary/Mappings(both are same)
+		==================================
+A Dictionary represents a group of elements(items) in the form of key value pairs.
+
+Dictionary in python is an unordered collection
+
+Dictionary are mutable so we can modify it's item,without changing their identity.
+
+Dictionary are represented using curly bracket { }.
+
+Note:  key,value = item (single key and value unte 'item' antaru)
+       key,value....etc = items(chala key and value's unte appudu 'items' antaru)
+
+EX:
+	stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+	fess = {'rahul':2000,'raj':3000,'sonam':8000}
+
+
+Creating an Empty Dictionary
+=============================
+	syntax:	dict_name = {}
+	EX: fees = {}
+		(OR)
+	    fees = dict()	
+		
+
+
+Creating a Dictionary
+=======================
+A Dictionary is Created in the form of key-value pair where key's can't be repeated and
+must be immutable and value can be of any datatype and can be duplicated.
+
+keys are case sensitive.
+
+syntax: dict_name = {key1:value1,key2:value2,........}
+
+EX:	stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+	fees = {'rahul':2000,'raj':3000,'sonam':8000}
+
+	fees = {
+ 		'rahul':2000,
+		'raj':3000,
+		'sonam':8000
+		}
+
+
+Key Rules
+===========
+While writing key we must follow the following rules:
+	1.key should be unique.
+	2.If we mention same key agian, the old key will be overwritten.
+	3.key should be immutable type ex:integer,string, or tuple
+	4.we can not user list or dictionary as key.
+
+
+Accessing Dictionary
+======================
+We can access the value of a dictionary by referring to its key name,inside square
+brackets[].
+	stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+
+print(stu[101])
+print(stu[102])
+print(stu[103])
+
+
+fees =  {'rahul':2000,'raj':3000,'sonam':8000}
+
+	print(fees['raghu'])
+	print(fees['raj'])
+	print(fees['sonam'])
+
+
+
+EX:
+
+d = {}
+print(d)
+print(type(d))
+
+
+output
+-------
+{}
+<class 'dict'>
+
+
+
+EX:
+
+fees =  {'rahul':2000,'raj':3000,'sonam':8000,'Raj':400}
+
+print(fees['rahul'])
+print(fees['raj'])
+print(fees['sonam'])
+print(fees['Raj'])
+
+
+output
+------
+2000
+3000
+8000
+400
+ 
+
+EX:
+
+fees =  {'rahul':2000,'raj':3000,'sonam':8000,101:400}
+
+print(fees['rahul'])
+print(fees['raj'])
+print(fees['sonam'])
+print(fees[101])
+
+output
+-------
+2000
+3000
+8000
+400
+
+Modifying Dictionary in Python
+================================
+We can modify the existing value(existing value:ఇప్పటికే ఉన్న విలువ) of key by assigning a new value.
+
+EX:
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Before Modification")
+print(stu)
+print(id(stu))
+print()
+
+stu[102] = 'python'
+print("After Modification")
+print(stu)
+print(id(stu))
+print()
+
+output
+------
+Before Modification
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+2280076417856
+
+After Modification
+{101: 'Rahul', 102: 'python', 103: 'Sonam'}
+2280076417856
+
+
+Insert/Adding Dictionary Item in Python
+=================================
+we can add item to dictionay just by mentioning a new key-value pair into
+an existing dictionary.
+if we mention a key which is already exists(ఉనికిలో ఉంది) in the dictionay then the value gets
+updated/modified rather than adding a new item.
+
+The new item my be added at any place in the dictionary as dictionary is an unordered collection.
+
+EX:
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Before Modification")
+print(stu)
+print(id(stu))
+print()
+
+stu[104] = 'Django'
+print("After Modification")
+print(stu)
+print(id(stu))
+print()
+
+output
+-----
+Before Modification
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+1348616330112
+
+After Modification
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam', 104: 'Django'}
+1348616330112
+
+
+
+Deleting Dictionary Item in Python
+====================================
+We can delete an item of dictionary or entaire dictionary using del statement.
+
+delete an item
+----------------
+
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Before Modification")
+print(stu)
+print(id(stu))
+print()
+
+del stu[102]
+print("After Modification")
+print(stu)
+print(id(stu))
+print()
+
+output
+------
+Before Modification
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+1784529099584
+
+After Modification
+{101: 'Rahul', 103: 'Sonam'}
+1784529099584
+
+
+delete Entaire dictionary
+------------------------
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+
+del stu
+
+
+How to Test Dictionary Key exist or not in Python
+===============================================
+
+		Testing Key
+		-------------
+We can check whether a key is already exists in the dictionary or not, for this
+purpose we use membership operator.
+
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+
+print(100 in stu)
+print(100 not in stu)
+
+output
+-----
+False
+True
+
+
+How to Remove All Elements from Dictionary in Python
+====================================================
+		Clear()Method
+		-------------
+This Method is used remove all the element(items) from the dictionary.
+
+	syntax:dict.clear()
+
+
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Before clearing")
+print(stu)
+print()
+
+stu.clear()
+print("After Clearing")
+print(stu)
+
+
+output
+----------
+Before clearing
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+
+After Clearing
+{}
+
+
+How to Copy() Dictionary in Python
+===================================
+This method is used to copy all the elements(items) from the existing dictionary into a
+new dictionary.
+	syntax:
+		dict.copy()
+
+new_stu = stu.copy()
+
+EX:
+
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Original Dict:")
+print(stu)
+print(id(stu))
+print()
+
+new_stu = stu.copy()
+print('Copied Dict:')
+print(new_stu)
+print(id(new_stu))
+print()
+
+output
+-------
+Original Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+2243468139392
+
+Copied Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+2243468139456
+
+Create Dictionary using formkeys() Method in Python 
+===============================================
+This method is used to 'crate a new dictionary' with the specified keys and
+values.
+
+	syntax:dict.fromkeys(keys,value)
+
+EX:
+key = (101,102,103)
+value = 'Geekyshows'
+d = dict.fromkeys(key,value)
+print(d)
+
+output
+-----
+{101: 'Geekyshows', 102: 'Geekyshows', 103: 'Geekyshows'}
+
+
+EX:
+key = (101,102,103)
+
+d = dict.fromkeys(key)
+print(d)
+
+output
+-----
+{101: None, 102: None, 103: None}
+
+
+EX:
+key = (101,102,103)
+value = ('Youtube','Django','Python')
+d = dict.fromkeys(key,value)
+print(d)
+
+output
+------
+{101: ('Youtube', 'Django', 'Python'), 102: ('Youtube', 'Django', 'Python'), 103: ('Youtube', 'Django', 'Python')}
+ 
+
+
+get() Method in Python(VVVVVIMP)
+====================
+This method returns the value of the 'specified key'.
+
+If key is not found then it will return 'none or deafult value'.
+	syntax:
+		dict.get(key,defaultvalue)
+
+EX:
+
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Original Dict:")
+print(stu)
+print()
+
+print(stu.get(101))
+
+output
+------
+Rahul
+
+
+EX:If key is not found then it will return 'none '.
+
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Original Dict:")
+print(stu)
+print()
+
+
+print(stu.get(104))
+
+output
+-----
+Original Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+
+None
+
+EX:
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Original Dict:")
+print(stu)
+print()
+
+
+print(stu.get(101,'Geekyshows'))  #geekyshows is default value
+
+
+output
+------
+Original Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+
+Rahul
+
+
+EX: If key is not found then it will return 'deafult value'.
+
+stu = {101:'Rahul',102:'Python',103:'Django'}
+print('Original Dict:')
+print(stu)
+print()
+
+print(stu.get(104, 'Geekyshows'))
+
+
+output
+------
+Original Dict:
+{101: 'Rahul', 102: 'Python', 103: 'Django'}
+
+Geekyshows
+
+
+items() Method in Python
+=========================
+This method returns an 'object' that contains key-value pair of dictionary
+The paire are stored at 'tuple' in the object
+
+	syntax:dict_name.items()
+
+EX:
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Original Dict:")
+print(stu)
+print()
+
+
+it = stu.items() --->#it==>Object
+print(it)
+print(type(it))
+
+output
+-----
+Original Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+
+dict_items([(101, 'Rahul'), (102, 'Raj'), (103, 'Sonam')])
+<class 'dict_items'>
+
+EX:
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Original Dict:")
+print(stu)
+print()
+
+
+it = stu.items()
+print(it)
+print(type(it))
+print()
+
+lst = list(it)
+print(lst)
+print(type(lst))
+print()
+
+print(lst[0])
+print(lst[0][0])
+print(lst[0][1])
+
+output
+-------
+Original Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+
+dict_items([(101, 'Rahul'), (102, 'Raj'), (103, 'Sonam')])
+<class 'dict_items'>
+
+[(101, 'Rahul'), (102, 'Raj'), (103, 'Sonam')]
+<class 'list'>
+
+(101, 'Rahul')
+101
+Rahu
+
+EX;
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Original Dict:")
+print(stu)
+print()
+
+
+it = stu.items()
+print(it)
+print(type(it))
+print()
+
+lst = list(it)
+print(lst)
+print(type(lst))
+print()
+
+
+for r in lst:
+	for c in r:
+		print(c)
+
+output
+-------
+Original Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+
+dict_items([(101, 'Rahul'), (102, 'Raj'), (103, 'Sonam')])
+<class 'dict_items'>
+
+[(101, 'Rahul'), (102, 'Raj'), (103, 'Sonam')]
+<class 'list'>
+
+101
+Rahul
+102
+Raj
+103
+Sonam
+
+
+keys Method in Python
+========================
+This method returns a sequence of keys from the dictionary.
+
+syntax:
+	dict_name.keys()
+
+
+EX:
+
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Original Dict:")
+print(stu)
+print()
+
+
+all_keys = stu.keys()
+print(all_keys)
+print(type(all_keys))
+print()
+
+keys_lst = list(all_keys)
+print(keys_lst)
+print(type(keys_lst))
+print()
+
+print(keys_lst[0])
+print(keys_lst[1])
+print(keys_lst[2])
+print()
+
+for k in keys_lst:
+	print(k)
+
+output
+------
+Original Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+
+dict_keys([101, 102, 103])
+<class 'dict_keys'>
+
+[101, 102, 103]
+<class 'list'>
+
+101
+102
+103
+
+101
+102
+103
+
+
+Dictionary values Method in Python
+=========================
+This method returns a sequence of value from the dictionary.
+
+	syntax:
+		dict_name.values()
+
+EX:
+
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Original Dict:")
+print(stu)
+print()
+
+
+all_value = stu.values()
+print(all_value)
+print(type(all_value))
+print()
+
+values_lst = list(all_value)
+print(values_lst)
+print(type(values_lst))
+print()
+
+print(values_lst[0])
+print(values_lst[1])
+print(values_lst[2])
+print()
+
+
+for v in values_lst:
+	print(v)
+
+
+output
+------
+Original Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+
+dict_values(['Rahul', 'Raj', 'Sonam'])
+<class 'dict_values'>
+
+['Rahul', 'Raj', 'Sonam']
+<class 'list'>
+
+Rahul
+Raj
+Sonam
+
+Rahul
+Raj
+Sonam
+
+
+
+Dictionary update Method in Python 
+============================
+This method is used to update the dictionary with the specified key value pair.
+	syntax:	
+		dict_name.update(iterable)
+
+EX:
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Original Dict:")
+print(stu)
+print()
+
+
+stu.update({104:'python'})
+print('Update Dict:')
+print(stu)
+print(id(stu))
+print()
+
+output
+------
+Original Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+
+Update Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam', 104: 'python'}
+2471826496448
+
+
+EX:
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Original Dict:")
+print(stu)
+print()
+
+vals = {'name':'Rahul','address':'Ranchi',105:'Geekyshows'}
+
+stu.update(vals)
+print('Update Dict:')
+print(stu)
+print(id(stu))
+print()
+
+
+output
+-----------
+Original Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+
+Update Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam', 'name': 'Rahul', 'address': 'Ranchi', 105: 'Geekyshows'}
+2843581815744
+
+
+Dictionary pop() method
+===========================
+This method is used to remove the item with specified key.
+It returns the removed item's value.
+If key is not found then the a default value is returned.
+If key is not found and default value is not given then shows KeyError
+
+	syntax:
+		dict_name.pop(key,defaultvalue)
+
+EX:
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Original Dict:")
+print(stu)
+print()
+
+stu.pop(102)
+print(stu)
+
+output
+------
+Original Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+
+{101: 'Rahul', 103: 'Sonam'}
+
+
+EX:
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Original Dict:")
+print(stu)
+print()
+
+remove_value = stu.pop(102)
+print("After Removing Dict:")
+print(stu)
+print(id(stu))
+print("Removed value:",remove_value)
+print()
+
+output
+-----
+Original Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+
+After Removing Dict:
+{101: 'Rahul', 103: 'Sonam'}
+1368526756800
+Removed value: Raj
+
+
+EX:
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Original Dict:")
+print(stu)
+print()
+
+remove_value = stu.pop(106)
+print("After Removing Dict:")
+print(stu)
+print(id(stu))
+print("Removed value:",remove_value)
+print()
+
+ouput
+-----
+Original Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 6, in <module>
+    remove_value = stu.pop(106)
+KeyError: 106
+
+
+EX:
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Original Dict:")
+print(stu)
+print()
+
+remove_value = stu.pop(106,'Geekyshows') #set Geekysows default value.
+print("After Removing Dict:")
+print(stu)
+print(id(stu))
+print("Removed value:",remove_value)
+print()
+
+output
+------
+Original Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+
+After Removing Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+1398998571968
+Removed value: Geekyshows
+
+
+Dictionary popitem() Method in Python
+=====================================
+This method is used to remove the item which was last inserted into the dictionary.
+
+It returns the romove item in the form of tuple,Pairs are returned in LIFO order.
+	syntax:
+		dict_name.popitem()
+
+EX;
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Original Dict:")
+print(stu)
+print()
+
+remove_value = stu.popitem() 
+print("After Removing Dict:")
+print(stu)
+print(id(stu))
+print("Removed value:",remove_value)
+print()
+
+output
+------
+Original Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+
+After Removing Dict:
+{101: 'Rahul', 102: 'Raj'}
+2669395123136
+Removed value: (103, 'Sonam')
+
+
+Dictionary setdefault Method in Python
+======================================
+This method returns the value of the specified key.
+If key is not found then it insert key with the specified value.
+
+	Syntax:
+		dict_names.setdefault(key,value)
+
+EX:
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+print("Original Dict:")
+print(stu)
+print()
+
+returned_value = stu.setdefault(109,'Python')
+print("After setdefaul Dict:")
+print(stu)
+print(id(stu))
+print("Removed value:",returned_value)
+print()
+
+output
+-----
+Original Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+
+After setdefaul Dict:
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam', 109: 'Python'}
+1965764844480
+Removed value: Python
+
+
+Accessing Dictionary using for Loop in Python
+===========================================
+
+EX:
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+
+for keys in stu:
+	print(keys)
+
+output
+------
+101
+102
+103
+
+EX:
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+
+for keys in stu:
+	print(stu[keys])
+
+output
+------
+Rahul
+Raj
+Sonam
+
+
+EX:
+stu = {101:'Rahul',102:'Raj',103:'Sonam'}
+
+for keys in stu:
+	print(keys, '=', stu[keys])
+
+output
+------
+101 = Rahul
+102 = Raj
+103 = Sonam
+
+
+Getting Dictionary input from User in Python
+============================================
+
+a = {}  #indulo vachi store auvtahai..
+
+n = int(input('Number of Element:'))
+
+for i in range(n):
+	k = input('Enter Key:')
+	v = input('Enter Value:')
+	a.update({k:v})
+
+print(a)	
+
+output
+------
+Number of Element:2
+Enter Key:name
+Enter Value:Murali
+Enter Key:101
+Enter Value:Sonam
+{'name': 'Murali', '101': 'Sonam'}
+
+
+Nested Dictionary in Python
+==============================
+A dictionary within another dictionary is called as nested dictionary or nesting
+of a dictionary.
+
+	syntax:
+		nested_dict = {'dict1:{'key_A':'value_A'},
+			       'dict2':{'Key_B':'value_B'}}
+
+Creating Empty Nested Dict
+==========================
+syntax:
+	nested_dict = {'dict1':{},
+		       'dict2':{}}
+
+EX:
+a = {1:{},
+     2:{}}
+
+
+Creating Nested Dict
+================
+Syntax:
+	nested_dict = {'key_A':'value_A','dict1':{'key_A':'value_A'}}
+
+EX:
+	a = {'course':'Python','fees':15000,1:{'course':'JavaScript','fees':10000}}
+
+
+Accessing Dictionary
+======================
+
+a = {'course':'Python','fees':15000,1:{'course':'JavaScript','fees':10000}}
+
+print(a['course'])
+print(a['fees'])
+
+print(a[1]['course'])
+print(a[1]['fees'])
+
+
+Modifying Nested Dict
+=======================
+EX:
+a = {'course':'Python','fees':15000,1:{'course':'JavaScript','fees':10000}}
+
+a['course'] = 'Machine Learning'
+a[1]['fees'] = 200000
+
+print(a)
+
+
+EX:
+
+a = {'course':'Python','fees':15000,1:{'course':'JavaScript','fees':10000}}
+
+del a[1]['course']
+
+print(a)
+
+
+output
+------
+{'course': 'Python', 'fees': 15000, 1: {'fees': 10000}}
+
+
+EX:
+a = {'course':'Python','fees':15000,1:{'course':'JavaScript','fees':10000}}
+
+a['duration'] = '6 months'
+
+print(a)
+
+output
+------
+{'course': 'Python', 'fees': 15000, 1: {'course': 'JavaScript', 'fees': 10000}, 'duration': '6 months'}
+
+
+EX:
+a = {'course':'Python','fees':15000,1:{'course':'JavaScript','fees':10000}}
+
+a[1]['teacher'] = 'Geekyshows'
+
+print(a)
+
+output
+-----
+{'course': 'Python', 'fees': 15000, 1: {'course': 'JavaScript', 'fees': 10000, 'teacher': 'Geekyshows'}}
+
+
+EX:
+a = {'course':'Python','fees':15000,1:{'course':'JavaScript','fees':10000}}
+
+a[2]= {'corse':'ReactJs','fees':300000}
+
+print(a)
+
+output
+-------
+{'course': 'Python', 'fees': 15000, 1: {'course': 'JavaScript', 'fees': 10000}, 2: {'corse': 'ReactJs', 'fees': 300000}}
+
+
+EX:
+a = {'course':'Python','fees':15000,1:{'course':'JavaScript','fees':10000}}
+
+a[1][2]= {'corse':'ReactJs','fees':300000}
+
+print(a)
+
+output
+------
+{'course': 'Python', 'fees': 15000, 1: {'course': 'JavaScript', 'fees': 10000, 2: {'corse': 'ReactJs', 'fees': 300000}}}
+
+
+Access Nested Dictionary using for Loop in Python 
+=============================================
+
+EX:
+a = {'course':'Python','fees':15000,1:{'course':'JavaScript','fees':10000}}
+
+
+for i in a:
+	print(i)
+print()
+
+output
+------
+course
+fees
+1
+
+
+EX:
+a = {'course':'Python','fees':15000,1:{'course':'JavaScript','fees':10000}}
+	
+for i in a:
+	if type(a[i]) is dict:
+		for k in a[i]:
+			print(k, '=', a[i][k])
+	else:
+		print(i, '=',a[i])
+
+output
+------
+course = Python
+fees = 15000
+course = JavaScript
+fees = 10000
+
+
+Nested Dictionary in Python
+================================
+syntax:
+	nested_dict = {'dict1':{'key_A':'value_A'},
+		       'dict2':{'key_B':'value_B'}}
+
+EX:
+a = {1:{'course':'Python','fees':15000},2:{'course':'JavaScript','fees':10000}}
+
+#Accessing
+print(a)
+print(a[1])
+print(a[2])
+print()
+
+print(a[1]['course'])
+print(a[2]['fees'])
+
+
+output
+------
+{1: {'course': 'Python', 'fees': 15000}, 2: {'course': 'JavaScript', 'fees': 10000}}
+{'course': 'Python', 'fees': 15000}
+{'course': 'JavaScript', 'fees': 10000}
+
+Python
+10000
+
+
+EX:
+a = {1:{'course':'Python','fees':15000},2:{'course':'JavaScript','fees':10000}}
+
+#Accessing
+print(a)
+print()
+
+#Modify
+a[1]['course'] = 'Machine Learning'
+
+print(a)
+
+output
+------
+{1: {'course': 'Python', 'fees': 15000}, 2: {'course': 'JavaScript', 'fees': 10000}}
+
+{1: {'course': 'Machine Learning', 'fees': 15000}, 2: {'course': 'JavaScript', 'fees': 10000}}
+
+
+EX:
+a = {1:{'course':'Python','fees':15000},2:{'course':'JavaScript','fees':10000}}
+
+#Accessing
+print(a)
+print()
+
+#delte
+del a[1]['course']
+
+print(a)
+
+output
+------
+{1: {'course': 'Python', 'fees': 15000}, 2: {'course': 'JavaScript', 'fees': 10000}}
+
+{1: {'fees': 15000}, 2: {'course': 'JavaScript', 'fees': 10000}}
+
+
+EX:
+a = {1:{'course':'Python','fees':15000},2:{'course':'JavaScript','fees':10000}}
+
+#Accessing
+print(a)
+print()
+
+#add
+
+a[1]['duration'] = '6 Months'
+print(a)
+
+output
+------
+{1: {'course': 'Python', 'fees': 15000}, 2: {'course': 'JavaScript', 'fees': 10000}}
+
+{1: {'course': 'Python', 'fees': 15000, 'duration': '6 Months'}, 2: {'course': 'JavaScript', 'fees': 10000}}
+
+
+EX:
+a = {1:{'course':'Python','fees':15000},2:{'course':'JavaScript','fees':10000}}
+
+#Accessing
+print(a)
+print()
+
+#add Dictionary
+
+a[3] ={'course':'React Js', 'fees':30000}
+
+print(a)
+
+output
+------
+{1: {'course': 'Python', 'fees': 15000}, 2: {'course': 'JavaScript', 'fees': 10000}}
+
+{1: {'course': 'Python', 'fees': 15000}, 2: {'course': 'JavaScript', 'fees': 10000}, 3: {'course': 'React Js', 'fees': 30000}}
+
+
+EX:
+a = {1:{'course':'Python','fees':15000},2:{'course':'JavaScript','fees':10000}}
+
+#Accessing
+print(a)
+print()
+
+#add Dictionary
+
+a[1][3] ={'course':'React Js', 'fees':30000}
+
+print(a)
+
+output
+-----
+{1: {'course': 'Python', 'fees': 15000}, 2: {'course': 'JavaScript', 'fees': 10000}}
+
+{1: {'course': 'Python', 'fees': 15000, 3: {'course': 'React Js', 'fees': 30000}}, 2: {'course': 'JavaScript', 'fees': 10000}}
+
+
+
+Access Nested Dictionary using for Loop in Python
+===================================================
+
+EX:
+a = {1:{'course':'Python','fees':15000},
+     2:{'course':'JavaScript','fees':10000}}
+
+
+#Find the id's
+print('ID:')
+for id in a:
+	print(id)
+
+print()
+
+
+#Find the keys
+print("keys:")
+for id in a:
+	for k in a[id]:
+		print(k)
+print()	
+
+
+output
+------
+ID:
+1
+2
+
+keys:
+course
+fees
+course
+fees
+
+
+EX:
+
+a = {1:{'course':'Python','fees':15000},
+     2:{'course':'JavaScript','fees':10000}}
+
+#Find the id's
+print('ID:')
+for id in a:
+	print(id)
+print()
+
+
+for id in a:
+	for k in a[id]:
+		print(k, '=',a[id][k])
+
+print()	
+
+output
+------
+ID:
+1
+2
+
+course = Python
+fees = 15000
+course = JavaScript
+fees = 10000
+	
+	
+
+Passing Dictionary to Function in Python
+======================================
+
+EX:
+def show(d):
+	print(d)
+	print(type(d))
+	for k in d:
+		print(k,'=',d[k])
+
+
+dc = {101:'Rahul',102:'Raj',103:'Sonam'}
+show(dc)		
+
+output
+-----
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+<class 'dict'>
+101 = Rahul
+102 = Raj
+103 = Sonam
+
+
+Returning Dictionary from Function in Python
+============================================
+def show(d):
+	print(d)
+	print(type(d))
+	for k in d:
+		print(k,'=',d[k])
+
+	return d	
+
+
+dc = {101:'Rahul',102:'Raj',103:'Sonam'}
+new_dc = show(dc)
+print(new_dc)
+print(type(new_dc))
+
+
+output
+------
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+<class 'dict'>
+101 = Rahul
+102 = Raj
+103 = Sonam
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+<class 'dict'>
+
+
+Dictionary Comprehension in Python
+=================================
+EX:
+
+dict1 = {}
+for n in range(10):
+	dict1[n] = n*2
+
+print(dict1)	
+
+output
+-----
+{0: 0, 1: 2, 2: 4, 3: 6, 4: 8, 5: 10, 6: 12, 7: 14, 8: 16, 9: 18}
+
+
+
+EX:Single line code
+
+dict2 = {n:n*2 for n in  range(10)}
+print(dict2)
+
+
+output
+------
+{0: 0, 1: 2, 2: 4, 3: 6, 4: 8, 5: 10, 6: 12, 7: 14, 8: 16, 9: 18}
+
+
+EX:
+dict1 = {}
+for n in range(10):
+	if(n%2 == 0):
+		dict1[n] = n*2
+
+print(dict1)
+
+ouput
+-----
+{0: 0, 2: 4, 4: 8, 6: 12, 8: 16}
+
+
+EX:
+dict2 = {n:n*2 for n in  range(10) if n%2==0}
+print(dict2)	
+
+output
+-----
+{0: 0, 2: 4, 4: 8, 6: 12, 8: 16}
+
+
+
+EX:
+dict1 = {}
+for n in range(10):
+	if(n%2 == 0):
+		if(n%3 == 0):
+			dict1[n] = n*2
+
+print(dict1)
+
+output
+-----
+{0: 0, 6: 12}
+
+
+EX:
+dict2 = {n:n*2 for n in  range(10) if n%2==0 if n%3==0}
+print(dict2)
+
+output
+-----
+{0: 0, 6: 12}
+
+
+EX:
+dict1 = {}
+for n in range(10):
+	if(n%2 == 0):
+		dict1[n] = n
+	else:
+		dict1[n] = 'Invalid'	
+
+print(dict1)
+
+output
+------
+{0: 0, 1: 'Invalid', 2: 2, 3: 'Invalid', 4: 4, 5: 'Invalid', 6: 6, 7: 'Invalid', 8: 8, 9: 'Invalid'}
+
+
+EX:
+dict2 = {n:(n if n%2 ==0 else 'Invalid') for n in range(10)}
+print(dict2)
+
+output
+------
+{0: 0, 1: 'Invalid', 2: 2, 3: 'Invalid', 4: 4, 5: 'Invalid', 6: 6, 7: 'Invalid', 8: 8, 9: 'Invalid'}
+
+
+EX:
+lst = [(101,'Rahul'),(102,'Raj')]
+
+dict1 = {k:v for k,v in lst}
+
+print(dict1)
+
+output
+------
+{101: 'Rahul', 102: 'Raj'}
+
+
+============================END==================
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+ 
+
+
+	
+			

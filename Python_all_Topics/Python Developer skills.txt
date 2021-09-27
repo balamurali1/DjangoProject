@@ -1,0 +1,35 @@
+Backend skills(techknowlege)
+----------------
+
+	Python(programing Language)
+	  +
+	Django(FrameWork)
+	  +
+	MySQL,postgraSQL,SQLite3,...etc(DataBase(any database))
+	  +
+	REST API(using python)
+	  +
+	Git and Github
+
+Front end Skills(Techknowlege)
+-----------------
+	Backend skills(minimum Knowlwdge)
+	  +
+	HTML5
+	 +
+	CSS3
+	 +
+	JavaScript
+
+Fullstock 
+----------
+	Backend skills
+	 +
+	Front end Skills
+	 +
+	Angular js (and/or)React js
+	 +
+	Node js	 
+		
+
+

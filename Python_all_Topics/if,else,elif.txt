@@ -1,0 +1,601 @@
+		If Statement
+		============
+It is used to excute an instruction or block of instructions only if a condition is fulfilled.
+
+	syntax:
+		if(condition): 
+			statement
+		Rest of the Code  #This is Indivisual
+	
+	syntax:
+		if(condition):
+			statement1	|Block of the statements
+			statement2	|
+		Rest of the code
+
+If there is single statement it can be written in one line
+	EX:
+		if(condition):Statement
+
+
+
+EX:
+if 5 > 2:
+	print('Geekyshow')
+
+
+output
+-----
+Geekyshow
+
+EX:
+if 5 > 2:print('Geekyshow')
+
+
+output
+-----
+Geekyshow
+
+EX:
+a = True
+b = False
+c = False
+ 
+if a or b and c:
+    print ("HELLO")
+else:
+    print ("hello")
+
+output
+-----
+HELLO
+
+EX:
+a = True
+b = False
+c = False
+ 
+if not a or b:
+    print (1)
+elif not a or not b and c:
+    print (2)
+elif not a or b or not b and a:
+    print (3)
+else:
+    print (4)
+
+output
+------
+3
+
+EX:
+if 5 > 2:
+	print('Geekyshow')
+
+print('Rest of the code')  #This is Indivisual
+
+output
+------
+Geekyshow
+Rest of the code
+
+EX:
+if 5 < 2:
+	print('Geekyshow')
+
+print('Rest of the code')
+
+output
+------
+Rest of thr code
+
+EX:
+if 5 > 2:
+	print('Geekyshow')
+	print('5 is greater than 2')
+
+print('Rest of the code') #This is Indivisual
+
+output
+-----
+Geekyshow
+5 is greater than 2
+Rest of the code
+
+EX:
+if 5 < 2:
+	print('Geekyshow')
+	print('5 is greater than 2')
+
+print('Rest of the code')
+
+ouput
+----
+Rest of the code
+
+
+EX:
+a = int(input('Enter Number greater than 2:'))
+if(a>2):
+	print('You have Entered:',a)
+
+output
+-----
+Enter Number greater than 2:5
+You have Entered: 5
+
+
+Nested if Statement in Python
+================================
+
+	syntax:	
+		if(condition):			#1
+			block of statements	#1.1	
+			if(condition):		#1.2
+				block of statements #1.2.1
+			if(condition):		#1.3
+				block of statements #1.3.1
+		if(condition):		#2		
+			block of statements #2.1	
+		Rest of the code	#3
+
+EX:
+
+if 5 > 2:
+	print('Greater')
+	print("5 is Greater than 2")
+	if 6 > 2:
+		print('6 is Greater than 2')
+
+print('Rest of the code') #This is Indivisual		
+
+ouput
+-----
+Greater
+5 is Greater than 2
+6 is Greater than 2
+Rest of the code
+
+EX:
+if 5 > 2:
+	print('Greater')
+	print("5 is Greater than 2")
+	if 6 < 2:
+		print('6 is Greater than 2')
+
+print('Rest of the code') #This is Indivisual		
+
+ouput
+-----
+Greater
+5 is Greater than 2
+Rest of the code
+
+EX:
+if 5 < 2:
+	print('Greater')
+	print("5 is Greater than 2")
+	if 6 < 2:
+		print('6 is Greater than 2')
+
+print('Rest of the code') #This is Indivisual		
+
+output
+-----
+Rest of the code
+
+EX:
+if 5 < 2:
+	print('Greater')
+	print("5 is Greater than 2")
+	if 6 > 2:
+		print('6 is Greater than 2')
+
+print('Rest of the code') #This is Indivisual		
+
+output
+-----
+Rest of the code
+
+
+if Statement with Logical Operator in Python
+============================================
+	syntax:
+		if((condition1) and (condition2)):
+			Statement
+		Rest of the Code
+
+	Syntax:
+		if((condition1) and (condition2)):
+			Block of Statements
+
+		Rest of the Code
+
+	Syntax:
+		if((condition1) or (condition2)):
+			 Statements
+
+		Rest of the Code
+
+
+EX:
+if 5 > 2 and 7 > 3:
+	print("If Statement with Logical Operator")
+	
+
+print('Rest of the code') #This is Indivisual		
+
+output
+------
+If Statement with Logical Operator
+Rest of the code
+
+
+EX:
+if 5 > 2 and 7 > 3:
+	print("If Statement with Logical Operator")
+	print('Statement 2')
+	
+
+print('Rest of the code') #This is Indivisual		
+
+output
+----------
+If Statement with Logical Operator
+Statement 2
+Rest of the code
+
+
+EX:
+if 5 > 2 and 7 < 3:
+	print("If Statement with Logical Operator")
+	print('Statement 2')
+	
+
+print('Rest of the code') #This is Indivisual		
+
+output
+-----
+Rest of the code
+
+
+EX:
+if 5 > 2 or  7 < 3:
+	print("If Statement with Logical Operator")
+	print('Statement 2')
+	
+
+print('Rest of the code') #This is Indivisual		
+
+output
+------
+If Statement with Logical Operator
+Statement 2
+Rest of the code
+
+
+Indentation in Python
+=======================
+Indentation refers to spaces that are used in the beginning of a statement.By
+default python puts 4 spaces but it can be changed by programmers.
+
+EX:
+
+if(condition):
+----Statements
+----if(condition):
+--------statement1
+--------statement2
+----if(condition):
+--------Statement
+if(condition):
+----Statement1
+----Statement2
+Rest of the code
+
+
+if else Statement in Python
+==============================
+if else statement is used when a different sequence of instructions is to be excuted
+depending on the logical value(True/False) of the condition evaluated.
+
+	syntax:
+		if(condition):
+			statement 1
+		else:
+			Statement 2
+		Rest of the code
+
+
+	syntax:
+		if(condition):
+			Statement 1
+			Statement 2
+		else:
+			Statement 3
+			Statement 4
+		Rest of the code
+
+EX:
+if 5 > 2:
+	print("Greater")
+
+else:
+	print('Smaller')	
+
+output
+------
+Greater
+
+EX:
+if 5 < 2:
+	print("Greater")
+
+else:
+	print('Smaller')	
+
+
+output
+------
+Smaller
+
+
+
+
+EX:
+print('Greater') if 5 > 2 else print('Smaller')
+
+ouput
+------
+Greater
+
+
+EX:
+if 5 < 2:
+	print("Greater")
+
+else:
+	print('Smaller')	
+
+print('Rest of the code')	
+
+
+output
+-----
+Smaller
+Rest of the code
+
+EX:
+if 5 > 2:
+	print("Greater")
+
+else:
+	print('Smaller')	
+
+print('Rest of the code')	
+
+
+output
+-----
+Greater
+Rest of the code
+
+EX:
+if 5 < 2:
+	print("Greater")
+	print('5 is Greater than 2')
+
+else:
+	print('Smaller')
+	print('Statement')	
+
+print('Rest of the code')	
+
+
+output
+-----
+Smaller
+Statement
+Rest of the code
+
+EX:
+a = int(input('Enter Number Greater than 2:'))
+if a >= 2:
+	print('Correct You have Entered:',a)
+
+else:
+	print('Wrong You have Entered:',a)	
+
+output
+-----
+Enter Number Greater than 2:4
+Correct You have Entered: 4
+
+
+Nested if else Statement in Python
+==================================
+In nested if...else statement,an entire if...else construct is
+written within either the body of the if satement or the body of an 
+else satement.
+
+syntax;
+	if(condition_1):
+		if(condition_2):
+			statement 1
+		else:
+			Statement 2
+	else:
+		Statement 3
+
+	Rest of the code
+
+Syntax:
+	if(condition_1):
+		if(condition_2):
+			statement 1
+		else:
+			Statement 2
+	else:
+		if(condition_3):
+			statement 3
+		else:
+			Statement 4
+
+	Rest of the Code
+
+
+EX;
+a = 5
+b = 2
+c = 6
+d = 3
+if(a > b):
+	print('a is greater than b')
+	if(c > d):
+		print('c is greater than d')
+	else:
+		print('d is greater than c')
+else:
+	print('b is greater than a')
+
+print('Rest of the Code')	
+
+output
+------
+a is greater than b
+c is greater than d
+Rest of the Code
+
+	
+EX:
+a = 5
+b = 2
+c = 6
+d = 3
+if(a < b):
+	print('a is greater than b')
+	if(c > d):
+		print('c is greater than d')
+	else:
+		print('d is greater than c')
+else:
+	print('b is greater than a')
+
+print('Rest of the Code')	
+
+output
+-----
+b is greater than a
+Rest of the Code
+
+
+if elif and if elif else Statement in Python
+=============================================
+To Show a multi-way decision based on several condition,We use if elif satement.
+
+Syntax:
+	if(condition_1):
+		statement 1
+	elif(condition_2):
+		statement 2
+	elif(conition_3):
+		statement 3
+	elif(condition_n):
+		statement n
+	Rest of the Code
+
+
+Syntax:
+	To show a multi-way decision based on several conditions, we use if elif else statement.
+
+	if(condition_1):
+		Statement 1
+	elif(condition_2):
+		Statement 2
+	elif(condition_3):
+		Statement 3
+	elif(condition_n):
+		Statement n
+	else:
+		Statement x
+
+EX:
+a = 10
+b = 20
+if a > b:
+	print('a is greater than b')
+elif a == b:
+	print('a and b are equal')
+elif a < b:
+	print('a is less than b')	
+
+ouput
+-----
+a is less than b
+
+
+EX;
+day = 'Tuesday'
+if (day == 'Monday'):
+	print('Today is Monday')
+elif(day == 'Tuesday'):
+	print('Today is Tuesday')
+elif(day == 'wednesday'):
+	print('Today is Wednesday')
+else:
+	print('Today is Holiday')			
+
+output
+-----
+Today is Tuesday
+
+EX:
+day = input('Enter Day:')
+if (day == 'Monday'):
+	print('Today is Monday')
+elif(day == 'Tuesday'):
+	print('Today is Tuesday')
+elif(day == 'wednesday'):
+	print('Today is Wednesday')
+else:
+	print('Today is Holiday')			
+
+output
+-----
+Enter Day:Monday
+Today is Monday
+
+
+EX;
+day = input('Enter Day:')
+if (day == 'Monday' or day == 'monday'):
+	print('Today is Monday')
+elif(day == 'Tuesday'):
+	print('Today is Tuesday')
+elif(day == 'wednesday'):
+	print('Today is Wednesday')
+else:
+	print('Today is Holiday')	
+
+output
+----
+Enter Day:monday
+Today is Monday
+
+
+			
+
+
+
+
+
+				
+
+
+		
+
+
+
+
+
+		

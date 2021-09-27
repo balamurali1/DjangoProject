@@ -1,0 +1,1453 @@
+1.Built-in String Functions
+2.Python Built in Functions-->w3school
+
+
+
+
+		Built-in String Functions
+		==========================
+		
+upper(): This method is used to convert all character of a string into uppercase.
+	Syntax:string.upper()
+
+Ex:	
+name = "welcome to python"
+str1 = name.upper()
+print(name)
+print(str1)
+--------------------------
+lower(): This method is used to convert all character of a string into lowercase.
+	Syntax:string.lower()
+
+Ex:
+name = "WELCOME TO PYTHON"
+str1 = name.lower()
+print(name)
+print(str1)
+---------------------------
+
+
+swapcase(): This method is used to convert all lower case character into uppercase and 
+		uppercase character into lowercase(working with both side's).
+	Syntax:string.swapcase()
+
+EX:
+name = "WELCOME TO PYTHON"
+str1 = name.swapcase()
+print(name)
+print(str1)
+
+EX:
+name = "welcome to python"
+str1 = name.swapcase()
+print(name)
+print(str1)
+
+---------------------------
+
+title():This method is used to convert the string in such that "each word in string
+will satrt with a capital letter" and remaining will be small letter.
+	syntax:string.title()
+
+Ex:
+name = "welcome to python"
+str1 = name.title()
+print(name)
+print(str1)
+----------------------
+
+isupper():This method is used to test whether given string is in upper case or not,it returns
+True if string contains at least one letter and all charachters are in upper case else returns False.
+	syntax:string.isupper()
+
+EX:
+name = "WELCOME TO PYTHON"
+str1 = name.isupper()
+print(name)
+print(str1)
+
+output
+------
+WELCOME TO PYTHON
+True
+
+
+EX:
+name = "wELCOME TO PYTHON"
+str1 = name.isupper()
+print(name)
+print(str1)
+
+output
+-------
+wELCOME TO PYTHON
+False
+-----------------------------
+
+islower():This method is used to test whether given string is in lower case or not,it returns
+True if string contains at least one letter and all charachters are in lower case else returns False.
+	syntax:string.islower()
+
+EX:
+name = "welcome to python"
+str1 = name.islower()
+print(name)
+print(str1)
+
+output
+----
+welcome to python
+True
+
+Ex:
+name = "Welcome to python"
+str1 = name.islower()
+print(name)
+print(str1)
+
+output
+-------
+Welcome to python
+False
+----------------------------
+
+istitle():This method is used to test whether given string is in title format or not,it returns
+True if string contains at least one letter and each word of the string starts with a capital letter
+else return False.
+	syntax:string.istitle()
+
+EX:
+name = "Welcome To Python"
+str1 = name.istitle()
+print(name)
+print(str1)
+
+output
+-----------
+Welcome To Python
+True
+
+EX:
+name = "Welcome To python"
+str1 = name.istitle()
+print(name)
+print(str1)
+
+output
+--------
+Welcome To python
+False
+------------------------
+
+isdigit():This method return True if the string contains only numeric digits(0 to 9)else return False
+	syntax:string.isdigit()
+EX:
+name = "25684912"
+str1 = name.isdigit()
+print(name)
+print(str1)
+
+output
+------
+25684912
+True
+
+EX:
+name = "2568hfgdhg4912"
+str1 = name.isdigit()
+print(name)
+print(str1)
+
+output
+-------
+2568hfgdhg4912
+False
+----------------------------------
+
+isalpha():This method returns True if the string has at least one character and all are alphabets(A to Z and a to z)
+else returns False
+
+	syntax:string.isalpha()
+
+EX:
+
+name = "Welcome"
+str1 = name.isalpha()
+print(name)
+print(str1)
+
+output
+--------
+Welcome
+True
+
+EX:
+name = "Welcome84546"
+str1 = name.isalpha()
+print(name)
+print(str1)
+
+output
+-------
+Welcome84546
+False
+------------------------------------
+
+isalnum():This method return True if the string has at least one character and all characters in the string are
+alphanumeric (A to Z, a to z and 0 to 9) else returns False.
+	syntax:string.isalnum()
+	
+note: al(isalpha) + num(isdigit) = alnum
+
+EX
+name = "Welcome23456"
+str1 = name.isalnum()
+print(name)
+print(str1)
+
+output
+-------
+Welcome23456
+True
+
+EX:
+
+name = "Welcome"
+str1 = name.isalnum()
+print(name)
+print(str1)
+
+output
+-------
+Welcome
+True
+
+EX:
+
+name = "54545454"
+str1 = name.isalnum()
+print(name)
+print(str1)
+
+output
+-------
+54545454
+True
+
+EX:
+name = "welcome 5454"(space not allowed)
+str1 = name.isalnum()
+print(name)
+print(str1)
+
+output
+------
+welcome 5454
+False
+--------------------------------
+
+isspace():This method returns True if the string contains only space else returns False
+	syntax: string.isspace()
+
+EX:
+name = "     "
+str1 = name.isspace()
+print(name)
+print(str1)
+
+output
+-----
+
+True
+
+EX:
+
+name = ""
+str1 = name.isspace()
+print(name)
+print(str1)
+
+output:
+
+False
+-------------------------
+		
+lstrip(): This method is used to remove the space which are at left side of the string
+	syntax:string.lstrip()
+
+EX:
+name = "  welcome to python"
+str1 = name.lstrip()
+print(name)
+print(str1)
+
+outpt
+-------
+  welcome to python
+welcome to python
+----------------------------------
+
+rstrip(): This method is used to remove the space which are at right side of the string
+	syntax:string.rstrip()
+
+EX:
+name = "welcome to python    "
+str1 = name.rstrip()
+print(name)
+print(str1)
+
+output
+-------
+welcome to python
+welcome to python
+-----------------------------
+
+
+strip(): This method is used to remove the space from the both side of the string
+	syntax:string.strip()
+		
+EX:
+
+name = "  welcome to python    "
+str1 = name.strip()
+print(name)
+print(str1)
+
+output
+--------
+<-------> welcome to python<-------->
+welcome to python
+-------------------------------------------
+replace():This method is used to replace a sub string in a string with another sub string.
+	syntax:string.replace(old,new)
+
+EX:
+name = "welcome to python"
+old = "welcome"
+new = "large"
+str1 = name.replace(old,new)
+print(name)
+print(str1)
+
+output
+------
+welcome to python
+large to python
+
+EX:
+name = "welcome to python"
+str1 = name.replace("welcome","Beauty of")
+print(name)
+print(str1)
+
+output
+-------
+welcome to python
+Beauty of to python
+------------------------------
+
+split():This method is used to split/brak a string into pieces. These pieces return as a list.
+	syntax:string.split('separator')
+
+EX:
+name = "Welcome-to-python"
+str1 = name.split("-")
+print(name)
+print(str1)
+
+output
+-----
+Welcome-to-python
+['Welcome', 'to', 'python']
+
+EX:
+
+name = "Bala Murali"
+str1 = name.split(" ")
+print(name)
+print(str1)
+
+output
+-------
+Bala Murali
+['Bala', 'Murali']
+
+----------------------------------
+
+join():This method is used to join string into one string
+
+	syntax:"separator".join(string_list)
+
+
+EX:
+name = ('welcome','to','python')
+str1 = '_'.join(name)
+print(name)
+print(str1)
+
+output
+------
+('welcome', 'to', 'python')
+welcome_to_python
+
+EX:
+name = ('welcome','to','python')
+str1 = ' '.join(name)
+print(name)
+print(str1)
+
+output
+------
+('welcome', 'to', 'python')
+welcome to python
+
+
+EX:
+
+name = ('welcome','to','python')
+str1 = '/'.join(name)
+print(name)
+print(str1)
+
+output
+-------
+('welcome', 'to', 'python')
+welcome/to/python
+-----------------------------
+startswith():This method is used to check whether a string is starting with a substring or not.
+It returns True if the string starts with specified sub string.
+
+	syntax:string.startswith('specified_string')
+
+EX:
+name ='Hi How are you'
+str1 = name.startswith('Hi')
+print(name)
+print(str1)
+
+output
+------
+Hi How are you
+True
+
+
+EX:
+name ='Hi How are you'
+str1 = name.startswith('Geeky')
+print(name)
+print(str1)
+
+output
+------
+Hi How are you
+False
+-------------------------------------
+
+endswith():This method is used to check whether a string is ending with a substring or not.
+It returns True if the string ends with specified sub string.
+
+	syntax:string.endswith('specified_string')
+
+
+EX
+name ='Than You Bye'
+str1 = name.endswith('Bye')
+print(name)
+print(str1)
+
+output
+-----
+Than You Bye
+True
+
+
+EX:
+name ='Than You GoodBye'
+str1 = name.endswith('Bye')
+print(name)
+print(str1)
+
+output
+-------
+Than You GoodBye
+True
+
+
+
+EX:
+name ='Than You Bye'
+str1 = name.endswith('Hi')
+print(name)
+print(str1)
+
+output
+------
+Than You Bye
+False
+---------------------------------------
+
+capitalize(): The capitalize() method returns a string where the first character is upper case.
+
+	syntax:string.capitalize()
+EX:
+
+text = 'hello welcome to python'
+str = text.capitalize()
+print(text)
+print(str)
+
+output:
+-----------
+hello welcome to python
+Hello welcome to python
+
+EX:
+text = 'Well welcome to python'
+str = text.capitalize()
+print(text)
+print(str)
+
+output
+------
+Well welcome to python
+Well welcome to python
+
+---------------------------------------
+count():The count() method returns, the number of times a specified value 'repited' in the string.
+
+	syntax:string.count(value, start, end)
+			start,end(optional)
+
+EX:
+text = """johny johny yes papa
+eating sugar no papa
+telling lie no papa
+open your mouth haha"""
+
+str = text.count('papa')
+print(text)
+print(str)
+
+output
+-------
+johny johny yes papa
+eating sugar no papa
+telling lie no papa
+open your mouth haha
+
+3
+------------------------------------------
+find():You can find out  index of the particular word or letter  in the string.
+		syntax:string.find(value, start, end)-->start,end optional
+
+
+EX:
+text = "amuls academy"
+str = text.find('y')
+print(text)
+print(str)
+
+output
+-------
+amuls academy
+12
+
+EX:
+text = "amuls academy"
+str = text.find('academy')
+print(text)
+print(str)
+
+output
+------
+amuls academy
+6
+
+EX:
+text = "amuls academy"
+str = text.find('ca')
+print(text)
+print(str)
+
+output
+------
+amuls academy
+7
+-----------------------------------
+
+
+	Built-in Functios
+	-------------------
+
+filter() function 
+------------------
+The filter function is used to filter out the elements of an iterable(sequence)depending on 
+a function that tests each element in the sequence to be true or not.
+
+it returns those elements of sequence, for which function is true.
+	syntax:
+		filter(function_name,iterable)
+here:
+	Function_name =it's name of a function which tests each element in the sequence
+return True or False. If function is None,returns the elements that are true.
+
+	iterable = iterable may be either a sequence, list,string,tuple,  a container which
+supports iteration, or an iterator.
+
+
+Note:filter() use chesetappudu 'lambda function' uses chesthe simple ga output vasthundi.
+
+EX:
+
+a = [10,50,60,80,90,5,45,65]
+
+def high_marks(n): # n anedi internal ga 'a' list lo unde value's ni thisukoni compare chesukuntundi.
+	if n >= 60:
+		return True
+
+result = filter(high_marks,a)
+for i in result:
+	print(i)		
+
+output
+----------
+60
+80
+90
+65
+
+
+EX:
+a = [10,50,60,80,90,5,45,65]
+
+def high_marks(n):
+	if n >= 60:
+		return True
+
+result =list(filter(high_marks,a)) #filter convert to list()
+print(result)
+print(type(result))
+
+output
+------------
+[60, 80, 90, 65]
+<class 'list'>
+
+
+EX:
+a = [10,50,60,80,90,5,45,65]
+
+def high_marks(n):
+	if n >= 60:
+		return True
+
+result =list(filter(high_marks,a))
+print(result)
+print(type(result))
+print()
+for i in result:
+	print(i)
+
+output
+-------------
+[60, 80, 90, 65]
+<class 'list'>
+
+60
+80
+90
+65
+
+EX: Short code,using lambda
+	syntax: 
+		(lambda  argument's: expression)
+		
+
+a = [10,50,60,80,90,5,45,65]
+
+result =list(filter(lambda n : (n>=60), a))
+
+print(result)
+
+print(type(result))
+
+for i in result:
+	print(i)
+
+output
+------------
+[60, 80, 90, 65]
+<class 'list'>
+60
+80
+90
+65
+
+
+EX:  
+
+a = [True,False,False,True,False,True,True]
+
+result =list(filter(None, a))
+
+print(result)
+
+print(type(result))
+
+for i in result:
+	print(i)
+
+output
+------------
+[True, True, True, True]
+<class 'list'>
+True
+True
+True
+True
+
+
+map Function in Python 
+--------------------------
+This function executes a specified function on each element
+of the iterable(sequence) and perhaps changes the elements.	
+	syntax:
+		map(function_name,iterable)
+
+here:
+	function_name: it's name of afunction which perform an operation on all the
+elements of the sequence and modified elements are returned which can be stored in
+another sequence.
+	
+	iterable: Iterable may be either a sequence,list,string,tuple,a container
+which supports iteration,or an iterator.
+
+EX:
+
+a = [10,20,30,40,50]
+
+def inc(n):
+	return n+2
+
+result = map(inc,a)
+print(result)
+print(type(result))
+for i in result:
+	print(i)	
+
+output
+------------
+<map object at 0x0000024D2A956CD0>
+<class 'map'>
+12
+22
+32
+42
+52
+
+EX:
+
+a = [10,20,30,40,50]
+
+def inc(n):
+	return n+2
+
+result = list(map(inc,a))
+print(result)
+print(type(result))
+for i in result:
+	print(i)	
+
+output
+-------
+[12, 22, 32, 42, 52]
+<class 'list'>
+12
+22
+32
+42
+52
+
+
+EX:
+a = [10,20,30,40,50]
+
+result = list(map(lambda n: n+2, a))
+print(result)
+print(type(result))
+for i in result:
+	print(i)	
+
+output
+----------
+[12, 22, 32, 42, 52]
+<class 'list'>
+12
+22
+32
+42
+52
+
+EX:
+a = [10,20,30,40,50]
+b = [1,2,3,4,5]
+
+result = list(map(lambda n,m: n+m, a,b))
+print(result)
+print(type(result))
+for i in result:
+	print(i)	
+output
+--------
+[11, 22, 33, 44, 55]
+<class 'list'>
+11
+22
+33
+44
+55
+
+
+reduce Function 
+----------------------
+This function is used to reduce a sequence of elements to a single value by processing the
+elements according to a function supplied.It returns a single value.
+
+This function is a part of functools module so you have to import it before using.
+	syntax:
+		from functool import reduce
+		reduce(function_name,sequence)
+
+EX:
+from functools import reduce
+a = [10,20,30,40,50]
+
+result = reduce(lambda n,m: n+m, a)
+print(result)
+print(type(result))
+
+output
+-----------
+150
+<class 'int'>
+
+
+Generator Function Yield Statement and Next Function
+-------------------------------------------------------
+Generator are functions that return a squence of values.We use yield statement to return the
+value from function.
+
+Yield statement 'returns' the elememts from a generator functions into a generator
+object.
+	Ex: yield a
+
+next() function is used to retrieve element by element from a generator object.
+	syntax:
+		next(gen_obj)
+
+EX:
+def disp(a,b):
+	yield a
+	yield b
+
+x,y = disp(10,20)
+print(x)
+print(y)	
+
+output
+------------
+10
+20
+
+
+EX:
+def disp(a,b):
+	yield a
+	yield b
+
+result = disp(10,20)
+print(result)
+print(type(result))
+lst = list(result)
+print(lst)
+print(type(lst))
+
+output
+--------
+<generator object disp at 0x0000024BF4D4CCF0>
+<class 'generator'>
+[10, 20]
+<class 'list'>
+
+EX:
+def disp(a,b):
+	yield a
+	yield b
+
+result = disp(10,20)
+print(result)
+print(type(result))
+
+print(next(result))
+print(next(result))
+
+output
+--------
+<generator object disp at 0x000002CCE410CCF0>
+<class 'generator'>
+10
+20
+
+EX:
+def disp(a,b):
+	while a <= b:
+		yield a
+		a+=1
+
+result = disp(1,5)
+print(result)
+print(type(result))
+
+print(next(result))
+print(next(result))
+print(next(result))
+print(next(result))
+print(next(result))
+
+output
+-------
+<generator object disp at 0x000001B0CADCCCF0>
+<class 'generator'>
+1
+2
+3
+4
+5
+
+EX:
+def disp(a,b):
+	while a <= b:
+		yield a
+		a+=1
+
+result = disp(1,5)
+print(next(result))
+print(next(result))
+for i in result:
+	print(i)
+
+output
+-----------
+1
+2
+3
+4
+5
+
+int()Function
+==============
+This function returns an integer object or return 0 if no arguments are given.
+
+	syntax:
+		int(a)
+
+EX;
+#int() Function
+a = 10.56
+print('Float:',a)
+print(type(a))
+new_a = int(a)
+print("Int:",new_a)
+print(type(new_a))
+print()
+
+b = "10"
+print('String:',b)
+print(type(b))
+new_b = int(b)
+print("Int:",new_b)
+print(type(new_b))
+print()
+
+
+#Below code will show error
+c= "Geekyshows"
+print("String:",c)
+print(type(c))
+new_c = int(c)
+print("Int:",new_c)
+print(type(new_c))
+
+output
+------
+Float: 10.56
+<class 'float'>
+Int: 10
+<class 'int'>
+
+String: 10
+<class 'str'>
+Int: 10
+<class 'int'>
+
+String: Geekyshows
+<class 'str'>
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 23, in <module>
+    new_c = int(c)
+ValueError: invalid literal for int() with base 10: 'Geekyshows'
+
+
+float()Function
+===============
+This function returns an floating point number object
+
+	syntax:
+		float(a)
+
+EX:
+#float() Function
+a = 10
+print('Int:',a)
+print(type(a))
+new_a = float(a)
+print("Float:",new_a)
+print(type(new_a))
+print()
+
+b = "10.56"
+print('String:',b)
+print(type(b))
+new_b = float(b)
+print("Int:",new_b)
+print(type(new_b))
+print()
+
+
+#Below code will show error
+c= "Geekyshows"
+print("String:",c)
+print(type(c))
+new_c = float(c)
+print("Int:",new_c)
+print(type(new_c))
+
+output
+------
+Int: 10
+<class 'int'>
+Float: 10.0
+<class 'float'>
+
+String: 10.56
+<class 'str'>
+Int: 10.56
+<class 'float'>
+
+String: Geekyshows
+<class 'str'>
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 23, in <module>
+    new_c = float(c)
+ValueError: could not convert string to float: 'Geekyshows'
+
+
+
+
+str()Function
+=============
+This function return str version of object
+
+	syntax:
+		str(a)
+EX:
+#str() Function
+a = 10
+print('Int:',a)
+print(type(a))
+new_a = str(a)
+print("String:",new_a)
+print(type(new_a))
+print()
+
+b = 10.56
+print('Float:',b)
+print(type(b))
+new_b = str(b)
+print("string:",new_b)
+print(type(new_b))
+print()
+
+output
+------
+Int: 10
+<class 'int'>
+String: 10
+<class 'str'>
+
+Float: 10.56
+<class 'float'>
+string: 10.56
+<class 'str'>
+
+
+list() Funtion
+===============
+Rather then being a function, list is actually a mutable sequence type.This can be used
+in type casting to convert iterable to list.
+
+	syntax:
+		list(iterable)
+
+EX:
+#list() Function
+a = (10,20,30)
+print(a)
+print(type(a))
+new_a = list(a)
+print(new_a)
+print(type(new_a))
+print()
+
+b = {10,20,30}
+print(b)
+print(type(b))
+new_b = list(b)
+print(new_b)
+print(type(new_b))
+print()
+
+c = "Geekyshows"
+print(c)
+print(type(c))
+new_c = list(c)
+print(new_c)
+print(type(new_c))
+print()
+
+d = {101:'Rahul',102:'Raj',103:'Sonam'}
+print(d)
+print(type(d))
+new_d = list(d)
+print(new_d)
+print(type(new_d))
+print()
+
+
+output
+------
+(10, 20, 30)
+<class 'tuple'>
+[10, 20, 30]
+<class 'list'>
+
+{10, 20, 30}
+<class 'set'>
+[10, 20, 30]
+<class 'list'>
+
+Geekyshows
+<class 'str'>
+['G', 'e', 'e', 'k', 'y', 's', 'h', 'o', 'w', 's']
+<class 'list'>
+
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+<class 'dict'>
+[101, 102, 103]
+<class 'list'>
+
+
+tuple()Function
+============
+Rather then being a function, tuple is actually a mutable sequence type.This can be used
+in type casting to convert iterable to tuple.
+
+	syntax:
+		tuple(iterable)
+
+EX:
+#tuple() Function
+a = [10,20,30]
+print(a)
+print(type(a))
+new_a = tuple(a)
+print(new_a)
+print(type(new_a))
+print()
+
+b = {10,20,30}
+print(b)
+print(type(b))
+new_b = tuple(b)
+print(new_b)
+print(type(new_b))
+print()
+
+c = "Geekyshows"
+print(c)
+print(type(c))
+new_c = tuple(c)
+print(new_c)
+print(type(new_c))
+print()
+
+d = {101:'Rahul',102:'Raj',103:'Sonam'}
+print(d)
+print(type(d))
+new_d = tuple(d)
+print(new_d)
+print(type(new_d))
+print()
+
+
+output
+-------
+[10, 20, 30]
+<class 'list'>
+(10, 20, 30)
+<class 'tuple'>
+
+{10, 20, 30}
+<class 'set'>
+(10, 20, 30)
+<class 'tuple'>
+
+Geekyshows
+<class 'str'>
+('G', 'e', 'e', 'k', 'y', 's', 'h', 'o', 'w', 's')
+<class 'tuple'>
+
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+<class 'dict'>
+(101, 102, 103)
+<class 'tuple'>
+
+
+set()Function
+=================
+This Function returns a new set object optionally with elements taken from
+iterable. This can be also used in type casting to convert iterable to set.
+
+	syntax;
+		set(iterable)
+
+EX;
+#set() Function
+a = [10,20,30]
+print(a)
+print(type(a))
+new_a = set(a)
+print(new_a)
+print(type(new_a))
+print()
+
+b = (10,20,30)
+print(b)
+print(type(b))
+new_b = set(b)
+print(new_b)
+print(type(new_b))
+print()
+
+c = "Geekyshows"
+print(c)
+print(type(c))
+new_c = set(c)
+print(new_c)
+print(type(new_c))
+print()
+
+d = {101:'Rahul',102:'Raj',103:'Sonam'}
+print(d)
+print(type(d))
+new_d = set(d)
+print(new_d)
+print(type(new_d))
+print()
+
+
+output
+--------
+[10, 20, 30]
+<class 'list'>
+{10, 20, 30}
+<class 'set'>
+
+(10, 20, 30)
+<class 'tuple'>
+{10, 20, 30}
+<class 'set'>
+
+Geekyshows
+<class 'str'>
+{'y', 'e', 's', 'o', 'w', 'h', 'G', 'k'}
+<class 'set'>
+
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+<class 'dict'>
+{101, 102, 103}
+<class 'set'>
+
+
+
+dict()Fuction
+================
+This function creates a new dictionary.This can be used in type casting to
+convert iterable to dict.
+	syntax:
+		dict(**kwargs)
+
+EX:
+
+#set() Function
+a = [(101,'Rahul'),(102,'Raj'),(103,'Sonam')]
+print(a)
+print(type(a))
+new_a = dict(a)
+print(new_a)
+print(type(new_a))
+print()
+
+output
+-------
+[(101, 'Rahul'), (102, 'Raj'), (103, 'Sonam')]
+<class 'list'>
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+<class 'dict'>
+
+
+
+len()function
+==================
+
+This Function returns the length(the number of items) of an Object.
+
+The agrument may be a sequence (such as a string,bytes, tuple,list,or range)
+or a collection (such as a dictionary,set, or frozen set).
+
+	syntax:
+		len(arg)
+
+EX:
+a = "Geekyshows"
+b = [10,20,30]
+c = (10,20,30,40)
+d = {10,20,30,40,50}
+e = {101:'Rahul','102':'Raj',103:'Sonam'}
+f = [[10,20],[30,40],[60,70]]
+g = [(101,'Ragul'),(102,'Raj'),(103,"Sonam")]
+print(len(a))
+print(len(b))
+print(len(c))
+print(len(d))
+print(len(e))
+print(len(f))
+print(len(g))
+
+output
+----
+10
+3
+4
+5
+3
+3
+3
+
+sorted()Function
+=====================
+
+This function returns a new sorted list from the items in iterable.
+
+	Syntax:
+		sorted(iterable)
+EX:
+b = [10,20,30,5]
+c = (10,20,30,6,40)
+d = {10,20,30,9,40,50}
+e = {101:'Rahul',102:'Raj',103:'Sonam',2:'Jay'}
+f = [[10,20],[30,40],[60,70],[2,4],[30,40]]
+g = [(101,'Ragul'),(102,'Raj'),(2,'Jay'),(103,"Sonam")]
+print(sorted(b))
+print(sorted(c))
+print(sorted(d))
+print(sorted(e))
+print(sorted(f))
+print(sorted(g))
+
+output
+------
+[5, 10, 20, 30]
+[6, 10, 20, 30, 40]
+[9, 10, 20, 30, 40, 50]
+[2, 101, 102, 103]
+[[2, 4], [10, 20], [30, 40], [30, 40], [60, 70]]
+[(2, 'Jay'), (101, 'Ragul'), (102, 'Raj'), (103, 'Sonam')]
+
+
+min()Function
+=============
+b = [10,20,30,5]
+c = (10,20,30,6,40)
+d = {10,20,30,9,40,50}
+e = {101:'Rahul',102:'Raj',103:'Sonam',2:'Jay'}
+f = [[10,20],[30,40],[60,70],[2,4],[30,40]]
+g = [(101,'Ragul'),(102,'Raj'),(2,'Jay'),(103,"Sonam")]
+print(min(b))
+print(min(c))
+print(min(d))
+print(min(e))
+print(min(f))
+print(min(g))
+
+output
+-----
+5
+6
+9
+2
+[2, 4]
+(2, 'Jay')
+
+max()Function
+=============
+b = [10,20,30,5]
+c = (10,20,30,6,40)
+d = {10,20,30,9,40,50}
+e = {101:'Rahul',102:'Raj',103:'Sonam',2:'Jay'}
+f = [[10,20],[30,40],[60,70],[2,4],[30,40]]
+g = [(101,'Ragul'),(102,'Raj'),(2,'Jay'),(103,"Sonam")]
+print(max(b))
+print(max(c))
+print(max(d))
+print(max(e))
+print(max(f))
+print(max(g))
+
+output
+-----
+30
+40
+50
+103
+[60, 70]
+(103, 'Sonam')
+
+=========================END ======================
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

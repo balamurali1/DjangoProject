@@ -1,0 +1,731 @@
+	format() Method
+	================
+
+This method is used to format string.The string on which this method is
+called can contain literal text or replacement fields delimited by braces{}.
+Each replacement field contains either the numeric index of a positional
+argument,Or the name of a keyword argument.It returns a copy of the string
+where each replacement field is replaced with the string(str) value of the
+corresponding argument.
+
+	syntax:
+		str.format(arg)
+	EX:
+		str = "My age is {}"
+		print(str.format(62))
+
+	EX:
+		print("My age is {}".format(62))
+
+	EX:
+		name = "Murali"
+		height = "5.6"
+		weight = 56
+		print("My Name is {} And Height is{} and weight is {}". format(name,height,weight))
+		
+		output
+		-------
+		My Name is Murali And Height is 5.6 and weight is 56
+
+	EX:
+		name = "Murali"
+		height = "5.6"
+		weight = 56
+		print("My Name is {0} And Height is {1} and weight is {2}.". format(name,height,weight))
+	
+		output
+		------
+		My Name is Murali And Height is 5.6 and weight is 56.
+
+		Note: ikka index anedi format lo 0 nundi count chesthundi...	
+
+	EX:
+		print("My Name is {name} And Age is {age} village is {vil}".format(name="Murali",age=24,vil="NDK"))
+		
+		output
+		------
+			My Name is Murali And Age is 24 village is NDK
+	EX:
+	
+		print("My Name is {name} and height is {height}.".format(height=5.6,name="BalaMurali"))
+
+		output
+		-----
+			My Name is BalaMurali and height is 5.6.
+
+	EX:
+		print("My Name is {} and my village is {}".format("Bala","Kurnool"))
+
+		output
+		-------
+			My Name is Bala and my village is kurnool
+
+	EX: 
+			print("{}".format(10))
+	
+			print("{} {}".format(10,20))
+
+			print("Mobile Price{} Computer Price {}". format(10,20))
+
+	EX:
+		value = (10,20)
+		print("{0[0]} {0[1]}".format(value))
+
+		output
+		------
+			10 20
+
+	EX:
+		data1 = {'rahul':2000,'Sonam':3000}
+		print("{0[rahul]} {0[Sonam]}".format(data1))
+		
+		output
+		------
+			2000 3000
+
+	EX:
+		data1 = {'rahul':2000,'Sonam':3000}
+		print("{0[rahul]:d} {0[Sonam]:d}".format(data1))
+		
+		output
+		------
+			2000 3000
+	EX:
+		data1 = {'rahul':4000,'Sonam':6000}
+		print("{d[rahul]:d} {d[Sonam]:d}".format(d=data1))
+
+		output
+		------
+			4000 6000
+
+	EX:
+		data1 = {'rahul':4000,'Sonam':6000}
+		print("{rahul},{Sonam}".format(**data1))
+
+		output
+-		-----
+			4000,6000	
+
+[[[[[[[[[[
+print("Replacement Field".format(values))
+	
+	where:-
+		Replacement Field = {index/key :[fill][align][sign][#][0][width][,][.precision]type}
+					       |						   |
+					       |________________Format Specification_______________|
+
+		]]]]]]]]]]]
+	Here:-
+		type = String(s),Integer(d),float(f)..etc
+		.precision = decimal use chestharu.
+		width = width ni define chesthundi
+		0 = Padding chesthundi...
+		# = Binary,hexadecimal ni use chesthundi.
+		sign = +,-,%,* space,...etc ni define chesthundi.
+		align = left,right center,...etc ni define chesthundi.
+		fill = Manamu echina symbol  ni fill chesthundi...
+
+
+Note: Replacement field symbol is noting but braces {}
+-----
+
+Note: Precision ante point(.) tharuvatha yenni digits ravalo manamu 'value' dwara chupisthamu
+----
+
+Conversion Type			Meaning
+---------------			----------
+d				Signed integer decimal.(vvvIMP)
+o				Signed octal value.
+x				Signed hexadecimal (lowercase).
+X				Signed hexadecimal(uppercase).
+b				Binary Format
+e				Floating point exponential format(lowercase).
+E				Floating point exponential format(uppercase).
+f				Floating point deciaml format (Default:6) (VVVIMP)
+F				Same as 'f'.Except displays 'inf' as 'INF' and 'nan' as 'NAN'
+c				Character.Converts the integer to the corresponding Unicode character
+				before printing
+g				General format.Rounds number to p significant digits.(Default precision:6)
+G				Same as 'g'.Except switches to 'E' if the  number is large.
+n				Same as 'd'.Except it uses current locale setting for number separator
+s				String(converts any Python object using str()).(vvvvIMP)
+%				Percentage.Multiplies the number by 100 and displays in fixed ('f')
+				format,follwed by a percent sign.
+
+
+Alignment type			Meaning
+--------------			----------
+<				Forces the  field to be left-aligned within the  available space(This is
+				default for most objects)
+
+^				Forces the field to be centered within the  available space.
+
+>				Forces the field to be  right-aligned within the available space(This is
+				default for Numbers)
+
+=				Forces the padding to be palced after the sign(if any) but before the
+				digits. This is used for printing fields in  the form'+000000120'.This	
+				alignment option is only valid for numeric types. It becomes the  default
+				when '0' immediately precedes the field width.
+
+
+Sign				Meaning
+-----				--------
++				Indicates that a sign should be used for  both positive as well as
+				negative numbers.
+
+-				indicates that a sign should be used only for  negative numbers ( this is
+				the default behavior).
+
+				(a space) indicates that a leading sapce should used on positive numbers,
+				and a minus sign on negative numbers.	
+
+
+#
+--
+The '#' option causes the "alternate form" to be used for the conversion.The alternate form is defined
+differently for different types. This option is only valid for  integer,float,complex and Decimal types.
+For integers,when binary octal, or hexadecimal output is used, this option adds the prefix respective'0b',
+'0o', or '0x' to  the output value.
+
+
+,
+---
+The ',' option signals the use of a comma for a "thousands separator".For a locale aware separator,use
+the 'n' integer presentation type instead.
+
+
+-
+---
+The '-' option signals the use of an underscore for  a thousand separator for  floating point 
+presentation types an for integer presentation type'd'.
+
+
+
+Diffrent type of Formatting Metods
+====================================
+Note: format lo ni  arguments ni 'index 0 ' nundi count chesthundi...
+
+
+#######Integer Formatting ##############
+
+Formatting Method						output
+-----------------						--------
+print("{}". format(10))						10
+
+pritn("{} {}".format(10,20))					10,20
+
+print("{0}".format(10))						10
+
+print("{0} {1}".format(10,20))					10,20
+
+print("{1} {0}".format(10,20))					20,10
+
+print("{num1}".format(num1=10))					10
+
+print("{num1} {num2}".format(num1=10,num2=20))			10 20
+
+print("{num2} {num1}".format(num1=10,num2=20))			20 10
+
+
+#Float
+======
+
+print("*************Float *********")
+print("{}".format(10.56))
+print("{} {}".format(10.56, 20.42))
+print("{0}".format(10.56))
+print("{0} {1}".format(10.56,20.42))
+print("{1} {0}".format(10.56,20.42))
+print("{num1}".format(num1=10.56))
+print("{num1} {num2}".format(num1=10.56, num2=20.42))
+print("{num2} {num1}".format(num1=10.56, num2=20.42))
+
+output
+-----
+*************Float *********
+10.56
+10.56 20.42
+10.56
+10.56 20.42
+20.42 10.56
+10.56
+10.56 20.42
+20.42 10.56
+
+
+#Float
+======
+print("*************Float *********")
+print("1){}".format(10.56))
+print("1){}, 2){}".format(10.56, 20.42))
+print("1){0}".format(10.56))
+print("1){0} ,2){1}".format(10.56,20.42))
+print("1){1} ,2){0}".format(10.56,20.42))
+print("1){num1}".format(num1=10.56))
+print("1){num1} ,2){num2}".format(num1=10.56, num2=20.42))
+print("1){num2} ,2){num1}".format(num1=10.56, num2=20.42))
+
+output
+------
+
+*************Float *********
+1)10.56
+1)10.56, 2)20.42
+1)10.56
+1)10.56 ,2)20.42
+1)20.42 ,2)10.56
+1)10.56
+1)10.56 ,2)20.42
+1)20.42 ,2)10.56
+
+
+#String
+===========
+print("***********String *********")
+print("{}".format("GeekyShows"))
+print("{} {}".format("Geeky","Shows"))
+print("{0}".format("Geeky"))
+print("{0} {1}".format("Geeky","Shows"))
+print("{1} {0}".format("Geeky","Shows"))
+print("{str1}".format(str1="GeekyShows"))
+print("{str1} {str2}".format(str1="Geeky", str2="Shows"))
+print("{str2} {str1}".format(str1="Geeky", str2="Shows"))
+
+output
+-----
+***********String *********
+GeekyShows
+Geeky Shows
+Geeky
+Geeky Shows
+Shows Geeky
+GeekyShows
+Geeky Shows
+Shows Geeky
+
+
+#Integer and String
+=======================
+print("Hello My Name is {}".format("GeekyShows"))
+print("{} {}".format(10,"Shows"))
+print("{0} {1}".format(10,"Shows"))
+print("{1} {0}".format(10,"Shows"))
+print("{num1} {str1}".format(num1=10, str1="Shows"))
+print("{str1} {num1}".format(num1=10, str1="Shows"))
+						
+
+output
+======
+Hello My Name is GeekyShows
+10 Shows
+10 Shows
+Shows 10
+10 Shows
+Shows 10
+
+
+#Integer
+=========
+print("***********Integer*********")
+print("{}".format(15))
+print("{:d}".format(15))
+print("{0:d}".format(15))
+print("{num:d}".format(num=15))
+
+output
+------
+***********Integer*********
+15
+15
+15
+15
+
+
+Syntax:
+-------
+
+	:[fill][align][sign][#][0][width][,][.precision]type
+
+
+#Integer
+===========
+
+EX:
+
+	print("{num:5d}".format(num=15))
+	
+		Note: 5 is width,d is integer type(right side nundi values ni fill chesthundi..)
+	
+	output
+	-----
+		---15
+
+EX:
+	print("{num:05d}".format(num=15))
+
+		Note: 0 is the padding(kali ga unna places lo 0 ni fill chesthundi) 
+		      5 is the width,d is the Integer type
+	Output
+	----
+		00015
+
+EX:
+	print("{num:+5d}".format(num=15))
+
+		Note: + is the sign,5 is the width,d is the integer type
+
+	output
+	------
+		--+15
+EX:
+	print("{num:<5d}".format(num=15))
+		
+		Note: < is the left align, 5 is the width, d is the integer type
+
+	output
+	-----
+		15---
+
+Ex:
+	print("{num:*<5d}".format(num1=15))
+
+		Note: * is the fill cheyadam,< is the left align,5 is the width,d is the integer type
+
+	output
+	------
+		15***
+
+EX:
+	print("{num:*>5d}",format(num=15))
+		
+		Note:* is the fill, > is the right align, 5 is the width, d is the integer type
+
+	output
+	-------
+		-**15
+
+EX:
+	print("{num:^5d}".format(num=15))
+	
+		Note:	^ is the center align,5 is the width, d is the Integer type
+
+	output
+	-------	
+		-15--	
+
+
+EX:
+	print("{num:*^5d}".format(num=15))
+	
+		Note: * is the fill,^ is the center align,5 is the width,d is the integer type
+
+	output
+	------
+		*15**
+
+#Float
+===========
+print("**********Float*********")
+print("{}".format(15.65))
+print("{:f}".format(15.65))
+print("{0:f}".format(15.65))
+print("{num:f}".format(num=15.65))
+
+output
+-------
+15.65
+15.650000
+15.650000
+15.650000
+
+
+Float
+=======
+Syntax:
+-------
+
+	:[fill][align][sign][#][0][width][,][.precision]type
+
+
+EX:
+print("{num:8f}".format(num=15.65))
+	
+	Note: 8 is the width, f is the float data type
+
+output
+-----
+	15.650000
+
+
+EX:
+
+print("{num:8.3f}".format(num=15.65))
+
+	Note: 8 is the width, .3 is the precision,f is the float datatype
+output
+-----
+	 --15.650
+
+EX:
+
+print("{num:+8.2f}".format(num=15.65))
+
+	Note: + is the sign, 8 is the width, .2 is the pricision, f is the float datatype
+output
+------
+	--+15.65
+
+EX:
+
+print("{num:<8.2f}".format(num=15.65))
+	
+	Note: < is the left align, 8 is the width, .2 is the Precision, f is the data type
+
+output
+------
+	15.65---
+
+EX:
+
+print("{num:*<8.2f}".format(num=15.65))
+
+	Note: * is the fill, < is the left align, 8 is the width, .2 is the precision, f is the float datatype
+
+output
+-----
+	15.65***
+
+EX:
+
+print("{num:*>8.2f}".format(num=15.65))
+	
+	Note: * is the fill, > is the right align, 8 is the width, .2 is the precision, f is the float datatype	
+
+output
+------
+	***15.65
+
+EX:
+
+print("{num:^8.2f}".format(num=15.65))
+
+	Note: ^ is the center align, 8 is the width, .2 is the precision, f is the float datatype
+
+output
+------
+	-15.65--
+
+
+String
+=========
+	
+	:[fill][align][sign][#][0][width][,][.precision]type
+
+EX:
+
+print("{:8s}".format("Geek"))
+
+	Note:8 is the width, s is the string datatype
+output
+------
+	Geek----
+
+EX:
+
+print("{:<8s}".format("Geek"))
+
+	Note: < is the left align, 8 is the width,s is the string datatype
+
+output
+------
+	Geek----
+
+EX:
+
+print("{num:*<8s}".format(num="Geek"))
+	
+	Note: * is the fill, < is the left align, 8 is the width,s is the string datatype
+output
+------
+	Geek****
+
+EX:
+
+print("{:>8s}".format("Geek"))
+
+	Note: > right align, 8 is the width,s is the string datatype
+
+output
+------
+	----Geek
+
+EX:
+
+print("{:*>8s}".format("Geek"))
+	
+	Note:* is the fill, > is the right align, 8 is the width, s is the string datatype		
+
+output
+-----
+	****Geek
+EX:
+
+print("{:*^8s}".format("Geek"))
+
+	Note: * is the fill, ^ is the center align, 8 is the width, s is the string datatype
+
+output
+-----
+	**Geek**
+
+
+String & precision
+==================
+:[fill][align][sign][#][0][width][,][.precision]type
+
+EX:
+print("{:.3s}".format("GeekShows"))
+
+	Note: .3 is the pricision, s is the string datatype
+
+output
+------
+	Gee
+
+EX:
+
+print("{:8.3s}".format("Geekshows"))
+
+	Note: 8 is the width,.3 is the precision, s is the string datatype
+
+output
+------
+	Gee-----
+
+EX:
+
+print("{:*<8.3s}".format("Geekyshows"))
+
+	Note:* is the fill,8 is the width, .3s is the precision
+
+output
+------
+	Gee*****
+
+EX:
+
+print("{:>8.3s}",format("GeekShows"))
+
+	Note: > is the left align, .3 is the pricision, s is the string datatype
+
+output
+------
+	-----Gee
+
+EX:
+
+print("{:*>8.3s}".format("GeekShows"))
+
+	Note:* is the fill, > is the left align, .3 is the precision, s is the string datatype
+
+output
+------
+	*****Gee
+
+EX:
+
+print("{:^8.3s}".format("GeekShows"))
+
+	Note: ^ is the center align,8 is the width, .3 is the precision, s is the string datatype
+
+output
+------
+	--Gee---
+
+
+EX:
+
+print("{:*^8.3s}".format("GeekShows"))
+
+	Note: * is the fill,^ is the center align,8 is the width, .3 is the precision, s is the string datatype
+
+output
+------
+	**Gee***
+
+
+
+  ,
+-------
+EX:
+
+print("{:,}".format(1234567890))
+
+output
+------
+
+1,234,567,890
+
+EX:
+
+print("{:_}".format(1234567890))
+
+output
+------
+1_234_567_890
+
+
+EX:
+name = "Rahul"
+age = 62
+print("My Name is {} and age is {}.".format(name,age))
+
+output
+-------
+My Name is Rahul and age is 62.
+
+
+EX:
+a = 50
+b = 3
+print("{:.2}".format(a/b))
+
+output
+------
+1.7e+01
+
+EX:
+a = 50
+b = 3
+print("{:.2%}".format(a/b))
+
+output
+-----
+1666.67%
+
+====================== END ======================
+
+
+
+
+	
+
+
+
+
+	
+	
+	
+	
+
+
+
+
+		
+
+
+
+
+	
+

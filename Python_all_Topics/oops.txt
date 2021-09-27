@@ -1,0 +1,5138 @@
+What is Object Oriented Programming
+=====================================
+object-oriented programing (OOP)is a Programming language model organized
+around objects rather than 'actions' and data rather than logic.	
+
+
+Note:Class lowpala rasedani 'Method' antaru,
+     Class lo kakunda mamuluga rasthe danini 'Function' antaru
+
+------------------------------------------
+EX:
+class Student:
+	def __init__(self):
+		print('I am a Student')
+
+s = Student()
+
+output
+------
+I am a Student
+
+
+EX:
+class Student:
+	def __init__(self):
+		self.name = 'Murali Devanur'
+		print('I am a Student:',self.name)
+
+s = Student()
+
+output
+------
+I am a Student: Murali Devanur
+
+
+EX:
+
+class Student:
+	
+	def __init__(self,name):
+		print("Student name is :",name)
+			
+s = Student('Murali Devanur')
+
+output
+------
+Student name is : Murali Devanur
+
+
+EX:
+class Student:
+	age = 25
+	def __init__(self,name):
+		print("Student name is :",name)
+			
+s = Student('Murali Devanur')
+print('My age is:',s.age)
+
+
+output
+-------
+Student name is : Murali Devanur
+My age is: 25
+
+------------------------------------------------------------
+
+	__str__  (Method)
+	*********
+
+EX:
+class Student:
+	name = 'Murali'
+	def __str__(self):
+		return self.name
+s = Student()
+
+print(s)
+
+output
+------
+Murali
+*********************************
+EX:
+class Mobile:
+	fp = 'Yes' --->class variable
+	@staticmethod
+	def show(m,r):
+		Model = m
+		Rate = r
+		print(f'Mobile Model is:{Model}'+','+f'Mobile Rate is:{Rate}')-->This is importent
+		print(Mobile.fp)
+
+res = Mobile()
+res.show('Real Me',5623)
+
+output
+-----
+Mobile Model is:Real Me,Mobile Rate is:5623
+Yes
+*********************************
+
+Class
+========
+A python class is a group of attributes and methods.
+class is blueprint.
+
+	What is  Attributes...?
+	------------------------
+		Attributes are represented by 'variable' that contains data.
+	
+	What is Method...?
+	------------------
+		Method performs an action or task. It is similar to 'Function'.
+
+How to create Class
+-------------------
+
+class Classname:
+	def __init__(self):	#self is default variable
+		self.variable_name = value
+		self.variable_name = 'value'
+	def method_name(self):
+		Body of Method --->(# Body of Method ante indu lo Local variable's and block of statement's untai..)
+
+
+Note:
+	1.class-class keyword is used to create a class
+	2.__init__() - This method is used to 'initialize the "variable"'.This is a special method.
+we do not call this method explicitly.
+
+	3.self -self is a 'variable' which refers to current class "instance/object".
+
+
+Rules
+-------
+The class name can be any valid identifier.
+It can't be python reserved word.
+A valid class name starts with a letter,followed by any number of letter,numbers or underscores.
+A class name generally starts with Capital Letter.
+
+
+How to Create Class
+-------------------
+EX:
+
+class Mobile:
+	def __init__(self):
+		self.model = 'RealMe X'
+	def show_model(self):
+		print('Model:',self.model)
+
+EX:
+class Mobile:
+	def __init__(self,m):
+		self.model = m
+	def show_model(self,p):
+		price = p   #Local Variable
+		print('Model:',self.model,'Price:',price)
+
+
+Object
+------
+Object is "class type variable or class instance". To Use a class ,we should create an object to the
+calss.
+
+Instance(object) creation represents allotting memory necessary to store the actual data of the variable.
+
+Each time you create an object of a class a copy of each variables defined in the class is created.
+
+In other words you can say that each object of a class has its own copy of data members defined in
+the class
+
+	syntax:
+		object_name = class_name()
+
+How to Create Object
+--------------------
+class Mobile:
+	def __init__(self):
+		self.model = 'RealMe X'
+	def show_model(self):
+		print('Model:',self.model)
+
+realme = Model()
+
+
+
+How to Create Object
+--------------------
+
+	syntax:
+		object_name = class_name(arg)
+
+
+class Mobile:
+	def __init__(self,m):
+		self.model = m
+	def show_model(self):
+		print('Model:',self.model)
+	
+realme = Mobile('RealMe X')
+
+
+
+Each time you create an object of a class a copy of each variables defined in the class is
+created.
+
+EX:
+class Mobile:
+	def __init__(self):
+		self.model = 'RealMe X'
+	def show_model(self):
+		print('Model:',self.model)
+	
+realme = Mobile()
+redmi = Mobile()
+geek = Mobile()
+
+
+
+Accessing class member using object
+==================================
+we can access variable and method of a class, using class object or instance of class.
+
+	object_name.variable_name
+	EX:
+		realme.model
+
+
+	object_name.method_name()
+	EX:
+		realme.show_model();
+	
+	object_name.method_name(parameter_list)
+	EX:
+		realme.show_model(1000);
+
+
+
+self Variable
+==============
+self is a default variable that contains the memory address of the current object.
+
+self variable is used to refer  all the instance(object) variable and method.
+
+when we create object of a class, the object name contains the memory location of the object.
+
+This memory location is internally passed to self,as selfknows the memory address of the object so
+we can access variable and method of object.
+
+"self is the first argument to any object method because the first argument is always the object reference"
+This is automatic,whether you call it self or not.
+
+** self internally 'object' ni refer chesthundi.
+
+Where to use self
+-----------------
+	def__init__(self):
+
+	def show_model(self):
+
+------------Theory complete---------
+EX:
+
+class Student:
+	
+	def show(self,age):
+		self.person = age  #Local variable
+		print('Age:',self.person)
+
+s = Student()
+s.show(25)
+
+output
+------
+Age: 25
+
+	(OR)
+
+class Student:
+	
+	def show(self,age):
+		person = age    #Local variable
+		print('Age:',person)
+
+s = Student()
+s.show(25)			
+
+
+output
+-----
+Age: 25
+
+
+EX:
+class Student:
+	
+	def show(self,age,name,village):
+		person = age    #Local variable's
+		Name = name
+		vill = village
+		print('Age:',person)
+		print('Name:',Name)
+		print('village:',vill)
+
+s = Student()
+s.show(25,'Ashok','Kurnool')
+
+
+output
+------
+Age: 25
+Name: Ashok
+village: Kurnool
+
+		(OR)
+
+EX:
+class Student:
+	
+	def show(self,age,name,village):
+		self.person = age
+		self.Name = name
+		self.vill = village
+		print('Age:',self.person)
+		print('Name:',self.Name)
+		print('village:',self.vill)
+
+s = Student()
+s.show(25,'Ashok','Kurnool')
+
+output
+------
+Age: 25
+Name: Ashok
+village: Kurnool
+
+
+EX:
+
+class Student:
+	def __init__(self):
+		self.name = 'Rajesh'
+
+	def show(self,age):
+		self.Age = age--->Look I am Useing 'Self' this is also Local variable
+		print('Name:',self.name+','+'Age:',self.name)
+
+s = Student()
+s.show(25)			
+
+output
+------
+Name: Rajesh,Age: Rajesh
+
+
+	(OR)
+
+EX:
+class Student:
+	def __init__(self):
+		self.name = 'Rajesh'
+
+	def show(self,age):
+		person = age------>Look i am not using self,but using variable(person) this is also Local Variable
+		print('Name:',self.name+','+'Age:',person)
+
+s = Student()
+s.show(25)			
+
+output
+-------
+Name: Rajesh,Age: 25
+
+	
+EX:
+class Myclass:
+	def show(self):
+		print('I am a method')
+
+x = Myclass()
+x.show()		
+
+output
+------
+I am method
+
+
+EX:
+class Mydata:
+	def __init__(self):
+		self.Model = 'Real me'
+
+
+res = Mydata()
+print(res.Model)
+
+output
+-------
+Real me
+
+
+EX:
+class Mobile:
+
+	def __init__(self):
+		print('1.This constructor working')
+		print('2.__init__ is the constructor explictly')
+
+res = Mobile()
+
+
+output
+-------
+1.This constructor working
+2.__init__ is the constructor explictly		
+
+
+EX:
+class Mobile:
+	def __init__(self):
+		self.model = 'RealMe x'  
+
+	def show_model(self):
+		print('Model:',self.model)
+
+realme = Mobile()
+realme.show_model()			
+
+output
+------
+RealMe x
+
+EX:
+class Myclass:
+	def __init__(self,m):
+		self.model = m
+
+	def show_data(self):
+		print('Data is:',self.model)
+
+res = Myclass('RealMe X')
+res.show_data()
+
+output
+-------
+Data is: RealMe X
+
+
+EX:
+class Myclass:
+
+	def Mobile(self,m):
+		print('Mobile is:',m)
+
+res = Myclass()
+res.Mobile('RealMe X')		
+
+output
+-------
+Mobile is: RealMe X
+
+EX:
+
+class Myclass:
+
+	def __init__(self):
+		self.Model = 'Promo C12'
+
+	def Mobile(self,m):
+		print('Mobile is:',m)
+		print('Mobile Model is:',self.Model)
+
+res = Myclass()
+res.Mobile('RealMe X')
+
+output
+-------
+Mobile is: RealMe X
+Mobile Model is: Promo C12		
+
+EX:
+class Myclass:
+
+	def __init__(self,m):
+		self.Model = m
+
+	def Mobile(self,m):
+		print('Mobile is:',m)
+		print('Mobile Model is:',self.Model)
+
+res = Myclass('Promo XYZ')
+res.Mobile('RealMe X')		
+
+output
+-------
+Mobile is: RealMe X
+Mobile Model is: Promo XYZ
+
+
+EX:
+
+class Myclass:
+
+	def __init__(self,m):
+		self.Model = m
+
+	def Mobile(self,m):
+		print('Mobile is:',m +', '+ 'Model is:',self.Model)
+		
+
+res = Myclass('Promo XYZ')
+res.Mobile('RealMe X')
+
+output
+------
+Mobile is: RealMe X, Model is: Promo XYZ
+		
+EX:
+class Myname:
+
+	def __init__(self,m,n):
+		self.m = m
+		self.n = n
+
+	def Show_data(self):
+		print("Mobile Model is:",self.m)
+		print("Mobile Number:",self.n)
+
+My = Myname('RealMe',9581221487)
+My.Show_data()			
+
+output
+------
+Mobile Model is: RealMe
+Mobile Number: 9581221487
+
+EX:
+class Myclass:
+	def __init__(self,name,age,village,disct):
+		self.Name = name
+		self.Age = age
+		self.Village = village
+		self.Distic = disct
+	def Details(self):
+		print(f'My Name is {self.Name} Nice Metting You')
+		print(f'My Age is {self.Age} and How old are you..? ')
+
+	def Address(self):
+		print(f'My Village Name is {self.Village}')
+		print(f'My Disctic is {self.Distic}')
+
+res = Myclass('Murali',24,'Nandikotkur','Kurnool')
+res.Details()
+res.Address()
+
+output
+------
+My Name is Murali Nice Metting You
+My Age is 24 and How old are you..?
+My Village Name is Nandikotkur
+My Disctic is Kurnool
+
+				
+EX:
+class Mobile:
+	def __init__(self):
+		self.model = 'RealMe x'  #self.model is variable. variable access will be "outside class".
+
+	def show_model(self):
+		print('Model:',self.model)
+
+realme = Mobile()
+print(realme.model) ----->Like This outside
+
+output
+-------
+RealMe x
+
+
+EX:
+class Mobile:
+	def __init__(self):
+		self.model = 'RealMe x'  #self.model is variable. variable access will be "outside class".
+
+	def show_model(self):
+		print('Model:',self.model)
+
+realme = Mobile()
+realme.model = 'RealMe Pro2' ----->Like This outside
+
+print(realme.model)
+
+output
+-------
+RealMe Pro2
+
+
+EX:
+class Mobile:
+	def __init__(self):
+		self.model = 'RealMe x'  #self.model is variable. variable access will be "outside class".
+
+	def show_model(self):
+		print('Model:',self.model)
+
+realme = Mobile()
+realme.model ----->Like This outside
+
+print(real.model)
+realme.show_model()
+
+output
+-------
+RealMe Pro2
+Model:RealMe Pro2
+
+
+
+EX:
+class Mobile:
+	def __init__(self):
+		self.model = 'RealMe x'
+
+	def show_model(self):
+		price = 1000	#Local Variable
+		print('Model:',self.model,',''price:',price)
+
+realme = Mobile()
+realme.show_model()			
+
+output
+--------
+Model: RealMe x ,price: 1000
+
+
+
+EX:
+
+class Mobile:
+	def __init__(self,m):
+		self.model = m
+
+	def show_model(self,p):
+		price = p	#Local Variable
+		print('Model:',self.model,',''price:',price)
+
+realme = Mobile('RealMe X')
+realme.show_model(1000)			
+
+
+output
+------
+Model: RealMe X ,price: 1000
+
+
+
+EX:
+class Mobile:
+	def __init__(self,m):
+		self.model = m
+
+	def show_model(self,p):
+		self.price = p	#Local Variable
+		print('Model:',self.model,',''price:',self.price)
+
+realme = Mobile('RealMe X')
+realme.show_model(1000)			
+
+output
+--------
+Model: RealMe X ,price: 1000
+
+
+EX:
+class Mobile:
+	def __init__(self,m):
+		self.model = m
+
+	def show_model(self,p):
+		self.price = p	#Local Variable
+		print('Model:',self.model,',''price:',self.price)
+
+realme = Mobile('RealMe X')
+realme.show_model(1000)
+print(id(realme))	
+print()
+
+redmi = Mobile('Redmi pro2')
+redmi.show_model(2000)
+print(id(redmi))
+print()
+
+geek = Mobile('python')
+geek.show_model(49)
+print(id(geek))
+print()
+
+output
+------
+Model: RealMe X ,price: 1000
+2510042485136
+
+Model: Redmi pro2 ,price: 2000
+2510042484848
+
+Model: python ,price: 49
+2510043710032
+
+
+EX:
+class Mobile:
+	def __init__(self,m):
+		self.model = m
+
+	def show_model(self,p):
+		self.price = p	#Local Variable
+		print('Model:',self.model,',''price:',self.price)
+
+realme = Mobile('RealMe X')
+realme.show_model(1000)
+print(id(realme))	
+print()
+
+realme1 = Mobile('RealMe X')
+realme1.show_model(1000)
+print(id(realme1))	
+print()
+
+
+output
+-----
+Model: RealMe X ,price: 1000
+2012829503888
+
+Model: RealMe X ,price: 1000
+201282950360
+
+----------------------------------------------
+
+Constructor(__init__) in Python
+=====================
+
+python supports a special type of method called constuctor for initialize the instance variable of 
+a class.
+
+A class constructor,if defined is called whenever a program creates an objcect
+of the class.
+
+A constructor is called only once at the time of creating an instance.
+
+If two instance are created for a class, the constructor will be called once for each
+instance.
+
+constructor without parameter
+------------------------------
+class Mobile:
+	def __init__(self):  #This is constructor(__init__)
+		self.model = 'RealMe X'
+
+realme = Mobile()
+
+
+Constructor with Parameter
+-------------------------
+class Mobile:
+	def __init__(self,m):
+		self.model = m
+	
+realme = Mobile('Realme X')
+
+
+class Mobile:
+	def __init__(self,m,v = 80):  #v=80 is Default value
+		self.model = m
+		self.volumn = v
+	
+redmi = Mobile('Redmi 7s',50)
+
+	
+
+EX:
+class Mobile:
+	def __init__(self):  #This is constructor
+		print('Mobile constructor called')
+
+realme = Mobile()
+
+ouptut
+-----
+Mobile constructor called
+
+
+
+EX:
+class Mobile:
+	#Constructor without Parameter
+	def __init__(self, m ,v = 80): 
+		self.model = m
+		self.volumn = v
+
+	def show_model(self,p):
+		price = p  #Local Variable
+		print('Model:',self.model)
+		print('Price:',price)---->look here
+		print('Volumn:',self.volumn)	
+
+#Passing Argument to Constructor
+realme = Mobile('Realme X')
+
+#Accessing Method from outside class
+realme.show_model(1000)
+
+output
+-----
+Model: Realme X
+Price: 1000
+Volumn: 80
+
+
+EX:
+class Mobile:
+
+	def __init__(self,m,v=80):
+		self.m = m
+		self.v = v
+
+	def Show_details(self,p):
+		self.p = p
+		print('Mobile Model is:',self.m)
+		print(f'Mobile price is:{self.p}')
+		print('Mobile volumn is:',self.v)	
+
+res = Mobile('Redmi 7s')
+res.Show_details(80000)
+
+output
+------
+Mobile Model is: Redmi 7s
+Mobile price is:80000
+Mobile volumn is: 80
+
+
+EX:
+class Mobile:
+	#Constructor without Parameter
+	def __init__(self, m ,v = 80): 
+		self.model = m
+		self.volumn = v
+
+	def show_model(self,p):
+		self.price = p  #Local Variable
+		print('Model:',self.model)
+		print('Price:',self.price)--->look here
+		print('Volumn:',self.volumn)	
+
+#Passing Argument to Constructor
+realme = Mobile('Realme X')
+
+#Accessing Method from outside class
+realme.show_model(1000)
+
+output
+-----
+Model: Realme X
+Price: 1000
+Volumn: 80
+
+
+EX:
+class Mobile:
+	#Constructor without Parameter
+	def __init__(self, m ,v = 80): 
+		self.model = m
+		self.volumn = v
+
+	def show_model(self,p):
+		self.price = p  #Local Variable
+		print('Model:',self.model)
+		print('Price:',self.price)
+		print('Volumn:',self.volumn)	
+
+#Passing Argument to Constructor
+realme = Mobile('Realme X',50)
+
+#Accessing Method from outside class
+realme.show_model(1000)
+
+output
+-----
+Model: Realme X
+Price: 1000
+Volumn: 50
+
+
+EX:
+class Mobile:
+	#Constructor without Parameter
+	def __init__(self, m ,v = 80): 
+		self.model = m
+		self.volumn = v
+
+	def show_model(self,p):
+		self.price = p  #Local Variable
+		print('Model:',self.model)
+		print('Price:',self.price)
+		print('Volumn:',self.volumn)	
+
+#Passing Argument to Constructor
+realme = Mobile('Realme X',50)
+#Accessing Method from outside class
+realme.show_model(1000)
+print()
+
+redmi = Mobile('Redmi 7s',40)
+redmi.show_model(500)
+
+
+output
+-------
+Model: Realme X
+Price: 1000
+Volumn: 50
+
+Model: Redmi 7s
+Price: 500
+Volumn: 40
+
+EX:
+class Mobile:
+
+	def __init__(self,m,v=10):
+		self.m = m
+		self.v = v
+
+	def Show_details(self,p=200):
+		self.p = p
+		print('Mobile Model is:',self.m)
+		print(f'Mobile price is:{self.p}')
+		print('Mobile volumn is:',self.v)	
+
+res = Mobile('Redmi 7s',100)
+res.Show_details(300)
+
+output
+-----
+Mobile Model is: Redmi 7s
+Mobile price is:300
+Mobile volumn is: 100
+
+
+Instance Variable in Python
+==========================
+
+1.Instance Variable
+2.Class Variable/Static Variable
+
+
+Instance variable
+-----------------
+Instance variable are the variables whose separate copy is created in every object.
+Instance variable are defined and initialized using a constructor with self parameter.
+
+EX:
+	class Mobile:
+		def __init__(self):
+			self.model = 'RealMe x' ---->Instance Variable
+		def  show_model(self):
+			print(self.model)
+
+	realme = Mobile()
+
+
+
+			
+Accessing Instance  Variable
+----------------------------
+	with Instance Method
+	--------------------
+To access instance variable,we need instance methods with self as first parameter then
+we can access instance variable using self.variable_name
+
+class Mobile:
+	def __init__(self):
+		self.model = 'RealMe X' ---->Instance Variable
+	def show_model(self): ---->Instance Method
+		self.model ---->Accessing Instance Variable
+
+realme = Mobile()
+
+	Outside class
+	-------------
+
+we can access instance variable using object_name.variable_name
+
+class Mobile:
+	def __init__(self):
+		self.model = 'RealMe x'
+	def show_model(self):
+		self.model
+
+realme = Mobile()
+realme.model  ------>Look here,Accessing Instance variable from outside class
+
+Instance Variable
+------------------
+Instance variable are the variable whose separate copy is created in every object.
+If we modify the copy of Instance varible in an instance,it will not effect all the
+copies in the other instance.
+
+class Mobile:
+	def __init__(self):
+		self.model = 'RealMe X'
+	def show_model(self):
+		print(self.model)
+
+realme = Mobile()
+redmi = Mobile()
+geek = Mobile()
+
+
+Class Variable or Static Variable in Python 
+===========================================
+Class variable are the variable whose single copy is available to all
+the instance of the class.
+
+if we modify the copy of class variable in an instance,it will effect all the
+copies in the other  instance.
+
+EX:
+class Mobile:
+	fp = 'Yes' ----->class variable
+	def __init__(self):
+		self.model = 'RealMe X'
+
+	def show_model(self):
+		print(self.model)
+
+realme = Mobile()
+
+
+EX:
+class Mobile:
+
+	@classmethod		
+	def show(cls):
+		print('Real Me x')
+
+res = Mobile()
+res.show()
+
+output
+------
+Real Me x		
+
+
+Accessing class/static variable
+---------------------------------
+	with class method
+	------------------
+To access class variable,we need class methods with cls as first parameter then we can access
+class variable using cls.variable_name
+(క్లాస్ వేరియబుల్‌ని యాక్సెస్ చేయడానికి, మేము మొదటి పారామీటర్‌గా cls తో క్లాస్ మెథడ్స్ అవసరం, అప్పుడు మనం యాక్సెస్ చేయవచ్చు
+cls. variable_name ఉపయోగించి క్లాస్ వేరియబుల్)
+
+class Mobile:------>This is class(cls refers to the class)
+	fp = 'Yes' ----->class variable
+	def __init__(self):
+		self.model = 'RealMe X'
+	def show_model(self):
+		print(self.model)
+	@classmethod  
+	def is_fp(cls):  ----->class method
+		cls.fp	------>1.Accessing class variable inside class method.
+				2.Class variable ni class method lo unde parameter tho call cheyavachunu.
+
+realme = Mobile()
+
+
+EX:
+class Mobile:
+
+	fp = 'Yes'
+
+	def __init__(self):
+		self.model = 'Real Me'
+
+	def Model(self):
+		print(f'Mobile Model is:{self.model}')	
+
+	@classmethod	
+	def show(cls,r):
+		cls.rate = r
+		print('mobile is Finger print:',cls.fp+','+'Mobile Rate is:',cls.rate)
+
+res = Mobile()
+res.Model()
+res.show(2000)
+
+
+output
+------
+Mobile Model is:Real Me
+mobile is Finger print: Yes,Mobile Rate is: 2000		
+
+
+EX:
+class Mobile:------>This is class(cls refers to the class)
+	fp = 'yes'
+	def __init__(self):
+		self.model = 'Real Me'
+
+	def show(self):
+		print(f'Model Name is:',self.model)
+
+	@classmethod
+	def class_var(cls):
+		return cls.fp
+
+res = Mobile()
+res.show()
+m = res.class_var()
+print(m)
+
+output
+------
+Model Name is: Real Me
+yes			
+
+(OR)
+
+EX:
+class Mobile:
+	fp = 'yes'
+	def __init__(self):
+		self.model = 'Real Me'
+
+	def show(self):
+		print(f'Model Name is:',self.model)
+
+	@classmethod
+	def class_var(cls):
+		print(cls.fp)
+
+res = Mobile()
+res.show()
+res.class_var()
+
+output
+-------
+Model Name is: Real Me
+yes			
+
+
+Accessing class/static variable
+---------------------------------
+
+	outside class
+	--------------
+
+we can access class variable using "Classname.variable_name"
+
+class Mobile:------>This is class(cls refers to the class)	
+	fp = 'Yes'   ----->class Variable
+		
+	@classmethod ---->class Method
+	def show(cls):
+		cls.fp  ---->Accessing class variable inside class Method
+
+
+realme = Mobile()
+
+Mobile.fp  ----->1.Accessing class variable outside class.
+		 2.class variable ni Class Name tho call cheyavachunu.
+
+EX:
+class Mobile:------>This is class(cls refers to the class)
+	fp = 'Yes'
+	def __init__(self):
+		self.model = 'Real Me X5'
+
+	def	show_data(self):
+		print(self.model)
+
+	@classmethod
+	def is_fp(cls):
+		print(cls.fp)
+
+M = Mobile()
+M.show_data()	#Use Object calling Method
+M.is_fp()	#use object calling classmethod function		
+
+
+output
+-------
+Real Me X5
+Yes
+
+(OR)
+
+class Mobile:------>This is class(cls refers to the class)
+	fp = 'Yes'
+	def __init__(self):
+		self.model = 'Real Me X5'
+
+	def	show_data(self):
+		print(self.model)
+
+	@classmethod
+	def is_fp(cls):
+		print(cls.fp)
+
+M = Mobile()
+M.show_data()	#Use Object calling Method
+Mobile.is_fp()	#use Class Name calling classmethod function
+
+output
+-------
+Real Me X5
+Yes		
+
+
+(OR)
+
+class Mobile:------>This is class(cls refers to the class)
+	fp = 'Yes'
+	def __init__(self):
+		self.model = 'Real Me X5'
+
+	def	show_data(self):
+		print(self.model)
+
+	@classmethod
+	def is_fp(cls):
+		print(cls.fp)
+
+M = Mobile()
+M.show_data()	#Use Object calling Method
+print(Mobile.fp)#use Class Name calling class variable 		
+M.is_fp()	#Use Object calling classmethod function
+
+output
+------
+Real Me X5
+Yes
+Yes
+
+Accessing class/static variable
+---------------------------------
+
+class variables are the variables whose single copy is avilable to all the instance of the class.
+if we modify the copy of class variable in an instance, it will effect all the copies in the other
+instance.
+
+class Mobile:
+	fp = 'Yes'
+	@classmethod
+	def is_fp(cls):
+		print(cls.fp)
+
+realme = Mobile()
+redmi = Mobile()
+geek = Mobile()
+
+print(Mobile.fp)
+
+output
+------
+Yes
+	
+
+EX:
+class Mobile:
+	fp = 'Yes'
+	@classmethod
+	def is_fp(cls):
+		print(cls.fp)  #Accessing class Variable
+
+realme = Mobile()
+
+Mobile.is_fp() #calling class method
+
+output
+----
+Yes
+
+
+EX:
+class Mobile:------>This is class(cls refers to the class)
+	fp = "Yes"		#class Variable
+	
+	def __init__(self):
+		self.model = 'RealMe X'  #Instance Variable
+
+	def show_model(self):	#Instance Method
+		print('Model:',self.model) #Accessing Instance Variable
+
+	@classmethod	#class Method
+	def is_fp(cls):
+		print('Finger Print:",cls.fp) #Accessing class Variable
+
+
+
+realme = Mobile()
+realme.show_model()
+Mobile.is_fp()
+
+print()
+
+Mobile.fp = 'NO' #Modifying class variable
+Mobile.is_fp()
+
+output
+------
+Model:RealMe X
+Finger Print:Yes
+
+Finger Print:No
+
+
+EX:
+class Mobile:
+	fp = 'Yes'	#Class variable
+
+	@classmethod	#class Method
+	def is_fp(cls):
+		print('Finger Print:',cls.fp) #Accessing class variable
+
+
+realme = Mobile()
+redmi = Mobile()
+geek = Mobile()
+
+print('RealMe:',Mobile.fp)---->Use class name calling class variable
+print('Redmi:',Mobile.fp)
+print('Geek:',Mobile.fp)
+print()
+Mobile.fp = 'No'  #Class Name use chesi Modifying class Variable		
+print('RealMe:',Mobile.fp)
+print('Redmi:',Mobile.fp)
+print('Geek:',Mobile.fp)
+
+output
+------
+RealMe:Yes
+Redmi:Yes
+Geek:Yes
+
+RealMe:No
+Redmi:No
+Geek:No
+
+Namespace in Python
+===================
+In python Namespace represents a memory block where names are mapped to Objets.
+
+	Class Namespace - A class maintains it's own namespace know as class namespace.
+In the class namespace,the names are mapped to class variables.
+
+	Instance Namespace -Every instance have it's own namespace know as instance namespace.
+In the instance namespace, the names are mapped to instance variables.
+
+EX:
+class Mobile:------>This is class(cls refers to the class)
+	fp = 'Yes'	#Class variable
+
+	@classmethod	#class Method
+	def is_fp(cls):
+		print('Finger Print:',cls.fp) #Accessing class variable
+
+
+realme = Mobile()
+redmi = Mobile()
+geek = Mobile()
+
+print('Class FP:",Mobile.fp)
+print('RealMe:',realme.fp)
+print('Redmi:',redmi.fp)
+print('Geek;',geek.fp)
+print()
+
+Mobile.fp = 'No' # class name use chesi Modifying class variable
+
+print('Class FP:",Mobile.fp)
+print('RealMe:',realme.fp)
+print('Redmi:',redmi.fp)
+print('Geek;',geek.fp)
+print()
+
+realme.fp = 'Not working' #object use chesi modifying class variable.
+print('Class FP:",Mobile.fp)
+print('RealMe:',realme.fp)
+print('Redmi:',redmi.fp)
+print('Geek;',geek.fp)
+print()
+
+output
+-----
+Class Fp:Yes
+RealMe:Yes
+Redmi:Yes
+Geek:Yes
+
+Class Fp:No
+RealMe:No
+Redmi:No
+Geek:No
+
+Class Fp:No
+RealMe:Not working
+Redmi:No
+Geek:No
+
+
+Instance Method in Python 
+=============================
+
+	Type of Methods
+	----------------
+1.Instance Methods
+	-Accessor Methods(Getter Method)
+	-Mutator Methods(Setter Method)
+
+2.Class Methods
+
+3.Static Methods
+
+
+1.Instance Methods
+------------------
+Instance Methods are methods which act upon the instance variable of the class.
+Instance method need to know the memory address of the instance which is provided
+through 'self' variable by default as first parameter for the instance method.
+
+	synatx:
+		#instace method without parameter and Formal Arguments
+		def method_name(self):
+			function body
+
+	synatax:
+		#instace method with parameter and Formal Arguments
+
+		def method_name(self,f1,f2):
+			function body
+
+
+Instance Method without Parameter
+----------------------------------
+EX:
+
+class Mobile:
+	def show_model(self):-->Instance Method
+		print('RealMe X")
+
+realme = Mobile()
+
+
+EX:
+class Mobile:
+	def __init__(self):
+		self.model = 'RealMe X'--->Instance Variable
+
+	def show_model(self):---->Instance Method
+		print(self.model)-->Accessing Instance variable inside Instance Method
+
+realme = Mobile()
+
+
+Calling Instance Method without Argument
+------------------------------------------
+Instance methods are bound to object of the class so we call instance method with
+object name.
+
+	syntax:
+		Object_name.method_name()
+	EX:
+		realme.show_model()
+
+
+class Mobile:
+	def show_model(self):---->Instance Method
+		print("RealMe X")
+
+
+realme = Mobile()
+realme.show_model()-->calling instance method without argument
+
+
+Instance Method with Parameter
+------------------------------
+class Mobile:
+	def __init__(self):
+Instace variable <----self.model = "RealMe X"-->Instance value
+
+	def show_model(self,p):Instance Method with parameter
+Instace variable <----self.price = p ----->Parameter
+		print(self.model,self.price)
+
+realme = Mobile()
+
+
+Calling Instance Method with Argument
+-------------------------------------
+Syntax:	
+	object_name.method_name(Actual_argument)
+
+EX:
+
+class Mobile:
+	def __init__(self):
+		self.model = 'RealMe X'
+	def show_model(self,p):
+		self.price = p
+		print(self.model,self.price)
+
+realme = Mobile()
+realme.show_model(1000)-->calling Method with argument
+
+
+
+EX:
+#Instance Method without(w/o) Parameter
+
+class Mobile:
+	#Instance Method
+	def show_model(self):
+		print('RealMe X')
+
+realme = Mobile()
+realme.show_model()		
+
+output
+-----
+RealMe x
+
+EX:
+#Instance Method without(w/o) Parameter
+
+class Mobile:
+	def __init__(self):
+		self.model = 'RealMe X' #Instance Variable
+
+	#Instance Method
+	def show_model(self):
+		print('Method:',self.model)
+
+realme = Mobile()
+realme.show_model()		
+
+output
+-----
+Method: RealMe X
+
+EX:
+#Instance Method with Parameter
+
+class Mobile:
+	def __init__(self):
+		self.model = 'RealMe X' #Instance Variable
+
+	#Instance Method
+	def show_model(self,p):
+		self.price = p
+		print('Method:',self.model,'Price:',self.price)
+
+realme = Mobile()
+realme.show_model(1000)		
+
+output
+------
+Method: RealMe X Price: 1000
+
+
+EX:
+#Instance Method with Parameter
+
+class Mobile:
+	def __init__(self):
+		self.model = 'RealMe X' #Instance Variable
+
+	#Instance Method
+	def show_model(self,p):
+		self.price = p
+		print('Method:',self.model,'Price:',self.price)
+
+realme = Mobile()
+redmi = Mobile()
+realme.show_model(1000)
+redmi.show_model(2000)		
+
+output
+------
+Method: RealMe X Price: 1000
+Method: RealMe X Price: 2000
+
+
+Accessor or (Getter Method) and Mutator or (Setter Method) in Python
+================================================================
+
+Accessor Method
+---------------
+This Method is used to access or read data of the variables.This Method do not modify
+the data in the variable.This is also called as 'getter Method'.
+
+EX:
+	def get_value(self):
+	def get_result(self):
+	def get_name(self):
+	def get_id(self):
+
+EX:
+
+#Instance Method -Accessor Method or(Getter Method)
+class Mobile:
+	def __init__(self):			
+		self.model = 'RealMe X'  #Instance Variable
+
+	def get_model(self):  #Accessor Method
+		return self.model
+
+
+realme = Mobile()
+m = realme.get_model()  #calling Acessor Method,return lo yedaina rasthe yeppudaina sare return ki variable assign cheyali.
+print(m)			
+
+
+output
+-------
+RealMe x
+
+(OR)
+
+EX:
+class Mobile:
+
+	def __init__(self):
+		self.Model = 'Real Me'
+
+	def get_method(self):
+		print(self.Model)
+
+res = Mobile()
+res.get_method()
+
+output
+------
+Real Me			
+
+
+Mutator Method
+--------------
+This Method is used to access or read and modify data of the variable.This
+method modify the data in the variable.This is also called as 'setter method'.
+
+
+EX:
+#Instance Method -Mutator or(Setter Method)
+
+class Mobile:
+	def __init__(self):
+		self.model = 'RealMe X'  #Instance Variable
+
+	def set_model(self):	#Mutator Method
+		self.model = 'RealMe 2'
+
+realme = Mobile()
+#Before Setting
+print(realme.model)
+#After Setting
+realme.set_model()   #Calling Mutator Method
+print(realme.model)		
+
+output
+------
+RealMe X
+RealMe 2
+
+EX:
+
+class Mobile:
+
+	def __init__(self,m):
+		self.model = m
+
+	def set_model(self,m):
+		self.model = m
+
+print('Before Setting')
+res = Mobile('Real me xx')
+print(res.model)
+print()
+print('After Setting')
+res.set_model('Moto')
+print(res.model)
+
+output
+----------
+Before Setting
+Real me xx
+
+After Setting
+Moto
+
+EX:
+class Mobile:
+
+	def Set_method(self,n):
+		self.Model_Number = n
+
+res = Mobile()
+res.Set_method('586MN05KL')		
+print(f'Model Number is:{res.Model_Number}')
+
+output
+------
+Model Number is:586MN05KL
+
+
+EX:
+#Instance Method -Mutator or(Setter Method)
+class Mobile:
+	
+	def set_model(self,m):	#Mutator Method
+		self.model = m
+
+realme = Mobile()
+realme.set_model('RealMe X')  #Calling Mutator Method
+print(realme.model)			
+
+output
+------
+RealMe X
+
+
+Class Method in Python
+======================
+Class Methods are the methods which act upon the class variables or static variable of
+the class.
+(క్లాస్ వేరియబుల్స్ లేదా స్టాటిక్ వేరియబుల్స్‌పై పనిచేసే పద్ధతులు క్లాస్ మెథడ్స్
+తరగతి.)
+Decorator @classmethod need to write above the class method.
+By default,the first parameter of class method is 'cls' which refers to the 'class' itself.
+
+Syntax:
+	@classmethod  #Decorator
+	def method_name(cls): }Class Method without parameter and without Formal Arguments
+		method body   }
+
+
+	@classmethod   #Decorator
+	def method_names(cls,f1,f2):}Class Method with parameter and with Formal argument.
+		method body         }
+
+Class Method without Parameter
+--------------------------------
+
+EX:
+class Mobile:------>This is class(cls refers to the class)
+	@classmethod   #Decorator
+	def show_model(cls):  #Class Method
+		print('RealMe X')
+
+
+realme  = Mobile()
+
+
+
+EX:
+class Mobile:
+
+	fp = 'Yes' --->class Variable
+
+	@classmethod -->Decorator
+	def show_model(cls): ---->classMethod
+		print(cls.fp)--->Accessing class variable inside class Method
+
+realme = Mobile()
+
+
+
+
+Calling Class Method without Argument
+-------------------------------------
+	syntax:
+		Classname.method_name()
+
+class Mobile:
+	@classmethod
+	def show_model(cls):
+		print('RealMe X')
+
+realme = Mobile()
+Mobile.show_model()---->Calling class Method without Argument
+
+
+EX:
+
+class Mobile:
+	model = 'Real me' --->class variable
+
+	@classmethod
+	def show(cls):
+		print(f'Mobile Model is:{cls.model}')
+
+res = Mobile()
+res.show()--->#using Object and calling @classmethod
+		
+output
+------
+Mobile Model is:Real me
+
+
+EX:
+class Mobile:
+	model = 'Real me'
+
+	@classmethod
+	def show(cls):
+		print(f'Mobile Model is:{cls.model}')
+
+res = Mobile()
+Mobile.show() #using classname and calling @classmethod
+
+output
+------
+Mobile Model is:Real me
+
+		
+
+Class Method with Parameter
+--------------------------
+
+	class Mobile:
+class variable <---fp = 'Yes'
+	@classmethod   #Decorator
+	def show_model(cls,r):  #Defining Method with Parameter
+		cls.ram = r
+		print(cls.fp,cls.ram)
+
+	
+	realme = Mobile()
+	
+
+Calling Class Method with Argument
+-------------------------------------
+
+syntax:
+	Classname.method_name(Actual_argument)
+EX:
+	Mobile.show_model('4GB')
+
+class Mobile:
+	fp ='Yes'
+
+	@classmethod
+	def show_model(cls,r):
+		cls.ram = r
+		print(cls.fp,cls.ram)
+
+realme = Mobile()
+Mobile.show_model(101)  #calling Method with argument
+
+
+EX:
+class Mobile:
+
+	fp = 'Yes'
+
+	def __init__(self):
+		self.model = 'Real Me'
+
+	def Model(self):
+		print(f'Mobile Model is:{self.model}')	
+
+	@classmethod	
+	def show(cls,r):
+		cls.rate = r
+		print('mobile is Finger print:',cls.fp+','+'Mobile Rate is:',cls.rate)
+
+res = Mobile()
+res.Model()
+res.show(2000)
+
+output
+------
+Mobile Model is:Real Me
+mobile is Finger print: Yes,Mobile Rate is: 2000
+
+
+---------------Theory Complete------------
+EX:
+#class Method without(W/O) Parameter
+
+class Mobile:
+	@classmethod	#Decorator
+	def show_model(cls):	#Class Method
+		print('RealMe X')
+
+realme = Mobile()
+Mobile.show_model() #Calling class Method		
+
+output
+-----
+RealMe X
+
+ 
+
+EX:
+#class Method W/O Parameter
+
+class Mobile:
+	fp = 'Yes'  #class variable
+
+	@classmethod	#Decorator
+	def show_model(cls):	#Class Method
+		print('FingerPrint:',cls.fp)
+
+realme = Mobile()
+Mobile.show_model() #Calling class Method		
+
+output
+------
+FingerPrint:Yes
+
+EX:
+#class Method With Parameter
+
+class Mobile:
+	fp = 'Yes'  #class variable
+
+	@classmethod	#Decorator
+	def show_model(cls,r):	#Class Method
+		cls.ram = r
+		print('FingerPrint:',cls.fp)
+		print('RAM:',cls.ram)
+
+realme = Mobile()
+Mobile.show_model('4GB') #Calling class Method		
+
+output
+-----
+FingerPrint: Yes
+RAM: 4GB
+
+
+
+Static Method in Python
+=======================
+Static Methods are used when some processing is related to the class but does not
+need the class or its instance(object) to perform any work
+(కొన్ని ప్రాసెసింగ్ తరగతికి సంబంధించినది కాని స్థిరమైన పద్ధతులు ఉపయోగించబడతాయి
+ఏదైనా పని చేయడానికి తరగతి లేదా దాని ఉదాహరణ (వస్తువు) అవసరం)
+we use static method when we want to pass some values from outside and perform some action
+in the method.
+""(మేము బయటి నుండి కొన్ని విలువలను మరియు తరగతి పాస్ చేసి, కొంత చర్యను చేయాలనుకున్నప్పుడు స్టాటిక్ పద్ధతిని ఉపయోగిస్తాము
+పద్ధతిలో.)"""
+
+Decorator @staticmethod need to write above the static method
+
+**************************************
+Note:@classmethod lo 'cls' use chesi variable ni pass cheshamu kada....kani @staticmethod lo 'cls' use
+cheyakudadu kabbati appudu only @staticmethod ni matrame use cheyali antey..
+
+**************************************
+Syntax:
+	@staticmethod  #Decorator
+	def method_name():  #Static Method without parameter and Fromal Argument
+		method body
+
+Syntax: 
+	@staticmethod  #Decorator
+	def method_name(f1,f2):  #Static Method with Parameter and Formal Argument
+		method body
+
+
+
+Static Method without Parameter
+--------------------------------
+EX:
+class Mobile:
+
+	@staticmethod
+	def show():
+		a = 'Real Me X'
+		print('Parent class static method:',a)
+
+a = Mobile()
+a.show()
+
+output
+------
+Parent class static method: Real Me X		
+
+
+EX:
+class Mobile:
+	fp = 'Yes'
+	@staticmethod  #Decorator
+	def show_model(): #Static Method
+		print(Mobile.fp)
+
+realme = Mobile()
+
+(OR)
+
+EX:
+class Mobile:
+	fp = 'Yes'
+	@staticmethod
+	def show():
+		return Mobile.fp
+
+res = Mobile()
+m = res.show()
+print(m)
+
+output
+-----
+Yes
+
+(OR)
+
+EX:
+class Mobile:
+	fp = 'Yes'
+	@staticmethod
+	def show():
+		print(Mobile.fp)
+
+res = Mobile()
+res.show()
+
+output
+------
+Yes
+
+
+Calling Static Method without Argument
+---------------------------------------
+syntax:
+	Classname.method_name()
+
+class Mobile:
+	@staticmethod
+	def show_model():
+		print('RealMe X')
+
+realme = Mobile()
+Mobile.show_model()----->Calling static Method without Argument
+
+
+Static Method with Parameter
+----------------------------
+class Mobile:
+	@staticmethod #Decorator
+	def show_model(m,p): --->Defining Method with Parameter
+		model = m
+		price = p
+		print(model,price)
+
+realme = Mobile()
+
+
+Calling Static Method with Argument
+---------------------------------
+Syntax:	
+	Classname.method_name(Actual_argument)
+Ex:
+	Mobile.show_model(1000)
+
+
+class Mobile:
+	@staticmethod
+	def show_model(m,p)
+		model = m
+		price = p
+		print(model,price)
+realme = Mobile()
+Mobile.show_model('RealMe X',1000)---->calling Method with argument
+
+EX:
+class Mobile:
+	fp = 'Yes'
+	@staticmethod
+	def show(m,r):
+		Model = m
+		Rate = r
+		print(f'Mobile Model is:{Model}'+','+f'Mobile Rate is:{Rate}')
+		print(Mobile.fp)
+
+res = Mobile()
+res.show('Real Me',5623)
+
+output
+-----
+Mobile Model is:Real Me,Mobile Rate is:5623
+Yes
+---------------Theory Complete------------
+Ex:
+#Static Method without Parameter
+
+class Mobile:
+	@staticmethod 	#Decorator
+	def show_model():	#Static Method
+		print('RealMe X')
+
+realme  = Mobile()
+Mobile.show_model()  #calling static Method		
+
+output
+------
+RealMe X
+
+EX:
+class Mobile:
+	Real = 'Yes'
+	@staticmethod
+	def show():
+		print(f'Mobile Model is Real Mex582:{Mobile.Real}')
+
+res = Mobile()
+#res.show()		
+Mobile.show()
+
+output
+------
+Mobile Model is Real Mex582:Yes
+
+
+EX:
+#Static Method without Parameter
+
+class Mobile:
+	fp = 'Yes'
+
+	@staticmethod 	#Decorator
+	def show_model():	#Static Method
+		print('FingerPrint:',Mobile.fp) --->class name use chesi classvariable ni call cheshamu.
+
+realme  = Mobile()
+Mobile.show_model()  #calling static Method
+
+output
+------
+FingerPrint: Yes
+
+
+EX:
+#Static Method with Parameter
+	
+class Mobile:
+	@staticmethod		#Decorator
+	def show_model(m,p): #Static Method
+		model = m
+		price = p
+		print(model,price)
+realme = Mobile()
+Mobile.show_model('RealMe X,' ,1000) #calling Method with argument
+
+output
+-----
+RealMe X, 1000
+
+
+***Passing Member of one Class to another Class in Python***
+======================================================
+
+class Student:
+	#constructor
+	def __init__(self,n,r):
+		self.name = n
+		self.roll = r
+
+	#Instance Method
+	def	disp(self):
+		print('Student Name:',self.name)
+		print('Student Roll:',self.roll)
+
+class User:
+	#Static Method
+	@staticmethod
+	def show(s):
+		print('User Name:',s.name)
+		print('User Roll:',s.roll)
+		s.disp()
+		
+
+#Creating Object of student Class
+stu = Student('Rahul',101)
+
+User.show(stu)			
+
+output
+------
+User Name: Rahul
+User Roll: 101
+Student Name: Rahul
+Student Roll: 101
+
+
+EX:
+
+class Book:
+
+	def __init__(self):
+		self.name = 'Stoty of the world'
+		self.price = 2000
+
+	def show(self):
+		print(f'Book Name is:{self.name}')
+		print(f'Book price is:{self.price}')
+
+class User:
+	@staticmethod
+	def details(a):
+		print('User use Book Name is:',a.name)
+		print('User purchese price is:',a.price)
+		a.show()
+
+b = Book()
+
+User.details(b)	
+
+output
+-----
+User use Book Name is: Stoty of the world
+User purchese price is: 2000
+Book Name is:Stoty of the world
+Book price is:2000
+
+
+Nested Class in Python 
+======================
+A class within a class is called as nested class or nesting of a class.
+
+Syntax:
+	class OuterClassName:
+		def __init__(self):
+			self.variable_name = value
+			self.innerClassObjectName = self.InnerClassName() #Inner class Object create
+		def method_name(self):
+			method body
+
+		class InnerClassName:
+			def __init__(self):
+				self.variable_name = value
+			def method_name(self):
+				method body
+
+EX:
+class Army:----->Outer Class
+	def__init__(self):
+		self.name = 'Rahul'
+		self.gn = self.Gun()----->Inner Class Object create
+	def show(self):
+		print(self.name)
+
+	class Gun:----------------->Inner class
+		def __init__(self):
+			self.name = 'AK47'
+			self.capacity = '75 Rounds'
+			self.length = '34.3 in'
+		def disp(self):
+			print(self.name,self.capacity,self.length)
+
+a = Army()------->Outer class Object Created
+
+-------------------Theory complete-------------
+EX:
+
+#Nested Class
+
+class Army:------------------------->#Outer class
+	def __init__(self):
+		self.name = 'Rahul'
+		self.gn = self.Gun()  #Creating Inner Class Object
+	def show(self):
+		print('Name:',self.name)
+
+	class Gun:----------------->Inner class
+		def __init__(self):
+			self.name = 'Ak47'
+			self.capacity = '75 Rounds'
+			self.length = '34.3 In'
+
+		def disp(self):
+			print('Gun Name:',self.name)
+			print('Capacity:',self.capacity)
+			print('Length:',self.length)
+
+
+a = Army()
+print(a.name)
+a.show()
+
+g = a.gn========>ela object dwara kuda call cheyavachunu.
+print()
+print(g.name)
+print(g.capacity)
+print(g.length)	
+print()
+g.disp()					
+
+output
+--------
+Rahul
+Name: Rahul
+
+Ak47
+75 Rounds
+34.3 In
+
+Gun Name: Ak47
+Capacity: 75 Rounds
+Length: 34.3 In
+
+EX:
+class Book:
+
+	def __init__(self):
+		self.Book = 'Python Book'
+		self.man = self.User()
+
+	def show(self):
+		print(f'User Book is:{self.Book}')
+
+	class User:
+
+		def __init__(self):
+			self.name = 'Balamurali'
+			self.price = 5203
+			self.address = 'India'
+
+		def disp(self):
+			print(f'User Name is:{self.name}')
+			print(f'user Price is:{self.price}')
+			print(f'user Address is:{self.address}')
+
+b = Book()
+print(b.Book)
+b.show()
+print()
+m = b.man
+m.disp()
+
+
+output
+-------
+Python Book
+User Book is:Python Book
+
+User Name is:Balamurali
+user Price is:5203
+user Address is:India						
+
+EX:
+class Trian:
+	def __init__(self,Passinger,start_to,ending_to,price):
+		self.Name = Passinger
+		self.Start = start_to
+		self.Ending = ending_to
+		self.price = price
+		self.cus = self.Customer()
+
+	def show(self):
+		print('PassingerName is:',self.Name)
+		print('Passinger Start city is:',self.Start)
+		print('Passinger Ending city is:',self.Ending)
+		print('Passinger Ticket Price is:',self.price)
+	
+	class Customer:
+		def __init__(self):
+			self.Age = 25
+			self.AadharNumber = 3545221487
+
+		def disp(self):
+			print('Passinger Age is:',self.Age)
+			print('Passinger Aadharcard is:',self.AadharNumber)
+
+t = Trian('BalaMurali','Nandikotkur','Hyderabad',562.00)
+t.show()
+print()
+c = t.cus
+c.disp()
+
+output
+------
+PassingerName is: BalaMurali
+Passinger Start city is: Nandikotkur
+Passinger Ending city is: Hyderabad
+Passinger Ticket Price is: 562.0
+
+Passinger Age is: 25
+Passinger Aadharcard is: 3545221487
+
+
+EX:
+#Nested Class
+
+class Army:			#Outer class
+	def __init__(self):
+		self.name = 'Rahul'
+		self.gn = self.Gun()  #Creating Inner Class Object
+	def show(self):
+		print('Name:',self.name)
+
+	class Gun:
+		def __init__(self):
+			self.name = 'Ak47'
+			self.capacity = '75 Rounds'
+			self.length = '34.3 In'
+
+		def disp(self):
+			print('Gun Name:',self.name)
+			print('Capacity:',self.capacity)
+			print('Length:',self.length)
+
+
+a = Army()
+print(a.name)
+a.show()
+
+g = Army().Gun()==========>ela classes dwara kuda call cheyavachunu.
+print()
+print(g.name)
+print(g.capacity)
+print(g.length)	
+print()
+g.disp()					
+
+
+output
+------
+Rahul
+Name: Rahul
+
+Ak47
+75 Rounds
+34.3 In
+
+Gun Name: Ak47
+Capacity: 75 Rounds
+Length: 34.3 In
+
+
+Inheritance in Python
+========================
+	1.Inheritance
+	-------------
+The Mechanism of deriving a new class from an old one(existing class) such that the
+new class inherit all the members(variables and methods) of old class is called
+inheritance or derivation.
+
+	EX:
+		Old class(parent class)
+		|
+		|
+		Newclass(child class)
+
+
+	2.Inheritance(IMP,Interview)
+	---------------
+All classes in python are built from a single super class called'object' so
+whenever we create a class in python,object will become super class for
+them internally.
+
+	class Mobile(object):
+		(or)
+	class Mobile:
+
+The main advantage of Inheritance is code reusability.
+
+
+Super Class and Sub Class
+------------------------
+The old class is referred to as the Super class and new one is called the sub class.
+
+	1.Parent class -->Base Class or Super class
+	2.Child class --->Derived Class or Sub Class
+
+
+
+Inheritance in Python
+=============================
+Type of Inheritance
+-------------------
+	1.Single Inheritance	
+	2.Multi-level Inheritance
+	3.Hierarchical Inheritance
+	4.Multiple Inheritance
+
+
+Declaration of Child Class
+------------------------
+	syntax:
+		class ChildClassName(ParentClassName):
+			members of child class
+			
+			
+		EX:
+		class Mobile(Object):  #object is optional
+			members of child class
+
+			(OR)
+		class Mobile:
+			members of chaild class
+
+
+1.Single Inheritance
+-----------------------
+If a class is derived from one base class(Parent Class),It is called Single Inheritance.
+
+
+	Object
+	  |
+	Father
+	  |
+        Son
+
+Syntax:
+	class ParentClassName(object):
+		members of Parent class
+
+	class ChildClassName(ParentClassName):
+		members of Child Class
+	
+	
+	EX:
+	class Father:
+		members of class Father
+
+	class Son(Father):
+		members of class Son
+
+
+EX:
+
+#Single Inheritance
+
+class Father:
+	money = 1000
+
+	def show(self):
+		print('Parent class Instance Method')
+
+	@classmethod
+	def showmoney(cls):
+		print('Parent class Class Method:',cls.money)
+
+	@staticmethod
+	def stat():
+		a = 10
+		print('Parent Class Static Method:',a)	
+
+
+class Son(Father):
+	def disp(self):
+		print('Child class Instance Method')
+
+s = Son()
+s.disp()
+s.show()
+s.showmoney()
+s.stat()
+print()
+
+f = Father()
+f.show()
+f.showmoney()
+f.stat()
+
+
+output
+---------
+Child class Instance Method
+Parent class Instance Method
+Parent class Class Method: 1000
+Parent Class Static Method: 10
+
+Parent class Instance Method
+Parent class Class Method: 1000
+Parent Class Static Method: 10
+
+	vvvvIMP (Interview)
+	-------------------
+1.We can access Parent Class Variables and Methods using Child Class
+Object.
+
+2.We can also access Parent Class Variables and Methods using Parent Class
+Object.
+
+3."We can not access Child class variables and Methods using Parent class Object".
+
+
+
+Constructor in Inheritance in Python
+====================================
+By default,The  constructor in the parent class is available to the child class.
+
+EX:
+
+class Father:
+	def __init__(self):
+		self.money = 2000
+		print('Father class Constructor')
+class Son(Father):
+	def disp(self):
+		print('Son Class Instance Method:',self.money)
+
+s = Son()
+s.disp()
+
+output
+------
+Father class Constructor
+Son Class Instance Method: 2000
+
+
+EX:
+class Father:
+	def __init__(self,name,age):
+		self.Name = name
+		self.Age = age
+
+	def	show(self):
+		print('Father class is Constructor')
+
+class Son(Father):
+	def disp(self):
+		print(f'Name is:{self.Name}')
+		print(f'Age is:{self.Age}')
+		print("This is Child class Instance Method")	
+
+s = Son('BalaMurali',25)
+s.show()
+print()
+s.disp()
+
+output
+------
+Father class is Constructor
+
+Name is:BalaMurali
+Age is:25
+This is Child class Instance Method			
+
+
+Ex:
+
+class Father:
+	def __init__(self):
+		self.money = 1000
+		print('Father class Constructor')
+
+	def show(self):
+		print('Father class Instance Method')
+
+class Son(Father):
+	def disp(self):
+		print('Son Class Instance Method')
+
+s = Son()
+print(s.money)
+
+
+Note:Object variable(s) create cheyagane internal ga __init__ function call
+	auvthundi.
+
+
+output
+-----
+Father class Constructor
+1000
+
+EX:
+class Father:
+	def __init__(self):
+		self.money = 1000
+		print('Father class Constructor')
+
+	def show(self):
+		print('Father class Instance Method')
+
+class Son(Father):
+	def disp(self):
+		print('Son Class Instance Method')
+
+s = Son()
+print(s.money)
+s.show()
+s.disp()
+
+output
+-------
+Father class Constructor
+1000
+Father class Instance Method
+Son Class Instance Method
+
+
+EX:
+class Father:
+	def __init__(self,m):
+		self.money = m
+		print('Father class Constructor')
+
+	def show(self):
+		print('Father class Instance Method')
+
+class Son(Father):
+	def disp(self):
+		print('Son Class Instance Method')
+
+s = Son(1000)
+print(s.money)
+s.show()
+s.disp()
+
+
+output
+------
+Father class Constructor
+1000
+Father class Instance Method
+Son Class Instance Method
+
+EX:
+class Father:
+	def __init__(self,m):
+		self.money = m
+		print('Father class Constructor')
+
+	def show(self):
+		print('Father class Instance Method')
+
+class Son(Father):
+	def disp(self):
+		print('Son Class Instance Method',self.money)
+
+s = Son(1000)
+print(s.money)
+s.show()
+s.disp()
+
+
+output
+------
+Father class Constructor
+1000
+Father class Instance Method
+Son Class Instance Method 1000
+
+EX:
+class Father:
+	def __init__(self,m):
+		self.money = m
+		print('Father class Constructor')
+
+	def show(self):
+		print('Father class Instance Method')
+
+class Son(Father):
+	def disp(self):
+		print('Son Class Instance Method',self.money+2000)
+
+s = Son(1000)
+print(s.money)
+s.show()
+s.disp()
+
+
+output
+------
+Father class Constructor
+1000
+Father class Instance Method
+Son Class Instance Method 3000
+
+
+Constructor Overriding in Python
+================================
+By default, The  constructor in the parent class is a available to the child class.
+
+EX:
+
+class Father:
+	def __init__(self):
+		self.money = 2000
+		print('Father class Constructor')
+class Son(Father):
+	def disp(self):
+		print('Son Class Instance Method:',self.money)
+
+s = Son()
+s.disp()
+
+"What will happen if we define constructor in both classes..?"
+
+Constructor Overriding
+----------------------
+If we write constructor in the both classes,parent class and child class then
+the parent class constructor is not available to the child class.
+
+Because In this case only child class constructor is accessible which means "child class
+constructor is replaceing parent class constructor".
+
+Constructor overriding is used when Programmer want to modify the existing behavior of a
+constructor.
+
+EX:
+	
+class Father:
+	def __init__(self):
+		self.money = 2000
+		print('Father class Constructor')
+	def show(self):
+		print('Father class Instance Method')
+
+class Son(Father):
+	def __init__(self):
+		self.money = 5000
+		self.car = 'BMW' 
+		print('Son Class Constructor')
+
+	def disp(self):
+		print('Son class Instance Method')
+
+
+s = Son()
+s.disp()
+print(s.money)
+print(s.car)
+	print()
+s.show()
+
+
+output
+---------
+Son Class Constructor
+Son class Instance Method
+5000
+BMW
+
+Father class Instance Method
+
+
+EX:
+class Father:
+	def __init__(self,m):
+		self.money = m
+		print('Father class Constructor')
+	def show(self):
+		print('Father class Instance Method')
+
+class Son(Father):
+	def __init__(self,r):
+		self.money = r
+		self.car = 'BMW' 
+		print('Son Class Constructor')
+
+	def disp(self):
+		print('Son class Instance Method')
+
+
+s = Son(2000)
+s.disp()
+print(s.money)
+print(s.car)
+print()
+s.show()
+
+output
+------
+Son Class Constructor
+Son class Instance Method
+2000
+BMW
+
+Father class Instance Method
+
+
+Note:
+	How can we all parent class Constructor....??
+
+
+
+Constructor with Super Method (or) Call Parent Class Constructor in Child Class in Python
+=====================================================================================
+If we write consturctor in the both classes,Parent class and child class then the
+parent class constructor is not available to the child class.
+
+Because In this case only child class constructor is accessible which means child class
+constructor is replaceing parent class constructor.
+
+super() Method is used to call parent class constructor or method from the child class.
+
+
+EX:
+
+class Father:
+	def __init__(self):
+		print('Father class Constructor')
+
+	def show(self):
+		print('Father class Instance Method')
+
+class Son(Father):
+	def __init__(self): --->This is Son class Constructor
+		print('Son Class Constructor')
+
+	def disp(self):
+		print('Son class Instance Method')
+
+
+s = Son()--->s anedi Son class yooka object kada!! object anedi internal ga Son class lo unna constructor ni
+		call chesthundi..
+
+output
+-----
+Son Class Constructor
+
+EX:
+
+class Father:
+	def __init__(self):
+		print('Father class Constructor')
+
+	def show(self):
+		print('Father class Instance Method')
+
+class Son(Father):
+	def __init__(self): 
+		super().__init__() #calling parent class Constructor
+		print('Son Class Constructor')
+
+	def disp(self):
+		print('Son class Instance Method')
+
+
+s = Son()
+
+output
+-----
+Father class Constructor
+Son Class Constructor
+
+
+EX:
+
+class Father:
+	def __init__(self):
+		self.money = 1000
+		print('Father class Constructor')
+
+	def show(self):
+		print('Father class Instance Method')
+
+class Son(Father):
+	def __init__(self): 
+		super().__init__() #calling parent class Constructor
+		print('Son Class Constructor')
+
+	def disp(self):
+		print('Son class Instance Method',self.money) #parent variable useing chaild class lo
+
+
+s = Son()
+s.disp()
+
+output
+------
+Father class Constructor
+Son Class Constructor
+Son class Instance Method 1000
+
+
+EX:
+
+class Father:
+	def __init__(self,m):
+		self.money = m
+		print('Father class Constructor')
+
+	def show(self):
+		print('Father class Instance Method')
+
+class Son(Father):
+	def __init__(self,m): 
+		super().__init__(m) #calling parent class Constructor
+		print('Son Class Constructor')
+
+	def disp(self):
+		print('Son class Instance Method',self.money) #parent variable useing chaild class lo
+
+
+s = Son(1000)
+s.disp()
+
+
+output
+------
+Father class Constructor
+Son Class Constructor
+Son class Instance Method 1000
+
+EX:
+class Father:
+	def __init__(self):
+		self.money = 5000
+		print('Father class constructor')
+	def show(self):
+		print('Father class Instance method')
+
+class Son(Father):
+	def __init__(self,v):
+		self.village = v
+		super().__init__()
+		print('Chaild class constructor')
+
+	def disp(self):
+		print('Chaild class Money is:',self.money)
+		print('Chaild class Village is:',self.village)
+
+s = Son('Kurnool')
+s.disp()
+s.show()
+
+
+output
+------
+Father class constructor
+Chaild class constructor
+Chaild class Money is: 5000
+Chaild class Village is: Kurnool
+Father class Instance method						
+
+EX:
+
+class Father:
+	def __init__(self,m):
+		self.money = m
+		print('Father class Constructor')
+
+	def show(self):
+		print('Father class Instance Method')
+
+class Son(Father):
+	def __init__(self,m,j): 
+		super().__init__(m) #calling parent class Constructor
+		self.job = j
+		print('Son Class Constructor')
+
+	def disp(self):
+		print('Son class Instance Method',self.money, 'job:',self.job) #parent variable useing chaild class lo
+
+
+s = Son(1000,'python')
+s.disp()
+
+output
+------
+Father class Constructor
+Son Class Constructor
+Son class Instance Method 1000 job: python
+
+
+EX:
+
+class Father:
+	def __init__(self,m):
+		self.money = m
+		print('Father class Constructor')
+
+	def show(self):
+		print('Father class Instance Method')
+
+class Son(Father):
+	def __init__(self,m,j): 
+		super().__init__(m) #calling parent class Constructor
+		self.job = j
+		print('Son Class Constructor')
+		print('Job:',self.job)
+
+	def disp(self):
+		print('Son class Instance Method',self.money) #parent variable useing chaild class lo
+
+
+s = Son(1000,'python')
+s.disp()
+
+output
+------
+Father class Constructor
+Son Class Constructor
+Job: python
+Son class Instance Method 1000
+
+
+
+Multilevel Inheritance in Python 
+================================
+
+In Multi-level inheritance,the class inherits the feature of another derived class(Child Class)
+	
+	Object
+	  |
+	  |	
+	Father------>Parent Class
+	  |
+	  |
+	 Son-------->Child Class
+	  |
+  	  |
+	 GrandSon---->GrandChild Class
+	
+
+Syntax:
+	class ParentClassName(object): #object ni rasukunte rasuko lekunte ledu optional.
+		members of parent Class
+	
+	class ChildClassName(ParentClassName):
+		members of Child Class
+	
+	class GrandChildClassName(ChildClassName):
+		menbers of Grand Child Class
+
+EX:
+	class Father(object):
+		members of class Father
+
+	class Son(Father):
+		members of class Son
+	
+	class GrandSon(Son):
+		members of class GrandSon
+
+
+
+EX:
+#Multi-level Inherirtance
+
+class Father:
+	def showF(self):
+		print('Father Class Method')
+
+class Son(Father):
+	def showS(self):
+		print('Father Class Method')
+
+class GrandSon(Son):
+	def showG(self):
+		print('GrandSon Class Method')
+
+g = GrandSon()
+g.showG()
+g.showF()
+g.showS()
+
+
+output
+------
+GrandSon Class Method
+Father Class Method
+Father Class Method
+
+
+EX:
+#Multi-level Inherirtance
+
+class Father:
+	def __init__(self):
+		print('Father Class Constructor')
+	def showF(self):
+		print('Father Class Method')
+
+class Son(Father):
+	def __init__(self):
+		super().__init__()  #Calling Father Class Constructor
+		print('Son Class Constructor')
+	def showS(self):
+		print('Father Class Method')
+
+class GrandSon(Son):
+	def __init__(self):
+		super().__init__()  #Calling Son Class Constructor
+		print('Grandson Class Constructor')
+	def showG(self):
+		print('GrandSon Class Method')
+
+g = GrandSon()
+
+
+
+Output
+------
+Father Class Constructor
+Son Class Constructor
+Grandson Class Constructor
+
+EX:
+class Father:
+	def __init__(self):
+		print('Father class constructor')
+
+	def showF(self):
+		print('Father Instance Method')
+
+class Son(Father):
+	def __init__(self):
+		super().__init__()
+		print('Son class constructor')
+
+	def showS(self):
+		print('Son class Instance Method')
+class GrandFather(Son):
+	def __init__(self):
+		super().__init__()
+		print('GrandFather class constructor')
+
+	def showG(self):
+		print('GrandFather class Instance Method')
+
+g = GrandFather()
+print()
+g.showF()
+g.showS()
+g.showG()
+		
+
+output
+------
+Father class constructor
+Son class constructor
+GrandFather class constructor
+
+Father Instance Method
+Son class Instance Method
+GrandFather class Instance Method
+
+
+EX:
+#Multi-level Inherirtance
+
+class Father:
+	def __init__(self):
+		a = 'Father Class Constructor' #Variable Create chesi kuda excute cheyavachunu.
+		print(a)
+	def showF(self):
+		print('Father Class Method')
+
+class Son(Father):
+	def __init__(self):
+		super().__init__()  #Calling Father Class Constructor
+		b = 'Son Class Constructor'
+		print(b)
+	def showS(self):
+		print('Father Class Method')
+
+class GrandSon(Son):
+	def __init__(self):
+		super().__init__()  #Calling Son Class Constructor
+		c = 'Grandson Class Constructor'
+		print(c)
+	def showG(self):
+		print('GrandSon Class Method')
+
+g = GrandSon()
+
+
+output
+-------
+Father Class Constructor
+Son Class Constructor
+Grandson Class Constructor
+
+EX:
+#Multi-level Inherirtance
+
+class Father:
+	def __init__(self):
+		a = 'Father Class Constructor'
+		print(a)
+	def showF(self):
+		print('Father Class Method')
+
+class Son(Father):
+	def __init__(self):
+		super().__init__()  #Calling Father Class Constructor
+		b = 'Son Class Constructor'
+		print(b)
+	def showS(self):
+		print('Father Class Method')
+
+class GrandSon(Son):
+	def __init__(self):
+		super().__init__()  #Calling Son Class Constructor
+		c = 'Grandson Class Constructor'
+		print(c)
+	def showG(self):
+		print('GrandSon Class Method')
+
+g = GrandSon()
+g.showF()
+g.showS()
+g.showG()
+
+
+output
+------
+Father Class Constructor
+Son Class Constructor
+Grandson Class Constructor
+Father Class Method
+Father Class Method
+GrandSon Class Method
+
+
+Hierarchical Inheritance in Python
+=================================
+When more than one derived classes are created from a single base 
+this type of inheritance is called hierarchical inheritance.
+((((ఒకే స్థావరం నుండి ఒకటి కంటే ఎక్కువ తరగతులు సృష్టించబడినప్పుడు 
+ఈ రకమైన వారసత్వాన్ని క్రమానుగత వారసత్వం అంటారు.))))
+
+	 Object
+	  |
+	Father------->Parent Class
+	  |
+   	  |
+   --------------------------------
+   |	     |             |
+  Son       Daughter      Son
+     \		|   	   /	
+      \		|	  / 
+       \	|        /
+        \   Child Class		
+
+Syntax:
+	
+class ParentClassName(object):
+	members of Parent Class
+
+class ChildClassName1(ParentClassName):
+	member of Child Class1
+
+class ChildClassName2(ParentClassName):
+	member of Child Class 2
+
+
+EX:
+ 
+class Father(object):
+	members of class Father
+
+class Son(Father):
+	members of class Son
+
+class Daughter(Father):
+	members of Class Daughter
+
+EX:
+class Father:
+	def showF(self):
+		print('Father class Instance Method')
+
+class Son(Father):
+	def showS(self):
+		print('Son class Instnace Method')
+
+class Daugther(Father):
+	def showD(self):
+		print('Daugther class Instance Method')		
+
+s = Son()
+s.showF()
+s.showS()
+print()
+
+d = Daugther()
+d.showF()
+d.showD()
+
+output
+-------
+Father class Instance Method
+Son class Instnace Method
+
+Father class Instance Method
+Daugther class Instance Method	
+
+EX:
+
+#Hierachical Inheritance
+
+class Father:
+	def showF(self):
+		print('Father Class Method')
+
+class Son(Father):
+	def showS(self):
+		print('Son Class Method')
+
+class Daughter(Father):
+	def showD(self):
+		print('Daughter Class Method')
+
+s = Son()
+s.showS()
+s.showF()
+		
+
+output
+------
+Son Class Method
+Father Class Method
+
+
+EX:
+#Hierachical Inheritance
+
+class Father:
+	def showF(self):
+		print('Father Class Method')
+
+class Son(Father):
+	def showS(self):
+		print('Son Class Method')
+
+class Daughter(Father):
+	def showD(self):
+		print('Daughter Class Method')
+
+d = Daughter()
+d.showD()
+d.showF()
+
+output
+-----
+Daughter Class Method
+Father Class Method
+
+
+EX:
+#Hierachical Inheritance
+
+class Father:
+	def __init__(self):
+		print("Father class Constructor")
+	def showF(self):
+		print('Father Class Method')
+
+class Son(Father):
+	def __init__(self):
+		print('Son Class Constructor')
+	def showS(self):
+		print('Son Class Method')
+
+class Daughter(Father):
+	def __init__(self):
+		print('Daughter class Constructor')
+	def showD(self):
+		print('Daughter Class Method')
+
+s = Son()
+
+output
+-----
+Son Class Constructor
+
+EX:
+#Hierachical Inheritance
+
+class Father:
+	def __init__(self):
+		print("Father class Constructor")
+	def showF(self):
+		print('Father Class Method')
+
+class Son(Father):
+	def __init__(self):
+		print('Son Class Constructor')
+	def showS(self):
+		print('Son Class Method')
+
+class Daughter(Father):
+	def __init__(self):
+		print('Daughter class Constructor')
+	def showD(self):
+		print('Daughter Class Method')
+
+d = Daughter()
+
+
+output
+----
+Daughter class Constructor
+
+
+EX:
+#Hierachical Inheritance
+
+class Father:
+	def __init__(self):
+		print("Father class Constructor")
+	def showF(self):
+		print('Father Class Method')
+
+class Son(Father):
+	def __init__(self):
+		super().__init__()   #Calling Father class Constructor
+		print('Son Class Constructor')
+	def showS(self):
+		print('Son Class Method')
+
+class Daughter(Father):
+	def __init__(self):
+		print('Daughter class Constructor')
+	def showD(self):
+		print('Daughter Class Method')
+
+s = Son()
+
+output
+----
+Father class Constructor
+Son Class Constructor
+
+
+EX:
+#Hierachical Inheritance
+
+class Father:
+	def __init__(self):
+		print("Father class Constructor")
+	def showF(self):
+		print('Father Class Method')
+
+class Son(Father):
+	def __init__(self):
+		super().__init__() 
+		print('Son Class Constructor')
+	def showS(self):
+		print('Son Class Method')
+
+class Daughter(Father):
+	def __init__(self):
+		super().__init__()  #Calling Father class Constructor
+		print('Daughter class Constructor')
+	def showD(self):
+		print('Daughter Class Method')
+
+d = Daughter()
+
+
+output
+-----
+Father class Constructor
+Daughter class Constructor
+
+EX:
+class Parent:
+	def __init__(self):
+		print('Parent class constructor')
+
+	def showF(self):
+		print('Parent class Instance Method')
+
+class Chaild1(Parent):
+	def __init__(self):
+		super().__init__()
+		print('Chaild1 class constructor')
+
+	def showC1(self):
+		print('Chaild1 class Instance Method')
+
+class Chaild2(Parent):
+	def __init__(self):
+		super().__init__()
+		print('Chaild2 class constructor')
+
+	def showC2(self):
+		print('Chaild2 class Instance Method')
+
+c1 = Chaild1()
+c1.showF()
+c1.showC1()
+print()
+
+c2 = Chaild2()
+c2.showF()
+c2.showC2()
+
+output
+------
+Parent class constructor
+Chaild1 class constructor
+Parent class Instance Method
+Chaild1 class Instance Method
+
+Parent class constructor
+Chaild2 class constructor
+Parent class Instance Method
+Chaild2 class Instance Method
+
+EX:
+#Hierachical Inheritance
+
+class Father:
+	def __init__(self):
+		print("Father class Constructor")
+	def showF(self):
+		print('Father Class Method')
+
+class Son(Father):
+	def __init__(self):
+		super().__init__()   #Calling Father class Constructor
+		print('Son Class Constructor')
+	def showS(self):
+		print('Son Class Method')
+
+class Daughter(Father):
+	def __init__(self):
+		super().__init__()  #Calling Father class Constructor
+		print('Daughter class Constructor')
+	def showD(self):
+		print('Daughter Class Method')
+
+s = Son()
+print()
+d = Daughter()
+
+
+output
+-----
+Father class Constructor
+Son Class Constructor
+
+Father class Constructor
+Daughter class Constructor
+
+
+Multiple Inheritance and Method Resolution Order in Python
+======================================================
+
+If a class is derived from more than one parent class, then it is called multiple
+inheritance.
+	
+		object
+		   |
+		   |
+	     --------------
+	     |	          |
+parent
+class----> parent1(father) Parent2(mother) ------->Parent class
+		\         /
+		 \       /
+		   Child
+
+
+Syntax:
+	
+class ParentClassName1(object):
+	members of Parent Class
+
+class Parent ClassName2(object):;
+	members of Parent Class
+
+class ChildClassName(ParentClassName1,ParentClassName2):
+	members of Child Class
+
+
+EX:
+	class Father(object):
+		members of class Father
+
+	class Mother(object):
+		members of Class Mother
+
+	class Son(Father,Mother):
+
+
+EX:
+
+#Multiple Inheritance
+
+class Father:
+		def showF(self):
+			print('Father Class Mother')
+
+class Mother:
+	def showM(self):
+		print('Mother Class Method')	
+
+class Son(Father,Mother):
+	def showS(self):
+		print('Son Class Method')
+
+
+s = Son()
+s.showS()
+
+output
+-----
+Son Class Method
+
+EX:
+#Multiple Inheritance
+
+class Father:
+		def showF(self):
+			print('Father Class Mother')
+
+class Mother:
+	def showM(self):
+		print('Mother Class Method')	
+
+class Son(Father,Mother):
+	def showS(self):
+		print('Son Class Method')
+
+
+s = Son()
+s.showS()
+s.showF()
+s.showM()
+
+output
+-----
+Son Class Method
+Father Class Mother
+Mother Class Method
+
+
+EX:
+#Multiple Inheritance
+
+class Father:
+	def __init__(self):
+		print('Father Class constructor')
+		def showF(self):
+			print('Father Class Mother')
+
+class Mother:
+	def __init__(self):
+		print('Mother class constructor')
+	def showM(self):
+		print('Mother Class Method')	
+
+class Son(Father,Mother):
+	def __init__(self):
+		print('Son class constructor')
+	def showS(self):
+		print('Son Class Method')
+
+
+s = Son()
+
+output
+-----
+Son class constructor
+
+EX:
+#Multiple Inheritance
+
+class Father:
+	def __init__(self):
+		print('Father Class constructor')
+		def showF(self):
+			print('Father Class Mother')
+
+class Mother:
+	def __init__(self):
+		print('Mother class constructor')
+	def showM(self):
+		print('Mother Class Method')	
+
+class Son(Father,Mother):
+	def __init__(self): 
+		super().__init__() #calling parent class Constructor
+		print('Son class constructor')
+	def showS(self):
+		print('Son Class Method')
+
+
+s = Son()
+
+
+output
+-----
+Father Class constructor
+Son class constructor
+
+
+EX:
+
+#Multiple Inheritance
+
+class Father:      #Father ki parent vachesi 'Object'
+	def __init__(self):
+		super().__init__() #calling parent class Constructor
+		print('Father Class constructor')
+		def showF(self):
+			print('Father Class Mother')
+
+class Mother:      #Mother ki kuda parent vachesi 'obejct'
+	def __init__(self):
+		super().__init__() #calling parent class Constructor
+		print('Mother class constructor')
+	def showM(self):
+		print('Mother Class Method')	
+
+class Son(Father,Mother):   #Son ki parent's vachesi (Father,Mother)
+	def __init__(self): 
+		super().__init__() #calling parent class Constructor
+		print('Son class constructor')
+	def showS(self):
+		print('Son Class Method')
+
+
+s = Son()
+
+
+output
+-----
+Mother class constructor
+Father Class constructor
+Son class constructor
+
+
+Method Resolution Order(MRO) 
+----------------------------
+In the multiple inheritance scenario members of class are searched first in the
+current class. If not found , the search continues into parent classes in depth-first
+'left to right' manner without searching same class twice.
+
+	1.Search for the child class before going to its parent class.
+	2.When a class is inherited from several classes,it srearches in the order from
+	left to right in the parent classes.
+	3.It will not visit any class than once which means a class in the inheritance hierarchy
+	is traversed only once exactly.
+
+
+EX:
+	object(Idi by default ga untundi)
+	  |
+	  |
+     --------------
+     |      	   |	
+    Father    	Mother	
+	\       /
+	 \     /
+	   Son	
+
+s = Son()
+
+1.The search will start from Son.As the object of Son is 
+created, the constructor of son is called.
+
+2.Son has super().__init__()inside his constructor so its
+parent class,the one in the left side'Father' class's
+constructor is called.
+
+3.Father class also has super().__init__()inside his
+constructor so its parent'object' class's constructor is 
+called.
+
+4.Object does not have any constructor so the search will
+continue down to right hand side class(Mother)of object
+class so Mother class's constructor is called.
+
+5.As Mother class also has super().__init__()so its parent
+class 'Object' constructor is called but as object class alreay visited the 
+search will stop here.
+ 
+
+EX:
+#Multiple Inheritance
+
+class Father:  #Father ki parent vachesi 'Object'
+	def __init__(self):
+		super().__init__() #calling parent class Constructor
+		print('Father Class constructor')
+		def showF(self):
+			print('Father Class Mother')
+
+class Mother: #Mother ki kuda parent vachesi 'obejct'
+	def __init__(self):
+		super().__init__() #calling parent class Constructor
+		print('Mother class constructor')
+	def showM(self):
+		print('Mother Class Method')	
+
+class Son(Father,Mother):
+	def __init__(self): 
+		super().__init__() #calling parent class Constructor(Father,Mother)
+		print('Son class constructor')
+	def showS(self):
+		print('Son Class Method')
+
+
+s = Son()
+
+
+output
+------
+Mother class constructor
+Father Class constructor
+Son class constructor
+
+Encapsulation
+================
+Encapsulation is one of the fundamental concepts in object-oriented programming (OOP). 
+It describes the idea of wrapping data and the methods that work on data within one unit. ... 
+A class is an example of encapsulation as it encapsulates all the data that is member functions, variables, etc.
+
+(((ఆబ్జెక్ట్-ఓరియెంటెడ్ ప్రోగ్రామింగ్ (OOP) లోని ప్రాథమిక భావనలలో ఎన్‌క్యాప్సులేషన్ ఒకటి. ఇది డేటాను చుట్టే ఆలోచనను 
+మరియు ఒక యూనిట్‌లో డేటాపై పనిచేసే పద్ధతులను వివరిస్తుంది. ... సభ్యుల విధులు, వేరియబుల్స్ మొదలైన 
+మొత్తం డేటాను ఎన్‌క్యాప్సులేట్ చేయడానికి క్లాస్ ఒక ఉదాహరణ.))))
+
+Polymorphism in Python
+========================
+
+Polymorphism is a word that came from two greek words,poly means 'many'
+and morphos means 'forms'.
+
+If a variable,Object or method perform diffrent behavior according to situation,
+it is called polymorphism.
+
+	1.Duck Typing
+	2.Operator Overloading
+	3.Method Overloading	
+	4.Method Overriding
+
+
+1.Duck Typing
+================
+In python we follow a principle-if 'it walks like a duck and talks like a duck, it must be a duck'
+Which means python doesn't care about which class of object it is,if it is an object and required
+behavoir is present for that obejct than it will work.The type of object is distinguished only at
+runtime. This is called as Duck typing.
+
+Python doesn't care about which class of object it is,in order to call an existing method on
+an object.If the method is defined on the object,then it will be called.
+
+EX:
+#Duck typing
+
+class Duck:
+	def walk(self):
+		print('thapak thapak thapak thapak thapak')
+
+class Horse:
+	def walk(self):
+		print('tabdak tabdak tabdak tabdak')
+
+def myfunction(object):
+	object.walk()
+
+
+d = Duck()
+myfunction(d)					
+
+output
+-----
+thapak thapak thapak thapak thapak
+
+EX:
+#Duck typing
+
+class Duck:
+	def walk(self):
+		print('thapak thapak thapak thapak thapak')
+
+class Horse:
+	def walk(self):
+		print('tabdak tabdak tabdak tabdak')
+
+def myfunction(object):
+	object.walk()
+
+
+h = Horse()
+myfunction(h)					
+
+output
+-----
+tabdak tabdak tabdak tabdak
+
+
+EX:
+#Duck typing
+
+class Duck:
+	def walk(self):
+		print('thapak thapak thapak thapak thapak')
+
+class Horse:
+	def walk(self):
+		print('tabdak tabdak tabdak tabdak')
+
+class Cat:
+	def talk(self):
+		print('Meow Meow')
+
+
+def myfunction(object):
+	object.walk()
+
+c = Cat()
+myfunction(c)
+
+output
+-----
+Eror vasthadi class cat lo talk undi walk ledu.
+
+
+EX:
+
+#Duck typing
+
+class Duck:
+	def walk(self):
+		print('thapak thapak thapak thapak thapak')
+
+class Horse:
+	def walk(self):
+		print('tabdak tabdak tabdak tabdak')
+
+class Cat:
+	def talk(self):
+		print('Meow Meow')
+
+
+def myfunction(object):
+	object.walk()
+
+d = Duck()
+myfunction(d)
+
+h = Horse()
+myfunction(h) 
+
+
+c = Cat()
+myfunction(c)
+
+output
+------
+thapak thapak thapak thapak thapak
+
+tabdak tabdak tabdak tabdak
+
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 27, in <module>
+    myfunction(c)
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 17, in myfunction
+    object.walk()
+AttributeError: 'Cat' object has no attribute 'walk'
+
+
+Strong Typing in Python
+========================
+We can check whether the object passed to the method has the method being
+invoked or not.
+
+hasattr()Fucntion is used to check whether the Object has a method or not.
+	syntax:
+		hasattr(object,attribute)
+Where attribute can be a 'method or variable'.If it is found in the object then this method
+returns True else False.
+
+EX:
+#Duck typing
+
+class Duck:
+	def walk(self):
+		print('thapak thapak thapak thapak thapak')
+
+class Horse:
+	def walk(self):
+		print('tabdak tabdak tabdak tabdak')
+
+class Cat:
+	def talk(self):
+		print('Meow Meow')
+
+
+def myfunction(object):
+	if hasattr(object,'walk'):
+		object.walk()
+
+d = Duck()
+myfunction(d)
+
+output
+-----
+thapak thapak thapak thapak thapak
+
+EX:
+#Duck typing
+
+class Duck:
+	def walk(self):
+		print('thapak thapak thapak thapak thapak')
+
+class Horse:
+	def walk(self):
+		print('tabdak tabdak tabdak tabdak')
+
+class Cat:
+	def talk(self):
+		print('Meow Meow')
+
+
+def myfunction(object):
+	if hasattr(object,'walk'):
+		object.walk()
+
+d = Duck()
+myfunction(d)
+
+h = Horse()
+myfunction(h)
+
+
+output
+--------
+thapak thapak thapak thapak thapak
+tabdak tabdak tabdak tabdak
+
+EX:
+#Duck typing
+
+class Duck:
+	def walk(self):
+		print('thapak thapak thapak thapak thapak')
+
+class Horse:
+	def walk(self):
+		print('tabdak tabdak tabdak tabdak')
+
+class Cat:
+	def talk(self):
+		print('Meow Meow')
+
+
+def myfunction(object):
+	if hasattr(object,'walk'):
+		object.walk()
+
+d = Duck()
+myfunction(d)
+
+h = Horse()
+myfunction(h)
+
+c = Cat()
+myfunction(c)
+
+output
+------
+thapak thapak thapak thapak thapak
+tabdak tabdak tabdak tabdak
+
+EX:
+
+#Duck typing
+
+class Duck:
+	def walk(self):
+		print('thapak thapak thapak thapak thapak')
+
+class Horse:
+	def walk(self):
+		print('tabdak tabdak tabdak tabdak')
+
+class Cat:
+	def talk(self):
+		print('Meow Meow')
+
+
+def myfunction(object):
+	if hasattr(object,'walk'):
+		object.walk()
+
+	if hasattr(object,'talk'):
+		object.talk()	
+
+d = Duck()
+myfunction(d)
+
+h = Horse()
+myfunction(h)
+
+c = Cat()
+myfunction(c)
+
+output
+-----
+thapak thapak thapak thapak thapak
+tabdak tabdak tabdak tabdak
+Meow Meow
+
+
+Method Overloading in Python
+============================
+1.When more than one method with the same name is defind in the same class,it is 
+Known as method overloading.
+((ఒకే తరగతిలో ఒకే పేరుతో ఒకటి కంటే ఎక్కువ Methods ni నిర్వచించబడినప్పుడు, అది
+method ఓవర్‌లోడింగ్ అంటారు.)))
+
+2.In python,if a method is written such that it can perform more than one task,it
+is called method overloading.
+((పైథాన్‌లో, ఒకటి కంటే ఎక్కువ పనులను చేయగల విధంగా ఒక method ni వ్రాయబడితే, అది
+method ఓవర్‌లోడింగ్ అంటారు.))
+
+EX:
+
+#Method Overloading
+
+class Mycalss:
+	def sum(self,a,b,c):
+		s = a+b+c
+		return s
+
+obj = Mycalss()
+print(obj.sum(10,20,30))		
+
+output
+-----
+60
+
+EX:
+#Method Overloading
+
+class Mycalss:
+	def sum(self,a,b,c):
+		s = a+b+c
+		return s
+
+obj = Mycalss()
+a = obj.sum(10,20,30)
+print(a)		
+
+output
+-------
+60
+
+EX:
+#Method Overloading
+
+class Mycalss:
+	def sum(self,a=None, b=None, c=None):
+		s = a+b+c
+		return s
+
+obj = Mycalss()
+a = obj.sum(10,20,30)
+print(a)		
+
+output
+-----
+60
+
+EX:
+#Method Overloading
+
+class Mycalss:
+	def sum(self,a=None, b=None, c=None):
+		if a!=None and b!=None and c!=None:
+			s = a+b+c
+			return s
+
+obj = Mycalss()
+a = obj.sum(10,20,30)
+print(a)		
+
+
+output
+------
+60
+
+EX:
+#Method Overloading
+
+class Mycalss:
+	def sum(self,a=None, b=None, c=None):
+		if a!=None and b!=None and c!=None:
+			s = a+b+c
+		elif a!=None and b!=None:
+			s = a*b
+		return s
+
+obj = Mycalss()
+a = obj.sum(10,20,30)
+print(a)		
+
+output
+-----
+60
+
+EX:
+#Method Overloading
+
+class Mycalss:
+	def sum(self,a=None, b=None, c=None):
+		if a!=None and b!=None and c!=None:
+			s = a+b+c
+		elif a!=None and b!=None:
+			s = a*b
+		return s
+
+obj = Mycalss()
+a = obj.sum(10,20)
+print(a)		
+
+output
+-----
+200
+
+EX:
+#Method Overloading
+
+class Mycalss:
+	def sum(self,a=None, b=None, c=None):
+		if a!=None and b!=None and c!=None:
+			s = a+b+c
+		elif a!=None and b!=None:
+			s = a*b
+		else:
+			s = 'provide at least Two Numbers'	
+		return s
+
+obj = Mycalss()
+a = obj.sum()
+print(a)		
+
+output
+-----
+provide at least Two Numbers
+
+
+EX:
+#Method Overloading
+
+class Mycalss:
+	def sum(self,a=None, b=None, c=None):
+		if a!=None and b!=None and c!=None:
+			s = a+b+c
+		elif a!=None and b!=None:
+			s = a*b
+		elif a!=None:
+			s = a	
+		else:
+			s = 'provide at least Two Numbers'	
+		return s
+
+obj = Mycalss()
+a = obj.sum(10)
+print(a)		
+
+output
+------
+10
+
+
+Method Overriding and Method with super() in Python 
+============================================
+
+Method Overriding
+----------------
+If we write method in the both classes,parent class and child class
+then the parent class's method is not available to the child class.
+
+In this case only child class's method is accessible which mean's child class's
+method is replacing parent class's method.
+
+Method overriding is used when programmer want to modify the existing behavior
+of a method.
+
+EX:
+#Method Overriding
+
+class Add:
+	def result(self,a,b):
+		print('Addition:', a+b)
+
+class Multi(Add):
+	def result(self,a,b):
+		print('Multiplication:',a*b)
+
+m = Multi()
+m.result(10,20)				
+
+output
+------
+Multiplication: 200
+
+EX:
+#Method Overriding
+
+class Add:
+	def result(self,a,b):
+		print('Addition:', a+b)
+
+class Multi(Add):
+	pass
+
+m = Multi()
+m.result(10,20)				
+
+output
+------
+Addition:30
+
+
+Method with super()Method
+-------------------------
+If we write method in the both classes,parent class and child class than the parent
+class's method is not available to the child class.
+
+In this case only child class's method is accessible which means child class's
+method is replacing parent class's method.
+
+super()method is used to call parent class's 'constructor or methods' from the child class.
+
+	syntax:
+		super().methodName()
+
+EX:
+
+#Method Overriding
+
+class Add:
+	def result(self,x,y):
+		print('Addition:', x+y)
+
+class Multi(Add):
+	def result(self,a,b):
+		super().result(50,60) #Calling Prarent class's Method
+		print('Multiplication:',a*b)
+
+m = Multi()
+m.result(10,20)	
+
+		
+output
+-----
+Addition: 110
+Multiplication: 200
+
+
+Operator Overloading in Python
+================================
+If any operator performs additional actions other than what it is 
+meant for,it is called operator overloading.
+
+
+Note: Anthaga Importent kadule.....malli ookasri chusuko kavalante..
+
+
+
+
+Package in Python(video=35)
+=================
+Packages are  way of structuring python's module namespace by using
+'dotted module names'
+
+A Package can have one or more modules which means, a package is
+collection of modules and packages.
+
+A Package can contain packages
+
+"Package is nothing but a Directory/Folder".
+
+
+Note:separet ga chudu ee video...
+
+
+
+Abstract Class Abstract Method and Concrete Method in Python
+====================================================
+A class derived from ABC class which belongs to 'abc' module,is know as abstract class
+ in Python
+
+ABC Class is known as Meta Class which means a class that defines the behavior of other
+classes.So we can say,Meta Class ABC defines that the class which is derived from
+it become an abstract class.
+
+Abstract Class can have abstract method and 'concrete methods'.
+
+Abstract Class needs to be extended and its method implemented.
+
+PVM can not create object of an abstract class.
+
+EX:
+from abc import ABC,abstractmethod
+Class Father(ABC):
+
+Abstract Method
+-----------------
+A abstract method is a method whose action is redefined in the child classes as per the
+requirement of the object.
+
+We can declare a method as abstract method by using @abstractmethod decorator.
+
+EX:
+from abc import ABC, abstractmethod
+Class Father(ABC):
+	@abstractmethod
+	def disp(self):
+		pass
+
+
+Concrete Method
+-----------------
+A concrete method is a method whose action is defined in the abstract class
+itself.
+
+EX:
+from abc import ABC,abstractmethod
+Class Father(ABC):
+	@abstractmethod }Abstract Method/Method without Body
+	def disp(self): }
+		pass    }
+	def show(self):			 }Concrete Method/Method with Body
+		print('Concrete Method') }
+
+
+Rules
+-------
+1.PVM can not create objects of an abstract class.
+2.It is not neccessary to declare all methods abstract in a abstract class.
+3.Abstract Class can have abstract method and concrete methods.
+4.If there is any abstract method in a class, that class must be abstract.
+5.The abstract method of an abstract class must be defined in its child class/subclass.
+6.If you are inheriting any abstract class that have abstract method,you must
+either provide the implementation of the method or make this class abstract.
+
+When use Abstract Class
+-----------------------
+We use abstract class when there are some common feature shared by all the objects as they are.
+
+		  Defence Force
+		  (Gun=Ak 47
+		    Area = )
+			|
+			|
+		-----------------------------------
+		|   		   |		 |
+		Army		AirForce	Navy
+	   	  Gun =Ak 47	Gun =Ak 47	Gun = Ak 47
+		  Area = Land	Area = Sky      Area = Sea
+
+Note:Gun is the common feature shared by all Forces but area is different for them.
+
+
+EX:
+
+from abc import ABC,abstractmethod
+
+class Father(ABC):
+	@abstractmethod
+	def disp(self):
+		pass
+
+	def show(self):
+		print('Concrete Method')
+
+class Child(Father):
+	def disp(self):
+		print('Child class')
+		print('Defining Abstract Method')
+
+c = Child()
+c.disp()
+c.show()
+
+output
+-------
+Child class
+Defining Abstract Method
+Concrete Method
+
+
+(OR)
+
+EX:
+
+from abc import ABC,abstractmethod
+
+class Father:
+	@abstractmethod
+	def disp(self):
+		pass
+
+	def show(self):
+		print('Concrete Method')
+
+class Child(Father):
+	def disp(self):
+		print('Child class')
+		print('Defining Abstract Method')
+
+c = Child()
+c.disp()
+c.show()
+
+output
+------
+Child class
+Defining Abstract Method
+Concrete Method
+
+EX:
+from abc import ABC,abstractmethod
+
+class Father:
+	@abstractmethod
+	def disp(self):
+		pass
+
+	def show(self):
+		print('Concrete Method')
+
+class Child(Father):
+	pass
+
+c = Child()
+c.show()
+
+output
+------
+Concrete Method
+
+
+EX:
+from abc import ABC,abstractmethod
+
+class DefenceForce(ABC):
+	@abstractmethod
+	def area(self):
+		pass
+
+	def gun(self):
+		print('Gun = AK47')
+
+class Army(DefenceForce):
+	def area(self):
+		print("Army Area = Land")
+
+
+class AirForce(DefenceForce):
+	def area(self):
+		print('AirForce Area = sky')
+
+class Navy(DefenceForce):
+	def area(self):
+		print('Navy Area = Sea')
+
+a = Army()
+af = AirForce()
+n = Navy()
+
+a.gun()
+a.area()
+
+output
+-------
+Gun = AK47
+Army Area = Land
+
+
+
+EX:
+from abc import ABC,abstractmethod
+
+class DefenceForce(ABC):
+	@abstractmethod
+	def area(self):
+		pass
+
+	def gun(self):
+		print('Gun = AK47')
+
+class Army(DefenceForce):
+	def area(self):
+		print("Army Area = Land")
+
+
+class AirForce(DefenceForce):
+	def area(self):
+		print('AirForce Area = sky')
+
+class Navy(DefenceForce):
+	def area(self):
+		print('Navy Area = Sea')
+
+a = Army()
+af = AirForce()
+n = Navy()
+
+a.gun()
+a.area()
+
+print()
+
+af.gun()
+af.area()
+
+print()
+
+n.gun()
+n.area()
+
+
+output
+------
+Gun = AK47
+Army Area = Land
+
+Gun = AK47
+AirForce Area = sky
+
+Gun = AK47
+Navy Area = Sea
+
+
+EX:
+from abc import ABC,abstractmethod
+
+class DefenceForce(ABC):
+	def __init__(self):
+		self.id = 101
+
+	@abstractmethod
+	def area(self):
+		pass
+
+	def gun(self):
+		print('Gun = AK47',self.id)---->look here
+
+class Army(DefenceForce):
+	def area(self):
+		print("Army Area = Land")
+
+
+class AirForce(DefenceForce):
+	def area(self):
+		print('AirForce Area = sky')
+
+class Navy(DefenceForce):
+	def area(self):
+		print('Navy Area = Sea')
+
+a = Army()
+af = AirForce()
+n = Navy()
+
+a.gun()
+a.area()
+
+print()
+
+af.gun()
+af.area()
+
+print()
+
+n.gun()
+n.area()
+
+
+output
+------
+Gun = AK47 101
+Army Area = Land
+
+Gun = AK47 101
+AirForce Area = sky
+
+Gun = AK47 101
+Navy Area = Sea
+
+EX:
+from abc import ABC,abstractmethod
+
+class DefenceForce(ABC):
+	def __init__(self):
+		self.id = 101
+
+	@abstractmethod
+	def area(self):
+		pass
+
+	def gun(self):
+		print('Gun = AK47')
+
+class Army(DefenceForce):
+	def area(self):
+		print("Army Area = Land",self.id)----->Look here.
+
+
+class AirForce(DefenceForce):
+	def area(self):
+		print('AirForce Area = sky')
+
+class Navy(DefenceForce):
+	def area(self):
+		print('Navy Area = Sea')
+
+a = Army()
+af = AirForce()
+n = Navy()
+
+a.gun()
+a.area()
+
+print()
+
+af.gun()
+af.area()
+
+print()
+
+n.gun()
+n.area()
+
+
+output
+-----
+Gun = AK47
+Army Area = Land 101
+
+Gun = AK47
+AirForce Area = sky
+
+Gun = AK47
+Navy Area = Sea
+
+
+Interface in Python
+===================
+In Python, The interface concep	is not explicity available,like'avialable in other
+lang
+ Ex:Java
+	In python an interfar is an abstact class wich contains only abstract method	
+	but not a sinble concrete method.
+
+In Python an interface is an abstract class which contains only abstract method but
+not a single concrete method.
+
+from abc import ABC,abstractmethod
+class Father(ABC):
+	@abstractmethod
+	def disp(self):
+		pass
+	def show(self):
+		print('Concrete Method')
+
+Rules
+------
+All methods of an interface is abstract.
+We can not create object of interface.
+If a class is implementing an interface it has to define all the methods
+given in that interface.
+If a class does not implement all the methods declared in the  interface, the
+class must be declared abstract.
+
+
+When use Interface
+------------------
+We use interface when all the  features need to be  implemented differently for
+different objects.
+
+		Defence Force
+			Gun = 
+			Area =
+			 |
+			 |
+		------------------------------------
+		|   		|		|
+		Army 		AirForce	Navy
+		Gun = Ak 41	Gun = Ak 42	Gun = Ak 43
+		Area = Land	Area =Sky	Area = Sea
+
+EX:
+
+from abc import ABC,abstractmethod
+
+class Father(ABC):
+	@abstractmethod
+	def disp(self):
+		pass
+
+class Child(Father):
+	pass
+
+c = Child()
+
+
+EX:
+
+from abc import ABC,abstractmethod
+
+class Father(ABC):
+	@abstractmethod
+	def disp(self):
+		pass
+
+class Child(Father):
+	def disp(self):
+		print('Child Class')
+		print('Defining Abstract Method')
+
+c = Child()
+c.disp()
+
+output
+------
+Defining Abstract Method
+
+
+EX:
+
+
+from abc import ABC,abstractmethod
+
+class Father(ABC):
+	@abstractmethod
+	def disp(self):
+		pass
+	def show(self):
+		print('Concrete Method')
+
+class Child(Father):
+	def disp(self):
+		print('Child Class')
+		print('Defining Abstract Method')
+
+c = Child()
+c.disp()
+
+
+output
+------
+Child Class
+Defining Abstract Method
+
+EX:
+from abc import ABC,abstractmethod
+
+class Father(ABC):
+	@abstractmethod
+	def disp1(self):
+		pass
+	@abstractmethod
+	def disp2(self):
+		pass
+
+class Child(Father):
+	def disp1(self):
+		print('Child 1 class')
+		print('Disp 1 Abstract Method')
+
+class Granchild(Child):
+	def disp2(self):
+		print('Child class')
+		print('Disp 1 Abstract Method')
+
+
+gc = Granchild()
+gc.disp1()
+gc.disp2()
+
+output
+------
+Child 1 class
+Disp 1 Abstract Method
+Child class
+Disp 1 Abstract Method
+
+
+Difference between Abstract Class and Interface in Python
+=================================================
+
+An abstract class can have abstract methods as well as concrete methods,but all'
+methods of an interface are abstract.
+
+we use abstract class when there are some common feature shared by all the  objects as 
+they  are while we use interface if all the feature need to be implemented differently
+for  different objects.
+
+Its programmer job to write child class for abstract class while in interface,any
+third party vendor will take responsibility to write child class.
+
+Interfaces are slow when compared to abstract class.
+
+
+==========================END==========================
+
+
+
+
+
+
+		
+		
+
+
+
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	
+
+
+
+
+
+ 		
+		 
+
+		
+				
+
+
+		
+		
+
+		
+		
+	 
+
+
+		
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+	
+
+					
+
+
+			  
+		
+
+
+	
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+		
+  
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+	
+
+
+
+
+			
+
+
+
+
+
+
+		
+	
+ 
+	
+
+
+
+
+

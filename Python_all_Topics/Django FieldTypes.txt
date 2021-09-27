@@ -1,0 +1,535 @@
+	id = models.AutoField(primary_key = True,null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True)
+
+id = models.BigAutoField(primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True)
+
+field_name = models.BigIntegerField(primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True)
+
+field_name = models.BinaryField(primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True)
+
+field_name = models.BooleanField(primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True)
+
+field_name = models.CharField(max_length=200, primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True )
+
+
+field_name = models.DateField(auto_now_add, auto_now,default=date.today,primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True)
+
+
+field_name = models.DateTimeField(default=timezone.now)
+
+field_name = models.DecimalField(max_digits=None, decimal_places=None, primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True)
+
+field_name = models.DurationField(primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True)
+
+field_name = models.EmailField(max_length=254,primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True)
+
+field_name = models.FileField(upload_to=None, max_length=254,primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True )
+
+
+field_name = models.FloatField(primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True)
+
+field_name = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100,primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True )
+
+
+field_name = models.IntegerField(primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True)
+
+field_name = models.GenericIPAddressField(primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True)
+
+
+field_name = forms.NullBooleanField(option = value,option = value,option = value,option = value)
+
+field_name = models.PositiveIntegerField(primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True)
+
+field_name = models.SlugField(max_length=200, primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True)
+
+
+field_name = models.SmallIntegerField(primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True)
+
+
+field_name = models.TextField(primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True)
+
+field_name = models.TimeField(auto_now=False, auto_now_add=False,primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True)
+
+field_name = models.TimeField(datetime.time.now )
+
+field_name = models.TimeField(default=timezone.now)
+
+field_name = models.URLField(max_length=200, primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True)
+
+field_name = models.UUIDField(primary_key=True, null = True,blank = True,default = value,help_text = "text",editable = False,error_messages = {"key": "message"},verbose_name = "name",validators = [function 1, function 2],unique=True)
+
+
+		RELATION SHIP FIELDS
+		====================
+	1.ForeignKey(Many To One)
+		A many-to-one relationship. Requires two positional arguments: the class to which the model is related and the on_delete option.
+
+	2.ManyToManyField
+		A many-to-many relationship. Requires a positional argument: the class to which the model is related, 
+		which works exactly the same as it does for ForeignKey, including recursive and lazy relationships.
+
+	3.OneToOneField
+		A one-to-one relationship. Conceptually, this is similar to a ForeignKey with unique=True, 
+		but the “reverse” side of the relation will directly return a single object.
+
+
+on_delete = models.CASCADE – This is the default value. It automatically deletes all the related records when a record is deleted.
+(e.g. when an Album record is deleted all the Song records related to it will be deleted,
+ e.g. a user(person) when an facebook is deleted all the comments and videos related to it will be deleted)
+
+
+on_delete = models.PROTECT – It blocks the deletion of a record having relation with other records.
+(e.g. any attempt to delete an Album record will be blocked)
+
+on_delete = models.SET_NULL – It assigns NULL to the relational field when a record is deleted, provided null = True is set.
+
+
+on_delete = models.SET_DEFAULT – It assigns default values to the relational field when a record is deleted, a default value has to be provided.
+
+
+on_delete = models.SET() – It can either take a default value as parameter, or a callable, the return value of which will be assigned to the field.
+
+
+on_delete = models.DO_NOTHING – Takes no action. Its a bad practice to use this value	
+
+
+======================================
+
+Exercise:
+========
+Note:blank = True, pedithey unnakuda field anevi bold ga kanabadadu
+		
+	import Uuid
+	from django.utils import timezone
+	from django.contrib.auth.models import User
+	from django.template.defaultfilters import slugify
+	from phonenumber_field.modelfields import PhoneNumberField
+		
+	
+	my_choices = {
+		{'one','number one'},
+		{'two','number two'}
+	}
+	
+	boolean = models.BooleanField(defult = True,verbose_name = "This is a boolean field")
+	char = models.CharField(verbose_name = "New name",max_length = 220,unique = True,help_text = "added help text")
+	date = models.DateField(defult = timezone.now)
+	decimal = models.DecimalField(max_length = 5,decimal_places = 2)
+	email = models.EmailField(max_length = 200)
+	file = models.FileField(upload_to = 'uploads',blank = True)	
+	image = models.ImageField(upload_to = 'uploads',blank = True)
+	integer = models.IntegerField()
+	positive_int = models.PositiveIntegerField()
+	slug = models.SlugField(blank = True)
+	text = models.TextField()
+	url = models.URLField(max_length = 200)
+	uuid1 = models.UUIDField(defult = uuid.uuid4)
+	uuid2 = models.UUIDField(defult = uuid4,primary_key = Treu,editable = False)
+	updated = models.DateTimeField(auto_now = True)
+	created = models.DateTimeField(auto_now_add = True)
+	date_and_time = models.DateTimeField()
+	choice = models.CharField(max_length = 10,choices =my_choices)
+
+
+	phone_number = PhoneNumberField()
+	
+	new_field1 = models.CharField(max_length = 10,null = True,blank = True)
+
+	new_field = models.Foreignkey(User,on_delete = models.CASCADE, null = True)
+	
+	
+	def save(self,*args, **kwargs):
+		self.slug = slugify(self.text[:30])
+		super(TestModel,self).save(*args,**kwargs)
+===========================================
+
+		Create chesina migrations delete cheyali ante ela
+		=================================================
+
+	select django_migrations	
+
+
+
+DELETE	FROM django_migrations WHERE id in (25,26,27);
+COMMIT;
+===========================================
+
+		Django Shell
+		-------------
+
+Django shell anedi eppudaina sare project low ne open cheyali ela....
+
+C:\Users\BALAMURALI>E:
+
+E:\>cd rest
+
+E:\rest>cd rest_api
+
+E:\rest\rest_api>python manage.py shell
+Python 3.7.0 (v3.7.0:1bf9cc5093, Jun 27 2018, 04:59:51) [MSC v.1914 64 bit (AMD64)]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.17.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: 
+
+In [2]: quit()
+
+
+Note:
+--------
+
+	Command:python manage.py shell(ee shell nundi database lo data nu store cheyavachunu.)
+	
+		CRUD(Create(insert),Read(same like get),Update(same like set),Delete)
+	cat = Category(name = "Murali",surname = "Devanur",Email = "murali@gmail.com")
+		
+		cat(left unde danini) = "Reference(variable)" antaru
+		Category(name = "Murali",surname = "Devanur",Email = "murali@gmail.com")(right side unde danini) = "Instance(value)" antaru
+		
+
+Excercise:
+=========
+In [1]: from accounting.models import Category
+
+	
+Create() (or) insert()
+----------------------
+In [2]: cat = Category(name = "Murali",surname = "Devanur",Email = "murali@gmail.com")
+
+In [3]: cat.save()
+
+In [5]: cat = Category(name = "Sohel",surname = "kurnna",Email = "shoel@gmail.com")
+
+In [6]: cat.save()
+
+
+Read()
+==================
+
+In[7]: Category.objects.all()
+
+Out[18]: <QuerySet [<Category: Category object (1)>, <Category: Category object (2)>, <Category: Category object (3)>, 
+<Category: Category object (4)>, <Category: Category object (5)>, <Category: Category object (6)>, <Category: Category object (7)>]>
+
+In [23]: for i in Category.objects.all():
+    	     print(i.name)
+    
+Murali
+Sohel
+Banu
+prakash
+Sonu
+Ammar
+Sonam
+
+In [25]: for i in Category.objects.all():
+    	     print(i.Email)
+    
+murali@gmail.com
+shoel@gmail.com
+banu@gmail.com
+prakash@gmail.com
+sonu@gmail.com
+ammer@gmail.com
+Sonam@gmail.com
+
+
+In [27]: for i in Category.objects.all():
+    	     print(i.name + '' + i.surname)
+    
+MuraliDevanur
+Sohelkurnna
+Banupankinth
+prakashBoddula
+Sonudala
+Ammarmukthi
+SonamSonnku
+
+
+In [28]: for i in Category.objects.all():
+    ...:     print(i.name + "" + "" + i.surname +" "+" "+i.Email)
+    ...:
+Murali Devanur  murali@gmail.com
+Sohel kurnna  shoel@gmail.com
+Banu pankinth  banu@gmail.com
+prakash Boddula  prakash@gmail.com
+Sonu dala  sonu@gmail.com
+Ammar mukthi  ammer@gmail.com
+Sonam Sonnku  Sonam@gmail.com
+
+
+get()
+=====
+
+In [29]: cat = Category.objects.get(id = 3)
+
+In [30]: cat
+Out[30]: <Category: Category object (3)>
+
+
+update() & set()(both are equal)
+============
+
+In[38]:cat2 = Category.objects.get(id = 2)
+In [39]: cat2
+Out[39]: <Category: Category object (2)>
+
+In [40]: cat2.name = "Rajadani"
+
+In [41]: cat2.save()
+
+
+	(OR)
+
+In [44]: cat = Category.objects.all()
+
+In [45]: cat
+Out[45]: <QuerySet [<Category: Category object (1)>, <Category: Category object (2)>, <Category: Category object (3)>, <Category: Category object (4)>, <Category: Category object (5)>, <Category: Category object (6)>, <Category: Category object (7)>]>
+
+In [46]: cat[0]
+Out[46]: <Category: Category object (1)>
+
+In [47]: ca = cat[0]
+
+In [48]: ca.name = "Rajan"
+
+In [49]: ca.save()
+
+
+
+
+In [50]: cat[1]
+Out[50]: <Category: Category object (2)>
+
+In [51]: cate = cat[1]
+
+In [52]: cate.Email = "Hello@gmail.com"
+
+In [53]: cate.save()
+
+
+filter()
+===========
+
+
+In [42]: cat4 = Category.objects.filter(name = "Sonu")
+
+In [43]: cat4
+Out[43]: <QuerySet [<Category: Category object (5)>]>
+
+
+
+
+In [56]: cat5 = Category.objects.filter(name = "Banu")
+In [57]: cat5
+Out[57]: <QuerySet [<Category: Category object (3)>, <Category: Category object (8)>]>
+
+In [58]: cat5[0]
+Out[58]: <Category: Category object (3)>
+
+In [59]: c = cat5[0]
+
+In [60]: c.name = "Annurag"
+
+In [61]: c.save()
+
+
+delete()
+========
+
+
+
+In [67]: cat6 = Category.objects.get(id = 9)
+
+In [68]: cat6
+Out[68]: <Category: Category object (9)>
+
+In [69]: cat6.delete()
+Out[69]: (1, {'accounting.Category': 1})
+
+Replce()
+==========
+
+
+In [70]: cat8 = Category(id = 6,name = "Mahesh",surname = "buruga",Email = "mahesh@gmail.com")
+
+In [71]: cat8.save()
+
+===========================
+
+		Foreignkey
+		==========
+
+In [2]: from accounting.models import Category
+
+In [1]: from accounting.models import Product
+
+In [3]: cat = Category.objects.get(id = 2)
+
+In [4]: cat
+Out[4]: <Category: Category object (2)>
+
+In [5]: pro = Product(name = "Laptop",cost = 48000,category = cat)
+
+In [6]: pro.save()
+----------
+
+In [7]: pro1 = Product.objects.all()
+
+In [8]: pro1
+Out[8]: <QuerySet [<Product: Product object (1)>, <Product: Product object (2)>]>
+
+In [9]: pro1 = Product.objects.get(id = 1)
+
+In [10]: pro1
+Out[10]: <Product: Product object (1)>
+
+In [11]: pro1.id
+Out[11]: 1
+
+In [12]: pro1.name
+Out[12]: 'Phone'
+
+In [13]: pro1.cost
+Out[13]: 25000
+
+In [14]: pro1.category_id
+Out[14]: 1
+
+
+In [15]: pro2 = Product.objects.get(id  = 2)
+
+In [16]: pro2
+Out[16]: <Product: Product object (2)>
+
+In [19]: pro2.name
+Out[19]: 'Laptop'
+
+In [20]: pro2.id
+Out[20]: 2
+
+In [21]: pro2.cost
+Out[21]: 48000
+
+In [22]: pro2.category_id
+Out[22]: 2
+--------------
+
+In [25]: pro2.category.id
+Out[25]: 2
+
+In [26]: pro2.category.name
+Out[26]: 'Rajadani'
+
+In [28]: pro2.category.surname
+Out[28]: 'kurnna'
+
+In [29]: pro2.category.Email
+Out[29]: 'Hello@gmail.com'
+-------------
+
+	EX: Foreign Key
+	   ===============
+
+		[date format = It must be in YYYY-MM-DD format.
+
+		boolean =  either True or False.]
+
+In [119]: st = Student.objects.get(id = 1)	
+In [120]: at = Attendance(date = "2020-3-13",ispresent = "False",student  = st)
+
+In [121]: at.save()
+
+In [122]: st = Student.objects.get(id = 2)
+
+In [123]: st
+Out[123]: <Student: Student object (2)>
+
+In [124]: at = Attendance(date = "2020-3-13",ispresent = "True",student  = st)
+
+In [125]: at.save()
+
+In [126]: st = Student.objects.get(id = 1)
+
+In [127]: st
+Out[127]: <Student: Student object (1)>
+
+In [128]: at = Attendance(date = "2020-3-14",ispresent = "True",student  = st)
+
+In [129]: at.save()	
+
+------------------
+			
+			Many To Many Relations
+			=====================
+
+ from school.models import School,Section,Student,Attendance
+
+ from django.contrib.auth.models import User
+
+
+
+In [145]: sri = User.objects.get(username = "srinivas")
+
+In [146]: sri
+Out[146]: <User: srinivas>
+
+In [147]: ra = User.objects.get(username = "rakesh")
+
+In [148]: ra
+Out[148]: <User: rakesh>
+
+In [149]: sc1 = School.objects.get(name = "vineela")
+
+In [150]: sc1
+Out[150]: <School: School object (1)>
+
+In [151]: sc1.managers.add(sri.id)
+
+In [152]: sc1.managers.add(ra.id)
+
+In [153]: sc1.save()
+
+
+
+
+In [154]: ra = User.objects.get(username = "rakesh")
+
+In [155]: ra
+Out[155]: <User: rakesh>
+
+In [156]: raj = User.objects.get(username = "rajesh")
+
+In [157]: raj
+Out[157]: <User: rajesh>
+
+In [158]: sc2 = School.objects.get(name = "vikas")
+
+In [159]: sc2
+Out[159]: <School: School object (2)>
+
+In [160]: sc2.managers.add(ra.id)
+
+In [161]: sc2.managers.add(raj.id)
+
+In [162]: sc2.save()
+
+--------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

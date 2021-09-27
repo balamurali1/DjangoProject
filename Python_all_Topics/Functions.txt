@@ -1,0 +1,1992 @@
+		Function
+		========
+
+Function are subprograms which are used to compute(లెక్కించు)  a value or perform a task.
+
+Type of Functions
+-----------------
+1.Buit-in Function(vitini by default python ne esthundi)
+	EX:print(),int(),float(),upper(),string()...etc.
+
+2.User-defined Function(vitini Programer rayali(manamu)
+-----------------------
+
+Advantage of Function
+=====================
+1.write once and use it as many time as you need. This provides code reusability.
+2.Function facilitates ease of code maintenance.
+3.Divide Large task into many small task so it will help you to debug code
+4.You can remove or add new feature to a functions anytime.
+
+Function Defination
+====================
+1.We can define a function using  'def' keyword followed by function name with parenthese.
+This is also called as Creating a Function,Writing a Function,Defining a Function.
+
+Syntax:
+	def Function_name():	
+
+		Local Variable			|
+		block of statement		|Function Body
+		return(variable or expression)	|
+
+Syntax:
+	def Function_name(para1,para2,......):
+
+			Local variable			|
+			block of statement		|Function Body
+			return(Varible or expression)	|	
+
+Note: Need to maintain Proper indentation
+
+EX:
+	def add():
+	    x = 10|Local variable	|
+	    y = 20|			|Function Body
+	    c = x + y|block of Statements|
+	    print(c) |			|
+
+
+EX:
+
+	def add(y):  #y ni parameter antaru.
+	x = 10
+	c = x+y
+	print(c)
+
+
+Calling a Function
+=====================
+A Function runs only when we call it, function can not run on its own.
+
+	Syntax:
+		function_name()
+
+	syntax:
+		function_name(arg1,arg2,.....)
+
+EX:
+	add()
+	add(20) #20 ni function lo call chesetappudu 'argument' antaru
+	add(10.56) 
+	item("Geekyshows")
+
+
+ Function programs
+=================
+#defing a Function
+def disp():
+	name = 'Geekyshows'
+	print('Welcome to:',name)
+
+#calling a Function
+disp()	
+
+output
+--------
+Welcome to: Geekyshows
+
+
+EX:
+def fun():
+	a = 'Hello'
+	b = 'Hi'
+	print(f'{a} Geekyshows and {b}')
+
+fun()	
+
+output
+------
+Hello Geekyshows and Hi
+
+
+EX:
+def fun(y):
+	a = 12
+	b = 5
+	print(f'A value is {a}'+','+f'B value is {b}'+','+f'Y value is {y}')
+
+fun(3)
+
+output
+------
+A value is 12,B value is 5,Y value is 3	
+
+
+EX:
+
+def add():
+	x = 10
+	y = 20
+	c = x + y
+	print(c)
+
+add()	
+
+ouput
+-------
+
+EX:
+	#Addition
+def add():
+	x = 10
+	y = 20
+	c = x + y
+	print(c)
+
+add()
+
+	#Substraction
+def sub():
+	x = 10
+	y = 5
+	c = x - y
+	print(c)
+
+sub()			
+
+output
+----------
+30
+5
+
+EX:
+
+def add():
+	x = 10
+	y = 20
+	c = x + y
+	z = x + y + 10
+	print(c)
+	print(z)
+
+add()
+
+output
+--------
+30
+40
+
+#Function without Argument and Parameter
+#Defining a Function Without Parameter
+
+def add():
+	x = 10
+	y = 20
+	c = x + y
+	print(c)
+
+#calling a function without Argument
+add()	
+
+output
+-----
+30
+
+EX:
+#Function with Argument and Parameter
+#Defining a Function With Parameter
+
+def add(y):
+	x = 10
+	c = x + y
+	print(c)
+
+#calling a function with Argument
+add(20)	
+
+output
+-------
+30
+
+
+EX:
+#Function with Argument and Parameter
+#Defining a Function With Parameter
+
+def add(y):
+	x = 10
+	c = x + y
+	print(c)
+
+#calling a function with Argument
+add(20.5)
+
+output
+------
+30.5
+
+
+EX:
+#Function with Argument and Parameter
+#Defining a Function With Parameter
+
+def str(y):
+	print(y)
+
+#calling a function with Argument
+str("GeekyShows")	
+
+output
+------	
+GeekyShows
+
+
+
+EX:
+#Function with Argument and Parameter
+#Defining a Function With Parameter
+
+def add(y):
+	x = 10.2334
+	print(x + y)
+
+#calling a function with Argument
+add(20)	
+
+output
+-------
+30.2334
+
+EX:
+#Function with Argument and Parameter
+#Defining a Function With Parameter
+
+def add(y):
+	x = 10.2334
+	print(x + y)
+	print(f"Formatted Output{x+y:5.2f}")
+
+#calling a function with Argument
+add(20)	
+
+output
+-------
+30.2334
+Formatted Output30.23
+
+
+EX:
+
+def disp(x):
+	a = 52
+	c = 12
+	print(f"Formatting {x + a +c:5.2f}")
+
+disp(45.32352)	
+
+output
+------
+Formatting 109.32
+
+------------------------------------------------
+
+
+**Return Single and Multiple Value and Variable from Function in Python
+---------------------------------------------------------
+
+Return statements can be used to return something from the function.In
+Python,It is Possible to return one or more Variables/values.
+
+	syntax:
+		return(variable or expression)
+
+EX:
+	return 50 #This is value
+	return (50) #This is value
+	return (x + y) #expression ante x + y ani ela untadi...
+	return (y) #This is variable
+	return (2,4) #this is Values
+	return (x,y) #this is Variable
+	return 'Hello' #This is Value
+
+EX:
+
+def add():
+	a = 10
+	b = 20
+	return a,b
+
+a,b = add()	
+print(f'A value is:{a}')
+print(f'B value is:{b}')
+
+output
+------
+A value is:10
+B value is:20
+
+EX:
+def add(x):
+	y = 20
+	return x + y
+
+z = add(2)
+print(f'Z value is:{z}')
+
+output
+------
+Z value is:22	
+
+
+EX:
+# Return statement Single value
+#Defining a Function
+
+def add():
+	x = 10
+	y = 20
+	c = x + y
+	return c
+
+#calling Function
+sum = add()
+print(sum)	
+
+output
+------
+30
+
+EX:
+def f(x ,y):
+	z  =2 * (x+y)
+	return z
+
+print('Program Starts!!')
+a = 3
+res1 = f(a,2+a)
+print('Result of function call:',res1)
+a = 4
+b = 7
+res2 = f(a,b)
+print(f'Result of function call:{res2}')	
+
+output
+------
+Program Starts!!
+Result of function call: 16
+Result of function call:22
+
+
+EX:
+
+def add(a,b):
+	return a + b
+
+def is_true(a):
+	return a
+
+res = add(2,5)
+print(f'Result of add Function:{res}')
+
+res1 = is_true(2>1)
+print(f'Result of is True Function is:{res1}')		
+
+output
+------
+Result of add Function:7
+Result of is True Function is:True
+
+
+EX:
+class Test:
+	def __init__(self):
+		self.str = 'Geekyshows'
+		self.x = 20
+
+def fun():--->This function is Outside class
+	return Test()
+
+
+t = fun()
+print(t.str)
+print(t.x)
+
+output
+------
+Geekyshows
+20			
+
+
+EX:
+def fun():
+	str = 'Geekyshows'
+	x = 20
+	return str,x
+
+res,res1 = fun()
+print(res)
+print(res1)
+
+output
+-------
+Geekyshows
+20	
+
+EX:
+
+def fun():
+	str = 'Geekyshows'
+	x = 20
+	return [str,x]
+
+list = fun()
+print(list)
+
+output
+-------
+['Geekyshows', 20]
+
+
+EX:
+def fun():
+	d = dict()--->>Observe here(#ela kuda rayavachunu d = {})
+	d['str'] = "Geekyshows"
+	d['x'] = 20
+	return d
+
+d = fun()
+print(d)
+
+output
+------
+{'str': 'Geekyshows', 'x': 20}
+
+
+EX:
+def fun():
+	d = dict()--->>Observe here(#ela kuda rayavachunu d = {})
+	d['name'] = "Murali"
+	d['Roll No'] = 120
+	d['age'] = 25
+	d['city'] = 'Nandikotkur'
+	d['Town'] = 'Kurnool'
+	return d
+
+res = fun()
+print(res)	
+
+output
+------
+{'name': 'Murali', 'Roll No': 120, 'age': 25, 'city': 'Nandikotkur', 'Town': 'Kurnool'}
+
+EX:
+
+def fun():
+	d ={}------->Observe here(#ela kuda rayavachunu d = dict())
+	d['name'] = "Murali"
+	d['Roll No'] = 120
+	d['age'] = 25
+	
+	return d
+
+res = fun()
+print(res)	
+
+output
+------
+{'name': 'Murali', 'Roll No': 120, 'age': 25}
+
+
+EX:
+
+def disp():
+	return "Hello"
+	
+
+a = disp()
+print(a)	
+
+output
+------
+Hello
+
+
+EX:
+# Return statement Single value
+#Defining a Function
+
+def add():
+	x = 10
+	y = 20
+	return x + y	#expression ante x + y ani ela untadi...
+
+#calling Function
+sum = add()
+print(sum)	
+
+output
+-------
+30
+
+
+EX:
+# Return statement Single value
+#Defining a Function
+
+def add(y):
+	x = 10
+	return x + y
+
+#calling Function
+sum = add(20)
+print(sum)	
+
+output
+------
+30
+
+
+EX:
+def disp():
+	x = 5
+	y = 2
+	return x + y, x - y,45
+
+sum,sub,a=disp()
+print(sum)
+print(sub)
+print(a)
+
+output
+------
+7
+3
+45	
+
+
+EX:
+def fun():
+	a = 5
+	b = 6
+	c = a + b
+	return c,2
+
+res,a =fun()
+print(f'C value is:{res}')
+print(f'a value is :{a}')
+
+output
+-------
+C value is:11
+a value is :2
+
+
+EX:
+# Return statement Multiple value
+#Defining a Function
+
+def add(y):
+	x = 10
+	c = x + y
+	d = x - y
+	return c,d
+
+#calling Function
+sum,sub = add(20)
+print(sum)
+print(sub)	
+
+output
+------
+30
+-10
+
+
+EX:
+# Return statement Multiple value
+#Defining a Function
+
+def add(y):
+	x = 10
+	c = x + y
+	d = x - y
+	return c,d,50
+
+#calling Function
+sum,sub,a = add(20)
+print(sum)
+print(sub)
+print(a)	
+
+output
+------
+30
+-10
+50
+
+
+Nested Function in Python 
+===========================
+when we define one function inside another function, it is known as Nested Function or
+Function Nesting.
+
+Note: Please Observer Indentation.... 
+
+Syntax:
+	def disp():---->(#Outer function)
+	    def show():--->(#Inner Function)
+		print('show Function')
+	    print('Disp Function')
+	    show()
+	disp()
+
+
+
+EX:
+
+#Nested Function
+
+def disp():
+	def show():
+		print('Show Function')
+	print('Disp Function')
+	show()
+
+disp()
+		
+output
+----------
+Disp Function
+Show Function
+
+
+EX:
+def outer():
+  print("I'm the outer function.")
+  def inner():
+    print("And I'm the inner function.")
+  inner()
+
+outer()
+
+output
+------
+I'm the outer function.
+And I'm the inner function.
+
+
+EX:
+
+def num1(x):
+	def num2(y):
+		return x + y
+	return num2-->This is function calling num2
+
+res = num1(10)
+print(res(2))		
+
+output
+------
+12
+
+(OR)
+
+def num1(x):
+	def num2(y):
+		return x + y
+	res = num2(5)
+	return res
+
+l1 = num1(3)
+print(l1)		
+
+output
+------
+8
+
+(OR)
+
+def num1(x):
+	def num2(y):
+		return x + y
+	return num2
+
+print(num1(10)(2))		
+
+output
+------
+12
+
+
+EX:
+
+def greeting(first,last):
+	def getFullName():
+		return first + " " + last
+
+	print("Hi," +getFullName() + "!")
+
+greeting("Quincy","Larson")		
+	
+output
+------
+Hi,Quincy Larson!	
+
+
+EX:
+
+def make_multiplier_of(n):
+    def multiplier(x):
+        return x * n
+    result = multiplier(2)    
+    return result
+
+time = make_multiplier_of(5)
+print(time) 
+
+output
+------
+10
+
+(OR)
+
+def make_multiplier_of(n):
+    def multiplier(x):
+        return x * n   
+    return multiplier
+
+time = make_multiplier_of(5)
+print(time(2))   
+
+output
+-----
+10
+
+
+EX:
+#Nested Function
+def disp():
+	def show():
+		return 'Show Function'
+	result = show() + 'Disp Function'
+	return result
+
+a = disp()
+print(a)			
+
+output
+------
+Show Function Disp Function
+
+
+EX:
+#Nested Function
+
+def disp():
+	def show():
+		return 'Show Function'
+	result = show() + ' Disp Function'
+	return result
+
+
+print(disp())			
+
+output
+------
+Show Function Disp Function
+
+
+EX:
+#Nested Function
+
+def disp(st):
+	def show():
+		return 'Show Function'
+	result = show() + st +' Disp Function'
+	return result
+
+
+print(disp(' GeekyShows'))			
+
+output
+------
+Show Function GeekyShows Disp Function
+
+
+EX:
+#Nested Function
+
+def disp(st):
+	def show():
+		return 'Show Function'
+	result = show() + st +' Disp Function'
+	return result
+
+a = disp(' GeekyShows')
+print(a)			
+
+output
+-------
+Show Function GeekyShows Disp Function
+
+
+Passing a Function as Parameter in Python
+==========================================
+we can pass a function as paramerter to another function
+
+EX:
+def disp(sh):
+	print('Disp Function '+sh())
+
+def show():
+	return 'show Function'
+
+disp(show)					
+
+output
+---------
+Disp Function show Function
+
+EX:
+def fun(st):
+	return "This function is "+st()
+
+def str	():
+	return "Execute"
+
+d = fun(str)
+print(d)	
+
+output
+------
+This function is Execute
+
+
+EX:
+def disp():
+	return ' Disp Function' 
+
+def show(di):
+	return 'show Function' + di()
+
+result = show(disp)	
+print(result)	
+
+output
+-------
+show Function Disp Function
+
+
+
+
+Function returning another Function in Python
+==================================================
+A function can return another function
+
+EX:
+# Function Return another Function
+def disp():---->(#Outer Function)
+	def show():------->(#inner Function)
+		return 'Show Function'
+	print('Disp Function')
+	return show()---->ee return anedi outer function ki sambhandinchinadi idi inner function ni
+			  return chesthundi....		
+
+r_sh = disp()
+print(r_sh)
+
+output
+------
+Disp Function
+Show Function
+
+EX:
+
+def create_adder(x):
+	def adder(y):
+		return x + y
+
+	return adder
+
+add_15 = create_adder(15)
+print(f'This result is {add_15(1)}')
+
+output
+------
+This result is 16
+
+(OR)
+
+
+EX:
+
+def create_adder(x):
+	def adder(y):
+		return x + y
+
+	return adder
+
+add_15 = create_adder(15)
+print('This result is ',add_15(1))		
+
+output
+------
+This result is  16		
+
+
+(OR)
+
+EX:
+
+def create_adder(x):
+	def adder(y):
+		return x + y
+
+	return adder(1)--->Observe Here(This is not a good practies)
+
+add_15 = create_adder(15)
+print('This result is ',add_15)
+
+output
+------
+This result is  16
+
+
+EX:
+
+def outer(x):
+	return x*10
+
+def my_fun():
+	return outer
+
+res = my_fun()
+print('The result is :',res(2))		
+
+output
+-----
+The result is : 20
+
+EX:
+
+# Function Return another Function
+
+def disp():
+	def show():
+		return 'Show Function'
+	print('Disp Function')
+	return show	
+
+r_sh = disp()
+print(r_sh())	
+
+output
+------
+Disp Function
+Show Function
+
+EX:
+
+def disp():
+	def str(x):
+		return f"He will tell hi { x}"
+	print('Hello')
+	return str("Geeky")	
+
+a = disp()
+print(a)
+
+output
+------
+Hello
+He will tell hi Geeky	
+
+
+EX:
+# Function Return another Function
+
+def disp(sh):
+	print('Disp Function')
+	return sh()
+
+def show():
+	return 'show Function'
+
+r_sh = disp(show)
+print(r_sh)		
+	
+output
+-------
+Disp Function
+show Function
+
+
+
+EX:
+# Function Return another Function
+
+def disp(sh):
+	print('Disp Function')
+	return sh
+
+def show():
+	return 'show Function'
+
+r_sh = disp(show)
+print(r_sh())		
+	
+output
+-------
+Disp Function
+show Function
+
+
+Actual Argument and Formal Argument in Python
+==============================================
+
+1.Formal Argument-Function definition(def) parameters are called as formal
+arguments
+
+2.Actual Argument-Function call arguments are actual arguments
+
+	
+	EX: def add(x,y):  #x,y parameters ni sofware lo 'Formal argument's' antaru
+		c = x + y
+		print(c)
+	
+	    add(10,20)	  #10,20 arguments ni software lo 'Actual argument's antaru.
+
+
+
+Positional Argument in Python 
+=============================
+
+	Type of Actual Arguments
+
+1.Positional Arguments
+2.Keyword Arguments
+3.Default arguments
+4.Variable length arguments
+5.Keyword Variable Length arguments
+
+
+1.Positional arguments
+---------------------
+These arguments are passed to the function in correct positional order
+
+The number of arguments and their positions in the function definition should
+be equal to the number and position of the argument in the function call.
+
+EX:
+#Positional Arguments
+
+def pw(x,y):
+	z = x**y
+	print(z)
+
+pw(5,2)	
+
+output
+-----
+25
+
+
+EX:
+def per(name,age):
+	x = name + str(age)
+	print(x)
+
+per('Geekyshows  ',56)
+
+output
+----------
+Geekyshows  56
+
+
+EX:
+#Positional Arguments
+
+def pw(x,y):
+	z = x**y
+	print(z)
+
+pw(5,2,3)	
+
+output
+------
+Error vasthundi.
+
+
+keyword Arguments
+--------------------
+These arguments are passed to the functions with name-value pair so keyword
+arguments can identify the formal argument by their names.
+
+The keyword argument's name and formal argument's name must match.
+
+Number of argument must be equal in formal and actual argument, Not more Not less
+
+EX:
+def show(name,age):
+	print(name,age)
+
+show(name='Geekyshows',age =62)
+	
+output
+-------
+Geekyshows 62
+
+
+EX:
+def show(name,age):
+	print(f"Name:{name} Age:{age}")
+
+show(name='Geekyshows',age =62)
+
+output
+------
+Name:Geekyshows Age:62
+
+
+EX:
+def show(name,age):
+	print(f"Name:{name} Age:{age}")
+
+show(age =62,name='Geekyshows')
+
+output
+-----
+Name:Geekyshows Age:62
+
+EX:
+def show(name,age):
+	print(f"Name:{name} Age:{age}")
+
+show("Geekyshow",62)
+
+output
+------
+Name:Geekyshow Age:62
+
+
+Default Argument in Python
+---------------------------
+Sometime we mention default value to the formal argument in function
+defination and we may not required to provide actual argument,In this case default
+argument will be used by formal argument.
+
+If we do not provide actual argument for formal argument explicitly while
+calling the function then formal argument  will use default value on the other
+hand if we provide actual argument then it will use provided value.
+
+Number of argument must be equal in formal and actual argument, Not more Not less
+
+
+EX;
+def show(name,age=27):--->(#age = 27 is the default argument)
+	print(f"Name:{name} Age:{age}")
+
+show(name = "Geekyshow")
+
+output
+------
+Name:Geekyshow Age:27
+
+EX:
+def show(name,age=27): --->(#age = 27 is the default argument)
+	print(f"Name:{name} Age:{age}")
+
+show(name = "Geekyshow",age =62) (#But Ikkada Modify cheyavachunu)
+
+output
+-------
+Name:Geekyshow Age:62
+
+
+EX:
+def show(name,age=27):
+	print('Name is:',name)
+	print('Age is:',age)
+
+show(name = "Geekyshow")
+
+output
+-----
+Name is: Geekyshow
+Age is: 27
+
+EX;
+def show(name,age=27):
+	print('Name is:',name)
+	print('Age is:',age)
+
+show("Geekyshow",56)
+
+output
+------
+Name is: Geekyshow
+Age is: 56
+
+EX:
+def show(name,age=27):
+	print(f'Name is:{name} Age is:{age}')
+	
+
+show("Geekyshow",56)
+
+output
+------
+Name is:Geekyshow Age is:56
+
+
+
+Variable Length Argument in Python(VVVVIMP)
+---------------------------------------
+Variable length argument is an argument that can accept any number
+of values. the variable length argument is written with * symbol
+
+it stores all the value in a tuple.
+
+EX:
+def add(*num):
+	z = num[0]+num[1]+num[2]
+	print('Addition:',z)
+
+add(5,4,2)  #index number ga pass auvthai.
+
+output
+-------
+Addition: 11
+
+
+EX:
+def add(*num):
+	print(num[0])
+	print(num[1])
+	print(num[2])
+
+add(5,4,2)	
+
+output
+-------
+5
+4
+2	
+
+EX:
+def add(x,*num):
+	z = x + num[0] + num[1]
+	print('Addition:',z)
+
+add(5,4,2)	
+
+output
+-------
+Addition: 11
+
+EX:
+def add(*sub):
+	for i in sub:
+		print(i)
+
+add('Mathes','Science','Scocial')		
+
+output
+-----
+Mathes
+Science
+Scocial
+
+Keyword Variable Length Argument in Python(VVVVIMP)
+---------------------------------------
+keyword Variable Length arguments is an argument that can accept any number of
+value provided in the form of key-value pair.
+
+The keyword variable length argument is written with ** symbol.
+
+**it stores all the value in a dictionary in the from of key-value pair.
+
+
+
+EX:
+def add(**num):	  #ikkada form auvthundi dictionary ga,appudu key dwara print auvthndi.
+	z = num['a'] + num['b'] + num['c']
+	print(z)
+
+add(a = 5, b = 4, c = 2) #idi mootham paina dictionary ga form auvthundi.	
+
+output
+-----
+11
+
+EX;
+def add(x,**num):
+	z = x + num['a'] + num['b'] 
+	print(z)
+
+add(3, a = 5, b = 4)	
+
+output
+-----
+12
+
+Anonymous Function(Lambda Expression) in Python
+=================================================
+
+A function without a name is called as Anonymous Function. It is also known
+as Lambda Function.
+
+Anonymous Function are not defined using 'def' keyword rather they are defined using lambda keyword.
+
+Syntax:
+	lambda argument_list:expression
+
+EX:
+	lambda x :print(x)
+	lambda x,y:x + y
+
+Creating a Lambda Function
+--------------------------
+syntax:
+	lambda argument_list:expression
+
+EX:
+	lambda x,y :x + y
+
+here:
+	lambda=>keyword
+	x,y => Argument List
+	x + y => Expression
+	
+
+Calling	Lambda Function
+---------------------
+EX:
+
+	sum = lambda x : x+1   #sum is the Function Variable
+	sum(5)
+
+
+EX:
+	add = lambda x,y:x + y	 #add is the Function Variable.
+	add(5,2)
+
+
+Anonymous Function (or) Lambdas
+------------------------------
+1.Lambda Function doesn't have any Name
+	EX: lambda x:print(x)
+
+2.Lambda function returns a function
+	EX: show = lambda x:print(x)  #show is the Function variable.
+
+3.Lambda Function can take zero or any number of argument but contains only
+one expression
+	Ex: lambda x,y: x+y
+
+4. In lambda Function there is no need to write return statement
+5.It can only contain expressions and can't include statement in its body
+6.You can use all the type of Actual Arguments	
+	Ex:position arguments,keyword,Default, variable, you can use it.
+
+
+EX:
+a = lambda x:print(x)
+a(5)
+
+output
+------
+5
+
+
+EX;
+add = lambda x,y:x + y
+print(add(2,4))
+
+output
+------
+6
+
+
+EX:
+add = lambda x,y:(x + y, x -y)
+print(add(2,4))
+
+output
+------
+(6, -2)
+
+
+EX:
+add_sub = lambda x,y:(x + y, x -y)
+a,b = add_sub(2,4)
+print('a value is:',a)
+print('b value is:',b)
+
+output
+-----
+a value is: 6
+b value is: -2
+
+
+EX:
+#Positional Argument
+
+add = lambda x,y : x + y
+print(add(5,2))
+
+output
+------
+7
+
+EX:
+# Default Argument
+
+add = lambda x,y=3 : x + y  (#Here: y=3 is the default argument)
+print(add(5))
+
+output
+------
+8
+
+EX:
+add = lambda x,y=3:x+y	(#Here: y=3 is the default argument)
+print(add(5,1))	--->Ikkada Default arument value ni change cheshanu..	
+
+output
+------
+6
+
+EX:
+
+add = lambda x,y=3:x+y
+print(f'Addition is:{add(5,8)}')
+
+output
+-----
+Addition is:13
+
+
+EX:
+#Key word Arguemrnt
+
+add = lambda x,y : x + y
+print(add(y =2, x = 10))
+
+output
+-------
+12
+
+EX:
+add = lambda x,y:(x+y, x-y,x*y,x/y,x//y)
+a,b,c,d,e = add(y = 10,x = 12)
+print(f'a value is:{a}')
+print(f'b value is:{b}')
+print(f'c value is:{c}')
+print(f'd value is:{d}')
+print(f'e value is:{e}')
+
+output
+------
+a value is:22
+b value is:2
+c value is:120
+d value is:1.2
+e value is:1
+
+EX:
+#Variable Length Argument
+
+add = lambda *num : num[0]+num[1]
+print(add(2,5))
+
+output
+------
+7
+
+EX:
+#Keyword valriable length argument
+
+add = lambda **num : num['a']+num['b']
+print(add(a = 2,b = 15))
+
+output
+-----
+17
+
+
+Nested Lambda Function in Python
+====================================
+
+When we write a lambda function inside another lambda function that is
+called nested lambda function.
+
+EX:
+add = lambda x = 10 : (lambda y: x + y)
+
+a = add()
+print(a(20))
+
+output
+------
+30
+
+Passing Lambda Function to another Function in Python
+=============================================
+We can pass lambda function to another function.
+
+EX:
+a = lambda x :x
+print(a(8))
+
+output:
+-------
+8
+
+EX:
+def show(a):
+	print(a(8))
+
+show(lambda x: x)	
+
+output
+------
+8
+
+
+Returning Lambda Function from a Function in Python
+=================================================
+
+We can return a lambda function from function
+
+EX:
+def add():
+	y = 20
+	return (lambda x : x + y)
+
+a = add()
+print(a(10))	
+
+output
+------
+30
+
+
+
+Local Variable in Python
+=========================
+
+The variable which are declared inside a function called as local Variable.
+
+Local Variable Scope is limited only to that function where it is created.It
+means local variable is available only 'in that function' not outside of that function.
+
+
+def add(y):
+	x = 10  #local varible
+	
+	print(x)      | #using Local variable inside Function only.
+	print(x + y)  |
+
+add(20)
+
+
+output
+------
+10
+30
+
+EX:
+def add():
+	x = 10   #local varible
+
+	print(x)
+	
+add()
+
+output
+------
+10
+
+
+Global Variable in Python
+===========================
+When a variable is declared 'above a function',it become global variable.
+These variables are available to all the function which are written after it.
+
+The scope of global variable is the entire program body written below it.
+
+
+a = 50      #Global Variable
+def show():
+	x = 10 #Local Variable
+
+	print(a)  #using Global variable inside function
+
+	print(x)  #using Local Variable inside Function
+
+show()
+print('x:',x)  #Using Local Variable outside fucntion,it will show error
+print('a:',a)  #Using Global Varible.	
+
+
+
+EX:
+
+i = 0
+
+def myfun():
+	a = i + 1
+	print('My Function:',a)
+
+
+myfun()	
+
+output
+-------
+My Function: 1
+
+
+global Keyword in Python
+===========================
+If Local Variable and global variable has same name then the function by
+default refers to the 'local variable' and  ignores the global variable.
+
+It menas global variable is not accessible inside the function but possible to
+access outside of function.
+
+In this situation,if we need to access gloabl variable inside the function we
+can access it using global keyword follwed by variable name.
+
+
+EX:
+
+a = 50  #Global variable
+
+def show():
+	a = 10
+	print('A:',a)
+
+show()	
+
+output
+--------
+A:10
+
+
+
+EX:
+a = 50
+
+def show():
+	a = 10
+	print('A:',a)
+
+show()
+print('A:',a)	
+
+output
+------
+A: 10
+A: 50
+
+
+EX:
+i = 0
+
+def show():
+	global i
+	i = i + 1
+	print('A:',i)
+
+show()
+print('A:',i)	
+
+output
+------
+A: 1
+A: 1
+
+
+
+EX:
+i = 0
+
+def myfun():
+	global i
+	while i < 5:
+		i += 1
+		print(i)
+
+myfun()
+print('Global:',i)		
+
+output
+------
+1
+2
+3
+4
+5
+Global:5
+
+
+globals() Function in Python
+============================
+This Function returns a table of current global variables in the form of dictionary.
+
+
+a = 50
+
+def show():
+	
+	print('Local variable:',a)
+
+
+show()
+print('Global variable:',a)
+
+output
+------
+Local variable: 50
+Global variable: 50
+	
+
+
+EX:
+a = 50
+
+def show():
+	a = 10
+	print('Local variable:',a)
+
+
+show()
+print('Global variable:',a)	
+
+output
+------
+Local variable: 10
+Global variable: 50
+
+
+EX:
+
+a = 50
+
+def show():
+	a = 10
+	print('Local variable:',a)
+	x = globals()['a']    #ela use cheyali global variable inside function.
+	print('X:',x)
+
+
+show()
+print('Global variable:',a)	
+
+output
+-------
+Local variable: 10
+X: 50
+Global variable: 50
+
+
+EX:
+a = 50
+
+def show():
+	a = 10
+	print('Local variable:',a)
+	x = globals()['a']   #current global variable inside function.
+	print('X:',x)
+	x = 40
+	print('X:',x)       #Modify global variable.inside function
+
+
+show()
+print('Global variable:',a)	
+	
+output
+-------
+Local variable: 10
+X: 50
+X: 40
+Global variable: 50
+
+
+Recursion in Python
+----------------------
+A Function calling ifself again and again to compute a value is referred to
+Recursive Fucntion or Recursion.
+
+Recursion limit is 1000 times only
+
+
+#Check recursion in python
+import sys
+print(sys.getrecursionlimit())
+
+output
+------
+1000
+
+
+Pass or Call by Object Reference in Python
+============================================
+In C, Java and some other languages we pass value to a function either by value or
+by reference widely known as 'Pass by Value" and "Pass by Reference".
+
+In Python,Neither of these two concepts is applicable rather the values are sent to function
+by maens of object reference
+
+When we pass value like number,strings,tuples or lists to function, the references of these objects
+are passed to function.
+
+
+EX:
+def val(x):
+	x = 15
+	print(x, id(x))
+
+x = 10
+val(x)
+print(x, id(x))	
+
+output
+-------
+15 140732365879520
+10 140732365879360
+
+
+EX:
+def val(x):
+	print(x, id(x))
+	x = 15
+	print(x, id(x))
+
+
+x = 10
+val(x)
+print(x, id(x))	
+
+output
+-------
+10 140732143319104
+15 140732143319264
+10 140732143319104
+
+
+EX:
+def val(lst):
+	print('IFBA:',lst,id(lst))
+	lst.append(4)
+	print("IFAA:",lst,id(lst))
+
+
+lst = [1,2,3]
+print("BCF:",lst,id(lst))
+val(lst)
+print('ACF:',lst,id(lst))	
+
+output
+------
+BCF: [1, 2, 3] 1819551726272
+IFBA: [1, 2, 3] 1819551726272
+IFAA: [1, 2, 3, 4] 1819551726272
+ACF: [1, 2, 3, 4] 1819551726272
+
+
+In python, values are passed to function by object reference
+if object is Immutable (not modifiable) then the modified value is not available outside
+the function.
+If object is mutable(modifiable then the modified value is available outside the function.
+Immutable Objects -Integer,Float,String, and Tuple
+Mutable Objects - List and Dictionary
+
+EX:
+def val(lst):
+	print('IFBA:',lst,id(lst))
+	lst = [11,12,33]
+	print("IFAA:",lst,id(lst))
+
+
+lst = [1,2,3]
+print("BCF:",lst,id(lst))
+val(lst)
+print('ACF:',lst,id(lst))	
+
+output
+------
+BCF: [1, 2, 3] 1816252185408
+IFBA: [1, 2, 3] 1816252185408
+IFAA: [11, 12, 33] 1816254143744
+ACF: [1, 2, 3] 1816252185408
+
+
+
+Function Decorator in Python
+==============================
+A Decorator Function is a Function that accept a function as parameter and returns a function
+
+A Decorator takes the result of a fucntion,modifies the result and returns it.
+
+In Decorators,Functions are taken as the argument into another function and then called
+inside the wrapper function.
+
+we use @fucntion_name to specify a decorator to be applied another function.
+
+EX:
+def decor(fun):
+	def inner():
+		a = fun()
+		add = a + 5
+		return add
+	return inner
+	
+def num():
+	return 10
+
+result_fun = decor(num)
+print(result_fun())			
+
+output
+-----
+15
+
+
+EX:
+def decor(num):
+	def inner():
+		a = num()
+		add = a + 5
+		return add
+	return inner
+	
+@decor	
+def num():
+	return 10
+
+print(num())			
+
+
+output
+------
+15
+
+
+Note: Decorator Topic sariga artham kale malli chudu.video(Geekyshows)
+====================================END========================
+
+
+		
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+

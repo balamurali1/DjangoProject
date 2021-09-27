@@ -1,0 +1,1404 @@
+	Files
+	======
+
+Files is the collection of data that is available to a program.We
+can retrieve and use data stored in a file whenever we required.
+
+Note:Files ni Desktop meeda pettakudadu.Okay
+
+Advantages
+==========
+1.Stored Data is Permanent unless someone remove it.
+2.Stored data can be shared.
+3.it is possible to update or remove the data.
+
+Type of Files in python
+=======================
+There are two type of files:
+
+1.TextFile -It stores data in the from of characters.It is used to store characters and 
+string.
+	
+	EX:
+		Student data
+
+2.BinaryFile-It Stores data in the from of bytes,a group of 8 bites each.It is used to store text,
+images,pdf,csv,video and audio.
+
+
+
+Write Mode
+----------
+EX:
+f = open('student.txt',mode = 'w')
+f.write('Hello How are You')
+f.close()
+
+
+output
+------
+C:\SMS>python.py
+
+C:\SMS> (Go and see in this floder)
+
+
+EX:
+
+f = open('student.txt') #file open by default in 'read mode'
+	OR
+f = open('student.txt',mode = 'r')
+print('File Opend')
+f.close()
+
+ouput
+----
+File Opend
+
+
+
+Text Mode and Binary Mode in Python(Files 'Open')
+====================================
+Text Mode=>A file opened in text mode, treats its contents as if it contains text
+strings of the 'str' type.
+
+When you  get data from a text mode file,Python first decodes the raw bytes using either a platform-
+dependent encoding or,specified one.
+
+Binary Mode=>A file opened in Binary Mode, Python uses the data in the file without any decoding,binary
+mode file reflects the raw data in the file.
+
+EX:
+
+#File Write Mode
+f = open('student.txt',mode = 'w')
+f.write('Hello\n')	#\n is creating new line
+f.write('Balamurali\n')
+f.write('How are you')
+f.close()
+print('Writing Success')
+print()
+
+
+#red file mode
+f = open('student.txt',mode = 'r') #r = read ,(Text Mode)
+data = f.read()
+print(data)
+f.close()
+print('Reading Success')
+print()
+
+
+f = open('student.txt',mode = 'rb') #rb = readbinary,(BinaryMode)
+data = f.read()
+print(data)
+f.close()
+print()
+
+
+
+Opening a File in Python
+=========================
+If we want to use a file or its data,first we have to open it.
+
+open()->Open() Function is used to open a file.It returns a pointer to the beginning of the file.
+This is called file 'handler or file object'.
+
+syntax:
+	open('filename',mode='r',buffering,encoding=None,errors=None,newline=None,closefd=True,opener=None)
+
+	Here:
+	  	1.filename -It represents a name of a file.
+		2.mode- It represents the Purpose of opening the file.It defaults to 'r' which means open for
+		reading in text mode.
+			EX:
+				mode means yee mode lo open chyali ani like,w,r,rb..etc
+	
+		3.buffering-it is integer value used to set the size of the buffer for the file. In the binary
+		mode we can pass 0 as buffering interger to inform not to use any buffering.In text mode we
+		can pass 1 for buffering to retrieve data from the file one line at a time. we can pass any
+		positive integer.Default is 4096 or 8192 bytes.
+			EX:
+				buffering = 0
+				buffering = 1
+			
+		4.encoding-name of the encoding used to decode or encode the file.It should be used only in
+		'text mode'
+			EX:
+				encoding=utf-8(text file ki utf-8 use chestharu)
+		5.errors-An optional string that specifies how encoding and decoding errors are to be handled,
+		this cannot be used in binary mode,Some  of the standard values are strict,ignore,replace etc.
+		6.newline-This parameter "controls how universal newlines mode" works(it only applies to text mode)
+		It can be None, ", '\n', '\r', and '\r\n'.
+
+			Here:
+				\n = i am using Text file
+				\r\n = i am using Bibary file
+
+		6.closefd-If closefd is False and a file descriptor rather than a filename was gives, the
+		underlying file description will be kept open when the file is closed.if a filename is given
+		"closefd must be True(the default)",Otherwise an error will be raised.
+	
+		7.opener-A custom opener can be used by passing a callable as opener.
+
+Opening a File
+---------------
+EX:	
+	f = open('student.txt','w')
+	here:
+		f = File Handler/File Object
+		student.taxt=File Name
+		w=File Mode
+
+EX:
+	f = open('C:\\SMS\\student.txt','w')
+
+	here:
+		f = File Handler/File Object
+		'C:\\SMS\\student.txt'=File Path
+		w=File Mode
+
+
+program
+-------
+f = open('student.text)  #by default it will open read mode(mode = 'r')
+print(f)
+
+output
+------
+C:\SMS>python.py
+
+<_io.TextIOWrapper name='student.txt' mode='r' encoding='cp1252'>
+
+
+Text File Modes and Binary File Modes in Python
+===============================================
+	Text File Modes
+	---------------
+	r = Open for reading the file pointer is positioned at the beginning of the file.If
+the file doesn't exist it will show "FileNotFoundError".
+
+	w = Open for writing.if any data is already present in the file,it will overwrite the data. If
+the file doesn't exist it will create that file.
+
+	x = Open for exclusive creation with write.The specified file must not be available,if the specified
+file is available it will show error "FileExistsError"
+
+	a =Open for appending.The file pointer is positioned at the end of the file. it appends new data at
+the end of file. If the file does not exists it will create a new file for writing data.
+
+	r+ = open for reading and then writing.
+	
+	w+ = Open for writing and then reading.It will overwrite existing data
+
+	a+ = Open for appending then reading.It won't overwrite existing data.
+
+
+Binary File Modes
+-----------------
+	rb = open for reading.The file pointer is positioned at the beginning of th file.if the file doesn't
+exist it will show 'FileNotFoundError".
+
+	wb = Open for writing.If any data is already present in the file,it will overwrite the data.If the file
+doesn't exist it will create that file.
+
+	xb = Open for exclusive creation with.The specified file must not be available,if the specified
+file is available it will show error 'FileExistError.
+
+	ab = Open for appending.The file pointer is positioned at the end of the file.It appends new data at
+the end of file.If the file does not exists.It will create a new file for writing data.
+
+	rb+ = Open for reading and then writing.
+
+	wb+ = Open for writing and then rading.it will overwrite existing data
+	
+	ab+ = Open for appending then reading.It won't overwrite existing data.
+
+
+
+Closing a File in Python
+=======================
+close() - This method is used to close,Opened file.
+
+Once we close the file,file object it deleted from the memory hence file will be no longer
+accessible unless we open it again.
+
+if you don't explicitly close a file,Python's garbage collector will eventually destory
+the object and close the open file for you,but the file may stay open for a while so you
+should always close opened file.
+
+	what will happened if we do not close opened file
+	-------------------------------------------------
+	1.Data of the file may be corrupted or deleted.
+	2.Memodry utilized by the file is not freed it may cause of insufficient memory.
+	
+	
+EX:
+	f = open('teacher.txt')
+
+
+	Write code here.....
+
+
+	
+	f.close()
+
+
+
+
+File Object Variables in Python
+===============================
+name - This shows the name of specified file.
+	syntax:
+		file_object.name
+
+
+EX:
+f = open('student.txt',mode = 'r',encoding = 'utf-8')
+
+print(f.name)
+
+output
+------
+C:\SMS>python.py
+
+student.txt
+
+
+
+mode - This shows mode(purpose) of the file.
+	synatx:
+		file_object.mode
+
+EX:
+
+f = open('student.txt',mode = 'r',encoding = 'utf-8')
+
+print(f.mode)
+
+output
+-----
+C:\SMS>python.py
+
+r
+
+
+closed - This used to check whether file has closed or not.
+It shows True if file is closed else shows False.
+	Syntax:
+		file_object.closed
+
+EX:
+f = open('student.txt',mode = 'r',encoding = 'utf-8')
+
+print(f.closed)
+
+output
+----
+C:\SMS>python.py
+
+False
+
+
+EX:
+f = open('student.txt',mode = 'r',encoding = 'utf-8')
+f.close()
+print(f.closed)
+
+output
+-----
+C:\SMS>python.py
+
+True
+
+
+
+File object Methods
+-------------------
+readable() - This method is used to check whether file is readable or not.
+	     It returns True if file is readable else returns False.
+
+		syntax:
+			file_object.readable()
+
+EX:
+f = open('student.txt',mode = 'r',encoding = 'utf-8')
+
+print(f.readable())
+
+ouptut
+-----
+C:\SMS>python.py
+
+True
+
+
+writable() - This method is used to check whether file is writable or not.
+	     It returns if file is writable else returns False.
+		Syntax:
+			file_object.writable()
+
+EX:
+f = open('student.txt',mode = 'r',encoding = 'utf-8')
+
+print(f.writable())
+
+output
+-------
+C:\SMS>python.py
+
+False
+
+Note:Here writable() lo  mode vachesi r mode lo undi kabatti False lo vasthundi.
+
+
+
+EX: combination of All Methods and variable.
+	
+f = open('student.txt',mode = 'r',encoding = 'utf-8')
+print('File Name:',f.name)
+print('File Mode:',f.mode)
+print('File Readable:',f.readable())
+print('File Writable:',f.writable())
+print('File Closed:',f.closed)
+f.close()
+print('File Closed:',f.closed)
+
+
+output
+------
+C:\SMS>python.py
+
+File Name: student.txt
+File Mode: r
+File Readable: True
+File Writable: False
+File Closed: False
+File Closed: True
+
+
+EX:
+f = open('student.txt',mode = 'w',encoding = 'utf-8')
+print('File Name:',f.name)
+print('File Mode:',f.mode)
+print('File Readable:',f.readable())
+print('File Writable:',f.writable())
+print('File Closed:',f.closed)
+f.close()
+print('File Closed:',f.closed)
+
+output
+------
+C:\SMS>python.py
+
+File Name: student.txt
+File Mode: w
+File Readable: False
+File Writable: True
+File Closed: False
+File Closed: True
+
+EX:
+f = open('student.txt',mode = 'a',encoding = 'utf-8')
+print('File Name:',f.name)
+print('File Mode:',f.mode)
+print('File Readable:',f.readable())
+print('File Writable:',f.writable())
+print('File Closed:',f.closed)
+f.close()
+print('File Closed:',f.closed)
+
+output
+------
+C:\SMS>python.py
+
+File Name: student.txt
+File Mode: a
+File Readable: False
+File Writable: True
+File Closed: False
+File Closed: True
+
+
+EX:same file peru tho mode='x' use chesi malli create chesthe Error vasthundi
+
+f = open('student.txt',mode = 'x',encoding = 'utf-8')
+print('File Name:',f.name)
+print('File Mode:',f.mode)
+print('File Readable:',f.readable())
+print('File Writable:',f.writable())
+print('File Closed:',f.closed)
+f.close()
+print('File Closed:',f.closed)
+
+output
+------
+FileExistsError: [Errno 17] File exists: 'student.txt'
+
+
+EX: file name change chesi mode = 'x' dwara  New file ni  create cheyavachunu.
+
+f = open('student1.txt',mode = 'x',encoding = 'utf-8')
+print('File Name:',f.name)
+print('File Mode:',f.mode)
+print('File Readable:',f.readable())
+print('File Writable:',f.writable())
+print('File Closed:',f.closed)
+f.close()
+print('File Closed:',f.closed)
+
+output
+-------
+C:\SMS>python.py
+File Name: student1.txt
+File Mode: x
+File Readable: False
+File Writable: True
+File Closed: False
+File Closed: True
+
+
+EX:
+f = open('student.txt',mode = 'r+',encoding = 'utf-8')
+print('File Name:',f.name)
+print('File Mode:',f.mode)
+print('File Readable:',f.readable())
+print('File Writable:',f.writable())
+print('File Closed:',f.closed)
+f.close()
+print('File Closed:',f.closed)
+
+output
+-----
+File Name: student.txt
+File Mode: r+
+File Readable: True
+File Writable: True
+File Closed: False
+File Closed: True
+
+
+EX:
+
+f = open('student.txt',mode = 'w+',encoding = 'utf-8')
+print('File Name:',f.name)
+print('File Mode:',f.mode)
+print('File Readable:',f.readable())
+print('File Writable:',f.writable())
+print('File Closed:',f.closed)
+f.close()
+print('File Closed:',f.closed)
+
+output
+------
+File Name: student.txt
+File Mode: w+
+File Readable: True
+File Writable: True
+File Closed: False
+File Closed: True
+
+
+EX:
+f = open('student.txt',mode = 'a+',encoding = 'utf-8')
+print('File Name:',f.name)
+print('File Mode:',f.mode)
+print('File Readable:',f.readable())
+print('File Append:',f.writable())
+print('File Closed:',f.closed)
+f.close()
+print('File Closed:',f.closed)
+
+output
+-----
+File Name: student.txt
+File Mode: a+
+File Readable: True
+File Append: True
+File Closed: False
+File Closed: True
+
+
+EX:
+f = open('nature1.jpg',mode = 'rb') #rb = readbinary
+print('File Name:',f.name) 
+print('File Mode:',f.mode)
+print('File Readable:',f.readable())
+print('File writable:',f.writable())
+print('File Closed:',f.closed)
+f.close()
+print('File Closed:',f.closed)
+
+output
+------
+File Name: nature1.jpg
+File Mode: rb
+File Readable: True
+File writable: False
+File Closed: False
+File Closed: True
+
+
+EX:
+
+f = open('nature1.jpg',mode = 'wb') #rb = writebinary
+print('File Name:',f.name) 
+print('File Mode:',f.mode)
+print('File Readable:',f.readable())
+print('File writable:',f.writable())
+print('File Closed:',f.closed)
+f.close()
+print('File Closed:',f.closed)
+
+output
+-----
+File Name: nature1.jpg
+File Mode: wb
+File Readable: False
+File writable: True
+File Closed: False
+File Closed: True
+
+EX:
+f = open('nature1.jpg',mode = 'ab') #rb = appendbinary
+print('File Name:',f.name) 
+print('File Mode:',f.mode)
+print('File Readable:',f.readable())
+print('File Append:',f.writable())
+print('File Closed:',f.closed)
+f.close()
+print('File Closed:',f.closed)
+
+output
+-------
+File Name: nature1.jpg
+File Mode: ab
+File Readable: False
+File Append: True
+File Closed: False
+File Closed: True
+
+
+EX:same pic peru tho mode='xb' use chesi malli create chesthe Error vasthundi
+
+f = open('nature1.jpg',mode = 'xb') 
+print('File Name:',f.name) 
+print('File Mode:',f.mode)
+print('File Readable:',f.readable())
+print('File writable:',f.writable())
+print('File Closed:',f.closed)
+f.close()
+print('File Closed:',f.closed)
+
+output
+------
+FileExistsError: [Errno 17] File exists: 'nature1.jpg'
+
+
+EX:pic name change chesi mode = 'xb' dwara  New pic ni  create cheyavachunu.
+
+f = open('nature2.jpg',mode = 'xb') 
+print('File Name:',f.name) 
+print('File Mode:',f.mode)
+print('File Readable:',f.readable())
+print('File writable:',f.writable())
+print('File Closed:',f.closed)
+f.close()
+print('File Closed:',f.closed)
+
+output
+-----
+File Name: nature2.jpg
+File Mode: xb
+File Readable: False
+File writable: True
+File Closed: False
+File Closed: True
+
+EX:
+f = open('nature1.jpg',mode = 'rb+') 
+print('File Name:',f.name) 
+print('File Mode:',f.mode)
+print('File Readable:',f.readable())
+print('File writable:',f.writable())
+print('File Closed:',f.closed)
+f.close()
+print('File Closed:',f.closed)
+
+output
+------
+File Name: nature1.jpg
+File Mode: rb+
+File Readable: True
+File writable: True
+File Closed: False
+File Closed: True
+
+
+EX:
+f = open('nature1.jpg',mode = 'wb+') 
+print('File Name:',f.name) 
+print('File Mode:',f.mode)
+print('File Readable:',f.readable())
+print('File writable:',f.writable())
+print('File Closed:',f.closed)
+f.close()
+print('File Closed:',f.closed)
+
+output
+----
+File Name: nature1.jpg
+File Mode: rb+ #ikkada actual ga 'wb' ravali.
+File Readable: True
+File writable: True
+File Closed: False
+File Closed: True
+
+EX:
+f = open('nature1.jpg',mode = 'ab+') 
+print('File Name:',f.name) 
+print('File Mode:',f.mode)
+print('File Readable:',f.readable())
+print('File writable:',f.writable())
+print('File Closed:',f.closed)
+f.close()
+print('File Closed:',f.closed)
+
+
+output
+-----
+File Name: nature1.jpg
+File Mode: ab+
+File Readable: True
+File writable: True
+File Closed: False
+File Closed: Tru
+
+
+Check File exists or not in Python
+======================================
+	isfile() - This method is used to check whether specified file is exists or not,
+This method belongs to path module which is sub module of 'os' module.
+
+	syntax:
+		import os
+		os.path.isfile(filename)
+
+EX:
+import os
+print(os.path.isfile('student3.txt'))
+
+output
+-----
+False
+
+EX:
+import os
+print(os.path.isfile('student.txt'))
+
+output
+-----
+True
+
+EX:
+import os
+if os.path.isfile('student.txt'):
+	f = open('student.txt')
+	print('File Opened')
+	f.close()
+
+else:
+	print('File Not Found')
+
+
+output
+------
+File Opened
+
+
+EX:
+import os
+if os.path.isfile('student4.txt'):
+	f = open('student.txt')
+	print('File Opened')
+	f.close()
+
+else:
+	print('File Not Found')
+
+output
+------
+File Not Found.
+
+
+Writing Data to File using "write Method" in Python 
+================================================
+Write() - This Method is used to store/write character or string into the file
+represented by the file object .It returns the number of character written.
+	syntax:
+		file_object.write(string)
+
+EX:
+f = open('student.txt',mode = 'w')
+f.write('Hello')
+f.close()
+
+output
+-----
+Hello
+
+
+EX:
+f = open('student.txt',mode = 'w')
+f.write('Hello\nGood\n Bye\nSuper')
+f.close()
+
+output
+------
+Hello
+Good
+ Bye
+Super
+
+
+EX:
+f = open('student.txt',mode = 'w')
+n = f.write('Good Morning\n')
+f.write('Hello\nGood\n Bye\nSuper')
+print('n length is:',n)
+f.close()
+
+output
+-------
+Good Morning
+Hello
+Good
+ Bye
+Super
+
+n length is:13
+
+
+EX:mode x use chesthe new file create auvthundi.
+
+f = open('student5.txt',mode = 'x')
+f.write('Good Morning\n')
+f.write('Hello\nGood\n Bye\nSuper')
+f.close()
+
+output
+-------
+Good Morning
+Hello
+Good
+ Bye
+Super
+
+EX:
+f = open('student6.txt',mode = 'w')
+f.write('Good Morning\n')
+f.close()
+
+output
+------
+Good morning
+
+
+EX:
+f = open('student6.txt',mode = 'a')
+f.write('Good evening')
+f.close()
+
+output
+----
+Good morning
+Good evening
+
+
+Writing Data to File using "wirtelines Method" in Python 
+=======================================================
+	writelines() - This methiod is used to Store/write group of string(list,tuple,set) into
+file represented by the file object.
+
+	syntax:
+		file_object.writelines(group of string)
+
+EX:
+f = open('student6.txt',mode = 'w')
+list = ['Rahul','Sonam','Sumit','Rani','Raj']
+f.writelines(list)
+f.close()
+print('success')
+
+output
+-----
+RahulSonamSumitRaniRaj
+
+
+EX:
+f = open('student6.txt',mode = 'w')
+list = ['Rahul\n','Sonam\n','Sumit\n','Rani\n','Raj\n']
+f.writelines(list)
+f.close()
+
+ouput
+------
+Rahul
+Sonam
+Sumit
+Rani
+Raj
+
+
+EX:
+f = open('student6.txt',mode = 'a')
+list = ['Rahul\n','Sonam\n','Sumit\n','Rani\n','Raj\n','Rajan\n']
+list1 = ['sowmya']
+f.writelines(list)
+f.writelines(list1)
+f.close()
+
+output
+-----
+Rahul
+Sonam
+Sumit
+Rani
+Raj
+Rajan
+sowmya
+
+
+Reading Data from File using 'read Method' in Python
+====================================================
+	read(size) - This method  is used to read data/content from a file and returns it
+as string in text mode or bytes object in binary mode.
+
+	syntax:	
+		file_object.read(size)
+
+where size represent the number of bytes to be read from the beginning of the file.
+
+When size is omitted or negative,the entire contents of the file will be read are returned.
+
+If the end of the file has been reached,file_object.read() will return an empty string('')
+
+
+Ex:
+f = open('student.txt',mode = 'r')
+data = f.read()
+print(data)
+f.close()
+print('Completed')
+
+output
+-----
+Good Morning
+Hello
+Good
+ Bye
+Super
+Completed
+
+
+EX:
+f = open('student.txt',mode = 'r')
+data = f.read(2)--->size how many letter visible.
+data1 = f.read(2)
+print(data)
+print(data1)
+f.close()
+print('Completed')
+
+output
+----
+Go
+od
+Completed
+
+
+
+Reading Data from file using readline and "readlines Method" in Python
+=============================================================
+
+readline() - This method is used to read single line from a file
+	syntax:
+		file_object.readline()
+
+readlines() - This method is used to read all lines from a file.It will return list
+of  line.
+
+	syntax:
+		file_object.readlines()
+
+EX:
+f = open('student.txt',mode = 'r')
+data = f.readline()
+print(data)
+f.close()
+
+output
+------
+Gooe Morning
+
+
+EX:
+f = open('student.txt',mode = 'r')
+data = f.readline()
+data1 = f.readline()
+print(data)
+print(data1)
+f.close()
+
+output
+------
+Good Morning
+
+Hello
+
+
+EX:
+
+f = open('student.txt',mode = 'r')
+data = f.readline()
+data1 = f.readline()
+print(data,end = '')--->Look here
+print(data1)
+f.close()
+
+output
+-----
+Good Morning
+Hello
+
+
+EX:
+f = open('student.txt',mode = 'r')
+data = f.readlines()
+print(data)
+f.close()
+
+output
+-------
+['Good Morning\n', 'Hello\n', 'Good\n', ' Bye\n', 'Super']
+
+
+EX:
+
+f = open('student.txt',mode = 'r')
+data = f.readlines()
+print(data)
+for i in data:
+	print(i,end = '')
+f.close()
+
+output
+------
+['Good Morning\n', 'Hello\n', 'Good\n', ' Bye\n', 'Super']
+Good Morning
+Hello
+Good
+ Bye
+Super
+
+
+tell and seek Method in Python
+=============================
+tell() - This method is used to find current position of "file pointer(cursor)" from beginning of the
+file.position starts from 0
+
+	syntax:
+		file_object.tell()
+
+
+EX:
+f = open('student.txt',mode = 'r')
+print(f.tell())
+
+
+output
+------
+0
+
+
+EX:
+
+f = open('student.txt',mode = 'r')
+print(f.tell())
+data1 = f.read(5)
+print(data1)
+
+output
+-----
+0
+Good
+
+
+EX:
+f = open('student.txt',mode = 'r')
+print(f.tell())
+data1 = f.read(5)
+print(data1)
+print(f.tell())
+data2 = f.read(3)
+print(data2)
+print(f.tell())
+
+output
+-------
+0
+Good
+5
+Mor
+8
+
+seek(position) -This Method is used to move file pointer from one position to 
+another position from beginning of the file. Position starts from 0 and it must 
+be positive integer.
+
+	syntax:
+		file_object.seek(position)
+
+EX:
+	
+f = open('student.txt',mode = 'r')
+print(f.tell())
+
+output
+------
+0
+
+EX:
+f = open('student.txt',mode = 'r')
+print(f.tell()) #prasent pointer
+f.seek(7)
+print(f.tell()) #after seek pointer
+data = f.read()
+print(data)
+
+output
+-------
+0
+7
+rning
+Hello
+Good
+ Bye
+Super
+
+EX:
+
+f = open('student.txt',mode = 'r')
+print(f.tell()) #prasent pointer
+f.seek(7)
+print(f.tell()) #seek after pointer
+data = f.read()
+print(data)
+f.seek(2)
+print(f.tell())
+data1 = f.read()
+print(data1)
+
+output
+------
+0
+7
+rning
+Hello
+Good
+ Bye
+Super
+2
+od Morning
+Hello
+Good
+ Bye
+Super
+
+
+File Mode r+ w+ a+ in Python
+=================================
+EX:
+#Read then write(r+)
+
+f = open('student.txt',mode = 'r+')
+data = f.read()
+f.write('Youtube')
+print(data)
+
+output
+------
+Good Morning
+YoutubeYoutube
+
+
+EX:
+#Read then write(r+)
+
+f = open('student.txt',mode = 'r+')
+print(f.tell())
+data = f.read()
+print(f.tell())
+f.write('Youtube')
+print(f.tell())
+print(data)
+print(f.tell())
+
+output
+----
+0
+35
+42
+Good Morning
+YoutubeYoutubeYoutube
+42
+
+
+EX:
+#Writing and then reading It will Overwrite existing data
+f = open('student.txt',mode = 'w+')
+f.write('youtube')
+data = f.read()
+print(data)
+
+
+output
+-----
+ikkada kanipinchadu file lo chudu.
+
+
+EX:
+#Writing and then reading It will Overwrite existing data
+f = open('student.txt',mode = 'w+')
+print(f.tell())
+f.write('youtube')
+print(f.tell())
+data = f.read()
+print(f.tell())
+print(data)
+
+output
+-----
+0
+7
+7
+
+EX:
+#Writing and then reading It will Overwrite existing data
+
+f = open('student.txt',mode = 'w+')
+print(f.tell())
+f.write('youtube')
+print(f.tell())
+f.seek(0)
+print(f.tell())
+data = f.read()
+print(f.tell())
+print(data)
+
+output
+------
+0
+7
+0
+7
+youtube
+
+
+EX:
+#Appending and then reading It wont Overwrite existing data
+
+f = open('student.txt',mode = 'a+')
+f.write('youtube')
+data = f.read()
+print(data)
+
+output
+------
+Ikkada kanipinchadu file lo chudu.
+
+
+EX:
+#Appending and then reading It wont Overwrite existing data
+f = open('student.txt',mode = 'a+')
+print(f.tell())
+f.write('youtube')
+print(f.tell())
+data = f.read()
+print(f.tell())
+print(data)
+
+
+output
+-----
+14
+21
+21
+
+EX:
+#Appending and then reading It wont Overwrite existing data
+
+f = open('student.txt',mode = 'a+')
+print(f.tell())
+f.write('youtube')
+print(f.tell())
+f.seek(0)
+print(f.tell())
+data = f.read()
+print(f.tell())
+print(data)
+
+
+output
+------
+28
+35
+0
+35
+youtubeyoutubeyoutubeyoutubeyoutube
+
+
+How to Copy File Contents in Python
+=====================================
+EX:
+f1 = open('student.txt', mode = 'r')
+f2 = open('student1.txt',mode = 'w')
+data = f1.read()
+f2.write(data)
+f1.close()
+f2.close()
+
+
+output
+-----
+Open student1 file
+
+
+with Statement in Python 
+========================
+The with statement can be used while opening a file
+
+when we open a file using with statement there is no need to close the file
+explicitly.
+	synatax:
+		with open('filename',mode='r')as file_object:
+			statements
+
+	Ex:
+		with open('student.txt')as f:
+			f.read()
+
+
+EX:
+with open('student.txt') as f:
+	data = f.read()
+	print(data)
+	
+
+output
+-----
+youtubeyoutubeyoutubeyoutubeyoutube
+
+EX:
+with open('student.txt') as f:
+	data = f.read()
+	print(data)
+	print(f.closed)
+
+output
+------
+youtubeyoutubeyoutubeyoutubeyoutube
+False
+
+
+EX:
+with open('student.txt') as f:
+	data = f.read()
+	print(data)
+print(f.closed)
+
+output
+-----
+youtubeyoutubeyoutubeyoutubeyoutube
+True
+
+
+EX:
+with open('student.txt') as f:
+	data = f.read()
+	print(data)
+	print(f.closed)
+print(f.closed)	
+
+output
+-----
+youtubeyoutubeyoutubeyoutubeyoutube
+False
+True
+
+==================END Files=======================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+	
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
