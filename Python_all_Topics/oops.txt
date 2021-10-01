@@ -21,7 +21,7 @@ Note: Django lo model.py lo rase field_names ni kuda "Attributes" ani pilustharu
 		--------------------------------
 Ex:
 class Connect:
-	tem = 'Nice' #this is class variable,dinini method lo call cheyali ante compalsary 'self' use cheyali(syntax:self.variable_name)
+	tem = 'Nice' #this is class attribute ,dinini method lo call cheyali ante compalsary 'self' use cheyali(syntax:self.variable_name)
 	def get(self,age):
 		self.age = age
 		return f'The Boll is:{self.tem}'+ ','+f'My age is:{self.age}' #ee line lo chudu {self.tem} ela..
@@ -38,10 +38,10 @@ The Boll is:Nice,My age is:25
 		#(OR)
 Ex:
 class Connect:
-	tem = 'Nice' #class variable
+	tem = 'Nice' #class attribute
 	def get(self,age):
 		self.age = age
-		return self.tem,self.age #class variable ni method lo use cheyali ante self use cheyali okay(syntax:self.variable_name)
+		return self.tem,self.age #class attribute ni method lo use cheyali ante self use cheyali okay(syntax:self.variable_name)
 
 a = Connect()
 x,y = a.get(25)
@@ -74,12 +74,12 @@ she age is:25
 
 Ex:
 class GreetingView:
-	greeting = "Good Day"   #class variable
+	greeting = "Good Day"   #class attribute
 
 	def get(self,day):
 		self.day = day
 		print(f'The Day is:{self.day}')
-		return self.greeting  #class variable ni method lo'self' use chesi call cheshanu..okay na.(syntax:self.variable_name)
+		return self.greeting  #class attribute ni method lo'self' use chesi call cheshanu..okay na.(syntax:self.variable_name)
 		
 
 g = GreetingView()
