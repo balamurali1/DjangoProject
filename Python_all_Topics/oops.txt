@@ -10,6 +10,13 @@ Note:Class lowpala rasedani 'Method' antaru,
 
 **************************************
 
+Note: self represents the instance(object) of the class.By using the "self" keyword We can access the "attributes and
+	Methods" of the class in python.
+
+
+Note: Django lo model.py lo rase field_names ni kuda "Attributes" ani pilustharu..okay.
+
+			
 		#Ee topic Django chala vvvimportent
 		--------------------------------
 Ex:
