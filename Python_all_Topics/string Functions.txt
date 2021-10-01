@@ -1,11 +1,49 @@
-1.Built-in String Functions
-2.Python Built in Functions-->w3school
+1.Built-in String Methods
+2.Python Built in Methods-->w3school
+
+		Built-in Methods
+		=================
+		(https://www.tutorialsteacher.com/python/builtin-methods)
+
+1.abs(), 2.all(), 3.any(), 4.ascii(), 5.bin(), 6.bool(), 7.bytearray(), 8.bytes(), 9.callable(), 10.chr(),
+
+11.classmethod(), 12.complex(), 13.dict(), 14.delattr(), 15.dir(), 16.divmod(), 17.exec(), 18.enumerate(),
+
+19.filter(), 20.float(), 21.format(), 22.frozenset(), 23.getattr(), 24.hex(), 25.hash(), 26.hasattr(),
+
+27.help(), 28.__import__(), 29.id(), 30.int(), 31.input(), 32.isinstance(), 33.issubclass(), 34.iter(),
+
+35.len(), 36.list(), 37.map(), 38.max(), 40.memoryview(), 41.min(), 42.next(), 43.object(), 44.oct(), 
+
+45.open(), 46.ord(), 47.pow(), 48.print(), 49.property(), 50.range(), 51.repr(), 52.reversed(), 53.round(),
+
+54.set(), 55.setattr(), 56.slice(), 57.sorted(), 58.str(), 59.sum(), 60.super(), 61.tuple(), 62.type(),
+
+63.vars(), 64.zip()
 
 
 
-
-		Built-in String Functions
+		Built-in String Methods
 		==========================
+*************
+		(https://www.tutorialsteacher.com/python/string-methods)vvvvIMp
+
+1.capitalize() 2.casefold() 3.center(), 4.count(), 5.endswith(), 6.expandtabs(), 7.find(), 8.index(), 9.isalnum(),
+
+10.isalpha(), 11.isascii(), 12.isdecimal(), 13.isdigit(), 14.isidentifier(), 15.islower(), 16.isnumeric(), 17.isprintable()
+
+18.isspace(), 19.istitle(), 20.isupper(), 21.join(), 22.ljust(), 23.lower(), 24.lstrip(), 25.maketrans(), 26.partition()
+
+27.replace(), 28.rfind(), 29.rindex(), 30.rjust(), 31.rpartition(), 32.rsplit(), 33.rstrip(), 37.split(), 38.splitlines(),
+
+39.startswith(), 40.strip(), 41.swapcase(), 42.title(), 43.translate(), 44.upper(), 45.zfill().
+
+*************
+
+
+
+
+		(Youtube:Geekyshows)
 		
 upper(): This method is used to convert all character of a string into uppercase.
 	Syntax:string.upper()

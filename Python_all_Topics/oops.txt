@@ -7,6 +7,86 @@ around objects rather than 'actions' and data rather than logic.
 Note:Class lowpala rasedani 'Method' antaru,
      Class lo kakunda mamuluga rasthe danini 'Function' antaru
 
+
+**************************************
+
+		#Ee topic Django chala vvvimportent
+		--------------------------------
+Ex:
+class Connect:
+	tem = 'Nice' #this is class variable,dinini method lo call cheyali ante compalsary 'self' use cheyali(syntax:self.variable_name)
+	def get(self,age):
+		self.age = age
+		return f'The Boll is:{self.tem}'+ ','+f'My age is:{self.age}' #ee line lo chudu {self.tem} ela..
+
+a = Connect()
+x = a.get(25)
+print(x)
+
+output
+-----
+The Boll is:Nice,My age is:25
+
+
+		#(OR)
+Ex:
+class Connect:
+	tem = 'Nice' #class variable
+	def get(self,age):
+		self.age = age
+		return self.tem,self.age #class variable ni method lo use cheyali ante self use cheyali okay(syntax:self.variable_name)
+
+a = Connect()
+x,y = a.get(25)
+print(x)
+print(y)
+
+output
+------
+Nice
+25
+
+	#(OR)
+Ex:
+class Connect:
+	tem = 'Nice'
+	def get(self,age):
+		self.age = age
+		return self.tem,self.age
+
+a = Connect()
+x,y = a.get(25)
+print(f'The Woman is:{x}')
+print(f'she age is:{y}')
+
+output
+-----
+The Woman is:Nice
+she age is:25
+
+
+Ex:
+class GreetingView:
+	greeting = "Good Day"   #class variable
+
+	def get(self,day):
+		self.day = day
+		print(f'The Day is:{self.day}')
+		return self.greeting  #class variable ni method lo'self' use chesi call cheshanu..okay na.(syntax:self.variable_name)
+		
+
+g = GreetingView()
+x = g.get('Thursday')
+print(x)		
+
+output
+------
+The Day is:Thursday
+Good Day
+
+				
+**********************************		
+
 ------------------------------------------
 EX:
 class Student:
@@ -49,7 +129,7 @@ Student name is : Murali Devanur
 
 EX:
 class Student:
-	age = 25
+	age = 25 #class variable
 	def __init__(self,name):
 		print("Student name is :",name)
 			
@@ -69,7 +149,7 @@ My age is: 25
 
 EX:
 class Student:
-	name = 'Murali'
+	name = 'Murali' #class variable
 	def __str__(self):
 		return self.name
 s = Student()
@@ -990,9 +1070,9 @@ realme = Mobile()
 
 	Outside class
 	-------------
-
+************
 we can access instance variable using object_name.variable_name
-
+*************
 class Mobile:
 	def __init__(self):
 		self.model = 'RealMe x'
@@ -1059,7 +1139,8 @@ Accessing class/static variable
 	with class method
 	------------------
 To access class variable,we need class methods with cls as first parameter then we can access
-class variable using cls.variable_name
+class variable using "cls.variable_name"
+
 (క్లాస్ వేరియబుల్‌ని యాక్సెస్ చేయడానికి, మేము మొదటి పారామీటర్‌గా cls తో క్లాస్ మెథడ్స్ అవసరం, అప్పుడు మనం యాక్సెస్ చేయవచ్చు
 cls. variable_name ఉపయోగించి క్లాస్ వేరియబుల్)
 

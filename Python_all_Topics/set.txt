@@ -1,3 +1,21 @@
+	Set Methods
+	----------
+	(https://www.tutorialsteacher.com/python/set-methods)
+
+1.add(), 2.clear(), 3.copy(), 4.difference(), 5.difference_update(),
+
+6.discard(), 7.intersection(), 8.intersection_update(), 9.isdisjoint(),
+
+10.issubset(), 11.pop() 12.remove(), 13.symmetric_difference()
+
+14.symmetric_difference_update(), 15.union(), 16.update()
+
+
+
+		
+		(Youtube:GeekyShows)
+		=====================
+
 Set Type
 =========
 A set is an unordered collection of elements much like a set in mathematics.
