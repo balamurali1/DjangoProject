@@ -12,6 +12,10 @@ Tuple,dictionary,array..etc.
 	EX:mymodule.py
 
 
+Note: Module-->Module mean's import single file(filname) in another file
+      Packages (or) Library-->It is a 'more files combination' of Packages(or) Library antaru...	
+
+
 Type of Modules
 --------------
 1.User-defined Modules

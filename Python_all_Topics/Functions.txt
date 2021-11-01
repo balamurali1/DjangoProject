@@ -18,6 +18,1084 @@ Advantage of Function
 3.Divide Large task into many small task so it will help you to debug code
 4.You can remove or add new feature to a functions anytime.
 
+
+***************************************
+	((https://www.youtube.com/watch?v=dLgGSe1N4gA))--->Amulya's Academy (VVVVIMP,Please watch it once)	
+
+	((https://www.youtube.com/watch?v=2AKJzc-cSj8)) --->baga artham chesuko ee video okay na...
+
+
+
+		if __name__=="__main__":       #"__main__"(current file yooka module name(filename antaru) ni suchisthundi)
+   		     main()
+
+
+Note: __name__  is a "special variable" okay na..
+
+
+		((https://www.programiz.com/python-programming/main-function))--->ikkada very clear ga cheppinadu...
+	
+
+Note: 1.code mootham okay file lo ne rasi excute chesthe appudu '__name__' ee variable ki module name(value)
+vachesi __main__ ani vastundi.yendukante adey file lo ne execute cheshamu kabbati..
+
+	2. ala kakunda code ni first file lo rasi haa file ni yeedo oka name tho save chesi haa file name ni 
+marooka(second) file lo import chesukovali(Dinine module import antaru,oka file name ni marooka file lo import chesthe module importing antaru)
+haa second file lo vachesi, __name__ ee special variable ki module(value) name vachesi 'first file name' anedi __main__ sthanamulo vasthundi.
+      	 
+EX: hello.py
+
+print(__name__)
+
+
+output
+------
+__main__
+
+
+EX: good.py
+
+import hello
+
+output
+-----
+hello
+
+
+EX: first.py
+
+def greet():
+	print("Hello World")
+
+if __name__ == "__main__":
+	greet()
+
+
+output
+------
+Hello World
+
+
+
+EX: second.py
+
+import first
+
+first.greet()
+
+
+output
+------
+Hello World
+
+
+
+Note: What is the purpose of __ main __ in Python..?
+
+Ans:
+__main__ is the name of the environment where top-level code is run. 
+“Top-level code” is the first user-specified Python module that starts running. 
+It's “top-level” because it imports all other modules that the program needs. 
+Sometimes “top-level code” is called an entry point to the application.
+((__main__ అనేది టాప్-లెవల్ కోడ్ అమలు చేయబడిన పర్యావరణం పేరు. 
+"టాప్-లెవల్ కోడ్" అనేది రన్ చేయడం ప్రారంభించే మొదటి యూజర్ పేర్కొన్న పైథాన్ మాడ్యూల్.
+ ఇది "టాప్-లెవల్" ఎందుకంటే ఇది ప్రోగ్రామ్‌కు అవసరమైన అన్ని ఇతర మాడ్యూల్స్‌ని దిగుమతి చేస్తుంది. 
+కొన్నిసార్లు "టాప్-లెవల్ కోడ్" ను అప్లికేషన్‌కి ఎంట్రీ పాయింట్ అంటారు.))
+
+(https://www.educative.io/edpresso/what-is-the-main-method-in-python)
+			|
+			|
+			V
+EX:
+print("Hello World") 
+
+def main():
+  print("In main method")
+
+output
+-----
+Hello World
+
+
+EX:
+print("Hello World") 
+
+def main():
+    print("In main method")
+
+
+if __name__=="__main__":
+    main()
+
+output
+-------
+Hello World
+In main method
+
+
+EX:
+print("Hello World") 
+
+def otherName():
+  print("In otherName method")
+
+
+if __name__ == "__main__":
+  otherName()
+
+
+output
+------
+Hello World
+In otherName method
+
+
+	((https://www.youtube.com/watch?v=3dHyS1W4TIE))
+
+EX:
+def add(a,b):
+	return a + b
+
+
+print(add(10,16))	
+
+output
+------
+26
+
+
+EX:
+def add(a,b):
+	return a + b
+
+print(__name__)
+print(add(10,16))	
+
+output
+------
+__main__
+26
+
+
+EX:
+def add(a,b):
+	return a + b
+
+print(__name__)
+
+if __name__ == '__main__': #This is Sepecial Method
+	print(add(10,16))	
+
+output
+------
+__main__
+26
+
+
+
+***************************************
+		((https://realpython.com/defining-your-own-python-function/))
+
+EX:
+
+def fun(qty,item,price):   #qty,item,price is the "Parameters(formal parameters)"
+
+	print(f'{qty} {item} cost ${price:.2f}')
+
+
+fun(6,'bananas',1.74)     #6,banana,1.74 is the "Argument(actual parameters)"
+
+output
+------
+6 bananas cost $1.74
+
+
+EX:
+def fun(my_list=[]):
+	my_list.append("Banana")
+	return my_list
+
+a = fun([])
+
+print(a)
+
+output
+------
+['Banana']
+
+
+EX:
+def fun(my_list=[]):
+	my_list.append("Banana")
+	return my_list
+
+a = fun(['foo', 'bar', 'baz'])
+
+print(a)
+
+
+output
+------
+['foo', 'bar', 'baz', 'Banana']
+
+
+EX:
+def fun(my_list=[]):
+	my_list.append("###")
+	return my_list
+
+a = fun(['foo', 'Murali'])
+
+print(a)
+
+
+output
+------
+['foo', 'Murali', '###']
+
+
+EX:
+def fun(my_list=[]):
+	print(id(my_list))
+	my_list.append("")
+	return my_list
+
+a = fun([1,2,3,4])
+
+print(a)
+
+output
+------
+1291225062464
+[1, 2, 3, 4, '']
+
+
+EX:
+def fun(my_list=[]):
+	print(id(my_list))
+	my_list.append(5)
+	return my_list
+
+a = fun([1,2,3,4])
+
+print(a)
+
+output
+------
+2081532927168
+[1, 2, 3, 4, 5]
+
+
+EX:
+def fun(my_list=None):
+	if my_list is None:
+		my_list = []
+	my_list.append('Apple')
+	return my_list
+
+a = fun()
+print(a)	
+
+output
+------
+['Apple']
+
+
+EX:
+def fun(my_list=None):
+	if my_list is None:
+		my_list = []
+	my_list.append('Apple')
+	return my_list
+
+a = fun(['foo', 'bar', 'baz'])
+print(a)	
+
+output
+------
+['foo', 'bar', 'baz', 'Apple']
+
+
+
+EX:
+def fun(x):
+	x = 10 #local variable
+
+
+x = 5--->(kinda unna program ni compare chesthe ee line 'for loop' anuko okay na...)
+fun(x)
+print(x)	
+
+output
+------
+5
+	(Ee rendu programs compare chesi artham chesuko)
+
+EX:
+def fun(x):
+	x = 'foo' #local variable
+
+for i in (40,dict(foo=1,bar=2),{1,2,3},'bar',['foo','bar','baz']):
+	fun(i)
+	print(i)	
+
+output
+------
+40
+{'foo': 1, 'bar': 2}
+{1, 2, 3}
+bar
+['foo', 'bar', 'baz']
+
+
+
+
+
+
+
+--------------------------------------------
+EX:
+def Examplefunc(str):  #function that outputs the str parameter
+	print(f'The value is:{str}')
+
+def Multiply(x,y): #function that computes the product of x and y
+	return x*y	 #returning the product of x and y
+
+
+#Calling the functions
+Examplefunc(9) #9 passed as the parameter)
+answer = Multiply(4,2) #4 and 2 passed as the parameters
+print(f'The Product of x and y is:{answer}')
+
+
+output
+-------
+The value is:9
+The Product of x and y is:8
+
+
+Passing Dictionary to Function in Python
+======================================
+
+EX:
+def show(d):
+	print(d)
+	print(type(d))
+	for k in d:
+		print(k,'=',d[k])
+
+
+dc = {101:'Rahul',102:'Raj',103:'Sonam'}
+show(dc)		
+
+output
+-----
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+<class 'dict'>
+101 = Rahul
+102 = Raj
+103 = Sonam
+
+
+Returning Dictionary from Function in Python
+============================================
+def show(d):
+	print(d)
+	print(type(d))
+	for k in d:
+		print(k,'=',d[k])
+
+	return d	
+
+
+dc = {101:'Rahul',102:'Raj',103:'Sonam'}
+new_dc = show(dc)
+print(new_dc)
+print(type(new_dc))
+
+
+output
+------
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+<class 'dict'>
+101 = Rahul
+102 = Raj
+103 = Sonam
+{101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
+<class 'dict'>
+
+
+		What is the Parameters or Arguments?
+		=====================================
+
+
+The terms parameter and argument can be used for the same thing: information that are passed into a function.
+
+From a function's perspective:
+
+	1.A "parameter" is the variable listed inside the parentheses() in the function definition(def).
+
+	2.An "argument" is the value that is "sent to the function" when it is called.
+
+
+			Arbitrary Arguments (OR) *args(Variable length non-keywords argument)
+			================================
+"If you do not know how many arguments that will be passed into your function", add a * before the parameter name 
+in the function definition(def).
+	
+This way the function will receive a "tuple of arguments", and can access the items(elements) accordingly(అనుగుణంగా)
+
+*args for variable number of arguments
+
+
+EX:
+def myfun(*kids):
+	print('The Youngest Chaild is:' + kids[2])
+
+myfun('Emil','Tobias','Linus')	 # *args for variable number of arguments
+
+
+output
+-----
+The Youngest Chaild is:Linus
+
+
+EX:
+def myfun(*args):
+	print('The Youngest Word is:',args[2])
+
+myfun('Hello','Good','Buty')		
+
+output
+------
+The Youngest Word is: Buty
+
+
+
+EX:
+def myfun(*args):
+	for i in args:
+		print(i)
+
+myfun('Hello','Good','Buty')		
+
+output
+-----
+Hello
+Good
+Buty
+
+
+
+******************************
+EX:
+
+def add(a,b):
+	return a + b
+
+def is_true(a):
+	return a
+
+res = add(2,5)
+print(f'Result of add Function:{res}')
+
+res1 = is_true(2>1)
+print(f'Result of is True Function is:{res1}')		
+
+output
+------
+Result of add Function:7
+Result of is True Function is:True
+
+******************************
+
+		Keyword Arguments
+		===================
+
+def my_function(child3, child2, child1):
+  print("The youngest child is " + child3)
+
+my_function(child1 = "Emil", child2 = "Tobias", child3 = "Linus")
+
+output
+------
+The youngest child is Linus
+
+
+
+
+			Arbitrary Keyword Arguments (OR) **kwargs(Variable length keyword arguments)  VVVVIMP in Django
+			==========================================
+"If you do not know how many keyword arguments that will be passed 
+into your function", add two asterisk ** before the parameter name in the function definition(def).
+
+This way the "function will receive" a "dictionary" of arguments, and can access the items accordingly.(kwargs anedi internal ga dictionary laga thisukuntundi)
+
+*kargs for 'variable' number of keyword arguments
+
+
+EX:
+def myfun(**kwargs):
+	print('Your last Name is:',kwargs['lname'])
+
+myfun(fname='Bala',lname='Murali')
+	
+output
+------
+Your last Name is: Murali
+
+
+EX:
+	def My_function(**kwargs):					# here + is the concatination(ante kalapadam) ani artham
+		print('My Yougest Daughter is:' + kwargs['lname']) -->kani ikkada dictionary laga convert aina tharuvatha appudu'key' ni thisukovali...
+
+	My_function(fname="Tobias", lname="Refsnes")	#*kargs for 'variable' number of keyword arguments(ikkada variable ante like..fname, lname.vitini keyword arguments antaru)
+
+	
+output
+------
+My Yougest Daughter is:Refsnes
+
+
+EX:
+
+def fun(**kwargs):
+	print('This is:',type(kwargs)) --->ela okay...output chudu
+	for i in kwargs:
+		print(i,'=',kwargs[i])
+
+fun(fname='Murali',lname='Devanur')-->indulo undevi internal ga dictionary ga change auvthundi..
+		
+output
+------
+This is: <class 'dict'>--->ela dictionay ga marindi okay na...
+fname = Murali
+lname = Devanur
+
+
+EX:
+def myFun(**kwargs):
+	for key, value in kwargs.items():
+		print("%s = %s" %(key, value))
+
+
+myFun(fname='Murali',lname='Devanur',age=26,phone=9581221487)
+
+output
+------
+fname = Murali
+lname = Devanur
+age = 26
+phone = 9581221487
+
+
+EX:
+	def My_function(**kids):
+		print('My Yougest Daughter is:' + kids['fname'])
+
+	My_function(fname="Tobias", lname="Refsnes")	
+
+output
+------
+My Yougest Daughter is:Tobias
+
+
+		Passing a List as an Argument
+		==============================
+
+def function(food):
+	for x in food:
+		print(x)
+
+fruits = ['Apple','Banana','Cherry']
+
+function(fruits)
+
+		
+output
+------
+Apple
+Banana
+Cherry	
+
+
+EX:
+def fun(L):
+	for i in L:
+		print(i)
+	print('Index 0 is:',L[0])
+	print('Index 1 is:',L[1])
+	print('Index 2 is:',L[2])
+
+List = ["Hello","Good","Hi"]
+fun(List)						
+
+output
+------
+Hello
+Good
+Hi
+Index 0 is: Hello
+Index 1 is: Good
+Index 2 is: Hi
+
+
+		Passing a string as an Argument		
+		===============================		
+EX:
+def function(vill):
+	for x in vill:
+		print(x)
+
+city = 'NDL','NDk','KRL'
+
+function(city)
+
+output
+-------
+NDL
+NDk
+KRL
+		Passing a numbers as an Argument		
+		===============================
+
+EX:
+
+def function(num):
+	for x in num:
+		print(x)
+
+number = 101,102,103,104
+
+function(number)
+		
+		Passing a tuple as an Argument		
+		===============================
+			
+EX:
+def function(num):
+	for x in num:
+		print(x)
+
+tuple = ('Hi','Hello',120)
+
+function(tuple)
+
+output
+------
+Hi
+Hello
+120		
+
+
+EX:
+def fun(T):
+	for i in T:
+		print(i)
+	print('Index 0 is:',T[0])
+	print('Index 1 is:',T[1])
+	print('Index 2 is:',T[2])
+
+Tuple = ("Hello","Good","Hi")
+fun(Tuple)						
+
+output
+------
+Hello
+Good
+Hi
+Index 0 is: Hello
+Index 1 is: Good
+Index 2 is: Hi
+
+
+
+			Passing a "Dictionary" as an Argument (VVVVIMP)		
+			===============================	
+EX:
+
+def function(num):
+	for keys in num:
+		print(keys,'=', num[keys])  ---->look here i am using 'num',This is correct process
+
+dict = {'name':'Murali','Age':26,'village':'NDK'}
+
+function(dict)
+
+output
+------
+name = Murali
+Age = 26
+village = NDK
+
+
+		(OR)
+
+EX:
+
+def function(num):
+	for keys in num:
+		print(keys,'=', dict[keys])  --->Look here i am using 'dict',this is also correct but don't use it this process
+
+dict = {'name':'Murali','Age':26,'village':'NDK'}
+
+function(dict)
+
+output
+------
+name = Murali
+Age = 26
+village = NDK		
+
+
+EX:
+
+def function(num):
+	for keys in num:
+		print(keys)
+
+dict = {'name':'Murali','Age':26,'village':'NDK'}
+
+function(dict)
+
+output
+------
+name
+Age
+village
+
+
+EX:
+def function(num):
+	for keys in num:
+		print(num[keys]) --->look here This is correct process,i am using 'num'
+
+dict = {'name':'Murali','Age':26,'village':'NDK'}
+
+function(dict)
+
+output
+-----
+Murali
+26
+NDK
+
+			(OR)
+EX:
+
+def function(num):
+	for keys in num:
+		print(dict[keys])-->look here This is also correct but don't use it process i am using 'dict'
+
+dict = {'name':'Murali','Age':26,'village':'NDK'}
+
+function(dict)
+
+output
+------
+Murali
+26
+NDK				
+
+
+EX:
+def fun(d):
+	print('This is the',type(d))
+	print(f'This is the{type(d)}')
+	print(f'This is the:{type(d)}')
+	for keys in d:
+		print(keys,'=',d[keys])
+
+dict = {'name':'Murali','age':26}
+fun(dict)
+		
+
+output
+------
+This is the <class 'dict'>
+This is the<class 'dict'>
+This is the:<class 'dict'>
+name = Murali
+age = 26
+
+
+			   Return 
+			=============
+	Note:
+		To let a function return a value, use the return statement
+		((ఫంక్షన్ విలువను తిరిగి ఇవ్వడానికి, రిటర్న్ స్టేట్‌మెంట్‌ని ఉపయోగించండి))
+
+EX:
+def my_function(x):
+	return 5 * x
+
+a = my_function(2)	
+print(a)
+
+output
+-----
+10
+		(OR)
+
+EX:
+def my_function(x):
+	return 5 * x
+
+print(my_function(2))
+
+output
+-----
+10
+
+
+EX:
+def my_function(x,y):
+	return x * y
+
+a = my_function(6,14)
+print(a)
+
+output
+------
+84
+
+
+EX:
+def my_function(x,y):
+	return x * y
+
+print(my_function(2,3))
+
+
+output
+-----
+6
+
+
+EX:
+
+def my_function(x):
+	return f'The return value is:{5 * x}'
+
+a = my_function(2)	
+print(a)
+
+
+output
+------
+The return value is:10
+			
+
+EX:
+def my_function(x):
+	return f'The return value is:{5 * x}'
+
+print(my_function(2))
+print(my_function(3))
+print(my_function(4))
+
+output
+------
+The return value is:10
+The return value is:15
+The return value is:20
+
+
+EX:
+
+def my_function(x):
+	return 5 * x
+
+print(my_function(2))
+print(my_function(3))
+print(my_function(4))
+
+
+output
+-------
+10
+15
+20
+		pass Statement
+		===============
+
+Note:
+	(((function definitions cannot be empty, but if you for 'some reason' have a function definition with "no content", 
+	put in the pass statement "to avoid getting an error")))
+	((ఫంక్షన్ నిర్వచనాలు ఖాళీగా ఉండకూడదు, కానీ మీరు కొన్ని కారణాల వల్ల కంటెంట్ లేకుండా ఫంక్షన్ నిర్వచనం కలిగి ఉంటే, 
+	లోపం రాకుండా ఉండటానికి "పాస్" స్టేట్‌మెంట్‌లో ఉంచండి))
+
+EX:
+
+	def myfunction():
+  		pass
+
+output
+------
+	Error yemi radu okay na, yedukate pass statement pettinanduku
+
+
+
+EX:
+	def myfunction():
+  
+
+output
+------
+
+File "C:\Users\BALAMURALI\Desktop\python.py", line 3
+
+      ^
+SyntaxError: unexpected EOF while parsing
+
+		
+Note: Error vasthundi yendukante pass statement pettaledu anduku...
+
+
+
+		Global Variables
+		================
+
+Note: local variable and Global variable lo first preparence 'local variable' ki vasthundi.second preparence global variable
+
+Variables that are created outside of a function (as in all of the examples above) are known as global variables.
+
+"Global variables can be used by everyone, both inside of functions and outside."
+
+
+EX: Create a variable outside of a function, and use it inside the function
+
+x = "awesome"  #global variable
+
+def fun():
+	print("Python is:",x)
+
+fun()
+
+output
+------
+Python is: awesome
+
+
+EX:
+x = "awesome"  #global variable
+
+def fun():
+	print("Python is:",x)
+
+fun()
+print('PHP is:',x)
+
+output
+--------
+Python is: awesome
+PHP is: awesome
+  
+
+EX:
+If you create a variable with the same name 'inside a function', this variable will be local, 
+and can only be 'used inside the function'. The global variable 'with the same name' 
+will remain as it was, global and with the original value.
+
+
+x = "awesome"   #global variable
+
+def fun():
+	x = "fantastic"  #Local variable
+	print("Python is:",x)
+
+fun()
+print('PHP is:',x)
+
+output
+-------
+Python is: fantastic
+PHP is: awesome
+
+		The global Keyword
+		====================
+EX:
+Normally, when you create a variable inside a function, that variable is local, 
+and can only be used inside that function.
+
+To create a global variable inside a function, you can use the "global keyword".
+
+
+def fun():
+	global x
+	x = "fantastic" -->ippudu idi global variable laga convert aindi..So We will use this variable inside and outside function..
+
+fun()
+
+print('Python is',x)
+
+
+output
+------
+Python is fantastic
+
+Note:
+(If you use the global keyword, the variable belongs to the global scope
+మీరు గ్లోబల్ కీవర్డ్‌ని ఉపయోగిస్తే, వేరియబుల్ గ్లోబల్ స్కోప్‌కు చెందినది). so it will use local and global also...
+
+
+EX:
+def fun():
+	global x
+	x = "fantastic"
+	print('PHP is:',x)
+
+fun()
+
+print('Python is',x)
+
+
+output
+-----
+PHP is: fantastic
+Python is fantastic
+
+
+EX:
+(To change the value of a global variable inside a function, refer to the variable 
+by using the global keyword
+ఫంక్షన్ లోపల గ్లోబల్ వేరియబుల్ విలువను మార్చడానికి, గ్లోబల్ కీవర్డ్ ఉపయోగించి వేరియబుల్‌ని చూడండి).
+
+x = "awesome"
+
+def fun():
+	global x
+	x = "fantastic"
+	
+fun()
+
+print('Python is',x)
+
+output
+-----
+Python is fantastic
+
+
+
+EX:
+x = "awesome"
+
+def fun():
+	global x
+	x = "fantastic"
+	print('PHP is',x)
+	
+fun()
+
+print('Python is',x)
+
+output
+------
+PHP is fantastic
+Python is fantastic
+
+
+
 Function Defination
 ====================
 1.We can define a function using  'def' keyword followed by function name with parenthese.
@@ -49,6 +1127,37 @@ EX:
 
 EX:
 
+def add():
+	x = 10
+	y = 23
+	z = x + y
+	return f'Z value is:{z}'
+
+xyz = add()
+print(xyz)	
+
+
+output
+------
+Z value is:33
+
+
+EX:
+
+def fun():
+	a = "Hello"
+	b = "Goodmorning"
+	print(f'{a} Balamurali {b}!!')
+
+fun()	
+
+output
+-------
+Hello Balamurali Goodmorning!!
+
+
+EX:
+
 	def add(y):  #y ni parameter antaru.
 	x = 10
 	c = x+y
@@ -72,7 +1181,7 @@ EX:
 	item("Geekyshows")
 
 
- Function programs
+Function programs
 =================
 #defing a Function
 def disp():
@@ -101,6 +1210,33 @@ Hello Geekyshows and Hi
 
 
 EX:
+def add():
+	x = 10
+	y = 20
+	z = x + y
+	print('Z value is',z)
+
+add()
+
+output
+-------
+Z value is 30
+
+
+EX:
+
+def add(x):
+	y = 10
+	print(f'Z value is:{x+y}')
+
+add(2)	
+
+output
+------
+Z value is:12
+
+
+EX:
 def fun(y):
 	a = 12
 	b = 5
@@ -111,6 +1247,134 @@ fun(3)
 output
 ------
 A value is 12,B value is 5,Y value is 3	
+
+
+EX:
+
+# A simple Python function to check
+# whether x is even or odd
+
+
+def evenOdd(x):
+	if (x % 2 == 0):
+		print("even")
+	else:
+		print("odd")
+
+
+# Driver code to call the function
+evenOdd(2)
+evenOdd(3)
+
+output
+------
+even
+odd
+
+
+EX: ***Keyword arguments****
+
+# Python program to demonstrate Keyword Arguments
+def student(firstname, lastname):
+	print(firstname, lastname)
+
+
+# Keyword arguments
+student(firstname='Geeks', lastname='Practice')
+student(lastname='Practice', firstname='Geeks')
+
+
+output
+-----
+Geeks Practice
+Geeks Practice
+
+
+
+EX:*** args--> Variable length non-keywords argument***
+
+def fun(*argv):
+	for i in argv:
+		print(i)
+
+
+fun("Hello","Welcome","to","GeeksforGeeks")
+
+output
+------
+Hello
+Welcome
+to
+GeeksforGeeks
+
+
+EX: *** Variable length keyword arguments ***
+
+# Python program to illustrate
+# *kargs for variable number of keyword arguments
+
+
+def myFun(**kwargs):
+	for key, value in kwargs.items():
+		print("%s == %s" % (key, value))
+
+
+# Driver code
+myFun(first='Geeks', mid='for', last='Geeks')
+
+
+output
+------
+first == Geeks
+mid == for
+last == Geeks
+
+
+EX:
+def myFun(**kwargs):
+	for key, value in kwargs.items():
+		print("%s = %s" % (key, value))
+
+
+# Driver code
+myFun(first='Geeks', mid='for', last='Geeks')
+
+output
+------
+first = Geeks
+mid = for
+last = Geeks
+
+
+EX:
+def myfun(**kwargs):
+	for key, value in kwargs.items():
+		print("%s == %s" %(key,value))
+
+myfun(name='Murali',age=26)		
+
+output
+-----
+name == Murali
+age == 26
+
+
+EX:
+def add():
+	x = 10
+	y = 15
+	a = x + y
+	b = x + y + 10
+	print('a value is:',a)
+	print('b value is:',b)
+
+add()
+
+output
+------
+a value is: 25
+b value is: 35
+
 
 
 EX:
@@ -255,7 +1519,7 @@ EX:
 def add(y):
 	x = 10.2334
 	print(x + y)
-	print(f"Formatted Output{x+y:5.2f}")
+	print(f"Formatted Output{x+y:5.2f}") #5 is the width(Minimum width 5 undali)
 
 #calling a function with Argument
 add(20)	
@@ -1032,8 +2296,8 @@ Disp Function
 show Function
 
 
-Actual Argument and Formal Argument in Python
-==============================================
+			Actual Argument and Formal Argument in Python(VVVVIMP)
+			==============================================
 
 1.Formal Argument-Function definition(def) parameters are called as formal
 arguments
@@ -1295,7 +2559,7 @@ value provided in the form of key-value pair.
 
 The keyword variable length argument is written with ** symbol.
 
-**it stores all the value in a dictionary in the from of key-value pair.
+**it stores all the value in a "dictionary" in the from of key-value pair.
 
 
 
@@ -1806,11 +3070,40 @@ Global variable: 50
 
 
 Recursion in Python
-----------------------
+========================
+Recursion are two types
+	1.Direct Recursion
+	2.Indirect Recursion
+
+
 A Function calling ifself again and again to compute a value is referred to
 Recursive Fucntion or Recursion.
 
 Recursion limit is 1000 times only
+
+Direct Reursion(Direct Recursion ante function rasi haa function ni function lowpale call cheyadam)
+---------------
+def Demo():
+
+	Block Statement(s)
+	
+	Demo()
+
+Indirect Recursion(in simple words i will tell you, parent function ni chaild lo call cheyadam,chaild function ni
+			parent function lo call cheyadam this is Indirect Recursion))
+------------------
+   	
+def Demo():  #Ex: parent function
+
+	Block of statement(s)
+
+	Demo1()
+
+def Demo1(): #chaild function
+	
+	Block of statement(s)
+
+	Demo()
 
 
 #Check recursion in python
@@ -1820,6 +3113,24 @@ print(sys.getrecursionlimit())
 output
 ------
 1000
+
+
+EX:((https://www.youtube.com/watch?v=hY1PGHB9xMY))
+def sum(n):
+	if n==1:
+		return 1
+
+	else:
+		return (n+sum(n-1))
+
+a = sum(4)  # 4,3,2,1
+print(f'Recursion value is:{a}')			
+
+
+output
+--------
+Recursion value is:10
+
 
 
 Pass or Call by Object Reference in Python

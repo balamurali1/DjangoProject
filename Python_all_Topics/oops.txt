@@ -6,22 +6,784 @@ around objects rather than 'actions' and data rather than logic.
 
 Note:Class lowpala rasedani 'Method' antaru,
      Class lo kakunda mamuluga rasthe danini 'Function' antaru
+------------------------------------------------------------
 
+	Note:  What is the self parameter(variable)
+		=========================	
+			
+	The self parameter is a reference to the current instance of the class, 
+	and is used to access variables that belong to the class
+	((సెల్ఫ్ పరామితి అనేది తరగతి యొక్క ప్రస్తుత ఉదాహరణకి సూచన, మరియు తరగతికి చెందిన వేరియబుల్స్ 
+	యాక్సెస్ చేయడానికి ఉపయోగించబడుతుంది))
+
+
+	In simple words "self is refer's to the class variables and class instance(object) and Method variables"
+
+
+*****************************************************
+Note:
+	(((When working with objects, "variables are called attributes" and "functions are called methods."ani antaru))))
+
+*****************************************************
+
+Syntax:  
+		__init__ ( self [,attri...] )   #self is the parameter(variable)
+
+		Sample Call : obj = className(args)
+
+
+Note:	
+	EX:
+	class Mobile:
+	def __init__(self,m):  # self,m is the--->parameter or (variable)or(attribute) ani antaru
+		self.model = m
+	def show_model(self,p):  #self,p is the ----> Parameter or (variable)or(attribute) ani antaru
+		price = p   #Local Variable
+		print('Model:',self.model,'Price:',price)
+
+EX:
+class Mobile:
+	def __init__(self,model):
+		self.model = model
+
+	def show_model(self,p):
+		self.price = p
+		print('Model:',self.price,'Price:',self.price)
+
+
+m = Mobile('RealMe')
+m.show_model(200)			
+
+output
+-----
+Model: 200 Price: 200
+
+
+EX:
+class MyPerson:
+	def __init__(self,name,age):
+		self.n = name
+		self.a = age
+
+	def info(self):
+		price = 200
+		print(f'Name is:{self.n}')
+		print(f'Price is:{price}')
+		print(f'Age is:{self.a}')
+
+a = MyPerson('Anil',53)
+a.info()			
+
+output
+------
+Name is:Anil
+Price is:200
+Age is:53
+
+
+Class
+========
+A python class is a group of attributes and methods.
+class is blueprint.
+
+	What is  Attributes...?
+	------------------------
+		Attributes are represented by 'variable' that contains data.
+	
+	What is Method...?
+	------------------
+		Method performs an action or task. It is similar to 'Function'.
+
+
+EX:
+class Person:
+	def __init__(self,name,age):  #self,name,age,name---->(parameter) or (variable) or (Attribute)
+		self.name = name
+		self.age = age
+
+
+p1 = Person("Murali",26)
+print(f'Person Name is:{p1.name}')  #p1.name--->ante (classobject.variable)
+print(f'Person age is:{p1.age}')		
+
+
+output
+-------
+Person Name is:Murali
+Person age is:26
+
+
+EX:
+	class Person:
+	def __init__(self,name,age):
+		self.name = name
+		self.age = age
+
+	def myfunc(self):
+		print("Hello My name is:"+self.name)
+		print("My age is:" + str(self.age))
+
+p = Person("Murali",26)
+p.myfunc()
+
+output
+------
+Hello My name is:Murali
+My age is:26
+
+
+EX:
+class Person:
+	def __init__(self,name,age):
+		self.n = name
+		self.a = age
+
+	def myfunc(self):
+		print("Hello My Name is:",self.n)
+		print("My Age is:",self.a)
+
+p = Person('Murali',26)
+p.myfunc()			
+
+output
+------
+Hello My Name is: Murali
+My Age is: 26
+
+
+	Note:
+	It does not have to be named self , you can call it whatever you like, 
+	but it has to be the first parameter of any function in the class
+	((దీనికి స్వీయ(self) అని పేరు పెట్టాల్సిన అవసరం లేదు, మీకు నచ్చినదాన్ని మీరు కాల్ చేయవచ్చు, 
+	కానీ ఇది క్లాస్‌లోని ఏదైనా ఫంక్షన్‌కు "మొదటి పరామితిగా (parameter ga)" ఉండాలి))
+EX:
+class Person:
+	def __init__(self,name,age):
+		self.name = name
+		self.age = age
+
+	def myfunc(abc,price):   ------->Look here first parameter...
+		abc.price = price
+		print("Hello My name is:"+abc.name)
+		print("My age is:" + str(abc.age))
+		print("My Bag Price is:"+ str(abc.price))
+
+p = Person("Murali",26)
+p.myfunc(250)
+
+			
+
+EX:
+class Person:
+	def __init__(mysillobject,name,age): ----->look here first parameter
+		mysillobject.name = name
+		mysillobject.age = age
+
+	def myfunc(abc,price):	---->look here first parameter
+		abc.price = price
+		print("Hello My name is:"+abc.name)
+		print("My age is:" + str(abc.age))
+		print("My Bag Price is:"+ str(abc.price))
+
+p = Person("Murali",26)
+p.myfunc(250)
+
+			
+output
+-------
+Hello My name is:Murali
+My age is:26
+My Bag Price is:250
+
+
+
+EX:
+class Student:
+	pass
+
+
+student1 = Student() #student1 is the "Object",Student() is the class name
+student2 = Student() #student2 is the "Object",Student() is the class name
+
+
+EX:
+class Student:
+	pass
+
+
+student1 = Student()
+student1.name = "Murali" }  #student1 is the "Object" , name is the "attribute"(ela kuda rayavachunu objects ni use chesukoni code ni okay na..)
+student1.age = 26	 }
+student1.marks = 85	 }
+
+print(student1.name)
+print(student1.age)
+print(student1.marks) 
+
+output
+-------
+Murali
+26
+85
+
+
+EX:
+class Student:
+	pass
+
+
+student1 = Student()
+student1.name = "Murali"
+student1.age = 26
+student1.marks = 85
+
+print(f'Student Name is:{student1.name}')
+print(f'Student Age is:{student1.age}')
+print(f'Student marks is:{student1.marks}') 	
+
+
+output
+-------
+Student Name is:Murali
+Student Age is:26
+Student marks is:85
+
+
+Ex:
+class Student:
+	pass
+
+
+student1 = Student()
+student1.name = "Murali"
+student1.age = 26
+student1.marks = 85
+
+print("Name is:{} | Age is:{} | Marks is:{}".format(student1.name,student1.age,student1.marks))
+print("Name is:{} , Age is:{} , Marks is:{}".format(student1.name,student1.age,student1.marks))
+
+
+output
+--------
+Name is:Murali | Age is:26 | Marks is:85
+Name is:Murali , Age is:26 , Marks is:85
+
+
+
+EX:
+
+class Student:
+	def check_pass_fail(self):
+		if self.marks >= 40:  #ee line lo unde self vachesi check_pass_fail method() unde self ani artham..
+			return True
+
+		else:
+			return False
+
+student1 = Student()
+student1.name = "Harry"
+student1.marks = 85
+
+did_pass = student1.check_pass_fail()
+print(did_pass)				
+
+
+output
+-----
+True
+
+
+EX:
+class Student:
+	def check_pass_fail(self):
+		if self.marks >= 40:  #ee line lo unde self vachesi check_pass_fail method() unde self ani artham..
+			return True
+
+		else:
+			return False
+
+student1 = Student()
+student1.name = "Harry"
+student1.marks = 30
+
+did_pass = student1.check_pass_fail()
+print(did_pass)	
+
+output
+------
+False
+
+
+EX:
+
+class Student:
+	def check_pass_fail(self):
+		if self.marks <= 40:  #ee line lo unde self vachesi check_pass_fail method() unde self ani artham..
+			return True
+
+		else:
+			return False
+
+student1 = Student()
+student1.name = "Harry"
+student1.marks = 40
+
+did_pass = student1.check_pass_fail()
+print(did_pass)	
+
+
+output
+-------
+True
+
+
+Ex:
+
+class Student:
+	def check_pass_fail(self):
+		if self.name == "Harry":
+			return True
+
+		else:
+			return False
+
+student1 = Student()
+student1.name = "Harry"
+student1.marks = 85
+
+did_pass = student1.check_pass_fail()
+print(did_pass)				
+
+output
+-------
+True
+
+EX:
+
+
+class Student:
+	def check_pass_fail(self):
+		if self.name == "Hi":
+			return True
+
+		else:
+			return False
+
+student1 = Student()
+student1.name = "Harry"
+student1.marks = 85
+
+did_pass = student1.check_pass_fail()
+print(did_pass)				
+
+output
+-----
+False
+
+EX:
+
+class Student:
+	def check_pass_fail(self):
+		if len(self.name) == 5:
+			return True
+
+		else:
+			return False
+
+student1 = Student()
+student1.name = "Harry"
+student1.marks = 85
+
+did_pass = student1.check_pass_fail()
+print(did_pass)				
+
+
+output
+------
+True
+
+EX:
+class Student:
+	def check_pass_fail(self):
+		if len(self.name) >= 3:
+			return True
+
+		else:
+			return False
+
+student1 = Student()
+student1.name = "Harry"
+student1.marks = 85
+
+did_pass = student1.check_pass_fail()
+print(did_pass)				
+
+output
+-------
+True
+
+
+EX:
+class Student:
+	def check_pass_fail(self):
+		if len(self.name) <= 4:
+			return True
+
+		else:
+			return False
+
+student1 = Student()
+student1.name = "Harry"
+student1.marks = 85
+
+did_pass = student1.check_pass_fail()
+print(did_pass)				
+
+
+output
+-------
+False
+
+
+EX:
+class Student:
+	def check_pass_fail(self):
+		if len(self.name) <= 5:
+			return True
+
+		else:
+			return False
+
+student1 = Student()
+student1.name = "Harry"
+student1.marks = 85
+
+did_pass = student1.check_pass_fail()
+print(did_pass)	
+
+output
+------
+True
+
+			
+EX:
+
+class Student:
+	def check_pass_fail(self):
+		if self.marks <= 40:  
+			return True
+
+		elif len(self.name) <= 6:
+			return "Nice"
+
+		else:
+			return False
+
+student1 = Student()
+student1.name = "Harry" } #ikkada change chesthu chudu answer ni okay na...
+student1.marks = 60 	}
+
+did_pass = student1.check_pass_fail()
+print(did_pass)	
+
+output
+------
+Nice
+
+
+EX:
+class Student:
+	def check_pass_fail(self):
+		if self.marks >= 40:  
+			return True
+
+		else:
+			return False
+
+student1 = Student()
+student1.name = "Harry"
+student1.marks = 60
+
+did_pass = student1.check_pass_fail()
+print(did_pass)	
+
+
+student2 = Student()
+student2.name = "Harry"
+student2.marks = 20
+
+did_pass = student2.check_pass_fail()
+print(did_pass)	
+
+output
+------
+True
+False
+-----------------------------------------------
+
+
+EX:
+class Student:
+	def __init__(self,age,salary):
+		self.age = age
+		self.salary = salary
+
+	def display(self):
+		print(f'My Age is:{self.age}')
+		print(f'My Salary is:{self.salary}')	
+
+
+	def check_pass_fail(self):
+		if self.marks >= 40:  
+			return True
+
+		else:
+			return False
+
+student1 = Student(26,25000)
+student1.display()
+student1.name = "Harry"
+student1.marks = 60
+
+did_pass = student1.check_pass_fail()
+print(did_pass)	
+
+
+output
+------
+My Age is:26
+My Salary is:25000
+True	
+
+
+EX:
+
+class Student:
+	def __init__(self,age,salary):
+		self.age = age
+		self.salary = salary
+
+	def display(self):
+		print(f'My Age is:{self.age}')
+		print(f'My Salary is:{self.salary}')
+
+	def Info(self):
+		print(f'My Age is:{self.age}')
+		print(f'My Salary is:{self.salary}')		
+
+
+	def check_pass_fail(self):
+		if self.marks >= 40:  
+			return True
+
+		else:
+			return False
+
+student1 = Student(26,32000)
+student1.display()
+student1.name = "Harry"
+student1.marks = 60
+
+did_pass = student1.check_pass_fail()
+print(did_pass)	
+
+
+student2 = Student(12,45000)
+student2.Info()
+student2.name = "Harry"
+student2.marks = 20
+
+did_pass = student2.check_pass_fail()
+print(did_pass)
+
+
+output
+------
+My Age is:26
+My Salary is:32000
+True
+My Age is:12
+My Salary is:45000
+False
+
+
+
+EX:
+
+class Student:
+	def check_pass_fail(self):
+		if self.marks >= 40:
+			return True
+
+		else:
+			return False
+
+	def __init__(self,name,marks):
+		self.name = name  #self refer's to the object(student1)
+		self.marks = marks
+
+student1 = Student("Harry",85)
+print("My Name is:",student1.name)
+print("My Marks is:",student1.marks)									
+
+output
+-----
+My Name is: Harry
+My Marks is: 85
+
+
+
+EX:
+class Student:
+	def check_pass_fail(self):
+		if self.marks >= 40:
+			return True
+
+		else:
+			return False
+
+	def __init__(self,name,marks):
+		self.name = name  #self refer's to the object(student1)
+		self.marks = marks
+
+student1 = Student("Harry",85)
+student2 = Student("Murali",26)
+print("My Name is:",student1.name)
+print("My Marks is:",student1.marks)					
+print("My Name is:",student2.name)
+print("My Marks is:",student2.marks)					
+
+
+output
+-------
+My Name is: Harry
+My Marks is: 85
+My Name is: Murali
+My Marks is: 26
+
+
+EX:
+class Student:
+	def check_pass_fail(self):
+		if self.marks >= 40:
+			return True
+
+		else:
+			return False
+
+	def __init__(self,name,marks):
+		self.name = name  #self refer's to the object(student1)
+		self.marks = marks
+
+student1 = Student("Harry",85)
+student2 = Student("Murali",26)
+did_pass = student1.check_pass_fail()
+print('Harry Result is:',did_pass)
+did_pass = student2.check_pass_fail()
+print('Murali Result is:',did_pass)
+
+output
+------
+Harry Result is: True
+Murali Result is: False
+
+
+	Complex
+	--------
+
+EX:
+
+class Complex:
+	def __init__(self,real,imaginary):
+		self.real = real
+		self.imaginary = imaginary
+
+	def add(self,number): #ikkada imagin chesuko self=n1 anuko,number=n2 anuko
+		real = self.real + number.real  #(self.real + number.real==>n1.real+n2.real)
+		imaginary = self.imaginary + number.imaginary #(self.imaginary + number.imaginary==>n1.imaginary+n2.imaginary)
+		result = Complex(real,imaginary)
+		return result
+
+n1 = Complex(5,6)
+n2 = Complex(-4,2)
+
+result = n1.add(n2)
+print("real:",result.real)
+print("imaginary:",result.imaginary)			
+
+
+output
+------
+real: 1
+imaginary: 8
+
+
+	
+**************************************
+	
+EX:
+
+#parent class
+class Person():
+
+	def __init__(self,name,idnumber):
+		self.name = name
+		self.idnumber = idnumber
+
+	def display(self):
+		print(self.name)
+		print(self.idnumber)
+
+	def details(self):
+		print("My Name is:{}".format(self.name))
+		print("My Id Number is:{}".format(self.idnumber))
+
+
+#Child class
+'''
+chaild class anedi parent class ni inheritance chesukundi,parent lo undevi methods..etc,
+ani chaild class lo ki vasthai.
+'''
+class Employee(Person):  
+	def __init__(self,name,idnumber,salary,post):
+		self.salary = salary
+		self.post = post
+
+			#invoking(ఆవాహన) the __init__ of the parent class
+		Person.__init__(self,name,idnumber)  #Person is super()
+
+
+	def details(self):
+		print("My name is {}".format(self.name))
+		print("Id Number is{}".format(self.idnumber))
+		print("Salary is:{}".format(self.salary))
+		print("Post:{}".format(self.post))
+
+# creation of an object variable or an instance
+a  =Employee('Rahul',101,20000,'Doctor')
+
+
+# calling a function of the class Person using
+
+a.display() #This is parent class method(auvsaram unte parent class method ni use chesukovachunu ela..)
+a.details() #This is chaild class method
+
+output
+------
+Rahul
+101
+My name is Rahul
+Id Number is101
+Salary is:20000
+Post:Doctor
 
 **************************************
 
-Note: self represents the instance(object) of the class.By using the "self" keyword We can access the "attributes and
-	Methods" of the class in python.
-
-
-Note: Django lo model.py lo rase field_names ni kuda "Attributes" ani pilustharu..okay.
-
-			
-		#Ee topic Django chala vvvimportent
+		#Ee topic Django lo chala vvvimportent
 		--------------------------------
 Ex:
 class Connect:
-	tem = 'Nice' #this is class attribute ,dinini method lo call cheyali ante compalsary 'self' use cheyali(syntax:self.variable_name)
+	tem = 'Nice' #this is class variable(class attribute),dinini method lo call cheyali ante compalsary 'self' use cheyali(syntax:self.variable_name)
 	def get(self,age):
 		self.age = age
 		return f'The Boll is:{self.tem}'+ ','+f'My age is:{self.age}' #ee line lo chudu {self.tem} ela..
@@ -38,10 +800,10 @@ The Boll is:Nice,My age is:25
 		#(OR)
 Ex:
 class Connect:
-	tem = 'Nice' #class attribute
+	tem = 'Nice' #class variable
 	def get(self,age):
-		self.age = age
-		return self.tem,self.age #class attribute ni method lo use cheyali ante self use cheyali okay(syntax:self.variable_name)
+ 		self.age = age
+		return self.tem,self.age #class variable ni method lo use cheyali ante self use cheyali okay(syntax:self.variable_name)
 
 a = Connect()
 x,y = a.get(25)
@@ -74,12 +836,12 @@ she age is:25
 
 Ex:
 class GreetingView:
-	greeting = "Good Day"   #class attribute
+	greeting = "Good Day"   #class variable
 
 	def get(self,day):
 		self.day = day
 		print(f'The Day is:{self.day}')
-		return self.greeting  #class attribute ni method lo'self' use chesi call cheshanu..okay na.(syntax:self.variable_name)
+		return self.greeting  #class variable ni method lo'self' use chesi call cheshanu..okay na.(syntax:self.variable_name)
 		
 
 g = GreetingView()
@@ -149,6 +911,14 @@ output
 Student name is : Murali Devanur
 My age is: 25
 
+	Note:
+	((The self parameter is a reference to the current instance of the "class
+	and is used to access variables" that belong to the class))
+	((సెల్ఫ్ పరామితి అనేది తరగతి యొక్క ప్రస్తుత ఉదాహరణకి సూచన, మరియు తరగతికి చెందిన వేరియబుల్స్ 
+	యాక్సెస్ చేయడానికి ఉపయోగించబడుతుంది))
+
+
+
 ------------------------------------------------------------
 
 	__str__  (Method)
@@ -186,6 +956,11 @@ Mobile Model is:Real Me,Mobile Rate is:5623
 Yes
 *********************************
 
+
+Note:
+	(((When working with objects, "variables are called attributes" and "functions are called methods." ani antaru))))
+
+
 Class
 ========
 A python class is a group of attributes and methods.
@@ -193,11 +968,12 @@ class is blueprint.
 
 	What is  Attributes...?
 	------------------------
-		Attributes are represented by 'variable' that contains data.
+		"Attributes" are represented by 'variable' that contains data.
 	
 	What is Method...?
 	------------------
-		Method performs an action or task. It is similar to 'Function'.
+		"Method" performs an action or task. It is similar to 'Function'.
+
 
 How to create Class
 -------------------
@@ -238,9 +1014,9 @@ class Mobile:
 
 EX:
 class Mobile:
-	def __init__(self,m):
+	def __init__(self,m):  # self,m is the--->parameter or (variable)or(attribute) ani antaru
 		self.model = m
-	def show_model(self,p):
+	def show_model(self,p):  # self,p is the ----> Parameter or (variable)or(attribute) ani antaru
 		price = p   #Local Variable
 		print('Model:',self.model,'Price:',price)
 
