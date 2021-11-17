@@ -7,17 +7,56 @@ around objects rather than 'actions' and data rather than logic.
 Note:Class lowpala rasedani 'Method' antaru,
      Class lo kakunda mamuluga rasthe danini 'Function' antaru
 ------------------------------------------------------------
+EX:
+EX:
+class Mobile:
+	#Constructor with Parameter
+	def __init__(self, m ,v = 80):  #v=80 is the default parameter okay..
+		self.model = m
+		self.volumn = v
+
+	def show_model(self,p):
+		price = p  #Local Variable
+		print('Model:',self.model)
+		print('Price:',price)---->look here
+		print('Volumn:',self.volumn)	
+
+#Passing Argument to Constructor
+realme = Mobile('Realme X')
+
+#Accessing Method from outside class
+realme.show_model(1000)
+
+output
+-----
+Model: Realme X
+Price: 1000
+Volumn: 80
 
 	Note:  What is the self parameter(variable)
 		=========================	
 			
-	The self parameter is a reference to the current instance of the class, 
+	The self parameter is a reference to the current instance(object) of the class, 
 	and is used to access variables that belong to the class
 	((సెల్ఫ్ పరామితి అనేది తరగతి యొక్క ప్రస్తుత ఉదాహరణకి సూచన, మరియు తరగతికి చెందిన వేరియబుల్స్ 
 	యాక్సెస్ చేయడానికి ఉపయోగించబడుతుంది))
 
 
 	In simple words "self is refer's to the class variables and class instance(object) and Method variables"
+
+			EX:
+				class Math:
+					def __init__(self,name,book): #name,book are the class variables(parameters)(attributes)
+						self.name = name
+						self.book = book
+					def Author(self,price,address): #Author is the class Method, #price,address is the Method variables
+						self.price = price
+						self.address = address
+						print('Name:',self.name,'Book:',self.book,'Price:',self.price,'Address:',self.address)						
+				
+				m = Math('Murali','ArthamaticBook') #m is the class instance(object)
+				m.Author(200,'NDK')
+					
 
 
 *****************************************************
@@ -31,6 +70,25 @@ Syntax:
 
 		Sample Call : obj = className(args)
 
+Note:
+	EX:
+	class Mobile:
+	def __init__(self,m):
+		self.mobile = m
+
+	def show_model(self,p):
+		price = p # i am not define self,but i will work(like this... self.price)
+		model = 'SamSung' #This line is define own ga
+		print('Mobile:',self.mobile, 'Price:',price,'Model:',model)
+
+	m = Mobile('RealMe X Pro')
+	m.show_model(200)
+	
+output
+-------
+Mobile: RealMe X Pro Price: 200 Model: SamSung
+
+
 
 Note:	
 	EX:
@@ -38,7 +96,7 @@ Note:
 	def __init__(self,m):  # self,m is the--->parameter or (variable)or(attribute) ani antaru
 		self.model = m
 	def show_model(self,p):  #self,p is the ----> Parameter or (variable)or(attribute) ani antaru
-		price = p   #Local Variable
+		price = p   #Local Variable,ela kuda rayavachunu self use cheyakunda..
 		print('Model:',self.model,'Price:',price)
 
 EX:
@@ -66,7 +124,7 @@ class MyPerson:
 		self.a = age
 
 	def info(self):
-		price = 200
+		price = 200 #Local variable
 		print(f'Name is:{self.n}')
 		print(f'Price is:{price}')
 		print(f'Age is:{self.a}')
@@ -97,13 +155,13 @@ class is blueprint.
 
 EX:
 class Person:
-	def __init__(self,name,age):  #self,name,age,name---->(parameter) or (variable) or (Attribute)
+	def __init__(self,name,age):  #self,name,age---->(parameter) or (variable) or (Attribute)
 		self.name = name
 		self.age = age
 
 
 p1 = Person("Murali",26)
-print(f'Person Name is:{p1.name}')  #p1.name--->ante (classobject.variable)
+print(f'Person Name is:{p1.name}')  #p1.name--->ante (classobject.variable) #ela rasthe saparet ga class variables ni define cheyadam..object(instance) ni use chesi
 print(f'Person age is:{p1.age}')		
 
 
@@ -111,6 +169,48 @@ output
 -------
 Person Name is:Murali
 Person age is:26
+
+
+EX:
+class Student:
+	def __init__(self,name,age):
+		self.name = name
+		self.age = age
+
+	def func(self,price):
+		self.price = price
+		print("The Student Name is ={}".format(self.name))
+		print("The Student Age is ={}".format(self.age))
+		print("The kilo Fruits Price is ={}".format(self.price))
+
+s = Student('Kushal',28)
+s.func(230)			
+
+output
+-----
+The Student Name is =Kushal
+The Student Age is =28
+The kilo Fruits Price is =230
+
+
+EX:
+class Student:
+	def __init__(self,name,age):
+		self.name= name
+		self.age = age
+
+	def func(self,price):
+		price = price
+		print('The Student Name is={},Student Age is={},Student Paid the Price is {}'.format(self.name,self.age,price))
+
+
+s = Student('Ashok',25)
+s.func(250)		
+
+
+output
+------
+The Student Name is=Ashok,Student Age is=25,Student Paid the Price is 250
 
 
 EX:
@@ -130,6 +230,28 @@ output
 ------
 Hello My name is:Murali
 My age is:26
+
+
+EX:
+class Student:
+	def __init__(self,name,age):
+		self.name = name
+		self.age = age
+
+	def func(self,price):
+		price = price
+		print('The student Name is:'+self.name)	
+		print('The Student age is:'+str(self.age))
+		print('The Student Paid the Price:'+str(price))
+
+s = Student('Murali',26)
+s.func(2500)		
+
+output
+------
+The student Name is:Murali
+The Student age is:26
+The Student Paid the Price:2500
 
 
 EX:
@@ -274,15 +396,15 @@ EX:
 
 class Student:
 	def check_pass_fail(self):
-		if self.marks >= 40:  #ee line lo unde self vachesi check_pass_fail method() unde self ani artham..
-			return True
+		if self.marks >= 40:  #ee line lo unde self vachesi check_pass_fail method() lo unde self ani artham..haa self vachesi variables ni and instance(object) ni refer chesthundi...
+			return True  #self refer to the Object(Instance)
 
 		else:
 			return False
 
 student1 = Student()
 student1.name = "Harry"
-student1.marks = 85
+student1.marks = 85  #(self.marks) ela compair cheai...#self refer's to the object(instance)
 
 did_pass = student1.check_pass_fail()
 print(did_pass)				
@@ -296,7 +418,7 @@ True
 EX:
 class Student:
 	def check_pass_fail(self):
-		if self.marks >= 40:  #ee line lo unde self vachesi check_pass_fail method() unde self ani artham..
+		if self.marks >= 40:  #ee line lo unde self vachesi check_pass_fail method() unde self ani artham.. self refer to the Object(Instance)
 			return True
 
 		else:
@@ -318,7 +440,7 @@ EX:
 
 class Student:
 	def check_pass_fail(self):
-		if self.marks <= 40:  #ee line lo unde self vachesi check_pass_fail method() unde self ani artham..
+		if self.marks <= 40:  #ee line lo unde self vachesi check_pass_fail method() unde self ani artham.. self refer to the Object(Instance)
 			return True
 
 		else:
@@ -402,6 +524,34 @@ output
 ------
 True
 
+
+EX:
+class Student:
+	def check_pass_fail(self):
+		if len(self.name) == 5:
+			return True
+
+		else:
+			return False
+
+s1=Student()
+s1.name = 'Murali'
+s1.age = 25
+
+print(s1.name)
+print(s1.age)				
+
+d = s1.check_pass_fail()
+print(d)
+
+
+output
+-----
+Murali
+25
+False
+
+
 EX:
 class Student:
 	def check_pass_fail(self):
@@ -426,7 +576,7 @@ True
 EX:
 class Student:
 	def check_pass_fail(self):
-		if len(self.name) <= 4:
+		if len(self.name) <= 4: #self refer to the Object(Instance)
 			return True
 
 		else:
@@ -534,7 +684,7 @@ class Student:
 
 
 	def check_pass_fail(self):
-		if self.marks >= 40:  
+		if self.marks >= 40:   #self refer to the Object(Instance)
 			return True
 
 		else:
@@ -662,6 +812,40 @@ My Name is: Murali
 My Marks is: 26
 
 
+Ex:
+class Student:
+	def check_pass_fail(self):
+		if self.marks >= 40:
+			return True
+
+		else:
+			return False
+
+	def __init__(self,name,age):
+		self.name =name
+		self.age = age
+
+stu = Student('Murali',25)
+stu.marks = 50
+
+print(stu.marks)
+
+d = stu.check_pass_fail()
+print(d)
+
+print(stu.name)
+print(stu.age)					
+
+
+output
+------
+50
+True
+Murali
+25
+
+
+
 EX:
 class Student:
 	def check_pass_fail(self):
@@ -718,8 +902,95 @@ real: 1
 imaginary: 8
 
 
+EX:
+class Complex:
+	def __init__(self,real,imaginary):
+		self.real = real
+		self.imaginary = imaginary	
+
+	def add(self,other): # i am using 'other' parameter,idi same self parameter la ga ne work auvthundi..anthey kakunda idi object(instance) ni refer chesthundi...
+		real = self.real + other.real
+		imaginary = self.imaginary + other.imaginary
+		result = Complex(real,imaginary)
+		return result
+
+
+n1 = Complex(5,6)
+n2 = Complex(-4,2)
+
+re = n1.add(n2)
+
+print('real:',re.real)
+print('imaginary:',re.imaginary)
+
+
+output
+------
+real: 1
+imaginary: 8
+
 	
-**************************************
+**************** Simple(Single) Inheritance**********************
+EX:
+
+class Parent:
+	def __init__(self):
+		self.parent_attribute = "I am a Parent"
+
+	def parent_method(self):
+		print('Back in my day......')
+
+class Child(Parent):
+	def __init__(self):
+		self.child_attribute = 'I am a Child'
+		Parent.__init__(self) ---------------------->observer here,direct ga classname usechesthe paranthess lo self use cheyali
+
+
+c = Child()
+
+c.parent_method()
+
+print(c.parent_attribute)
+print(c.child_attribute)
+
+output
+-----
+Back in my day......
+I am a Parent
+I am a Child
+
+		(OR)
+
+EX:
+class Parent:
+	def __init__(self):
+		self.parent_attribute = "I am a Parent"
+
+	def parent_method(self):
+		print('Back in my day......')
+
+# Create a child class that inherits from Parent
+class Child(Parent):
+	def __init__(self):
+		self.child_attribute = 'I am a Child'
+		super().__init__() -----------------------> observer here ela neaina rayavachunu parent class ni
+
+
+c = Child()
+
+c.parent_method()
+
+print(c.parent_attribute)
+print(c.child_attribute)
+
+output
+------
+
+Back in my day......
+I am a Parent
+I am a Child
+
+
 	
 EX:
 
@@ -750,7 +1021,7 @@ class Employee(Person):
 		self.post = post
 
 			#invoking(ఆవాహన) the __init__ of the parent class
-		Person.__init__(self,name,idnumber)  #Person is super()
+		Person.__init__(self,name,idnumber)  #Person is super() #Person is the class name ani..-------->Observer here
 
 
 	def details(self):
@@ -776,6 +1047,50 @@ My name is Rahul
 Id Number is101
 Salary is:20000
 Post:Doctor
+
+		(OR)
+
+class Person:
+	def __init__(self,name,idnumber):
+		self.name = name
+		self.idnumber = idnumber
+
+	def display(self):
+		print(self.name)
+		print(self.idnumber)
+	
+	def details(self):
+		print("My Name is:{}".format(self.name))
+		print("My Id Number is:{}".format(self.idnumber))
+
+class Employee(Person):
+	def __init__(self,name,idnumber,salary,post):
+		self.salary = salary
+		self.post = post
+		super().__init__(name,idnumber)  --------------------------->Observer here
+
+	def details(self):
+		print('My name is:{}'.format(self.name))
+		print('My Idnumber is:{}'.format(self.idnumber))
+		print('My Salary is:{}'.format(self.salary))
+		print('My Post is:{}'.format(self.post))
+
+
+e = Employee('Murali',101,25000,'Engineer')
+
+e.display()
+e.details()								
+
+output
+-------
+Murali
+101
+My name is:Murali
+My Idnumber is:101
+My Salary is:25000
+My Post is:Engineer
+
+
 
 **************************************
 
@@ -883,6 +1198,19 @@ I am a Student: Murali Devanur
 
 
 EX:
+class Student:
+	def __init__(self):
+		self.name = 'Murali Devanur'
+		print(self.name+' Your are Student')
+
+s  =Student()
+
+output
+------
+Murali Devanur Your are Student
+
+
+EX:
 
 class Student:
 	
@@ -903,7 +1231,7 @@ class Student:
 		print("Student name is :",name)
 			
 s = Student('Murali Devanur')
-print('My age is:',s.age)
+print('My age is:',s.age)    #class variable ni define chesetappudu class object(instance) ni use cheyali...
 
 
 output
@@ -927,8 +1255,8 @@ My age is: 25
 EX:
 class Student:
 	name = 'Murali' #class variable
-	def __str__(self):
-		return self.name
+	def __str__(self):  	#This is Method okay na...
+		return self.name  #class variable ni 'method lo' use chesetappudu ikkada 'self' use cheshanu....ela kuda call cheyavachunu..
 s = Student()
 
 print(s)
@@ -936,16 +1264,33 @@ print(s)
 output
 ------
 Murali
+
+
+		(OR)
+
+EX:
+class Student:
+	name = 'Murali'
+	def __str__(self):
+		return Student.name  ---->observer here,ikkada classname(Student)ni use chesi kuda call cheyavachunu..
+
+s = Student()
+print(s)		
+
+output
+-------
+Murali
+
 *********************************
 EX:
 class Mobile:
 	fp = 'Yes' --->class variable
 	@staticmethod
 	def show(m,r):
-		Model = m
+		Model = m   #Local Variables
 		Rate = r
 		print(f'Mobile Model is:{Model}'+','+f'Mobile Rate is:{Rate}')-->This is importent
-		print(Mobile.fp)
+		print(Mobile.fp)   #ikkada class variable ni 'class name' use chesi call cheshanu....
 
 res = Mobile()
 res.show('Real Me',5623)
@@ -1118,9 +1463,9 @@ This is automatic,whether you call it self or not.
 
 Where to use self
 -----------------
-	def__init__(self):
+	def__init__(self): #This is Special Method
 
-	def show_model(self):
+	def show_model(self): #This is method
 
 ------------Theory complete---------
 EX:
@@ -1225,7 +1570,7 @@ class Student:
 		self.name = 'Rajesh'
 
 	def show(self,age):
-		person = age------>Look i am not using self,but using variable(person) this is also Local Variable
+		person = age------>Look i am not using self,but using variable(person) this is also Local Variable,Ela kuda rayavachunu
 		print('Name:',self.name+','+'Age:',person)
 
 s = Student()
@@ -1640,7 +1985,46 @@ class Mobile:
 	
 redmi = Mobile('Redmi 7s',50)
 
+
+Ex:
+class Student:
+	def __init__(self,m,v=80):
+		self.m = m
+		self.v = v
+
+	def get(self):
+		print(self.m)
+		print(self.v)
+
+s = Student('Realme')
+s.get()		
+
+output
+------
+Realme
+80
 	
+
+EX:
+
+class Student:
+	def __init__(self,m,v=80): #v=80 is the by default
+		self.m = m
+		self.v = v
+
+	def get(self):
+		print(self.m)
+		print(self.v)
+
+s = Student('Realme',40) #Here i am changing default value...
+s.get()		
+
+output
+------
+Realme
+40
+
+
 
 EX:
 class Mobile:
@@ -1657,7 +2041,7 @@ Mobile constructor called
 
 EX:
 class Mobile:
-	#Constructor without Parameter
+	#Constructor with Parameter
 	def __init__(self, m ,v = 80): 
 		self.model = m
 		self.volumn = v
@@ -1706,7 +2090,7 @@ Mobile volumn is: 80
 
 EX:
 class Mobile:
-	#Constructor without Parameter
+	#Constructor with Parameter
 	def __init__(self, m ,v = 80): 
 		self.model = m
 		self.volumn = v
@@ -1732,7 +2116,7 @@ Volumn: 80
 
 EX:
 class Mobile:
-	#Constructor without Parameter
+	#Constructor with Parameter
 	def __init__(self, m ,v = 80): 
 		self.model = m
 		self.volumn = v
@@ -1758,7 +2142,7 @@ Volumn: 50
 
 EX:
 class Mobile:
-	#Constructor without Parameter
+	#Constructor with Parameter
 	def __init__(self, m ,v = 80): 
 		self.model = m
 		self.volumn = v
@@ -1827,7 +2211,7 @@ Instance variable are defined and initialized using a constructor with self para
 EX:
 	class Mobile:
 		def __init__(self):
-			self.model = 'RealMe x' ---->Instance Variable
+			self.model = 'RealMe x' ---->Instance Variable(self.model) ani artham
 		def  show_model(self):
 			print(self.model)
 
@@ -1921,7 +2305,7 @@ Accessing class/static variable
 ---------------------------------
 	with class method
 	------------------
-To access class variable,we need class methods with cls as first parameter then we can access
+To access class variable,we need class methods with 'cls' as first parameter then we can access
 class variable using "cls.variable_name"
 
 (క్లాస్ వేరియబుల్‌ని యాక్సెస్ చేయడానికి, మేము మొదటి పారామీటర్‌గా cls తో క్లాస్ మెథడ్స్ అవసరం, అప్పుడు మనం యాక్సెస్ చేయవచ్చు
@@ -1966,6 +2350,29 @@ output
 ------
 Mobile Model is:Real Me
 mobile is Finger print: Yes,Mobile Rate is: 2000		
+
+Ex:
+class Student:
+	fp = 'yes'
+	def __init__(self):
+		self.model = 'Real Me'
+
+	def show(self):
+		print(self.model)
+
+	@classmethod	
+	def is_fp(cls,r):
+		cls.rate = r
+		print('The Rate is',str(cls.rate)+','+'The feedback is',cls.fp)
+
+s=Student()
+s.show()
+s.is_fp(2500)
+				
+output
+------
+Real Me
+The Rate is 2500,The feedback is yes
 
 
 EX:
@@ -2035,15 +2442,16 @@ class Mobile:------>This is class(cls refers to the class)
 realme = Mobile()
 
 Mobile.fp  ----->1.Accessing class variable outside class.
-		 2.class variable ni Class Name tho call cheyavachunu.
+		 2.class variable ni Class Name tho kuda call cheyavachunu.
+
 
 EX:
 class Mobile:------>This is class(cls refers to the class)
-	fp = 'Yes'
+		fp = 'Yes'
 	def __init__(self):
 		self.model = 'Real Me X5'
 
-	def	show_data(self):
+	def show_data(self):
 		print(self.model)
 
 	@classmethod
@@ -2067,7 +2475,7 @@ class Mobile:------>This is class(cls refers to the class)
 	def __init__(self):
 		self.model = 'Real Me X5'
 
-	def	show_data(self):
+	def show_data(self):
 		print(self.model)
 
 	@classmethod
@@ -2142,7 +2550,7 @@ class Mobile:
 
 realme = Mobile()
 
-Mobile.is_fp() #calling class method
+Mobile.is_fp() #calling class method using classname
 
 output
 ----
@@ -2513,7 +2921,7 @@ Real Me
 
 Mutator Method
 --------------
-This Method is used to access or read and modify data of the variable.This
+This Method is used to "access or read and modify data of the variable".This
 method modify the data in the variable.This is also called as 'setter method'.
 
 
@@ -2525,11 +2933,11 @@ class Mobile:
 		self.model = 'RealMe X'  #Instance Variable
 
 	def set_model(self):	#Mutator Method
-		self.model = 'RealMe 2'
+		self.model = 'RealMe 2'  #Modifying data here
 
 realme = Mobile()
 #Before Setting
-print(realme.model)
+print(realme.model) #Access and read data here
 #After Setting
 realme.set_model()   #Calling Mutator Method
 print(realme.model)		
@@ -2727,6 +3135,26 @@ Mobile.show_model(101)  #calling Method with argument
 
 EX:
 class Mobile:
+	model = 'Real Me'
+
+	@classmethod
+	def show_model(cls,p):
+		cls.price = p
+		print('Mobile model is :{}'.format(cls.model))
+		print('Mobile Price is :{}'.format(cls.price))
+
+m = Mobile()
+m.show_model(25000)		
+
+
+output
+-------
+Mobile model is :Real Me
+Mobile Price is :25000
+
+
+EX:
+class Mobile:
 
 	fp = 'Yes'
 
@@ -2823,7 +3251,8 @@ Decorator @staticmethod need to write above the static method
 
 **************************************
 Note:@classmethod lo 'cls' use chesi variable ni pass cheshamu kada....kani @staticmethod lo 'cls' use
-cheyakudadu kabbati appudu only @staticmethod ni matrame use cheyali antey..
+cheyakudadu kabbati appudu only @staticmethod ni matrame use cheyali antey..,by default parameters @staticmethod
+lo vadamu anthey... direct ga kavalasina parameters ni petti use chesukovadame..method lo.
 
 **************************************
 Syntax:
@@ -2845,7 +3274,7 @@ class Mobile:
 
 	@staticmethod
 	def show():
-		a = 'Real Me X'
+		a = 'Real Me X' #Local variable
 		print('Parent class static method:',a)
 
 a = Mobile()
@@ -2858,10 +3287,10 @@ Parent class static method: Real Me X
 
 EX:
 class Mobile:
-	fp = 'Yes'
+	fp = 'Yes'  #class Variable name
 	@staticmethod  #Decorator
 	def show_model(): #Static Method
-		print(Mobile.fp)
+		print(Mobile.fp)  #Mobile.fp--->classname.classvariablename (ani ela call cheyali)
 
 realme = Mobile()
 
@@ -2872,7 +3301,7 @@ class Mobile:
 	fp = 'Yes'
 	@staticmethod
 	def show():
-		return Mobile.fp
+		return Mobile.fp  
 
 res = Mobile()
 m = res.show()
@@ -2889,7 +3318,7 @@ class Mobile:
 	fp = 'Yes'
 	@staticmethod
 	def show():
-		print(Mobile.fp)
+		print(Mobile.fp)  #classname.classvariablename (ani ela call cheyali)
 
 res = Mobile()
 res.show()
@@ -2903,6 +3332,7 @@ Calling Static Method without Argument
 ---------------------------------------
 syntax:
 	Classname.method_name()
+
 
 class Mobile:
 	@staticmethod
@@ -2929,6 +3359,7 @@ Calling Static Method with Argument
 ---------------------------------
 Syntax:	
 	Classname.method_name(Actual_argument)
+
 Ex:
 	Mobile.show_model(1000)
 
@@ -2950,7 +3381,7 @@ class Mobile:
 		Model = m
 		Rate = r
 		print(f'Mobile Model is:{Model}'+','+f'Mobile Rate is:{Rate}')
-		print(Mobile.fp)
+		print(Mobile.fp) # Mobile.fp--->classname.classvariablename (ani ela call cheyali)
 
 res = Mobile()
 res.show('Real Me',5623)
@@ -2999,7 +3430,7 @@ class Mobile:
 
 	@staticmethod 	#Decorator
 	def show_model():	#Static Method
-		print('FingerPrint:',Mobile.fp) --->class name use chesi classvariable ni call cheshamu.
+		print('FingerPrint:',Mobile.fp) --->Mobile.fp--->classname.classvariablename (ani ela call cheyali).
 
 realme  = Mobile()
 Mobile.show_model()  #calling static Method
@@ -3036,7 +3467,7 @@ class Student:
 		self.roll = r
 
 	#Instance Method
-	def	disp(self):
+	def disp(self):
 		print('Student Name:',self.name)
 		print('Student Roll:',self.roll)
 
@@ -3382,7 +3813,7 @@ If a class is derived from one base class(Parent Class),It is called Single Inhe
         Son
 
 Syntax:
-	class ParentClassName(object):
+	class ParentClassName(object): #object anedi parent class ki by default ga internal ga untundi...
 		members of Parent class
 
 	class ChildClassName(ParentClassName):
@@ -3486,7 +3917,7 @@ class Father:
 		self.Name = name
 		self.Age = age
 
-	def	show(self):
+	def show(self):
 		print('Father class is Constructor')
 
 class Son(Father):

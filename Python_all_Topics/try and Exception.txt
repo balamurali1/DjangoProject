@@ -1,6 +1,249 @@
+
+Note:
+	1.Ikkada importent emity ante top to bottom povali code,
+	2.bottom to top code podu okay na....
+
+debugging
+==========
+	debugging means to find the error and took correct the error also..
+
+
+Note:
+	The 'try' block lets you test a block of code for errors.(1.try blocks anedi, try lo unde code lo errors unnayoo ledo 
+									check chesthundi.okavella erros unte haa errors ni hadle
+									cheyadaniki try nundi  'except' lo ki jump chesthundi.
+								2.ledu try lo emi errors leuv annapudu code anedi try lo ne execute hai
+								bayataku vasthundi.Errors unte ne except lo ki jump auvthundi lekunte jump kadu..)
+
+	The 'except' block lets you handle the error. (try nunchi vachina haa error ni except handle chesthundi) 
+
+
+
+			  raise Exception
+			====================
+If a specific "condition" occurs(ఏర్పడుతుంది), you can manually raise exceptions with a raise keyword.
+
+
+
+Ex:
+try: 
+    f = open("C:/Users/BALAMURALI/Desktop/test.txt")
+except: 
+    print('Could not open file')
+finally:
+    f.close()
+
+print('Program continue')
+
+output
+------
+Program continue
+
+
+EX:
+try: 
+    f = open("C:/Users/BALAMURALI/Desktop/good.txt") --->good.txt ane file ledu kabbati ee location lo error vasthundi..
+except: 
+    print('Could not open file')
+finally:
+    f.close()
+
+print('Program continue')
+
+output
+------
+Could not open file
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 6, in <module>
+    f.close()
+NameError: name 'f' is not defined
+
+
+
+	((Specific ga "if condition" lo euuvali ante ela "raise Exception" ela euvvachunu..))
+EX:
+x = 10
+if x > 5:
+	raise Exception('x should not exceed 5.The value of x was: {}'.format(x))
+
+output
+-------
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 3, in <module>
+    raise Exception('x should not exceed 5.The value of x was: {}'.format(x))
+Exception: x should not exceed 5(x 5కి మించకూడదు).The value of x was: 10
+
+			(OR)
+
+EX:
+x = 2
+if x > 5:
+	raise Exception('x should not exceed 5.The value of x was: {}'.format(x))
+print('Code is Executed..!!')
+	
+output
+------
+Code is Executed..!!
+
+
+
+Ex:
+student_age = int(input('Enter student age:'))
+
+if student_age < 2:
+	raise Exception("Sorry!,student age cannot be lower than 2") (క్షమించండి!, విద్యార్థి వయస్సు 2 కంటే తక్కువ ఉండకూడదు)
+
+print('Student age higher then 2')
+print('So code is executed!!')	
+
+output
+------
+Enter student age:4
+Student age higher then 2
+So code is executed!!
+
+
+output
+-----
+Enter student age:2
+Student age higher then 2
+So code is executed!!
+
+
+output
+-------
+Enter student age:1
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 4, in <module>
+    raise Exception("Sorry!,student age cannot be lower than 2")
+Exception: Sorry!,student age cannot be lower than 2 (క్షమించండి!, విద్యార్థి వయస్సు 2 కంటే తక్కువ ఉండకూడదు)
+
+
+output
+------
+Enter student age:-3
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 4, in <module>
+    raise Exception("Sorry!,student age cannot be lower than 2")
+Exception: Sorry!,student age cannot be lower than 2
+
+
+
+EX:
+student_age = int(input('Enter Student age:'))
+
+if student_age > 2:
+	raise Exception ("Sorry!,Student age cannot be Higher than 2 ")
+	
+print('The condition is true')
+print('The code is End')
+
+output
+-------
+Enter Student age:3
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 4, in <module>
+    raise Exception ("Sorry!,Student age cannot be Higher than 2 ")
+Exception: Sorry!,Student age cannot be Higher than 2
+
+
+output
+-------
+Enter Student age:1
+The condition is true
+The code is End
+
+
+EX:
+
+try:
+	raise Exception('spam','eggs') #args ante evi = spam,eggs
+except Exception as inst:
+	print(type(inst))
+	print(inst.args)
+	print(inst)
+
+	x,y = inst.args
+	print('x=', x)
+	print('y=', y)	
+
+
+output
+-------
+<class 'Exception'>
+('spam', 'eggs')
+('spam', 'eggs')
+x= spam
+y= eggs
+
+			raise ValueError
+			====================
+
+EX:
+try:
+	amount = 1999
+	if amount < 2999:
+		
+		# raise the ValueError
+		raise ValueError("Please add money in your account")
+
+	else:
+		print("You are eligible to purchase DSA Self Paced course")
+
+# if false then raise the value error
+except ValueError as e:
+        print(e)			
+
+output
+------
+Please add money in your account
+
+
+
+EX:
+while True:
+	try:
+		x = int(input("Please enter a number:"))
+		break
+	except ValueError:
+		print('Oops! That was no valid number. Try again....')	
+
+
+output
+-------
+Please enter a number:  # observe here ikkada number menction cheyaledu kabbati, again and again vasthune untundi...
+Oops! That was no valid number. Try again....
+Please enter a number:
+Oops! That was no valid number. Try again....
+Please enter a number:
+
+
+output
+--------
+Please enter a number:2  #observe here ikkada number menction cheshamu kabbati, ikkadi varukey program end auvthundi..
+
+
+
+Syntax:
+	try:
+		{Run This code}
+	
+	except:
+		{Run this code if an exception occurs}
+		(మినహాయింపు సంభవించినట్లయితే ఈ కోడ్‌ని అమలు చేయండి.)		
+
+	else:	
+		{Run this code if no exception occurs}
+		(మినహాయింపు జరగకపోతే ఈ కోడ్‌ని అమలు చేయండి)
+
+	finally
+		{Always run this code}
+
+	
+
 		Exception
 		=========
-An exception is a runtime error which can be handled by the programmer.
+An exception is a runtime error which can be handled by the 'programmer'.
 All exceptions are represented as classes in python.
 
 Type of Exception
@@ -19,8 +262,6 @@ Need of Exception Handling
 3.Exception may cause data loss from the database or a file.
 
 
-
-
 	Exception Handling
 	=================
 
@@ -30,19 +271,21 @@ Try-The try block contains code which may cause exceptions.
 		Statements
 	
 
-Except - The except block is used to catch an exception that is raised in the try block.There can
-	be multiple except block for try block.
+Except - The except block is used to catch an exception that is raised in the try block.(ట్రై బ్లాక్‌లో లేవనెత్తిన మినహాయింపును క్యాచ్ చేయడానికి మినహా బ్లాక్ ఉపయోగించబడుతుంది.)
+There can be multiple except block for try block.(ట్రై బ్లాక్ కోసం 'బ్లాక్ మినహా అనేకం' ఉండవచ్చు)
 
 	syntax:
 		except ExceptionName:
 			statements
 
 Else - This block will get executed when no exception is raised.Else block is executed after try block
+	(మినహాయింపు లేకపోయినా ఈ బ్లాక్ అమలు చేయబడుతుంది. ప్రయత్నించిన తర్వాత బ్లాక్ ఎగ్జిక్యూట్ చేయబడుతుంది)
 	syntax:
 		else:
 			statements
 
 Finally - This block will get executed irrespective of whether there is an exception or not.
+	  (మినహాయింపు ఉందా లేదా అనే దానితో సంబంధం లేకుండా ఈ బ్లాక్ అమలు చేయబడుతుంది)	
 	syntax:
 		finally:
 			statements
@@ -60,12 +303,16 @@ Finally - This block will get executed irrespective of whether there is an excep
 EX:1
 try:
 	statement
+
 except ExceptionClassName:
 	Statement
+
 else:			#Optional
 	Statement
+
 finally:		#Optional
 	Statement
+
 
 OR
 
@@ -80,8 +327,10 @@ EX:2(Multiple Exception blocks)
 
 try:
 	Statement
+
 except ExceptionClassName1:
 	Statement
+
 except ExceptionClassName2:
 	Statement
 
@@ -106,8 +355,1065 @@ Except
 		Statement
 
 ------------Theory complete----------
+
+
+Note: ela yee errors naina handle  cheyadaniki supparat supparat  ga except errors untai okay na.. example ga nenu
+ZeroDivisionError, IndexError ni chupinchanu inka untai google lo chudu..
+
+
+	ZeroDivisionError
+	------------------
+
+ZeroDivisionError anedi only "Division zero tho chesina" Error ni matrame handle chesthundi.
+
+
+EX:
+def this_fails():
+	x = 1/0
+
+try:
+	this_fails()
+
+except ZeroDivisionError as err:
+	print('Handling run-time error:',err)		
+
+output
+-------
+Handling run-time error: division by zero
+
+
+EX:
+L = [22,33,44,55]
+
+try:
+	print(L[3])
+	print(100/0) ---->Look here
+	print(L[0])
+
+except:                  # ela only 'except' anipedithey anni errors  ni handle chesthundi ani..artham
+	print("Exception Generated...")
+
+print("End of Program...")		
+
+
 EX:
 
+L = [22,33,44,55]
+
+try:
+	print(L[3])
+	print(100/0)
+	print(L[0])
+
+except ZeroDivisionError:
+	print("Division 0 is not correct")
+
+print("End of Program...")		
+
+output
+-------
+55
+Exception Generated...
+End of Program...
+
+
+EX:
+try:
+	numerator = int(input('Enter numerator:'))
+	denominator = int(input('Enter denominator:'))
+
+	result  = numerator/denominator
+	print(result)
+
+except:                # ela only 'except' anipedithey anni errors  ni handle chesthundi ani..artham
+
+	print('Denominator cannot be 0. Please try again')
+
+print("Program End!!")
+
+output
+------
+Enter numerator:12
+Enter denominator:0
+Denominator cannot be 0. Please try again
+Program End
+
+EX:
+try:
+	numerator = int(input('Enter numerator:'))
+	denominator = int(input('Enter denominator:'))
+
+	result  = numerator/denominator
+	print(result)
+
+except ZeroDivisionError:
+	print('Denominator cannot be 0. Please try again')
+
+print("Program End!!")		
+
+  	
+output
+------
+Enter numerator:10
+Enter denominator:0
+Denominator cannot be 0. Please try again
+Program End!!
+
+
+	IndexError
+	----------
+EX:
+L = [11,22,33,44]
+a = L[6]
+print(a)
+
+outptu
+------
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 2, in <module>
+    a = L[6]
+IndexError: list index out of range
+
+
+Ex:python program just you will analysis
+L = [11,22,33,44]
+a = L[3]
+print(a)
+
+output
+------
+44  -------->ela ravali answer index number esthey
+
+
+Ex:
+L = [11,22,33,44]
+
+try:
+	print(L[3])
+	print(L[4])
+	print(L[0])
+
+except IndexError:
+	print("You are enter Wrong index number try again!!")
+
+print("End of Program...")		
+
+output
+------
+44
+You are enter Wrong index number try again!!
+End of Program...
+
+
+
+EX:
+	my_list = [1,2,3]
+	i  =int(input('Enter index:'))
+	print(my_list[i])
+	
+output
+------
+Enter index:5
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 16, in <module>
+    print(my_list[i])
+IndexError: list index out of range
+
+output
+------
+Enter index:2
+3
+
+**Note: ela indexError vachinappudu, try lo except lo ela handle cheyali
+
+EX:
+
+L = [22,33,44,55]
+
+try:
+	print(L[3])
+	print(L[7])
+	print(L[0])
+
+except IndexError:
+	print("Index out of the range...")
+
+print("End of Program...")
+
+output
+-----
+55
+Index out of the range...
+End of Program...		
+
+
+
+EX:
+
+try:
+	my_list = [1,2,3]
+	i  =int(input('Enter index:'))
+	print(my_list[i])
+
+except IndexError:
+	print("Index cannot be greater than size of list.")	
+
+print("Program End!!")		
+
+
+
+output
+-----
+Enter index:6
+Index cannot be greater than size of list.
+Program End!!
+
+
+output
+------
+Enter index:2
+3
+Program End!!
+
+
+EX:
+
+try:
+	numerator = int(input('Enter numerator:'))
+	denominator = int(input('Enter denominator:'))
+
+	result  = numerator/denominator
+	print(result)
+
+	my_list = [1,2,3]
+	i  =int(input('Enter index:'))
+	print(my_list[i])
+
+except ZeroDivisionError:
+	print('Denominator cannot be 0. Please try again')
+
+
+except IndexError:
+	print("Index cannot be greater than size of list.")	
+
+print("Program End!!")		
+
+
+output
+------
+Enter numerator:5
+Enter denominator:2
+2.5
+Enter index:2
+3
+Program End!!
+
+output
+-------
+Enter numerator:3
+Enter denominator:0
+Denominator cannot be 0. Please try again
+Program End!!
+
+
+output
+------
+Enter numerator:2
+Enter denominator:1
+2.0
+Enter index:4
+Index cannot be greater than size of list.
+Program End!!
+
+
+			NameError
+			==========
+
+Raised when a 'variable' is not found in local or global scope
+(స్థానిక లేదా ప్రపంచ పరిధిలో ఒక 'వేరియబుల్' కనిపించనప్పుడు లేవనెత్తబడింది)
+
+*********************************
+Note: particular ga Error ekkada undi ani thelusukovali ante ela rayali "Exception"
+
+EX:
+
+a = b
+
+output
+-----
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 1, in <module>
+    a = b  #a ku value vachesi b, b ku value ekkada undi.
+NameError: name 'b' is not defined
+
+
+(OR)
+
+
+EX:
+try:
+	a = b
+except Exception as e:
+	print(e)
+
+output
+------
+name 'b' is not defined
+*********************************
+
+EX:
+
+	a = b     ##a ku value vachesi b, b ku value ekkada undi.
+
+ouptut
+-----
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 1, in <module>
+    a = b  #a ku value vachesi b, b ku value ekkada undi.
+NameError: name 'b' is not defined
+
+
+EX:
+
+try:
+	a = b
+
+except:
+	print("Some problem may have occured")	
+
+output
+-------
+Some problem may have occured
+		
+
+
+EX:
+L1 = [22,33,44,55]
+print(L[3])
+
+output
+-------
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 2, in <module>
+    print(L[3])
+NameError: name 'L' is not defined
+
+
+Ex:
+L1 = [22,33,44,55]
+
+try:
+	print(L1[3])
+	print(L[1])
+	print(L1[0])
+
+except NameError:
+	print("Sorry! NameError Try agian okay")
+
+print("End of Program...")		
+
+output
+------
+
+55
+Sorry! NameError Try agian okay
+End of Program...
+
+
+
+EX:
+a = "Hello i am a Student"
+b = "Ok"
+print(a + c)
+
+output
+------
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 3, in <module>
+    print(a + c)
+NameError: name 'c' is not defined---------------------->Look here
+
+
+EX:
+try:
+	a = "Hello i am a Student"
+	b = "Ok"
+	c = a + b
+	print(z)
+
+except NameError:
+	print("Sorry! NameError Try agian okay")
+
+print("End of Program...")
+
+output
+------
+Sorry! NameError Try agian okay
+End of Program...		
+
+
+EX:
+a = 12
+b = 16
+print(a + m)
+
+output
+------
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 3, in <module>
+    print(a + m)
+NameError: name 'm' is not defined
+
+
+
+EX:
+a = 12
+b = 16
+
+try:
+	print(a + m)
+
+except NameError:
+	print("Sorry! NameError Try agian okay")
+
+print("End of Program...")		
+
+output
+------
+Sorry! NameError Try agian okay
+End of Program...
+
+
+
+
+EX:
+try:
+	print(x)
+
+except NameError:
+	print("variable x is not defined")
+
+output
+-------
+variable x is not defined
+
+
+EX:
+try:
+	x = 20
+	y = 10
+	z = x + y
+	print(f'c value is:{z}')
+
+except NameError:
+	print("variable x is not defined")
+
+output
+------
+c value is:30
+
+
+		Syntax Errors
+		=============
+syntax error ante starting and colsing semicoluns same undali
+
+
+EX:
+
+print("I am Murali')
+
+output
+------
+ File "C:\Users\BALAMURALI\Desktop\python.py", line 1
+    print("I am Murali')
+                       ^
+SyntaxError: EOL while scanning string literal
+
+
+EX:
+try:
+	print("Hello I am Murali')
+
+output
+------
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 2
+    print("Hello I am Murali')
+                             ^
+SyntaxError: EOL while scanning string literal--->like this
+
+
+
+		Type Error
+		===========
+Ex:
+
+print('Hello'+2)
+
+output
+------
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 1, in <module>
+    print('Hello'+2)
+TypeError: can only concatenate str (not "int") to str
+
+
+EX:
+a = 'Hello'
+b = 12
+c = a + b
+print(c)
+
+output
+-----
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 3, in <module>
+    c = a + b
+TypeError: can only concatenate str (not "int") to str----------------->look here...
+
+
+EX:
+L1 = [22,3,55]
+T = (4,56,67)
+print(L1+T)
+
+output
+-------
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 3, in <module>
+    print(L1+T)
+TypeError: can only concatenate list (not "tuple") to list
+
+
+		ValueError
+		============
+ValueError is thrown when a finction's argument is of an inappropriate type.
+
+Ex:
+
+
+EX:
+a = int(input('Ener value:'))
+print(a)
+
+ouptut
+------
+Ener value:22
+22
+
+
+EX:
+a = int(input('Ener value:'))
+print(a)
+
+
+output
+------
+Ener value:xyz
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 1, in <module>
+    a = int(input('Ener value:'))
+ValueError: invalid literal for int() with base 10: 'xyz' ---------->look here
+
+
+
+EX:
+a = int(input('Ener Float value:'))
+print(a)
+
+outptu
+-----
+Ener Float value:23.6
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 1, in <module>
+    a = int(input('Ener Float value:'))
+ValueError: invalid literal for int() with base 10: '23.6'
+
+
+
+
+EX:
+a = float(input('Ener Float value:'))
+print(a)
+
+output
+------
+Ener Float value:2.3
+2.3
+
+
+EX:
+a = float(input('Ener Float value:'))
+print(a)
+
+outptu
+------
+Ener Float value:jik
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 1, in <module>
+    a = float(input('Ener Float value:'))
+ValueError: could not convert string to float: 'jik'---------->look here
+
+
+
+		ModuleNotFoundError
+		====================
+ModuleNotFoundError  is thrown when a module could not be found.
+
+EX:
+
+	import maths-->maths anedi python lo lene ledu okay appudu errorvasthundi
+
+output
+-------
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 1, in <module>
+    import maths
+ModuleNotFoundError: No module named 'maths'
+
+
+EX:
+
+	import social ------->social anedi python lo lene ledu okay appudu errorvasthundi
+
+output
+------
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 1, in <module>
+    import social
+ModuleNotFoundError: No module named 'social'
+
+		
+			ImportError
+			------------
+ImportError is thrown when a specified function cannot be found
+
+
+EX:
+from math import sqrt --------->math lo sqrt function undi kabatti error radu..
+a = sqrt(144)
+print(a)
+
+output
+-----
+12.0
+
+
+Ex:
+from math import cube -->math lo cube function  undadu kabatti importError vasthundi.
+a = cube(144)
+print(a)
+
+output
+------
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 1, in <module>
+    from math import cube
+ImportError: cannot import name 'cube' from 'math' (unknown location)
+
+
+		KeyError
+		---------
+KeyError is thrown when a key is not found.This exception is raised when a mapping(dictionary)key
+is not found in the set of existing keys.
+
+
+EX:
+emp_dict = {'Name':'Murali', 'ID':1}
+
+emp_id = emp_dict['ID']
+print('The Employee ID is {}'.format(emp_id))
+
+emp_role = emp_dict['Role']
+print(emp_role)
+
+
+output
+-----
+The Employee ID is 1
+
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 6, in <module>
+    emp_role = emp_dict['Role']
+KeyError: 'Role'
+
+			(OR)--->handle the KeyError
+
+emp_dict = {'Name':'Murali', 'ID':1}
+try:
+	emp_id = emp_dict['ID']
+	print('The Employee ID is {}'.format(emp_id))
+
+	emp_role = emp_dict['Role']
+	print(emp_role)
+
+except KeyError as ke:
+	print('Key Not Found in Employee Dictionary:',ke)
+
+
+
+EX:
+a = {1:'Hello',2:'Good',3:"Nice"}
+c = a[2]
+print(c)
+
+output
+-------
+Good
+
+EX:
+
+a = {1:'Hello',2:'Good',3:"Nice"}
+c = a[4]
+print(c)
+
+output
+------
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 2, in <module>
+    c = a[4]
+KeyError: 4  ----------->look  here
+
+
+EX:
+a = {"name":"BalaMurali","age":26,"Color":"Black","city":"NDK"}
+b = a['name']
+print(b)
+
+output
+------
+BalaMurali
+
+
+EX:
+a = {"name":"BalaMurali","age":26,"Color":"Black","city":"NDK"}
+b = a['village']
+print(b)
+
+
+output
+------
+Traceback (most recent call last):
+  File "C:\Users\BALAMURALI\Desktop\python.py", line 5, in <module>
+    b = a['village']
+KeyError: 'village' ----------->look  here
+
+
+		EOFError
+		---------
+EOFError raised when the imput() function hits the end-of-file condition.
+
+
+
+
+		How to Handle Exceptions
+		---------------------------
+In python,exceptions can be handled using a try statement.
+
+try: The critical operation which can raise an exception is placed inside the try clause.
+
+except: The code that handles the exceptions is written in the except clause.
+
+
+
+
+		Syntax
+		--------
+
+	try:
+		statements that generate exceptions
+
+	except:	
+
+		statement(s) to handle exceptions
+
+
+
+            finally block
+	  ----------------	
+
+finally block anedi  try,except blocks execute aina auvakapoina finally block execute authundi.
+
+EX:
+
+try:
+	numerator = int(input('Enter numerator:'))
+	denominator = int(input('Enter denominator:'))
+
+	result  = numerator/denominator
+	print(result)
+
+except ZeroDivisionError:
+	print('Denominator cannot be 0. Please try again')
+
+finally:
+	print('Always printed')	
+
+print("Program End!!")		
+
+
+output
+------
+Enter numerator:3
+Enter denominator:2
+1.5
+Always printed
+Program End!!
+
+
+output
+------
+Enter numerator:3
+Enter denominator:0
+Denominator cannot be 0. Please try again
+Always printed
+Program End!!
+
+
+EX:
+try:
+	my_list = [1,2,3]
+	i  =int(input('Enter index:'))
+	print(my_list[i])
+
+except IndexError:
+	print("Index cannot be greater than size of list.")	
+
+finally:
+	print('Always printed')	
+
+print("Program End!!")		
+
+output
+-------
+Enter index:3
+Index cannot be greater than size of list.
+Always printed
+Program End!!
+
+
+output
+------
+Enter index:2
+3
+Always printed
+Program End!!
+
+
+
+EX:
+
+try:
+	numerator = int(input('Enter numerator:'))
+	denominator = int(input('Enter denominator:'))
+
+	result  = numerator/denominator
+	print(result)
+
+	my_list = [1,2,3]
+	i  =int(input('Enter index:'))
+	print(my_list[i])
+
+except ZeroDivisionError:
+	print('Denominator cannot be 0. Please try again')
+
+
+except IndexError:
+	print("Index cannot be greater than size of list.")	
+
+finally:
+	print('Always printed')	
+
+print("Program End!!")	
+
+
+output
+------
+Enter numerator:2
+Enter denominator:0
+Denominator cannot be 0. Please try again
+Always printed ----> look here
+Program End!!
+
+
+output
+------
+Enter numerator:2
+Enter denominator:1
+2.0
+Enter index:5
+Index cannot be greater than size of list.
+Always printed ---->look here
+Program End!!
+
+
+output
+-----
+Enter numerator:2
+Enter denominator:3
+0.6666666666666666
+Enter index:2
+3
+Always printed --->look here
+Program End!!
+
+
+		else block
+		-----------
+
+else block anedi, try block lo unna 'mootham code' execute aitheyne else block lo unna code execute auvthundi
+try block lo error vasthe else block execute kadu..appudu haa error ni try block vachesi 'except lo ki' pampisthundi
+idi nuv handle cheai ani..
+
+EX:
+try:
+	print("Hello I am Murali")
+
+except:
+	print("Something went wrong")
+
+else:
+	print("Nothing went wrong")		
+
+output
+------
+Hello I am Murali
+Nothing went wrong
+
+
+Ex:
+
+try:
+	numerator = int(input('Enter numerator:'))
+	denominator = int(input('Enter denominator:'))
+
+	result  = numerator/denominator
+	print(result)
+
+except ZeroDivisionError:
+	print('Denominator cannot be 0. Please try again')
+
+else:
+	print('ok')
+
+finally:
+	print('Always printed')	
+
+print("Program End!!")
+
+
+output
+------
+Enter numerator:3
+Enter denominator:0
+Denominator cannot be 0. Please try again
+Always printed
+Program End!!
+
+output
+-------
+
+Enter numerator:3
+Enter denominator:5
+0.6
+ok
+Always printed
+Program End!!
+
+
+EX:
+try:
+	numerator = int(input('Enter numerator:'))
+	denominator = int(input('Enter denominator:'))
+
+	result  = numerator/denominator
+	print(result)
+
+	my_list = [1,2,3]
+	i  =int(input('Enter index:'))
+	print(my_list[i])
+
+except ZeroDivisionError:
+	print('Denominator cannot be 0. Please try again')
+
+
+except IndexError:
+	print("Index cannot be greater than size of list.")	
+
+else:
+	print('Ok')
+
+finally:
+	print('Always printed')	
+
+print("Program End!!")
+
+
+output
+------
+Enter numerator:3
+Enter denominator:0
+Denominator cannot be 0. Please try again
+Always printed
+Program End!!
+
+output
+------
+Enter numerator:3
+Enter denominator:2
+1.5
+Enter index:4
+Index cannot be greater than size of list.
+Always printed
+Program End!!
+
+output
+------
+Enter numerator:2
+Enter denominator:3
+0.6666666666666666
+Enter index:2
+3
+Ok
+Always printed
+Program End!! 
+
+
+Ex:
+
+try:
+	my_list = [1,2,3]
+	i  =int(input('Enter index:'))
+	print(my_list[i])
+
+except IndexError:
+	print("Index cannot be greater than size of list.")	
+
+else:
+	print('ok')	
+
+finally:
+	print('Always printed')	
+
+print("Program End!!")
+
+output
+------
+Enter index:3
+Index cannot be greater than size of list.
+Always printed
+Program End!!
+
+output
+------
+Enter index:2
+3
+ok
+Always printed
+Program End!!
+
+
+
+EX:
 a = 10
 b = 5
 d = a/b
@@ -137,11 +1443,11 @@ ZeroDivisionError: division by zero
 note:ela error vasthundi.appudu e error ni handle cheyali ante 'exception' use cheyali.
 
 
-
+****************************************************
 Note:
 	try lo rasina code error vasthundi(error throw chesthundi) ani anipisthe, ahh error ni handle
 cheyadaniki 'except' block lo ahh error ni handle cheyavachunu. 
-
+******************************************************
 
 EX:
 a = 10
@@ -158,6 +1464,27 @@ output
 ------
 2.0
 Rest of the code
+
+
+EX:
+
+a = 10
+b = 5
+
+try:
+	c = a/b
+	print(f'c value is:{c}')
+
+except ZeroDivisionError:
+	print('Zero Division Not Allowed')
+
+print('Rest of the code')	
+
+output
+------
+c value is:2.0
+Rest of the code
+
 
 
 

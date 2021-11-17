@@ -8,6 +8,27 @@ a =deque([1,2,3,4])
 print(dir(a))
 ----------------------------
 
+		 Built-in iterable types(objects)
+		================================ 
+		An Iterable is a collection of elements that can be accessed sequentially.
+		1.list
+		2.dictionary 
+		3.tuple 
+		4.set
+
+		Python Literals
+		================
+		1.String (EX:single/Multi-line)
+		2.Int (EX: a=20, a=1235864789)
+		3.Float (EX: a=2.34)
+		4.Complex (EX: a = 2i+4j)
+		5.Boolean (EX: True/False)
+		6.Lists (EX: list=[1,2,35,6]
+		7.Tuples (EX:tuple=(1,2,3,4))
+		8.Sets (EX: set={1,2,4})
+		9.Dictionaries (or) map (or)mapping (EX: map={'one':1,'name':'Murali'})
+		
+
 		List Methods
 		-----------
 
@@ -67,6 +88,9 @@ type of elements(items) whereas a list can store diffrent type of elements(items
 4.A list can store "different type of elements" which can be modified.
 5.Lists are dynamic which means size is not fixed.
 6.Lists are represented using square bracket[].
+7.List  allows the duplicate members(elements)
+
+
 Ex:
 a = [10,20,-50,21.3,'Geekyshows']
 
@@ -87,10 +111,21 @@ CREATEING AN EMPTY LIST
 INDEX
 ------	
 	An index represents the position number of an list's element.The index start from 0
-on wards and written inside square braces
+on wards and written inside square bracket
 	     0   1  2   3      4	
 	a = [10,20,-50,21.3,'Geekyshows']
 	     -5	-4 -3	-2	-1
+
+EX:
+x = ("Apple","Banana","Orange")
+a = list(x)
+print(a)
+
+output
+------
+['Apple', 'Banana', 'Orange']
+
+
 
 len()  :#len()function index ni 1 nundi count chesthundi.
 ------
@@ -106,6 +141,88 @@ output
 a list elements is: 6 elements
 
 
+EX:
+a = ['apple','Orange','Banana','Mango','kiwi','melon','cherry']
+
+print(a[:4])  ##This example returns the items from the beginning but NOT including, "kiwi"
+
+output
+-------
+['apple', 'Orange', 'Banana', 'Mango']
+
+
+EX:
+a = ['apple','Orange','Banana','Mango','kiwi','melon','cherry']
+
+print(a[2:])   ##This example returns the items from "Banana" to the end:
+
+output
+------
+['Banana', 'Mango', 'kiwi', 'melon', 'cherry']
+
+
+EX:
+
+fruits = ['apple','banana','cherry']
+
+if "apple" in fruits:
+	print("Yes, 'apple' is in the fruits list")
+
+output
+------
+Yes, 'apple' is in the fruits list
+
+
+EX:
+
+list = ['Apple','Banana','Orange','Mango']
+print(f'The length of the list is:{len(list)}')
+print(f'The length of the list is {len(list)}')
+
+output
+------
+The length of the list is:4
+The length of the list is 4
+
+
+EX:
+mylist  =['apple','Ornage','Banana']
+print(mylist)
+print(f'1.{mylist[0]}')
+print(f'2.{mylist[1]}')
+print(f'3.{mylist[2]}')
+
+output
+------
+['apple', 'Ornage', 'Banana']
+1.apple
+2.Ornage
+3.Banana
+
+
+EX:
+list = ['Apple','Banana','Orange','Mango']
+print(f'The length of the list is:{len(list)}')
+print()
+print("len() counting start with 1 to n-1")
+print()
+print(f'The list first element length is:{len(list[0])}')
+print(f'The list Second element length is:{len(list[1])}')
+print(f'The list Third element length is:{len(list[2])}')
+print(f'The list Fourth element length is:{len(list[3])}')
+
+output
+-------
+The length of the list is:4
+
+len() counting start with 1 to n-1
+
+The list first element length is:5
+The list Second element length is:6
+The list Third element length is:6
+The list Fourth element length is:5
+
+
 Accessing List's Element
 ------------------------
 	      a[-5] a[-4] a[-3]   a[-2]	       a[-1]
@@ -119,6 +236,25 @@ print(a[3])
 print(a[4])
 print(a[-1])
 .....etc
+
+EX:
+a = [101,102,103,"Geekyshows","GeeksforGeeks"]
+print(f'a variable list is:{a}')
+print('Accessing List')
+print(f'{a[0]}')
+print(f'{a[1]}')
+print(f'{a[2]}')
+print(f'{a[3]}')
+
+output
+------
+a variable list is:[101, 102, 103, 'Geekyshows', 'GeeksforGeeks']
+Accessing List
+101
+102
+103
+Geekyshows
+
 
 EX:
 a = [10,20,30,40,50]
@@ -143,7 +279,7 @@ Index 4 item is:50
 
 Modifying or Updating Element
 ------------------------------
-Lists are mutable so we can modify it's element	
+Lists are mutable so we can modify it's element(items)	
 a = [10,20,-50,21.3,'Geekyshows'] 
 
 print(a)
@@ -179,25 +315,302 @@ b = len(a) #len()function index ni 1 nundi count chesthundi.
 for i in range(b): 	#range anedi 0 nundi count chesthundi.
 	print(i, '=', a[i])
 
+output
+-------
+0 = 10
+1 = 20
+2 = -50
+3 = 21.3
+4 = Geekyshows
+
+
 EX:
 a = [10,20,-50,21.3,'Geekyshows']
 
 b = len(a) #len() function index ni 1 nundi count chesthundi.
 
-for i in range(b):
+for i in range(b): #range anedi 0 nundi count chesthundi.
 	print(a[i])
 
+output
+------
+10
+20
+-50
+21.3
+Geekyshows
+
+
 EX:
 a = [10,20,-50,21.3,'Geekyshows']
 
 b = len(a) #len() function index ni 1 nundi count chesthundi.
 
-for i in range(b):
+for i in range(b):  #range anedi 0 nundi count chesthundi.
 	print(i,a[i])
+
+
+output
+------
+0 10
+1 20
+2 -50
+3 21.3
+4 Geekyshows
+
+
+EX:
+fruits = ['apple','Banana','Orange','Kiwi']
+newlist = []
+
+for i in fruits:
+	if "a" in i:
+		newlist.append(i)
+
+print(newlist)		
+
+
+output
+-------
+['apple', 'Banana', 'Orange']
+
+
+
+EX:
+fruits = ['Apple','Banana','Orange','Kiwi']
+newlist = []
+
+for i in fruits:
+	if "A" in i:
+		newlist.append(i)
+
+print(newlist)		
+
+output
+-------
+['Apple']
+
+
+EX:
+for i in range(10):
+	print(i)
+
+output
+-------
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+EX:You can use the range() function to create an iterable(List,set,tuple,dictionary)
+
+newlist = [x for x in range(10)]
+print(newlist)
+
+output
+------
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+EX:
+for i in range(10):
+	if i < 5:
+		print(i)
+
+output
+------
+0
+1
+2
+3
+4
+
+EX:
+newlist = [x for x in range(10) if x < 5]
+print(newlist)
+
+output
+------
+[0, 1, 2, 3, 4]
+
+
+EX:
+fruits = ['apple','orange','kiwi','banana']
+
+for i in fruits:
+	a = i.upper()
+	print(a)
+
+output
+------
+APPLE
+ORANGE
+KIWI
+BANANA
+
+
+EX:
+fruits = ['apple','orange','kiwi','banana']
+
+newlist = [i.upper() for i in fruits]
+print(newlist)
+
+output
+------
+['APPLE', 'ORANGE', 'KIWI', 'BANANA']
+
+
+EX:
+
+fruits = ['APPLE', 'ORANGE', 'KIWI', 'BANANA']
+
+newlist = [i.lower() for i in fruits]
+print(newlist)
+
+output
+------
+['apple', 'orange', 'kiwi', 'banana']
+
+
+	EX:Set all values in the list to 'hello'
+
+fruits = ['apple','orange','kiwi','banana','mango']
+
+for i in fruits:
+	a = 'Hello'
+	print(a)
+
+output
+------
+Hello
+Hello
+Hello
+Hello
+Hello
+		(OR)
+
+
+fruits = ['apple','orange','kiwi','banana','mango']
+
+newlist = ['Murali' for i in fruits]
+print(newlist)
+
+
+output
+------
+['Murali', 'Murali', 'Murali', 'Murali', 'Murali']
+
+
+EX:
+list=['apple','orange','kiwi','banana','mango']
+
+print(list)
+for i in list:
+	if i != 'banana':
+		print(i)
+	
+output
+------
+['apple','orange','kiwi','banana','mango']
+
+apple
+orange
+kiwi
+mango
+
+
+EX:   ###### For loop lo rasthe ela vasthundi...
+
+fruits = ['apple','orange','kiwi','banana','mango']
+
+print(fruits)
+for x in fruits:
+	if x != "banana":   # "banana" != "banana"----->False
+		print(x)
+	else:
+		"orange"	
+
+output
+------
+['apple', 'orange', 'kiwi', 'banana', 'mango']
+apple
+orange
+kiwi
+mango
+
+		(OR)
+EX:Return "orange" instead of "banana"("అరటి" కి బదులుగా "నారింజ" ని తిరిగి ఇవ్వండి) ###single line lo rasthe ela vasthundi.
+
+fruits = ['apple','orange','kiwi','banana','mango']
+
+print(f'Old List:{fruits}')
+newlist = [x if x !="banana" else "orange" for x in fruits]
+print(f'New List:{newlist}')
+
+output
+------
+Old List:['apple', 'orange', 'kiwi', 'banana', 'mango']
+New List:['apple', 'orange', 'kiwi', 'orange', 'mango']
+
 
 
 Accessing List using while Loop in Python
 ------------------------------------------
+EX:
+thislist = ['apple','banana','cherry']
+
+i = 0 #Initial value
+
+while i < len(thislist):
+	print(thislist[i])
+	i = i + 1
+
+output
+------
+apple
+banana
+cherry
+
+
+EX:
+thislist = ['apple','banana','cherry']
+
+i = 0 #Initial value
+
+while i < len(thislist):
+	print(i,thislist[i])
+	i = i + 1
+
+output
+------
+0 apple
+1 banana
+2 cherry
+
+
+EX:
+thislist = ['apple','banana','cherry']
+
+i = 0 #Initial value
+
+while i < len(thislist):
+	print(i,'=',thislist[i])
+	i = i + 1
+
+
+output
+-------
+0 = apple
+1 = banana
+2 = cherry
+
+
 EX:
 a = [10,20,-50,21.3,'Geekyshows']
 

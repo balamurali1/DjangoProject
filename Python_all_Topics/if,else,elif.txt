@@ -1,3 +1,11 @@
+
+*****************************************
+
+Note: -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
+            <--------low     ---------->high
+
+******************************************
+
 		If Statement
 		============
 It is used to excute an instruction or block of instructions only if a condition is fulfilled.
@@ -27,6 +35,114 @@ if 5 > 2:
 output
 -----
 Geekyshow
+
+
+EX:
+a = [10,12,13,15,16]
+
+if a is not None:
+	print('The Geekeyshows')
+
+print('The code is Completed')	
+
+
+output
+------
+The Geekeyshows
+The code is Completed
+
+
+EX:
+a = []
+
+if a is not None:
+	print('The Geekeyshows')
+
+print('The code is Completed')	
+
+output
+------
+The Geekeyshows
+The code is Completed
+
+
+EX:
+a = None
+
+if a is not None:
+	print('The Geekeyshows')
+
+print('The code is Completed')	
+
+output
+------
+The code is Completed
+
+
+EX:
+a = None
+
+if  a is not None:
+	print('The Geekeyshows')
+
+else:
+	print('values not in a ')	
+
+print('The code is Completed')	
+
+output
+------
+values not in a
+The code is Completed
+
+
+EX:
+a = None
+
+if a is None:
+	print('The Geekeyshows')
+
+print('The code is Completed')	
+
+output
+------
+The Geekeyshows
+The code is Completed
+
+
+EX:
+a = [10,12,13,15,16]
+
+if  12 in a:
+	print('The Geekeyshows')
+
+print('The code is Completed')	
+
+output
+------
+The Geekeyshows
+The code is Completed
+
+
+
+EX:
+a = [10,12,13,15,16]
+
+if  11 in a:
+	print('The Geekeyshows')
+
+else:
+	print('The value not in a list')	
+
+print('The code is Completed')	
+
+
+output
+------
+The value not in a list
+The code is Completed
+
+
 
 EX:
 if 5 > 2:print('Geekyshow')
@@ -67,6 +183,83 @@ else:
 output
 ------
 3
+
+EX:
+num = int(input('Enter passitive number:'))
+
+if num > 0:
+	print('passitive')
+
+else:
+	print('negative')	
+
+output
+-----
+passitive
+*****************************************
+
+Note: -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
+            <--------low     ---------->high
+
+******************************************
+EX:
+num = int(input('Enter passitive number:'))
+
+if num > 0:
+	print('passitive')
+
+elif num==0:
+	print("The Number is Zero")
+
+
+else:
+	print('negative')	
+
+
+output
+------
+negative
+
+
+EX:
+score = int(input('Enter marks:'))
+
+if score >=25:
+	print('Your pass in this exmination')
+	print('Congratulations!!')
+
+else:
+	print('Your not pass,Fail you')
+	print("Sorry!! Try agian")
+	
+output
+-------
+Enter marks:36
+Your pass in this exmination
+Congratulations!!
+
+
+
+EX:
+print('What is Your Age??')
+
+age = int(input('Enter Your age:'))
+
+if age < 18:	
+	print('Your not eligible drive the car')
+
+elif age == 18:
+	print('RDO Officer Thinking about your age')
+
+else:
+	print('Your eligible drive the car')
+			
+output
+-----
+What is Your Age
+Enter Your age:23
+Your eligible drive the car
+
 
 EX:
 if 5 > 2:
@@ -245,13 +438,48 @@ If Statement with Logical Operator
 Statement 2
 Rest of the code
 
+EX:
+if 5 > 2 and 4 > 3:
+	if 5 > 1:
+		print('5 is grater than 1')
+	print('Both condition are true')
+else:
+	print('Try again')
+
+print('End is end')		
+
+
+output
+------
+5 is grater than 1
+Both condition are true
+End is end
+
+EX:
+if 5 > 2 and 4 > 3:
+	if 5 < 1:
+		print('5 is grater than 1')
+	else:
+		print('The Inner condition is False')
+	print('Both condition are true')		
+else:
+	print('Try again')
+
+print('End is end')		
+
+
+output
+-------
+The Inner condition is False
+Both condition are true
+End is end
+
 
 EX:
 if 5 > 2 and 7 < 3:
 	print("If Statement with Logical Operator")
 	print('Statement 2')
 	
-
 print('Rest of the code') #This is Indivisual		
 
 output

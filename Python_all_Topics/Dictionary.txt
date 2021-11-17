@@ -8,19 +8,237 @@
 
 
 
+Note:  key,value = item (single key and value unte 'item' antaru)
+       key,value....etc = items(chala key and value's unte appudu 'items' antaru)
+
+
+
+
+EX:
+emp_dict = {'Name': 'Pankaj', 'ID': 1}
+
+emp_id = emp_dict.get('ID')
+emp_role = emp_dict.get('Role')
+emp_salary = emp_dict.get('Salary', 0) # 0 is the default value okayna..
+
+print(f'Employee[ID:{emp_id}, Role:{emp_role}, Salary:{emp_salary}]')
+
+output
+------
+
+Employee[ID:1, Role:None, Salary:0]
+
+
+
+
+	((https://realpython.com/iterate-through-dictionary-python/))
+EX:
+objects = ['blue', 'apple', 'dog']
+categories = ['color', 'fruit', 'pet']
+a_dict = {key: value for key, value in zip(categories, objects)}
+print(a_dict)
+
+output
+------
+
+{'color': 'blue', 'fruit': 'apple', 'pet': 'dog'}
+
+
+EX:
+dict  ={'one':1,'two':2,'three':3}
+
+new_dict = {key:value for key,value in dict.items()}
+print(new_dict)
+
+output
+------
+{'one': 1, 'two': 2, 'three': 3}
+
+EX:
+a_dict = {'one': 1, 'two': 2, 'thee': 3, 'four': 4}
+new_dict = {value: key for key, value in a_dict.items()}
+print(new_dict)
+
+output
+-----
+{1: 'one', 2: 'two', 3: 'thee', 4: 'four'}
+
+
+EX:
+a_dict = {'one': 1, 'two': 2, 'thee': 3, 'four': 4}
+new_dict = {k: v for k, v in a_dict.items() if v <= 2}
+
+print(new_dict)
+
+
+output
+------
+{'one': 1, 'two': 2}
+
+
+
+EX:
+lst = [(101,'Rahul'),(102,'Raj')] #list items evi okay na..
+
+dict1 = {k:v for k,v in lst}
+
+print(dict1)
+
+output
+------
+{101: 'Rahul', 102: 'Raj'}
+
+
+EX:
+lst = [(101,'Rahul'),(102,'Raj')]
+for key,value in lst:
+	print(key,'=',value)
+
+output
+------
+101 = Rahul
+102 = Raj
+
+
+EX:
+Getting Dictionary input from User in Python
+============================================
+
+a = {}  #indulo vachi store auvtahai..
+
+n = int(input('Number of Element:'))
+
+for i in range(n):
+	k = input('Enter Key:')
+	v = input('Enter Value:')
+	a.update({k:v})
+
+print(a)	
+
+output
+------
+Number of Element:2
+Enter Key:name
+Enter Value:Murali
+Enter Key:101
+Enter Value:Sonam
+{'name': 'Murali', '101': 'Sonam'}
+
+
+
+Duplicate Not allowed
+=====================
+a = {
+	"brand":"Ford",
+	"model":"Mustang",
+	"year":1964,
+	"year":1964
+}
+
+print(f'a dictionary is:{a}')
+
+output
+------
+a dictionary is:{'brand': 'Ford', 'model': 'Mustang', 'year': 1964}
+
+
+Duplicate values will overwrite existing values
+===============================================
+
+EX:
+a = {
+	"brand":"Ford",
+	"model":"Mustang",
+	"year":1964,
+	"year":2020
+}
+
+print(f'a dictionary is:{a}')
+
+output
+------
+a dictionary is:{'brand': 'Ford', 'model': 'Mustang', 'year': 2020}
+
+
+Dictionary Length
+==================
+EX:
+a = {
+	"brand":"Ford",
+	"model":"Mustang",
+	"year":1964,
+	"year":2020
+}
+
+print(f'a dictionary length items is:{len(a)}')
+
+output
+------
+a dictionary length items is:3
+
+
+EX:
+a = {'name':'Murali','age':25,'city':'Nandikotkur','state':'AP'}
+
+l = len(a)
+print(l)
+
+output
+------
+4
+
+
+Dictionary Items - Data Types
+=============================
+EX:
+a = {
+	"brand":"Ford",
+	"electric" :False,
+	"year":1964,
+	"colors":['red','white','blue']
+}
+
+print(f'a Dictionary value is:{a}')
+
+output
+------
+a Dictionary value is:{'brand': 'Ford', 'electric': False, 'year': 1964, 'colors': ['red', 'white', 'blue']}
+
+
+EX:
+
+a = {
+	"brand":"Ford",
+	"electric" :False,
+	"year":1964,
+	"colors":['red','white','blue']
+}
+
+print(f'a Dictionary value is:{a["colors"]}')
+
+
+output
+------
+a Dictionary value is:['red', 'white', 'blue']
+
+
+
 
 		(Youtube:Geekyshows)
 		====================
 
 		Dictionary/Mappings(both are same)
 		==================================
-A Dictionary represents a group of elements(items) in the form of key value pairs.
+1.A Dictionary represents a group of elements(items) in the form of key value pairs.
 
-Dictionary in python is an unordered collection
+2.Dictionary in python is an unordered collection
 
-Dictionary are mutable so we can modify it's item,without changing their identity.
+3.Dictionary are mutable so we can modify it's item,without changing their identity.
 
-Dictionary are represented using curly bracket { }.
+4.Dictionary are represented using curly bracket { }.
+
+5.Dictionary can not allows the duplicate members(elements)
+
 
 Note:  key,value = item (single key and value unte 'item' antaru)
        key,value....etc = items(chala key and value's unte appudu 'items' antaru)
@@ -41,8 +259,8 @@ Creating an Empty Dictionary
 
 Creating a Dictionary
 =======================
-A Dictionary is Created in the form of key-value pair where key's can't be repeated and
-must be immutable and value can be of any datatype and can be duplicated.
+A Dictionary is Created in the form of key-value pair where "key's can't be repeated and
+must be immutable" and "value can be of any data type and can be duplicated".
 
 keys are case sensitive.
 
@@ -67,10 +285,12 @@ While writing key we must follow the following rules:
 	4.we can not user list or dictionary as key.
 
 
-Accessing Dictionary
-======================
-We can access the value of a dictionary by referring to its key name,inside square
-brackets[].
+			Accessing Dictionary
+			======================
+	    """	We can access the value of a dictionary by referring to its key name,inside square
+		brackets[]."""
+
+
 	stu = {101:'Rahul',102:'Raj',103:'Sonam'}
 
 print(stu[101])
@@ -251,6 +471,24 @@ output
 False
 True
 
+EX:
+
+stu = {101:'Murali',102:'Mahesh',103:'Anand'}
+print(f'student Dictionary is:{stu}')
+print(f'101 item is Available in stu:{101 in stu}')
+print(f'100 item is Available in stu:{100 in stu}')
+print(f'101 item is Available in stu:{101 not in stu}')
+print(f'100 item is Available in stu:{100 not in stu}')
+
+output
+-------
+student Dictionary is:{101: 'Murali', 102: 'Mahesh', 103: 'Anand'}
+101 item is Available in stu:True
+100 item is Available in stu:False
+101 item is Available in stu:False
+100 item is Available in stu:True
+
+
 
 How to Remove All Elements from Dictionary in Python
 ====================================================
@@ -376,7 +614,22 @@ output
 Rahul
 
 
-EX:If key is not found then it will return 'none '.
+EX:
+stu = {101:'Murali',102:'Ravi',103:'Sonam',104:'Rahul'}
+print(stu)
+
+print(f'student Dictionary in 101 value is:{stu.get(101)}')
+
+
+output
+------
+{101: 'Murali', 102: 'Ravi', 103: 'Sonam', 104: 'Rahul'}
+student Dictionary in 101 value is:Murali
+
+
+
+		EX:If key is not found then it will return 'none '
+		===================================================
 
 stu = {101:'Rahul',102:'Raj',103:'Sonam'}
 print("Original Dict:")
@@ -392,6 +645,34 @@ Original Dict:
 {101: 'Rahul', 102: 'Raj', 103: 'Sonam'}
 
 None
+
+
+
+
+EX:
+stu = {101:'Rajesh',102:'Akash',103:'Anuk',104:'BabuSundhar'}
+print(stu)
+print(f'Student Dictionary in 105 value is:{stu.get(105)}')
+
+
+output
+------
+{101: 'Rajesh', 102: 'Akash', 103: 'Anuk', 104: 'BabuSundhar'}
+Student Dictionary in 105 value is:None
+
+
+			EX:If key is not found then it will return 'defaultvalue'
+			===================================================
+EX:
+stu = {101:'Rajesh',102:'Akash',103:'Anuk',104:'BabuSundhar'}
+print(stu)
+print(f'If key is not found it will return default value :{stu.get(105,"Geekyshows")}')
+
+output
+------
+{101: 'Rajesh', 102: 'Akash', 103: 'Anuk', 104: 'BabuSundhar'}
+If key is not found it will return default value :Geekyshows
+
 
 EX:
 stu = {101:'Rahul',102:'Raj',103:'Sonam'}
@@ -429,9 +710,9 @@ Original Dict:
 Geekyshows
 
 
-items() Method in Python
+items() Method in Python (ee method use chesetappudu object(instance) create chesukovali)
 =========================
-This method returns an 'object' that contains key-value pair of dictionary
+This method returns an 'object' that contains "key-value pair" of dictionary
 The paire are stored at 'tuple' in the object
 
 	syntax:dict_name.items()
@@ -443,7 +724,7 @@ print(stu)
 print()
 
 
-it = stu.items() --->#it==>Object
+it = stu.items() --->#it==>Object.....ela	
 print(it)
 print(type(it))
 
@@ -532,6 +813,44 @@ Raj
 Sonam
 
 
+EX:
+stu = {101:'Rahul',102:'Ravi',103:'Ananad'}
+print(stu)
+print()
+
+it = stu.items()
+print(it)
+print()
+
+
+list = list(it)
+print(list)
+
+for i in list:
+	print(i)
+	for c in i:
+		print(c)
+
+
+output
+------
+{101: 'Rahul', 102: 'Ravi', 103: 'Ananad'}
+
+dict_items([(101, 'Rahul'), (102, 'Ravi'), (103, 'Ananad')])
+
+[(101, 'Rahul'), (102, 'Ravi'), (103, 'Ananad')]
+(101, 'Rahul')
+101
+Rahul
+(102, 'Ravi')
+102
+Ravi
+(103, 'Ananad')
+103
+Ananad
+
+
+
 keys Method in Python
 ========================
 This method returns a sequence of keys from the dictionary.
@@ -584,6 +903,50 @@ dict_keys([101, 102, 103])
 101
 102
 103
+
+
+EX:
+
+stu = {101:'Rahul',102:'Ravi',103:'Ananad'}
+print(stu)
+print()
+
+d = stu.keys()
+print(d)
+
+stu['color']='White'
+print(stu)
+
+list = list(d)
+print(list)
+
+print(list[0])
+print(list[1])
+print(list[2])
+print(list[3])
+print()
+
+
+for i in list:
+	print(i)
+
+output
+-------
+{101: 'Rahul', 102: 'Ravi', 103: 'Ananad'}
+
+dict_keys([101, 102, 103])
+{101: 'Rahul', 102: 'Ravi', 103: 'Ananad', 'color': 'White'}
+[101, 102, 103, 'color']
+101
+102
+103
+color
+
+101
+102
+103
+colo
+
 
 
 Dictionary values Method in Python
@@ -672,6 +1035,31 @@ Update Dict:
 
 
 EX:
+stu = {101:'Murali',102:'Mohan',103:'Abinauv',104:'Akash'}
+print('Student Dictionary')
+print(stu)
+print(type(stu))
+print(id(stu))
+print()
+
+stu.update({104:'Balamurali'})
+print(stu)
+print(type(stu))
+print(id(stu))
+
+output
+------
+Student Dictionary
+{101: 'Murali', 102: 'Mohan', 103: 'Abinauv', 104: 'Akash'}
+<class 'dict'>
+1956789885888
+
+{101: 'Murali', 102: 'Mohan', 103: 'Abinauv', 104: 'Balamurali'}
+<class 'dict'>
+1956789885888
+
+
+EX:
 stu = {101:'Rahul',102:'Raj',103:'Sonam'}
 print("Original Dict:")
 print(stu)
@@ -698,7 +1086,7 @@ Update Dict:
 
 Dictionary pop() method
 ===========================
-This method is used to remove the item with specified key.
+"This method is used to remove the item with specified key."
 It returns the removed item's value.
 If key is not found then the a default value is returned.
 If key is not found and default value is not given then shows KeyError
@@ -797,7 +1185,7 @@ Removed value: Geekyshows
 
 Dictionary popitem() Method in Python
 =====================================
-This method is used to remove the item which was last inserted into the dictionary.
+This method is used to remove the item which was "last inserted" into the dictionary.
 
 It returns the romove item in the form of tuple,Pairs are returned in LIFO order.
 	syntax:
@@ -859,8 +1247,10 @@ After setdefaul Dict:
 Removed value: Python
 
 
-Accessing Dictionary using for Loop in Python
-===========================================
+**************************** IMPORTENT CONCEPTS EVI **************************************
+
+		Accessing Dictionary using for Loop in Python
+		===========================================
 
 EX:
 stu = {101:'Rahul',102:'Raj',103:'Sonam'}

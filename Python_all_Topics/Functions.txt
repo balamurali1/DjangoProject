@@ -19,6 +19,34 @@ Advantage of Function
 4.You can remove or add new feature to a functions anytime.
 
 
+EX:
+def multiply(x, y):
+    print(f'Arguments: {x}, {y}')
+    return x * y
+
+a= multiply(2,3)   
+print(a)
+
+output
+-----
+Arguments: 2, 3
+6
+
+EX:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ***************************************
 	((https://www.youtube.com/watch?v=dLgGSe1N4gA))--->Amulya's Academy (VVVVIMP,Please watch it once)	
 
@@ -101,6 +129,22 @@ Sometimes “top-level code” is called an entry point to the application.
 "టాప్-లెవల్ కోడ్" అనేది రన్ చేయడం ప్రారంభించే మొదటి యూజర్ పేర్కొన్న పైథాన్ మాడ్యూల్.
  ఇది "టాప్-లెవల్" ఎందుకంటే ఇది ప్రోగ్రామ్‌కు అవసరమైన అన్ని ఇతర మాడ్యూల్స్‌ని దిగుమతి చేస్తుంది. 
 కొన్నిసార్లు "టాప్-లెవల్ కోడ్" ను అప్లికేషన్‌కి ఎంట్రీ పాయింట్ అంటారు.))
+---------------------------
+EX:
+def fun():
+	x = 10
+	y = 12
+	return x+y
+
+
+a=fun()	
+print(a)
+
+output
+------
+22
+---------------------------
+
 
 (https://www.educative.io/edpresso/what-is-the-main-method-in-python)
 			|
@@ -165,6 +209,17 @@ output
 
 
 EX:
+def fun(a,b):
+	return a+b
+
+print(f'The Fucntion value is:{fun(2,5)}')
+
+output
+-----
+The Fucntion value is:7
+
+
+EX:
 def add(a,b):
 	return a + b
 
@@ -211,7 +266,7 @@ output
 
 
 EX:
-def fun(my_list=[]):
+def fun(my_list=[]): #fun call chesetappudu only [] idi matrame call cheyali..
 	my_list.append("Banana")
 	return my_list
 
@@ -288,7 +343,7 @@ output
 
 EX:
 def fun(my_list=None):
-	if my_list is None:
+	if my_list is None:  #True Auvthundi..
 		my_list = []
 	my_list.append('Apple')
 	return my_list
@@ -299,6 +354,21 @@ print(a)
 output
 ------
 ['Apple']
+
+
+EX:
+def fun(my_list=None):
+	if my_list is None:
+		list=[]
+	list.append('apple')
+	return list
+
+a = fun()
+print(f'Fruits List is :{a}')		
+
+output
+-----
+Fruits List is :['apple']
 
 
 EX:
@@ -315,6 +385,36 @@ output
 ------
 ['foo', 'bar', 'baz', 'Apple']
 
+
+Ex:
+def fun(list=None):
+	if list is None:
+		list=[]
+	else:	
+		list.append('apple')
+	return list
+
+a = fun(['Banana','Mango','Orange'])
+print(a)	
+
+output
+-----
+['Banana', 'Mango', 'Orange', 'apple']
+
+
+EX:
+def fun(x):
+	x = 10 #local Variable
+	print(x)
+
+a = 5 #Global variable
+fun(a)
+print(a)
+
+output
+-----
+10
+5
 
 
 EX:
@@ -349,22 +449,35 @@ bar
 
 
 
+EX:
 
+def fun(x):
+	x = 10
 
+for i in (40,dict(name='Murali',age=25),{'apple','Banana'},'bar',['foo','apple','Baz']):
+	fun(i)
+	print(i)	
 
+output
+-----
+40
+{'name': 'Murali', 'age': 25}
+{'apple', 'Banana'}
+bar
+['foo', 'apple', 'Baz']
 
 --------------------------------------------
 EX:
 def Examplefunc(str):  #function that outputs the str parameter
 	print(f'The value is:{str}')
 
-def Multiply(x,y): #function that computes the product of x and y
+def Multiply(x,y): #function that computes the product of x and y(parameter)
 	return x*y	 #returning the product of x and y
 
 
 #Calling the functions
-Examplefunc(9) #9 passed as the parameter)
-answer = Multiply(4,2) #4 and 2 passed as the parameters
+Examplefunc(9) #9 passed as the Argument)
+answer = Multiply(4,2) #4 and 2 passed as the Arguments
 print(f'The Product of x and y is:{answer}')
 
 
@@ -372,6 +485,26 @@ output
 -------
 The value is:9
 The Product of x and y is:8
+
+
+EX:
+def fun(str):
+	return str
+
+def Mul(x,y):
+	return x*y
+
+
+a = fun('Hello')
+print(a)
+
+b = Mul(2,5)
+print(b)		
+
+output
+-----
+Hello
+10
 
 
 Passing Dictionary to Function in Python
@@ -461,6 +594,18 @@ The Youngest Chaild is:Linus
 
 
 EX:
+def fun(*kids):
+	print(f'The Youngest Chaild is:{kids[2]}')
+
+
+fun('jessi','appu','Sowmya')	
+
+output
+-----
+The Youngest Chaild is:Sowmya
+
+
+EX:
 def myfun(*args):
 	print('The Youngest Word is:',args[2])
 
@@ -493,7 +638,7 @@ EX:
 def add(a,b):
 	return a + b
 
-def is_true(a):
+def is_true(a):  #is_true is give the Boolen values(True/False)
 	return a
 
 res = add(2,5)
@@ -511,6 +656,7 @@ Result of is True Function is:True
 
 		Keyword Arguments
 		===================
+EX:
 
 def my_function(child3, child2, child1):
   print("The youngest child is " + child3)
@@ -520,6 +666,31 @@ my_function(child1 = "Emil", child2 = "Tobias", child3 = "Linus")
 output
 ------
 The youngest child is Linus
+
+
+
+EX:
+def my_function(child3,child2,child1):
+	print('The Youngest child is', child1)
+
+
+my_function(child1="Niketh",child2='Murali',child3='Mahesh')
+
+output
+------
+The Youngest child is Niketh
+
+
+Ex:
+def my_function(child3,child2,child1):
+	print(f'The Youngest child is {child1}')
+
+
+my_function(child1="Niketh",child2='Murali',child3='Mahesh')
+
+output
+------
+The Youngest child is Niketh
 
 
 
@@ -571,6 +742,24 @@ output
 This is: <class 'dict'>--->ela dictionay ga marindi okay na...
 fname = Murali
 lname = Devanur
+
+
+EX:
+def fun(**kwargs):
+	for i in kwargs:
+		print(i,'=',kwargs[i])
+
+	return kwargs  #return give the dictionary format	
+
+a = fun(fname='murali',lname='ashok')
+print(a)		
+
+
+output
+------
+fname = murali
+lname = ashok
+{'fname': 'murali', 'lname': 'ashok'}
 
 
 EX:
@@ -874,8 +1063,7 @@ output
 
 EX:
 
-def my_function(x):
-	return f'The return value is:{5 * x}'
+def my_function(x):	return f'The return value is:{5 * x}'
 
 a = my_function(2)	
 print(a)
