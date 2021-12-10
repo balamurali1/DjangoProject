@@ -37,7 +37,7 @@ class LoginAPIView(GenericAPIView):
         email = data.get('email',None)
         password = data.get('password',None)
 
-        user = authenticate(username=email,password=password)
+        user = authenticate(username=email,password=password) #username=email(ela esthe renditi lo same data vasthundi,ela euvakapothey only user column lo matrame vasthundi email filed unna kuda,email coloumn lo radu)
 
         if user is not None and user.is_active:
             return Response(status=status.HTTP_200_OK)

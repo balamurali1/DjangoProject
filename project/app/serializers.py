@@ -18,7 +18,7 @@ class UserSerializer(serializers.ModelSerializer):
         return super().validate(attrs)
 
     def create(self, validated_data):
-        validated_data['username'] = validated_data.get("email")
+        validated_data['username'] = validated_data.get("email")  #ee line objserve cheai...
         return User.objects.create_user(**validated_data)
 
 
