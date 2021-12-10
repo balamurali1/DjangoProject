@@ -13,6 +13,7 @@ from django.contrib.auth import authenticate,login,logout
 from rest_framework.views import APIView
 
 
+# User Registration
 class RegisterAPIView(GenericAPIView):
     serializer_class = UserSerializer
 
@@ -26,7 +27,7 @@ class RegisterAPIView(GenericAPIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
 
-
+#User Login
 class LoginAPIView(GenericAPIView):
     serializer_class = LoginSerializer
 
@@ -36,16 +37,11 @@ class LoginAPIView(GenericAPIView):
         email = data.get('email',None)
         password = data.get('password',None)
 
-        user = authenticate(email=email,password=password)
+        user = authenticate(username=email,password=password)
 
-        if user is not None:
-            if user.is_active:
-                login(request, user)
-
-                return Response(status=status.HTTP_200_OK)
-            else:
-                return Response(status=status.HTTP_404_NOT_FOUND)    
-        
+        if user is not None and user.is_active:
+            return Response(status=status.HTTP_200_OK)
+               
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)            
 
@@ -61,24 +57,3 @@ class LoginAPIView(GenericAPIView):
 
 
 
-"""
-class LoginView(GenericAPIView):
-    serializer_class = LoginSerializer
-    def post(self, request, format=None):
-        data = request.data
-
-        email = data.get('email', None)
-        password = data.get('password', None)
-
-        user = authenticate(email=email, password=password)
-
-        if email is not None:
-            if email.is_active:
-                login(request, email)
-
-                return Response(status=status.HTTP_200_OK)
-            else:
-                return Response(status=status.HTTP_404_NOT_FOUND)
-        else:
-            return Response(status=status.HTTP_404_NOT_FOUND)
-"""

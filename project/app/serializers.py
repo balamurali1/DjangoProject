@@ -1,14 +1,12 @@
 from django.db.models import fields
 from rest_framework import serializers
 from django.contrib.auth.models import User
-# from django.contrib.auth import authenticate, get_user_model
 
 
-# user = get_user_model()
 
-class UserSerializer(serializers.ModelSerializer): #Serializer
+class UserSerializer(serializers.ModelSerializer): 
     password = serializers.CharField(max_length=65, min_length=8, write_only=True,style={'input_type': 'password'})
-    email = serializers.EmailField(max_length=255, min_length=4)
+    
   
     class Meta:
     	model = User
@@ -20,7 +18,8 @@ class UserSerializer(serializers.ModelSerializer): #Serializer
         return super().validate(attrs)
 
     def create(self, validated_data):
-        return User.objects.create_user(validated_data)
+        validated_data['username'] = validated_data.get("email")
+        return User.objects.create_user(**validated_data)
 
 
 
@@ -46,7 +45,13 @@ class LoginSerializer(serializers.ModelSerializer):
 			msg = 'Must include "email" and "password".'
 			raise serializers.ValidationError(msg)
 
+
+
 				
+
+
+
+
 
 
 
