@@ -2,7 +2,7 @@
 		=================
 They ar 3 Types
 
-. C-style String Formatting
+. C-style String Formatting..
 . format() Method
 . f-String/Formatted String Literals
 
